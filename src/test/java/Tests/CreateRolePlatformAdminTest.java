@@ -3,6 +3,8 @@ import Base.BasePage;
 import Pages.CreateRolePage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
@@ -12,9 +14,19 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class CreateRolePlatformAdminTest extends BasePage
 {
+        @BeforeTest
+        public void startUpTest() throws Exception {
+                BasePage.driverInit();
+                BasePage.LoginTest();
+        }
+
+        @AfterTest
+        public void cleanUpTest() throws Exception {
+                driver.quit();
+        }
     @Test
     public void CreateRolePlatformAdminFlow() throws Exception {
-            BasePage.LoginTest();
+
             CreateRolePage CreateRolePageObj = new CreateRolePage(driver);
             test.log(status.INFO, "TestInformation");
             test.log(status.PASS, "TestPassed");

@@ -6,6 +6,8 @@ import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
@@ -14,15 +16,19 @@ import java.io.IOException;
 
 @Listeners(Utilities.TestListeners.class)
 public class CreateRoleAdminTest extends BasePage {
+        @BeforeTest
+        public void startUpTest() throws Exception {
+                BasePage.driverInit();
+        }
+
+        @AfterTest
+        public void cleanUpTest() throws Exception {
+                driver.quit();
+        }
     @Test
     public void CreateRoleAdminFlow() throws Exception {
 
-            String projectPath = System.getProperty("user.dir");
-            System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
-            WebDriver driver = new ChromeDriver();
             CreateRolePage CreateRolePageObj = new CreateRolePage(driver);
-            test.log(status.INFO, "TestInformation");
-            test.log(status.PASS, "TestPassed");
             driver.get(ReadProps.readAttr("URL"));
             driver.manage().window().maximize();
             Thread.sleep(1000);

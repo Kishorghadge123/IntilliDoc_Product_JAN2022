@@ -5,17 +5,26 @@ import Pages.CreateUserPage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class CreateUserPlatformAdminTest extends BasePage {
+        @BeforeTest
+        public void startUpTest() throws Exception {
+                BasePage.driverInit();
+                BasePage.LoginTest();
+        }
+
+        @AfterTest
+        public void cleanUpTest() throws Exception {
+                driver.quit();
+        }
     @Test
     public void CreateUserPlatformAdminFlow() throws Exception {
-            BasePage.LoginTest();
             CreateUserPage UserPageObj = new CreateUserPage(driver);
-            test.log(LogStatus.INFO, "CreateUserPlatformAdmin");
-            test.log(LogStatus.PASS, "TestPassed");
 
             //TC 5.1 Blank Username and Blank ID.
             UserPageObj.ClickUserBtn();

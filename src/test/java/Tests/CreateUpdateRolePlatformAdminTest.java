@@ -4,6 +4,8 @@ import Pages.CreateRolePage;
 import Utilities.ReadProps;
 import Utilities.TakesScreen;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.awt.*;
@@ -13,12 +15,20 @@ import java.io.IOException;
 @Listeners(Utilities.TestListeners.class)
 public class CreateUpdateRolePlatformAdminTest extends BasePage
 {
+        @BeforeTest
+        public void startUpTest() throws Exception {
+                BasePage.driverInit();
+                BasePage.LoginTest();
+        }
+
+        @AfterTest
+        public void cleanUpTest() throws Exception {
+                driver.quit();
+        }
     @Test
     public void CreateRolePlatformAdminFlow() throws Exception {
-            BasePage.LoginTest();
+
             CreateRolePage CreateRolePageObj = new CreateRolePage(driver);
-            test.log(LogStatus.INFO, "CreateRolePlatformAdmin");
-            test.log(LogStatus.PASS, "TestPassed");
             CreateRolePageObj.ClickRoleManagementBtn();
             Thread.sleep(6000);
             CreateRolePageObj.ClickCreateRoleBtn();
