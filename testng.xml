@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/kishor_ghadge/IdeaProjects/Maven_Project">
+        <classes>
+            <class name="Tests.AnalyticsTest">
+                <methods>
+                    <include name="test_organization_arrows_on_analytics_page"/>
+                    <include name="hover_total_users_on_Analytics_page"/>
+                    <include name="hover_total_documents_on_Analytics_page"/>
+                    <include name="hover_processed_documents_on_Analytics_page"/>
+                    <include name="hover_ready_to_process_on_Analytics_page"/>
+                    <include name="hover_ready_to_rejected_documents_on_Analytics_page"/>
+                    <include name="hover_validation_time_on_Analytics_page"/>
+                    <include name="hover_on_structured_on_Analytics_page"/>
+                    <include name="hover_on_semistructured_on_Analytics_page"/>
+                    <include name="hover_on_freeform_on_Analytics_page"/>
+                    <include name="hover_on_medicalchart_on_Analytics_page"/>
+                    <include name="search_project_on_Analytics_page"/>
+                    <include name="select_overall_data_on_Analytics_page"/>
+                    <include name="select_monthly_data_on_Analytics_page"/>
+                    <include name="select_weekly_data_on_Analytics_page"/>
+                    <include name="select_daily_data_on_Analytics_page"/>
+                </methods>
+            </class>
+            <class name="Tests.CreateUpdateRoleAdminTest">
+                <methods>
+                    <include name="login_with_valid_details"/>
+                    <include name="blank_role_name_permission"/>
+                    <include name="valid_role_name_blank_permission"/>
+                    <include name="blank_role_name_valid_permission"/>
+                    <include name="valid_role_and_permission"/>
+                    <include name="create_role_with_existing_rolename"/>
+                    <include name="search_created_role"/>
+                    <include name="update_role_with_valid_data"/>
+                    <include name="remove_all_permissions"/>
+                    <include name="disable_the_status_of_role_update"/>
+                    <include name="enable_status_role_update"/>
+                </methods>
+            </class>
+            <class name="Tests.CreateUpdateRolePlatformAdminTest">
+                <methods>
+                    <include name="create_role_with_blank_rolename_permission"/>
+                    <include name="create_role_with_valid_rolename_blank_permission"/>
+                    <include name="create_role_with_blank_rolename_valid_permission"/>
+                    <include name="create_role_with_valid_rolename_permission"/>
+                    <include name="create_role_with_existing_name"/>
+                    <include name="search_created_role"/>
+                    <include name="update_role_with_valid_data"/>
+                    <include name="remove_all_permissions_update"/>
+                    <include name="disable_status_role_update"/>
+                    <include name="enable_status_role_update"/>
+                </methods>
+            </class>
+            <class name="Tests.CreateUserAdminTest">
+                <methods>
+                    <include name="valid_login_with_admin_credentials"/>
+                    <include name="create_user_with_blank_data"/>
+                    <include name="create_user_with_valid_data"/>
+                    <include name="create_user_with_invalid_data"/>
+                    <include name="disable_user"/>
+                    <include name="enable_disabled_user"/>
+                </methods>
+            </class>
+            <class name="Tests.CreateUserPlatformAdminTest">
+                <methods>
+                    <include name="blank_username_blank_password"/>
+                    <include name="valid_username_blank_password"/>
+                    <include name="blank_username_valid_password"/>
+                    <include name="invalid_username_blank_password"/>
+                    <include name="blank_username_invalid_password"/>
+                    <include name="invalid_credentials"/>
+                    <include name="create_user_with_existing_username_password"/>
+                    <include name="search_user"/>
+                </methods>
+            </class>
+            <class name="Tests.DataSetTest">
+                <methods>
+                    <include name="create_category_with_blank_name"/>
+                    <include name="create_category_with_invalid_name"/>
+                    <include name="create_category_with_valid_name"/>
+                    <include name="add_dataset_with_blank_and_no_chosen_file"/>
+                    <include name="add_dataset_with_blank_and_name_chosen_file"/>
+                    <include name="add_dataset_with_csv_file_validation"/>
+                    <include name="add_dataset_created_category_name_chosen_file_valid_type"/>
+                    <include name="validation_type_as_name_to_create_new_dataset"/>
+                    <include name="validation_type_as_phone_role_to_create_new_dataset"/>
+                    <include name="search_created_document_and_expand"/>
+                    <include name="select_open_file_and_cancel"/>
+                    <include name="disable_dataset"/>
+                </methods>
+            </class>
+            <class name="Tests.DocProcessFreeFormTest">
+                <methods>
+                    <include name="search_project"/>
+                    <include name="search_document"/>
+                    <include name="update_document_cancel_it"/>
+                    <include name="hide_unhide_analytics"/>
+                    <include name="documents_filter"/>
+                    <include name="sorting"/>
+                    <include name="items_per_page"/>
+                    <include name="next_page_previous_page_first_page_last_page"/>
+                    <include name="anti_clockwise_clockwise_zoomin_zoomout_navigate_right_left"/>
+                </methods>
+            </class>
+            <class name="Tests.DocProcessMedicalChartTest">
+                <methods>
+                    <include name="search_project"/>
+                    <include name="searchbox_document"/>
+                    <include name="update_document_cancel"/>
+                    <include name="hide_unhide_analytics"/>
+                    <include name="documents_filter"/>
+                    <include name="sorting"/>
+                    <include name="items_page"/>
+                    <include name="next_page_previous_page_first_page_last_page"/>
+                    <include name="create_chronic_condition"/>
+                </methods>
+            </class>
+            <class name="Tests.DocProcessSemiStructuredTest">
+                <methods>
+                    <include name="search_project"/>
+                    <include name="searchbox_document"/>
+                    <include name="update_document_cancel"/>
+                    <include name="hide_unhide_analytics"/>
+                    <include name="documents_filter"/>
+                    <include name="sorting"/>
+                    <include name="items_page"/>
+                    <include name="next_page_previous_page_first_page_last_page"/>
+                    <include name="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left"/>
+                </methods>
+            </class>
+            <class name="Tests.DocProcessStructuredTest">
+                <methods>
+                    <include name="search_project"/>
+                    <include name="searchbox_document"/>
+                    <include name="update_document_cancel"/>
+                    <include name="hide_unhide_analytics"/>
+                    <include name="documents_filter"/>
+                    <include name="sorting"/>
+                    <include name="items_page"/>
+                    <include name="next_page_previous_page_first_page_last_page"/>
+                    <include name="anticlockwise_clockwise_zoomin_zoomout_navigate_right_left"/>
+                </methods>
+            </class>
+            <class name="Tests.EditProfileTest">
+                <methods>
+                    <include name="visible_password_on"/>
+                    <include name="visible_password_off"/>
+                    <include name="profile_icon"/>
+                    <include name="night_mode_day_mode"/>
+                    <include name="edit_profile"/>
+                    <include name="edit_profile_cancel"/>
+                </methods>
+            </class>
+            <class name="Tests.ForgetPwdTest">
+                <methods>
+                    <include name="click_on_cancel_button_on_forgot_password"/>
+                    <include name="first_login_not_done"/>
+                    <include name="invalid_email"/>
+                    <include name="user_not_exists"/>
+                    <include name="disable_user"/>
+                </methods>
+            </class>
+            <class name="Tests.FunctionalTabTest">
+                <methods>
+                    <include name="click_on_n_icon"/>
+                    <include name="horizontal_users_tab"/>
+                    <include name="horizontal_roles_tab"/>
+                    <include name="horizontal_templates_tab"/>
+                    <include name="horizontal_datasets_tab"/>
+                    <include name="horizontal_projects_tab"/>
+                    <include name="horizontal_documents_tab"/>
+                    <include name="horizontal_analytics_tab"/>
+                    <include name="vertical_users_tab"/>
+                    <include name="vertical_roles_tab"/>
+                    <include name="vertical_templates_tab"/>
+                    <include name="vertical_datasets_tab"/>
+                    <include name="vertical_projects_tab"/>
+                    <include name="vertical_Documents_tab"/>
+                    <include name="vertical_analytics_tab"/>
+                </methods>
+            </class>
+            <class name="Tests.LoginTest">
+                <methods>
+                    <include name="verification_of_title_logo_and_login_with_blank_details"/>
+                    <include name="login_with_invalid_username_and_blank_password"/>
+                    <include name="login_with_blank_username_and_valid_password"/>
+                    <include name="login_with_blank_username_and_invalid_password"/>
+                    <include name="login_with_valid_username_and_blank_password"/>
+                    <include name="login_with_invalid_username_and_password"/>
+                    <include name="login_with_invalid_username_and_valid_password"/>
+                    <include name="login_with_valid_username_and_invalid_password"/>
+                    <include name="login_with_valid_username_and_password"/>
+                    <include name="navigate_backward"/>
+                    <include name="logout_for_platform_admin"/>
+                    <include name="login_with_invalid_username_password"/>
+                    <include name="login_with_invalid_username_and_valid_password_for_admin"/>
+                    <include name="login_with_valid_username_and_invalid_password_admin"/>
+                    <include name="login_with_valid_username_and_password_admin"/>
+                    <include name="login_with_invalid_username_and_password_supervisor"/>
+                    <include name="login_with_invalid_username_and_valid_password_supervisor"/>
+                    <include name="login_with_valid_username_and_invalid_password_supervisor"/>
+                    <include name="login_with_valid_username_and_password_supervisor"/>
+                    <include name="login_with_invalid_username_and_password_for_operator"/>
+                    <include name="login_with_invalid_username_and_valid_password_for_operator"/>
+                    <include name="login_with_valid_username_and_invalid_password_for_operator"/>
+                    <include name="login_with_valid_username_and_password_for_operator"/>
+                </methods>
+            </class>
+            <class name="Tests.ManualInterventionDocument">
+                <methods>
+                    <include name="manual_intervention_freeform_rejected_document"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBREDataSetTest">
+                <methods>
+                    <include name="bre_applied_to_name_using_dataset_fail"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBREMedicalChartDocumentTest">
+                <methods>
+                    <include name="verify_save_draft_option_for_patient_demographics"/>
+                    <include name="verify_save_draft_option_for_chronic_conditions"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBREMedicalChartDocumentTest1">
+                <methods>
+                    <include name="verify_rejected_document_no_data_extracted_on_medical_chart"/>
+                    <include name="edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart"/>
+                    <include name="run_rule_for_invalid_physicians_sign_on_medical_chart"/>
+                    <include name="verify_icd_on_medical_chart"/>
+                    <include name="save_without_hcc_comments_on_medical_chart"/>
+                    <include name="save_with_hcc_comments_on_medical_chart"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBREMedicalChartTest">
+                <methods>
+                    <include name="check_all_functions_on_project_page"/>
+                    <include name="add_dataset"/>
+                    <include name="add_condition"/>
+                    <include name="add_action"/>
+                    <include name="set_document_status_ready"/>
+                    <include name="set_document_status_rejected"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectBRETest">
+                <methods>
+                    <include name="bre_applied_to_name_pass"/>
+                    <include name="bre_applied_to_name_fail"/>
+                    <include name="bre_applied_to_address_pass"/>
+                    <include name="bre_applied_to_address_fail"/>
+                    <include name="bre_applied_to_state_pass"/>
+                    <include name="bre_applied_to_state_fail"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectFlowFreeFormTest">
+                <methods>
+                    <include name="create_project_without_adding_attributes_and_role"/>
+                    <include name="create_project_without_adding_role"/>
+                    <include name="create_project_without_adding_user"/>
+                    <include name="verify_add_user"/>
+                    <include name="next_to_data"/>
+                    <include name="create_project_with_valid_details"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectFlowMedicalChart">
+                <methods>
+                    <include name="check_all_functionalities_on_project_page"/>
+                    <include name="create_project_without_entities_and_role"/>
+                    <include name="create_project_with_entities_without_role"/>
+                    <include name="create_project_without_user"/>
+                    <include name="verify_add_user"/>
+                    <include name="navigate_next_to_datapage_back_page"/>
+                    <include name="create_project_with_valid_details"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectFlowSemiStructureTest">
+                <methods>
+                    <include name="check_all_the_functions_on_project_page"/>
+                    <include name="check_delete_attribute"/>
+                    <include name="create_project_without_role"/>
+                    <include name="navigate_to_data_page_and_Rules_page"/>
+                    <include name="verify_create_project"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectFlowStructuredTest">
+                <methods>
+                    <include name="create_project_with_blank_data"/>
+                    <include name="next_button_with_blank_info_for_platform_admin"/>
+                    <include name="cancel_with_blank_info"/>
+                    <include name="create_project_with_invalid_name"/>
+                    <include name="create_project_without_template"/>
+                    <include name="create_project_without_role"/>
+                    <include name="create_project_without_user_and_with_valid_data"/>
+                    <include name="create_project_with_disable_status"/>
+                    <include name="create_project_only_with_role_info"/>
+                    <include name="create_project_with_blank_info"/>
+                    <include name="verify_next_button_with_blank_info"/>
+                    <include name="verify_cancel_with_blank_info"/>
+                    <include name="create_project_with_invalid_project_name"/>
+                    <include name="create_project_without_template_for_admin"/>
+                    <include name="create_project_without_role_for_admin"/>
+                    <include name="create_project_without_user_for_admin"/>
+                    <include name="create_project_with_disable_status_for_admin"/>
+                    <include name="create_project_only_with_role_info_for_admin"/>
+                    <include name="table_structure"/>
+                    <include name="items_per_page"/>
+                </methods>
+            </class>
+            <class name="Tests.ProjectFlowStructuredTest1">
+                <methods>
+                    <include name="disable_active_project_on_Project_page"/>
+                    <include name="verify_disabled_project_on_Project_page"/>
+                </methods>
+            </class>
+            <class name="Tests.RoleWiseTest">
+                <methods>
+                    <include name="login_with_valid_username_password"/>
+                    <include name="admin_role_access_users_tab"/>
+                    <include name="admin_role_access_roles_tab"/>
+                    <include name="admin_role_access_templates_tab"/>
+                    <include name="admin_role_access_user_tab"/>
+                    <include name="admin_role_access_analytics_tab"/>
+                    <include name="admin_role_access_logout"/>
+                    <include name="supervisor_role_valid_login"/>
+                    <include name="supervisor_role_access_template"/>
+                    <include name="supervisor_role_access_document"/>
+                    <include name="supervisor_role_access_analytics"/>
+                    <include name="operator_role_with_valid_login"/>
+                    <include name="operator_role_access_document"/>
+                    <include name="operator_role_access_analytics"/>
+                </methods>
+            </class>
+            <class name="Tests.TemplateTest">
+                <methods>
+                    <include name="create_template_with_invalid_name"/>
+                    <include name="create_template_with_valid_name_no_chosen_file"/>
+                    <include name="create_template_with_already_exists_name_no_chosen_file"/>
+                    <include name="create_template_with_valid_name_chosen_file"/>
+                    <include name="search_created_template"/>
+                    <include name="zoom_in"/>
+                    <include name="zoom_out"/>
+                    <include name="delete_created_template_single_page"/>
+                    <include name="create_template_with_more_pages"/>
+                    <include name="navigate_next"/>
+                    <include name="navigate_back"/>
+                    <include name="delete_more_page_template"/>
+                </methods>
+            </class>
+            <class name="Tests.UpdateProjectTest">
+                <methods>
+                    <include name="updating_project_with_valid_data"/>
+                    <include name="to_maintain_script"/>
+                    <include name="update_project_when_role_status_disabled"/>
+                    <include name="disabled_roles_are_not_displayed_in_add_role_list"/>
+                    <include name="update_project_button_when_role_and_user_status_enabled"/>
+                    <include name="enabled_roles_"/>
+                    <include name="user_should_not_add_user_when_role_disabled"/>
+                    <include name="update_project_role_should_not_have_empty_user"/>
+                    <include name="update_project_by_entering_valid_data"/>
+                    <include name="to_maintain_script_two"/>
+                    <include name="update_project_when_role_and_status_disable"/>
+                    <include name="disabled_roles_are_not_displayed_in_role_list_for_admin"/>
+                    <include name="when_role_status_is_enabled_for_admin"/>
+                    <include name="all_roles_are_displayed_in_add_list"/>
+                    <include name="user_should_not_able_to_add_user_when_role_is_disabled_SP"/>
+                    <include name="role_should_not_have_empty_user_for_supervisor"/>
+                    <include name="status_is_disabled_for_admin_when_action_is_false"/>
+                    <include name="status_is_disabled_for_admin_when_action_is_true"/>
+                </methods>
+            </class>
+            <class name="Tests.UpdateUserAdminTest">
+                <methods>
+                    <include name="UpdateUserAdminFlow"/>
+                    <include name="disable_user_update"/>
+                    <include name="enable_user_update"/>
+                    <include name="update_with_blank_name"/>
+                    <include name="update_with_invalid_username"/>
+                    <include name="update_with_valid_username"/>
+                </methods>
+            </class>
+            <class name="Tests.UpdateUserPlatformAdminTest">
+                <methods>
+                    <include name="update_user_enable_disable"/>
+                    <include name="blank_name_valid_password"/>
+                    <include name="blank_username_invalid_password"/>
+                    <include name="invalid_name_blank_password"/>
+                    <include name="blank_username_blank_password"/>
+                    <include name="invalid_username_invalid_password"/>
+                    <include name="valid_name_and_blank_password"/>
+                    <include name="all_combinations_of_password_policy_as_userid"/>
+                    <include name="password_field_contains_alphabet_digit_special_char"/>
+                    <include name="password_field_must_have_at_least_one_upper_lower_alphabet"/>
+                    <include name="password_field_must_have_length_to_be_minimum_eight"/>
+                    <include name="password_field_length_max_length_twelve"/>
+                    <include name="only_alphabets"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
