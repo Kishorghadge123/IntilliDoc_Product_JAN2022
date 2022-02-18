@@ -41,7 +41,6 @@ public class CreateRolePage {
     By LoginBtn = By.xpath("//button[@type='submit']");
     By Username = By.xpath("//input[@formcontrolname='userName']");
     By Password = By.xpath("//input[@formcontrolname='password']");
-    //By ErrorMsg = By.xpath("//simple-snack-bar[@class='mat-simple-snackbar ng-star-inserted']");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
 
