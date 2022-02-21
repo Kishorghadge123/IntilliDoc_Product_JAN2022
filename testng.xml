@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="RegressionTest">
+    <test verbose="2" preserve-order="true" name="D:/Final Build/IntilliDoc_Product_JAN2022-main">
         <classes>
             <class name="Tests.AnalyticsTest">
                 <methods>
@@ -87,6 +87,8 @@
                     <include name="validation_type_as_name_to_create_new_dataset"/>
                     <include name="validation_type_as_phone_role_to_create_new_dataset"/>
                     <include name="search_created_document_and_expand"/>
+                    <include name="select_open_file_and_cancel"/>
+                    <include name="disable_dataset"/>
                 </methods>
             </class>
             <class name="Tests.DocProcessFreeFormTest">
@@ -208,12 +210,12 @@
                     <include name="login_with_valid_username_and_password_for_operator"/>
                 </methods>
             </class>
-<!--            <class name="Tests.ManualInterventionDocument">-->
-<!--                <methods>-->
-<!--                    <include name="manual_intervention_freeform_rejected_document"/>-->
-<!--                    <include name="manual_intervention_structured_ready_document"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="Tests.ManualInterventionDocument">
+                <methods>
+                    <include name="manual_intervention_freeform_rejected_document"/>
+                    <include name="manual_intervention_structured_ready_document"/>
+                </methods>
+            </class>
             <class name="Tests.ProjectBREDataSetTest">
                 <methods>
                     <include name="bre_applied_to_name_using_dataset_fail"/>
