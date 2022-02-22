@@ -76,6 +76,7 @@ public class ProjectBRETest1 extends BasePage {
         Thread.sleep(2000);
         ProjectBREPageObj.ClickOnFirstTrueBoxButton();
         Thread.sleep(2000);
+        //Replace
         ProjectBREPageObj.EnterActionValue("Replace Name");
         Thread.sleep(2000);
         ProjectBREPageObj.ClickOnAddAction();
@@ -160,6 +161,7 @@ public class ProjectBRETest1 extends BasePage {
         Thread.sleep(2000);
         ProjectBREPageObj.SelectReplaceFirstBtn();
         Thread.sleep(2000);
+        //Replace All
         ProjectBREPageObj.SelectReplaceAllBtn();
         Thread.sleep(2000);
         ProjectBREPageObj.ClickOnWithValue();

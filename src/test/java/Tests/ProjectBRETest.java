@@ -422,7 +422,6 @@ public class ProjectBRETest extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnFalseBoxButton3();
                 Thread.sleep(2000);
-                //Add Create Method here to complete the flow before executing in TestNG.
-                //Upload the Document in this Project for the Results.
+                //Add Create Project here in future and Upload documents from backend.
         }
 }

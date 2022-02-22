@@ -35,7 +35,6 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(2000);
             ProjectPageObj.SelectOnLeadBtn();
             Thread.sleep(2000);
-            //Starting Date should be updated in Xpath to Current Date before executing the Script.
             ProjectPageObj.ClickOnStartDateBtn();
             Thread.sleep(2000);
             ProjectPageObj.SelectStartDateBtn();
@@ -157,7 +156,6 @@ public class ProjectBREDataSetTest extends BasePage {
             Thread.sleep(1000);
             ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
             Thread.sleep(4000);
-    //Document should be uploaded from backend to check the output.
-
+            //Add Create Project here in future and Upload documents from backend.
         }
         }

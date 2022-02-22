@@ -220,12 +220,12 @@ public class ProjectBREMedicalChartTest extends BasePage
             Thread.sleep(2000);
             ProjectBREPageObj.ClickOnBREDataHeader();
             Thread.sleep(2000);
-        ProjectBREPageObj.SelectBREDataHeaderDXCode();
-        Thread.sleep(2000);
+            ProjectBREPageObj.SelectBREDataHeaderDXCode();
+            Thread.sleep(2000);
             ProjectBREPageObj.ClickOnSave();
             Thread.sleep(2000);
-            //for the Result please upload the Document from Backend.
-        }
+        //Add Create Project here in future and Upload documents from backend.
+    }
     }
 
 
