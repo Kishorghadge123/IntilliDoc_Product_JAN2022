@@ -40,7 +40,6 @@ public class TemplateTest extends BasePage {
         Thread.sleep(4000);
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TInvalidName"));
         Thread.sleep(3000);
-        Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(2000);
         TemplatePageObj.verifyInvalidTemplatNameErr();
@@ -88,7 +87,7 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnTemplateName(ReadProps.readAttr("TNameUnique"));
         Thread.sleep(2000);
         WebElement upload_file = driver.findElement(By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input"));
-	upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
+	    upload_file.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Template1.jpg");
         Thread.sleep(2000);
         TemplatePageObj.ClickCreateTemplate();
         Thread.sleep(8000);
@@ -96,7 +95,6 @@ public class TemplateTest extends BasePage {
         Thread.sleep(8000);
         TemplatePageObj.verifySinglePageTemplateCreated();
         Thread.sleep(2000);
-
     }
 
     @Test(priority = 5)
@@ -235,12 +233,10 @@ public class TemplateTest extends BasePage {
         Thread.sleep(3000);
         TemplatePageObj.ConfirmDeleteTemplate();
         Thread.sleep(4000);
-
-
     }
 
     @Test(priority = 13)
-    public void delete_template_assciatewithproject() throws InterruptedException {
+    public void delete_template_associate_with_project() throws InterruptedException {
         TemplatePageObj.ClickTemplateBtn();
         Thread.sleep(5000);
         TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");

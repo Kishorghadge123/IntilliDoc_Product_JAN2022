@@ -27,7 +27,7 @@ public class CreateUserAdminTest extends BasePage {
             UserPageObj.setPassword(ReadProps.readAttr("AdminPwd"));
             Thread.sleep(2000);
             UserPageObj.clickLoginButton();
-            Thread.sleep(8000);
+            Thread.sleep(6000);
     }
         @Test(priority = 2)
         public void create_user_with_blank_data() throws Exception {

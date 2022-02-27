@@ -75,9 +75,9 @@ public class DocumentPage {
     By NPINo = By.xpath("//input[@formcontrolname='npiNo']");
     By PhysicianName = By.xpath("//input[@formcontrolname='physicianName']");
     By StartDate = By.xpath("(//button[@aria-label='Open calendar'])[1]");
-    By SelectStartDate = By.xpath("//div[contains(text(),'17')]");
+    By SelectStartDate = By.xpath("//div[contains(text(),'22')]");
     By EndDate = By.xpath("(//button[@aria-label='Open calendar'])[2]");
-    By SelectEndDate = By.xpath("//div[contains(text(),'17')]");
+    By SelectEndDate = By.xpath("//div[contains(text(),'28')]");
     By SaveCondition = By.xpath("//*[@id='mat-dialog-0']/app-rcm-edit-header/div/form/div/div[2]/div[4]/button[2]/span[1]");
     By Data = By.xpath("//mat-label[contains(text(),'Data')]");
     By AddAttribute = By.xpath("//span[contains(text(),'Attribute')]");

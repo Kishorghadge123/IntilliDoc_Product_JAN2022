@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 @Listeners(Utilities.TestListeners.class)
 
-public class ProjectBREMedicalChartTest extends BasePage
+public class    ProjectBREMedicalChartTest extends BasePage
 { static
         ProjectBREPage ProjectBREPageObj;
         static ProjectPage ProjectPageObj;

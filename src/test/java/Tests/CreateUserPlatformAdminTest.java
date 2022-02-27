@@ -32,10 +32,9 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 2)
     public void valid_username_blank_password() throws Exception {
         //TC 5.2 Valid Username Blank Password.
-        UserPageObj.EnterUserName(ReadProps.readAttr("InvalidUsernameU"));
+        UserPageObj.EnterUserName(ReadProps.readAttr("AdminUserName"));
         Thread.sleep(2000);
         UserPageObj.ClickCreateBtn();
-        // UserPageObj.UserBlankAssert();
         Thread.sleep(3000);
         driver.navigate().refresh();
         Thread.sleep(5000);

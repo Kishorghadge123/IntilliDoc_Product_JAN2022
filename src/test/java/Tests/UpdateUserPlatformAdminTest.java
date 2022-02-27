@@ -13,12 +13,10 @@ public class UpdateUserPlatformAdminTest extends BasePage {
                 BasePage.driverInit();
                 BasePage.LoginTest();
         }
-
         @AfterClass
         public void cleanUp() throws Exception {
                 driver.quit();
         }
-
         @Test(priority = 1)
         public void update_user_enable_disable() throws Exception {
                 UserPageObj1 = new CreateUserPage(driver);
