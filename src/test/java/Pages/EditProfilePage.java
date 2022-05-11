@@ -1,4 +1,5 @@
 package Pages;
+import Utilities.Custome_Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,20 +8,25 @@ import org.testng.Assert;
 public class EditProfilePage
 {
     WebDriver driver = null;
-    By Profile = By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
+   public static By Profile = By.xpath("//input[@class='mat-input-element mat-form-field-autofill-control form-icon-group ng-tns-c97-2 cdk-text-field-autofill-monitored']//preceding::button[6]");
     By NightMode = By.xpath("//*[contains(text(),'Night Mode')]");
+    public  static By project=By.xpath("//span[contains(text(),' Create Project ')]");
     By DayMode = By.xpath("//*[contains(text(),'Day Mode')]");
-    By EditProfile = By.xpath("//button[@id='profile-modal-button']");
+    public  static By EditProfile = By.xpath("//button[@id='profile-modal-button']");
     By Cancel = By.xpath("//mat-icon[contains(text(),'close')]");
-    By Visible = By.xpath("//mat-icon[contains(text(),'visibility')]");
+    public  static By Visible = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Save=By.xpath(" //span[contains(text(),' Save')]");
     public String loginTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
     }
-    public  void clickVisible(){driver.findElement(Visible).click();}
+    public  void clickVisible(){driver.findElement(Visible).click();
+
+    }
     public void ProfileButton() {
         driver.findElement(Profile).click();
+        Custome_Wait.wait(driver,NightMode);
+
     }
     public void NightModeButton() {
         driver.findElement(NightMode).click();
@@ -31,11 +37,15 @@ public class EditProfilePage
 
     public void EditProfileButton() {
         driver.findElement(EditProfile).click();
+        Custome_Wait.wait(driver,Save);
     }
     public void CancelButton() {
         driver.findElement(Cancel).click();
+        Custome_Wait.wait(driver,project);
     }
-    public void SaveButton(){driver.findElement(Save).click();}
+    public void SaveButton(){driver.findElement(Save).click();
+    Custome_Wait.wait(driver,project);
+    }
 
 
     public void verify_profile_icon()

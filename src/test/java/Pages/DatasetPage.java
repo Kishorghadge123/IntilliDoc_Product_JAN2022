@@ -1,5 +1,6 @@
 package Pages;
 
+import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +12,11 @@ public class DatasetPage {
         WebDriver driver = null;
         public static By DatasetBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-5']");
         public static By AddCategoryBtn = By.xpath("//span[contains(text(),'Add Category')]");
-        By CategoryName = By.xpath("//input[@formcontrolname='newCategoryName']");
+        public  static  By CategoryName = By.xpath("//input[@formcontrolname='newCategoryName']");
         By CreateCategory = By.xpath("//span[contains(text(),'Create Category')]");
         By CategoryCancelBtn = By.xpath("//button[@id='category-close-modal']");
 
-        By ActionBtn = By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]/span[1]/mat-icon[1]");
+        public  static  By ActionBtn = By.xpath("(//span[@class='mat-button-wrapper'])[7]");
 
         By SearchBox = By.xpath("//input[@data-placeholder='Search']");        //driver.clear();
         By ExpandDataset1 = By.xpath("//tbody/tr[1]/td[1]");
@@ -36,9 +37,10 @@ public class DatasetPage {
         By DisableDataset = By.xpath("//div[@class='mat-slide-toggle-bar mat-slide-toggle-bar-no-side-margin']");
         By CreateNewDataset=By.xpath("(//span[contains(text(),'Create New Dataset')])[2]");
         By CreateDataset = By.xpath("//span[contains(text(),'Create Dataset')]");
-        By NewDatasetCancelBtn = By.xpath("//button[@id='dataset1-close-modal']");
+       public static By NewDatasetCancelBtn = By.xpath("//button[@id='dataset1-close-modal']");
         By CreateNewDatasetCategory=By.xpath("//span[contains(text(),'Create New Dataset Category')]");
         By NoRecordFound=By.xpath("//*[contains(text(),' No Records Found ! ')]");
+        By DatabaseName=By.xpath("//input[@class='mat-input-element mat-form-field-autofill-control mt-3 ng-tns-c97-8 ng-pristine cdk-text-field-autofill-monitored ng-invalid ng-untouched']");
         By createdCategory=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("DName")+"\")]");
         public By getNameOptionValidationDropdown(){return this.NameOptionValidationDropdown;}
         public String dataSetTabUrl ="https://alpha.neutrino-ai.com/#/home/datasets";
@@ -48,15 +50,35 @@ public class DatasetPage {
         public By getcreatedCategory(){return this.createdCategory;}
 
         public DatasetPage(WebDriver driver) throws IOException { this.driver = driver;}
-        public void ClickDatasetBtn(){ driver.findElement(DatasetBtn).click();}
-        public void ClickAddCategoryBtn(){ driver.findElement(AddCategoryBtn).click();}
-        public void ClickCategoryName(String text){ driver.findElement(CategoryName).sendKeys(text);}
-        public void ClickCreateCategory(){driver.findElement(CreateCategory).click();}
+        public void ClickDatasetBtn(){
+                driver.findElement(DatasetBtn).click();
+                Custome_Wait.wait(driver,AddCategoryBtn);
+        }
+        public void ClickAddCategoryBtn(){
+                driver.findElement(AddCategoryBtn).click();
+                Custome_Wait.wait(driver,CategoryName);
+        }
+        public void ClickCategoryName(String text){
+                driver.findElement(CategoryName).sendKeys(text);
+                Custome_Wait.wait(driver,CategoryCancelBtn);
+        }
+        public void ClickCreateCategory(){
+                driver.findElement(CreateCategory).click();
+                Custome_Wait.wait(driver,CreateCategory);
+        }
 
-        public void ClickActionBtn(){driver.findElement(ActionBtn).click();}
-        public void ClickDatasetName(String text){ driver.findElement(DatasetName).sendKeys(text);}
-        public void ClickValidationDropDown(){driver.findElement(ValidationDropDown1).click();}
-        public void ClickValidationName(){driver.findElement(ValidationName).click();}
+        public void ClickActionBtn(){
+                driver.findElement(ActionBtn).click();
+        Custome_Wait.wait(driver,AddCategoryBtn);
+        }
+        public void ClickDatasetName(String text){ driver.findElement(DatasetName).sendKeys(text);
+        Custome_Wait.wait(driver,NewDatasetCancelBtn);
+        }
+        public void ClickValidationDropDown(){driver.findElement(ValidationDropDown1).click();
+        Custome_Wait.wait(driver,ValidationName);
+        }
+        public void ClickValidationName(){driver.findElement(ValidationName).click();
+        Custome_Wait.wait(driver,ValidationDropDown2);}
         public void ClickValidationEmail(){driver.findElement(ValidationEmail).click();}
         public void ClickValidationText(){driver.findElement(ValidationText).click();}
         public void ClickValidationDropDown2(){driver.findElement(ValidationDropDown2).click();}
@@ -67,12 +89,19 @@ public class DatasetPage {
 
         public void ClickValidationRoles(){driver.findElement(ValidationRoles).click();}
         public void ClickCreateDataset(){driver.findElement(CreateDataset).click();}
-        public void ClickCategoryCancelBtn(){driver.findElement(CategoryCancelBtn).click();}
+        public void ClickCategoryCancelBtn(){
+                driver.findElement(CategoryCancelBtn).click();
+                Custome_Wait.wait(driver,AddCategoryBtn);
+
+        }
 
         public void ClickSearchBox(String text){ driver.findElement(SearchBox).sendKeys(text);}
         public void ClickExpand1(){driver.findElement(ExpandDataset1).click();}
         public void ClickDatasetFileName(){ driver.findElement(DatasetFile).click();}
         public void ClickCancelDatasetFileName(){ driver.findElement(CancelDatasetFile).click();}
         public void ClickDisableUser(){driver.findElement(DisableDataset).click();}
-        public void ClickAddDatasetCancelBtn(){ driver.findElement(NewDatasetCancelBtn).click();}
+        public void ClickAddDatasetCancelBtn(){
+                driver.findElement(NewDatasetCancelBtn).click();
+                Custome_Wait.wait(driver,AddCategoryBtn);
+        }
 }

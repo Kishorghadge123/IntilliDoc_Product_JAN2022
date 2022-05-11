@@ -1,5 +1,6 @@
 package Pages;
 import Base.BasePage;
+import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ public class CreateUserPage extends BasePage
     By ValidationUserName=By.xpath("//*[text()='Please enter only characters.']");
     By ValidationEmailID=By.xpath("//*[text()='Please enter a valid email id.']");
     By SearchBtn  = By.xpath("//input[@data-placeholder='Search']");
-    By DisableUser = By.xpath("//div[@class='mat-slide-toggle-thumb']");
+    By DisableUser = By.xpath("//mat-card[@class='mat-card mat-focus-indicator border rounded my-3']/div[1]/div[4]/section[1]/mat-slide-toggle[1]/label[1]/div[1]");
 
     public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
     public static By UpdatedTimeUser_Admin=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
@@ -31,9 +32,10 @@ public class CreateUserPage extends BasePage
     //By PlatformUser = By.xpath("//*[text()=' Create User ']//following::tr[2]/td[1]");  //change by suwarna
     By SelectUser = By.xpath("//*[@class='mat-table cdk-table mat-sort']//following::tr[1]/td[1]");
     By UpdatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
+    By emailLabel=By.xpath("//mat-label[contains(text(),'Email')]");
     By CreatedTime = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[4]");
     By logout = By.xpath("//span[@mattooltip='Logout']");
-    By CancelButton = By.xpath("//span[contains(text(),'Cancel')]");
+    public  static  By CancelButton = By.xpath("//span[contains(text(),'Cancel')]");
     By username = By.xpath("//input[@formcontrolname='userName']");
     By password = By.xpath("//input[@formcontrolname='password']");
     By loginBtn = By.xpath("//button[@type='submit']");
@@ -66,24 +68,25 @@ public class CreateUserPage extends BasePage
     public By GetcreatedUser() {return this.createdUser;}
     public void ClickUserBtn() throws Exception
     {
-        Thread.sleep(5000);
         driver.findElement(UserBtn).click();
+        Custome_Wait.wait(driver,SelectUser);
     }
     public  void ClickOnCancelBtn()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(CancelButton).click();
+        Custome_Wait.wait(driver,CreateUserBtn);
     }
     //public void ClickCancelBtn(){driver.findElement(CancelBtn).click();}
     //Wait added
     public void ClickCreateUserBtn() throws InterruptedException {
        // Functions.custome_wait(CreateUserBtn);
-        Thread.sleep(2000);
+
         driver.findElement(CreateUserBtn).click();}
 
     public void ClickCreateBtn()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(CreateBtn).click();
     }
     public void EnterNewUserName(String userName) throws Exception
@@ -91,19 +94,18 @@ public class CreateUserPage extends BasePage
         Random r=new Random();
         char first_c = (char)(r.nextInt(26) + 'a');
         char second_c = (char)(r.nextInt(26) + 'a');
-
-        Thread.sleep(2000);
         driver.findElement(EnterUserName).sendKeys(userName+first_c+second_c);
+        Custome_Wait.wait(driver,Password);
     }
 
     public void EnterExistingUserName_or_InvalidUserName(String text) throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(EnterUserName).sendKeys(text);
     }
     public void EnterEmail(String emialID)throws Exception
     {
-        Thread.sleep(2000);
+
         Random r=new Random();
         char first_c = (char)(r.nextInt(26) + 'a');
         char second_c = (char)(r.nextInt(26) + 'a');
@@ -111,53 +113,63 @@ public class CreateUserPage extends BasePage
     }
     public void ClickActiveUser() throws Exception   //change by suwarna
     {
-    	Thread.sleep(5000);
+
     	driver.findElement(ActiveUser).click();
     	}
 
     public  void SearchCreatedUser(String text)throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(SearchBtn).sendKeys(text);
+        Custome_Wait.wait(driver,SelectUser);
     }
 
-    public  void selectSearchedUser()throws Exception
-    {
-        Thread.sleep(2000);
+    public  void selectSearchedUser()throws Exception {
+
         driver.findElement(SelectUser).click();
+        Custome_Wait.wait(driver,Password);
     }
-    
     public void ClickDisableUser()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(DisableUser).click();
+        Custome_Wait.wait(driver,CancelButton);
+
     }
     public void ClickEnableUser()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(DisableUser).click();
+        Custome_Wait.wait(driver,UpdateUser);
     }
     public void ClickUpdateUser()throws Exception
     {
-        Thread.sleep(2000);
-        driver.findElement(UpdateUser).click();}
+        driver.findElement(UpdateUser).click();
+    Custome_Wait.wait(driver,CancelButton);
+    }
     public void ClickOnSortUser()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(SortUser).click();}
     public void ClickToClearName() throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(EnterUserName).clear();
+        Custome_Wait.wait(driver,UpdateUser);
+
     }
     public  void ClearPassword()throws Exception
     {
-        Thread.sleep(2000);
-        driver.findElement(Password).clear();}
+
+        driver.findElement(Password).clear();
+        Custome_Wait.wait(driver,Password);
+
+
+    }
     public void EnterPassword(String text)throws Exception
     {
-        Thread.sleep(2000);
         driver.findElement(Password).sendKeys(text);
+        Custome_Wait.wait(driver,UpdateUser);
     }
     public  String errmsg="Please enter all the details before submitting.";
     public  By errmsgBlankDataCreateRoleClick=By.xpath("//span[contains(text(),'Please enter all the details before submitting.')]");
@@ -208,28 +220,28 @@ public class CreateUserPage extends BasePage
 
     public void LogOut()throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(logout).click();
     }
 
     public void setUsername(String text) throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(username).sendKeys(text);
     }
     public void setPassword(String text)throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(password).sendKeys(text);
     }
     public void clickLoginButton() throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(loginBtn).click();
     }
     public void SelectUpdatedUser() throws Exception
     {
-        Thread.sleep(2000);
+
         driver.findElement(SelectUser).click();
     }
 
