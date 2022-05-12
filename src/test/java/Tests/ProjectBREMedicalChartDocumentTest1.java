@@ -140,10 +140,8 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         ProjectBREMedicalChartDocumentPageObj.ClickOnSaveEditDiagnosisDetails();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnCancelButtonICD();
-        Thread.sleep(2000); }
+        Thread.sleep(2000);
+    }
 }
 
 
-   
-		 
-    
