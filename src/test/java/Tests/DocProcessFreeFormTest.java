@@ -18,7 +18,7 @@ public class    DocProcessFreeFormTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass(enabled = false)
+    @AfterClass()
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -30,7 +30,7 @@ public class    DocProcessFreeFormTest extends BasePage {
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//table[@class='mat-table cdk-table mat-sort']//following::th[8]")));
         //TC 7.1 Search Project.
         DocPageObj.ClickDropDownBtn();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         DocPageObj.ClickSearchProject(ReadProps.readAttr("FreeFormProjectName"));
         DocPageObj.ClickSelectFreeFormProject();
@@ -58,7 +58,7 @@ public class    DocProcessFreeFormTest extends BasePage {
     @Test(priority = 3)
     public void update_document_cancel_it() throws Exception {
         //TC 7.3 Update document and cancel it.
-        DocPageObj.ClickViewDocIcon2();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(1000);
        // Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'Cancel')]//preceding::span[1]")));
         DocPageObj.ClickCancelDoc2();
@@ -124,7 +124,7 @@ public class    DocProcessFreeFormTest extends BasePage {
         DocPageObj.ClickSearchBox("3.tif");
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
-        DocPageObj.ClickViewDocIcon4();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(10000);
         AssertionsFunction.verifyElementPresent(DocPageObj.DocView);
         DocPageObj.ClickClockWiseIcon();

@@ -21,15 +21,11 @@ public class DocumentPage   {
     public static By SelectMedicalChartProject = By.xpath("//span[contains(text(),'MedicalChart ')]");    By SelectMedicalChartProjectICD = By.xpath("//span[contains(text(),'J17012022')]");
     By SearchDocument = By.xpath("//mat-icon[contains(text(),'search')]");
     By CancelDoc2 = By.xpath("//span[contains(text(),'Cancel')]");
-    By ViewDoc = By.xpath("//span[contains(text(),'BRE US Citizen.jpg')]");
-    By ViewDoc1 = By.xpath("//span[contains(text(),'form 1040.pdf')]");
-    By ViewDoc2 = By.xpath("//span[contains(text(),'AN - OOLU2604599081.pdf')]");
-    By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
-    By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
-    By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
     By ViewDoc6 = By.xpath("//span[contains(text(),'33559446-2.pdf')]");
     By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
     By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
+
+    By ViewDocument = By.xpath("//mat-icon[text()='visibility']");
 
     By ExpansionPanel = By.xpath("//mat-expansion-panel-header/span[2]");
     By HideAnalytics = By.xpath("//mat-expansion-panel-header/span[2]");
@@ -236,30 +232,10 @@ public class DocumentPage   {
         driver.findElement(CancelDoc2).click();
     }
 
-    public void ClickViewDocIcon() {
-        driver.findElement(ViewDoc).click();
+    public void ClickViewDocument() {
+        driver.findElement(ViewDocument).click();
     }
 
-    public void ClickViewDocIcon1() {
-        driver.findElement(ViewDoc1).click();
-    }
-
-    public void ClickViewDocIcon2()  {
-        driver.findElement(ViewDoc2).click();
-
-    }
-
-    public void ClickViewDocIcon3() {
-        driver.findElement(ViewDoc3).click();
-    }
-
-    public void ClickViewDocIcon4() {
-        driver.findElement(ViewDoc4).click();
-    }
-
-    public void ClickViewDocIcon5() {
-        driver.findElement(ViewDoc5).click();
-    }
 
     public void ClickExpansionPanel() {
         driver.findElement(ExpansionPanel).click();

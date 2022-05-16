@@ -75,7 +75,9 @@ public class DocProcessStructuredTest extends BasePage {
     @Test(priority = 3)
     public void update_document_cancel() throws Exception {
         //TC 10.3 Update Document and Cancel it.
-        DocPageObj.ClickViewDocIcon();
+        DocPageObj.ClickViewDocument();
+
+        //DocPageObj.ClickViewDocIcon();
         Thread.sleep(10000);
         DocPageObj.ClickExpansionPanel();
         Thread.sleep(2000);
@@ -178,7 +180,7 @@ public class DocProcessStructuredTest extends BasePage {
         Thread.sleep(1000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
-        DocPageObj.ClickViewDocIcon1();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(40000);
         DocPageObj.ClickClockWiseIcon();
         Thread.sleep(4000);

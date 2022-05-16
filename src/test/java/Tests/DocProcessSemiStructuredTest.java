@@ -72,7 +72,7 @@ public class DocProcessSemiStructuredTest extends BasePage {
     @Test(priority = 3)
     public void update_document_cancel() throws Exception {
         //TC 9.3 Update document and cancel it.
-        DocPageObj.ClickViewDocIcon2();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(10000);
         DocPageObj.ClickCancelDoc2();
         Thread.sleep(4000);
@@ -169,7 +169,7 @@ public class DocProcessSemiStructuredTest extends BasePage {
         Thread.sleep(2000);
         DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
-        DocPageObj.ClickViewDocIcon3();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(6000);
         AssertionsFunction.verifyElementPresent(DocPageObj.DocView);
         Thread.sleep(2000);

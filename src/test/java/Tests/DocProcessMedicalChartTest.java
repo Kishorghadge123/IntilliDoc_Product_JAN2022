@@ -20,7 +20,7 @@ public class DocProcessMedicalChartTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass(enabled = false)
+    @AfterClass()
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -36,7 +36,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[text()=' QA-AutoProject-MedicalChart ']")));
         DocPageObj.ClickSelectMedicalChartProject();
-      //  Thread.sleep(3000);
+        Custome_Wait.wait(driver,driver.findElement(By.xpath("//div[contains(text(),'Status')]/button")));
         AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName"),DocPageObj.SelectMedicalChartProject);
         DocPageObj.ClickStatusFilter();
         DocPageObj.ClickCheckProcessed();
@@ -53,8 +53,8 @@ public class DocProcessMedicalChartTest extends BasePage
     @Test(priority = 3)
     public void update_document_cancel_and_check_Chart_level_flags() throws Exception {
         //TC 8.3 Update Document and Cancel it.
-        DocPageObj.ClickViewDocIcon5();
-        Thread.sleep(1000);
+        DocPageObj.ClickViewDocument();
+        Thread.sleep(4000);
      //   Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
         DocPageObj.ClickOnChartLevelFlagsBtn();
        // Thread.sleep(2000);
@@ -74,13 +74,13 @@ public class DocProcessMedicalChartTest extends BasePage
        // Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
        // Thread.sleep(5000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
+        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[text()=' Documents ']")));
 
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
       //  Thread.sleep(2000);
         DocPageObj.ClickRefreshDocument();
        // Thread.sleep(7000);
-        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
+        Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[text()=' Documents ']")));
 
     }
   //  @Test(priority = 4)
@@ -156,7 +156,7 @@ public class DocProcessMedicalChartTest extends BasePage
  //   @Test(enabled = false)
     public void create_chronic_condition() throws Exception {
         //TC 8.9 Create Chronic condition.
-        DocPageObj.ClickViewDocIcon2();
+        DocPageObj.ClickViewDocument();
         Thread.sleep(6000);
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
