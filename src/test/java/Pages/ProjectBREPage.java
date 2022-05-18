@@ -1,6 +1,5 @@
 package Pages;
 import Utilities.AssertionsFunction;
-import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +9,7 @@ public class ProjectBREPage extends AssertionsFunction {
 
     WebDriver driver = null;
 
-    public String ProjectPageURL ="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
-
-    By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
+    By NextPageOnRulesPage = By.xpath("//span[text()='Update']//following::button[2]");
     By ThreeDots = By.xpath("//mat-icon[contains(text(),'menu')]");
     public static By ExpandPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; transform: none; visibility: visible;']");
     public static By ScaleDownPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; box-shadow: none; visibility: hidden;']");
@@ -21,8 +18,6 @@ public class ProjectBREPage extends AssertionsFunction {
     By DataSets = By.xpath("//mat-panel-title[contains(text(),'Datasets')]");
     By Variables = By.xpath("//mat-panel-title[contains(text(),'Variables')]");
     By AddRules = By.xpath("//span[contains(text(),'Rules')]");
-    public static By RuleBox = By.xpath("//div[@class='d-flex ml-3 mt-4 pt-3']");
-    public static By RuleBoxDisplay = By.xpath("//span[@class='py-2 rulesetName']");
     By DeleteRules = By.xpath("//span[@class='rulesetVisibilityIcon px-3 bgcolor2']");
     By ExpandRule = By.xpath("//mat-icon[@class='mat-icon notranslate addRuleRoundedIcon mt-2 ml-2 material-icons mat-icon-no-color ng-star-inserted']");
     public static By ConditionBoxDisplay = By.xpath("//mat-card[@data-target='#RuleModal']");
@@ -45,27 +40,22 @@ public class ProjectBREPage extends AssertionsFunction {
     public static By ConditionBox = By.xpath("//div[@class='p-2 conditionBox']");
     By FirstCondition = By.xpath("//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading']");
     By AndCondition = By.xpath("//span[contains(text(),'AND')]");
-
     public static By SelectPatientDemographics = By.xpath("//div[@role='listbox']/mat-option[1]");
     By AddBREEntity = By.xpath("(//span[contains(text(),'Entity')])[3]");
-    public static By PDEntitySelected = By.xpath("//*[@placeholder='Entity']");
     By AddBREEntity1 = By.xpath("(//span[contains(text(),'Entity')])[4]");
     public static By AttributeValue = By.xpath("//*[@placeholder='Attribute / Variable']");
-
     By NameAttribute = By.xpath("//span[contains(text(),'NAME')]");
     By PatientName = By.xpath("//div[@role='listbox']/mat-option[7]");
     By BRENameAttributePN = By.xpath("//span[contains(text(),'Patient Name')]");
     By BRENameAttributeDOB = By.xpath("//span[contains(text(),'Birthdate')]");
     By AddressAttribute = By.xpath("//span[contains(text(),'ADDRESS')]");
     By StateAttribute = By.xpath("//span[contains(text(),'STATE')]");
-
     By Visibility = By.xpath("//mat-icon[contains(text(),'visibility')]");
     By Operator = By.xpath("//span[contains(text(),'Operator')]");
     public static By OperatorValueEqualTo = By.xpath("//span[contains(text(),'==')]");
     By OperatorValueExistsIN = By.xpath("//span[contains(text(),'Exists In')]");
     By Save = By.xpath("//span[contains(text(),'Save ')]");
     public static By ConditionSaved = By.xpath("//*[@style='height: 78vh;']");
-    public static By RightConditionPanelDisplay = By.xpath("//*[@style='height: 78vh;']");
     public static By AttributeList= By.xpath("//div[@role='listbox']");
 
 
@@ -104,10 +94,10 @@ public class ProjectBREPage extends AssertionsFunction {
     By Entity = By.xpath("//span[contains(text(),'Entity')]//parent::div");
 
     By PatientDemoGraphics = By.xpath("//span[contains(text(),'PatientDemographics')]/parent::mat-option");
-    public static By AttributeDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[132]");
+    public static By AttributeDropDown = By.xpath("//span[text()='Save ']//following::mat-form-field[6]");
 
     By PatientNameAttributes = By.xpath("(//span[contains(text(),'Patient Name')])[2]");
-    By OperatorDropDown = By.xpath("//*[starts-with(@class,'mat-select-placeholder mat-select-min-line ng-tns')]/following::span[135]");
+    By OperatorDropDown = By.xpath("//span[text()='Save ']//following::mat-form-field[7]");
 
     By ReplaceAll = By.xpath("//span[contains(text(),'replaceAll')]");
     public static By ReplaceFirst = By.xpath("//span[contains(text(),'replaceFirst')]");

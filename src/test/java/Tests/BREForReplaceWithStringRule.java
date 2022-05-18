@@ -40,10 +40,9 @@ public class BREForReplaceWithStringRule extends BasePage {
         ProjectBREPageObj = new ProjectBREPage(driver);
         DocPageObj = new DocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
-        ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
-        Thread.sleep(4000);
+        //ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
+        ProjectPageObj.ClickOnSearchBox("PE-Medicalchart1");
         ProjectPageObj.ClickEditProjectBtn();
-        Thread.sleep(8000);
         //Navigate to Data Page.
         ProjectPageObj.ClickNextPage();
         Thread.sleep(5000);
@@ -57,8 +56,6 @@ public class BREForReplaceWithStringRule extends BasePage {
 
         ProjectBREPageObj.ClickOnExpandFirstRule();
         Thread.sleep(2000);
-
-
 
         //Add Condition.
         ProjectBREPageObj.EnterAddNameOfCondition("Patient Name");
@@ -75,7 +72,7 @@ public class BREForReplaceWithStringRule extends BasePage {
 
         ProjectBREPageObj.ClickOnAttributeValue();
         Thread.sleep(2000);
-        //ProjectBREPageObj.SelectPatientNameAttribute();
+        ProjectBREPageObj.SelectPatientNameAttribute();
         Thread.sleep(2000);
 
         ProjectBREPageObj.ClickOnOperator();
@@ -96,8 +93,6 @@ public class BREForReplaceWithStringRule extends BasePage {
         ProjectBREPageObj.ClickOnFirstTrueBoxButton();
         Thread.sleep(4000);
         ProjectBREPageObj.EnterActionValue("Replace Name");
-        Thread.sleep(2000);
-        //  AssertionsFunction.verifyElementText("Replace Name",ProjectBREPage.ActionValue);
         Thread.sleep(1000);
         ProjectBREPageObj.ClickOnAddAction();
         Thread.sleep(2000);
@@ -145,12 +140,16 @@ public class BREForReplaceWithStringRule extends BasePage {
     }
     @Test(priority = 2)
     public void verify_replace_first() throws Exception {
+        ProjectPageObj = new ProjectPage(driver);
+        ProjectBREPageObj = new ProjectBREPage(driver);
+        DocPageObj = new DocumentPage(driver);
+        ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(10000);
 
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-        DocPageObj.ClickSearchProject(ReadProps.readAttr("ProjectBRE"));
+        DocPageObj.ClickSearchProject("PE-Medicalchart1");
         Thread.sleep(2000);
         DocPageObj.ClickSelectBREProject();
         Thread.sleep(3000);
@@ -173,7 +172,7 @@ public class BREForReplaceWithStringRule extends BasePage {
         Thread.sleep(6000);
         ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(10000);
-        ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
+        ProjectPageObj.ClickOnSearchBox("PE-Medicalchart1");
         Thread.sleep(2000);
         ProjectPageObj.ClickEditProjectBtn();
         Thread.sleep(5000);
@@ -204,6 +203,10 @@ public class BREForReplaceWithStringRule extends BasePage {
     }
     @Test(priority = 3)
     public void verify_replace_all() throws Exception {
+        ProjectPageObj = new ProjectPage(driver);
+        ProjectBREPageObj = new ProjectBREPage(driver);
+        DocPageObj = new DocumentPage(driver);
+        ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(8000);
         DocPageObj.ClickViewDocIcon5();
@@ -227,7 +230,7 @@ public class BREForReplaceWithStringRule extends BasePage {
         Thread.sleep(6000);
         ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(10000);
-        ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
+        ProjectPageObj.ClickOnSearchBox("PE-Medicalchart1");
         Thread.sleep(2000);
         ProjectPageObj.ClickEditProjectBtn();
         Thread.sleep(5000);

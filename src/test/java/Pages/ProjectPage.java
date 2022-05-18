@@ -5,6 +5,7 @@ import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
@@ -73,14 +74,14 @@ public class ProjectPage   {
 
     By ClickRoles = By.xpath("//span[contains(text(),'Roles')]");
     public static   By AddRoleAdmin = By.xpath("//span[contains(text(),'Add Role')]");
-    public static By SelectRoleAdmin = By.xpath("//button[contains(text(),'AE Admin')]");
+    public static By SelectRoleAdmin = By.xpath("//div[@class='cdk-overlay-pane']//following::button[1]");
     public static By SelectedRoleAdmin = By.xpath("//*[text()=' AE Admin ']");
 
 
     By SelectRoleSuperVisor = By.xpath("//button[contains(text(),'AE Supervisor')]");
     By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
-    public static By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
+    public static By SelectUserAdmin = By.xpath("//*[@class='cdk-overlay-connected-position-bounding-box']//following::mat-option[1]/span[1]");
     By UpdateProject = By.xpath("//project-info-section/following-sibling::div/button/span[text()=' Update']/parent::button");
     By UpdatePrjectOnRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()=' Update ']/parent::button");
     By RoleUserDisableEnable = By.xpath("//div[@class='row']/div[3]/mat-slide-toggle");
@@ -373,6 +374,9 @@ public class ProjectPage   {
     public void ClickOnSelectUserBtn() throws Exception{
 
         driver.findElement(SelectUserAdmin).click();
+        Actions act=new Actions(driver);
+        act.moveToElement(driver.findElement(By.xpath("//div[text()=' Users ']//following::mat-chip")));
+        act.click().build().perform();
     }
 
 
@@ -388,6 +392,8 @@ public class ProjectPage   {
 
     public void ClickNextPage() throws Exception{
 
+        Thread.sleep(1000);
+        Custome_Wait.wait(driver,NextPage);
         driver.findElement(NextPage).click();
     }
 
@@ -595,12 +601,13 @@ public class ProjectPage   {
 
         driver.findElement(BackButtonDataPage).click();
     }
-    public void ClickOnSearchBox(String text)throws Exception{
-
+    public void ClickOnSearchBox(String text)throws Exception
+    {
+       Custome_Wait.wait(driver,ClickSearchBox);
         driver.findElement(ClickSearchBox).sendKeys(text);
     }
     public void ClickEditProjectBtn()throws Exception{
-
+        Custome_Wait.wait(driver,EditProjectBtn);
         driver.findElement(EditProjectBtn).click();
     }
 

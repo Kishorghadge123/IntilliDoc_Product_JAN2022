@@ -27,7 +27,7 @@ public class DocumentPage   {
     By ViewDoc2 = By.xpath("//span[contains(text(),'AN - OOLU2604599081.pdf')]");
     By ViewDoc3 = By.xpath("//span[contains(text(),'4.tif')]");
     By ViewDoc4 = By.xpath("//span[contains(text(),'3.tif')]");
-    By ViewDoc5 = By.xpath("//span[contains(text(),'Processed.pdf')]");
+    By ViewDoc5 = By.xpath("//th[text()=' Action ']//following::tr[1]/td[1]");  //click on document
     By ViewDoc6 = By.xpath("//span[contains(text(),'33559446-2.pdf')]");
     By ViewFreeFormRejectedDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
     By ViewStructuredReadyDoc = By.xpath("//span[contains(text(),'Pfizer10.jpg')]");
@@ -123,7 +123,7 @@ public class DocumentPage   {
     By HoverSearcheProjectd = By.xpath("//span[text()=' QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View ']");
     By HoverDocumentName = By.xpath("//div[@class='example-container documentTable']/table/tbody/tr[1]/td[1]");
     By SelectStructuredProjectTooltip = By.xpath("//span[contains(text(),'QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View')]");
-    By SelectBREProject = By.xpath("//*[@class='mat-focus-indicator mat-menu-item']");
+    By SelectBREProject = By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos mat-primary material-icons']");
 
     //Chart level Flags
     By chartLevelFlagDropdown = By.xpath("(//mat-select[@role='combobox'])[1]");
@@ -136,7 +136,7 @@ public class DocumentPage   {
     By PatientNameBtn = By.xpath("(//mat-cell[contains(text(),' Patient Name ')])[2]");
     By DeleteRule1Condition1 = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[1]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[2]/mat-icon[1]");
     By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
-    By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
+    By DeleteFirstRule = By.xpath("//span[text()='Rule-1']//following::mat-icon[1]");
     By patientDemographics=By.xpath("//div[@class='mat-ripple mat-tab-label mat-focus-indicator mat-tab-label-active ng-star-inserted']");
     public static String DocTabUrl="https://alpha.neutrino-ai.com/#/home/documents";
     public String ClickOnReadyDocumentUrl="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61cb126c08e93e32e4e2ec79&imageName=Processed.pdf&type=pdf&_st=Ready";
@@ -153,6 +153,8 @@ public class DocumentPage   {
     public static By ZoomInDoc= By.xpath("//div[@style='transform: translateX(-19.6%) scale(1.1);']");
     public static By ZoomOutDoc= By.xpath("//div[@style='transform: translateX(-21%) scale(1)']");
     By PatientNameValue = By.xpath("//*[text()=' Patient Name ']//following::input[1]");
+    By clickOnstatus=By.xpath("//div[text()=' Status ']");
+    By selectStatusAsProcessed=By.xpath("//span[text()=' Processed ']");
 
 
     public DocumentPage(WebDriver driver) { this.driver = driver;}
@@ -172,7 +174,10 @@ public class DocumentPage   {
 
     public void ClickOnDeleteRule1Condition1(){ driver.findElement(DeleteRule1Condition1).click();}
     public void ClickOnCNFRule1Condition1(){ driver.findElement(CNFDeleteRule1Condition1).click();}
-    public void ClickOnDeleteFirstRuleBtn(){ driver.findElement(DeleteFirstRule).click();}
+    public void ClickOnDeleteFirstRuleBtn()
+    {
+        driver.findElement(DeleteFirstRule).click();
+    }
     public void ClickSelectBREProject(){driver.findElement(SelectBREProject).click();}
     public void ClickViewDocIcon6(){ driver.findElement(ViewDoc6).click();}
 
