@@ -17,7 +17,6 @@ public class Project_Module_TC_For_Admin_User
 		driver = Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");
 		LoginUser.login_users(driver, "di-admin@neutrinotechsystems.com", "Nts#admin@123");
 		Project_Module project = new Project_Module(driver);
-
 		project.clickOnCreateProjectButton();
 		project.project_name_filed_validation("ProjectDemo");
 		driver.quit();
@@ -61,8 +60,6 @@ public class Project_Module_TC_For_Admin_User
 		driver.quit();
 		}
 
-
-
 	@Test
 	public void verify_document_structure_type_Filed() throws Exception {
 
@@ -74,8 +71,6 @@ public class Project_Module_TC_For_Admin_User
 		driver.quit();
 		}
 
-
-
 	@Test
 	public void verify_processing_Engine_filed_for_Structured_Project() throws Exception
 	{
@@ -86,7 +81,6 @@ public class Project_Module_TC_For_Admin_User
 	  project.processing_Engine_filed_validation_for_Structured_Project("Structured");
 	  driver.quit();
 	}
-
 
 	@Test
 	public void verify_processing_Engine_filed_for_Semi_Structured_Project() throws Exception {
@@ -208,8 +202,7 @@ Project_Module project = new Project_Module(driver);
 LoginUser.login_users(driver, "di-admin@neutrinotechsystems.com", "Nts#admin@123");
 Project_Module project = new Project_Module(driver);
 
-		
-			project.clickOnCreateProjectButton();
+project.clickOnCreateProjectButton();
 			String exp_url = "https://alpha.neutrino-ai.com/#/home/project-management/create-project";
 			String act_url = driver.getCurrentUrl();
 			Verification_Functions.url_verification(act_url, exp_url);

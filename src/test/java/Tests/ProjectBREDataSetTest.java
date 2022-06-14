@@ -5,23 +5,30 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("Project BREDataSet Test")
 @Listeners(Utilities.TestListeners.class)
 public class ProjectBREDataSetTest extends BasePage {
+        @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+        @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-    @Test(priority = 1)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 001  - bre_applied_to_name_using_dataset_fail")
+        @Description("verification_bre_applied_to_name_using_dataset_fail")
+        @Test (priority=1,groups="smoke", description = "verification_bre_applied_to_name_using_dataset_fail")
     public void bre_applied_to_name_using_dataset_fail() throws Exception {
             ProjectPage ProjectPageObj = new ProjectPage(driver);
             //Object creation

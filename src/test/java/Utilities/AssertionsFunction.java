@@ -1,12 +1,13 @@
 package Utilities;
 
 import Base.BasePage;
+
         import org.openqa.selenium.By;
         import org.openqa.selenium.WebElement;
         import org.openqa.selenium.interactions.Actions;
         import org.testng.Assert;
-        import org.xml.sax.Locator;
-
+import org.testng.asserts.SoftAssert;
+import org.xml.sax.Locator;
         import java.security.PublicKey;
 
 public class AssertionsFunction extends BasePage{
@@ -48,7 +49,6 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertNotEquals(actualValue,expectedValue);
     }
-
     public static void  verify_ElementHover(String expectedValue, By element_Locator)
     {
         Actions action = new Actions(driver);
@@ -57,11 +57,9 @@ public class AssertionsFunction extends BasePage{
         String actualvalue = driver.findElement(element_Locator).getText();
         Assert.assertEquals(actualvalue, expectedValue);
     }
-
     public static void verifyElementPresent(By element_Locator)
     {
         Assert.assertTrue(isPresent(element_Locator),"element "+element_Locator+"not present");
-
     }
     public static boolean isPresent(By locator){
         try{
@@ -82,13 +80,11 @@ public class AssertionsFunction extends BasePage{
             }
         }
 
-
     public static void verifyTargetPageURL (String expectedValue)
     {
         String actualValue = driver.getCurrentUrl();
         Assert.assertEquals(actualValue , expectedValue);
     }
-
     public static void verifyElementSelected(By element_Locator)
     {
         driver.findElement(element_Locator).isSelected();
@@ -99,7 +95,6 @@ public class AssertionsFunction extends BasePage{
         String actualValue= driver.findElement(element_Locator).getAttribute("textContent");
         Assert.assertEquals(actualValue,expectedValue);
     }
-
     public static void verifyElementCreatedUpdatedTime(By element_Locator1, By element_Locator2)
     {
         String actualValue= driver.findElement(element_Locator1).getText();
@@ -115,11 +110,6 @@ public class AssertionsFunction extends BasePage{
         String expectedValue= driver.findElement(element_Locator2).getText();
         Assert.assertNotEquals(actualValue,expectedValue);
     }
-
-
-
-
-
 
 }
 

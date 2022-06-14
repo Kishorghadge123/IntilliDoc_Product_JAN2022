@@ -2,6 +2,7 @@ package Pages;
 import Base.BasePage;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,7 +43,7 @@ public class CreateUserPage extends BasePage
     {
         BasePage.driver = driver;
     }
-
+    @Step("click On Create Role Button")
     public void ProfileIconClick() throws Exception
     {
         driver.findElement(ProfileIcon).click();
@@ -50,11 +51,12 @@ public class CreateUserPage extends BasePage
         r.keyPress(KeyEvent.VK_ESCAPE);
     }
 
-
+    @Step("click On User Menu")
     public  void clickOnUserMenu()
     {
         driver.findElement(UserBtn).click();
     }
+
     public By getValidationEmailID()
     {
         return this.ValidationEmailID;
@@ -75,26 +77,27 @@ public class CreateUserPage extends BasePage
     {
         return this.selectSearchedUser;
     }
-
+    @Step("Click On Cancel Button")
     public  void ClickOnCancelBtn()throws Exception
     {
 
         driver.findElement(cancelButton).click();
     }
-
+    @Step("click On createuser Button")
     public void ClickCreateUserBtn() throws Exception
     {
         Thread.sleep(5000);
         Custome_Wait.wait(driver,CreateUserBtn);
         driver.findElement(CreateUserBtn).click();
     }
-
+    @Step("Click Create Button")
     public void ClickCreateBtn()throws Exception
     {
         Thread.sleep(5000);
         Custome_Wait.wait(driver,CreateBtn);
         driver.findElement(CreateBtn).click();
     }
+    @Step("Enter New User Name")
     public void EnterNewUserName(String userName) throws Exception
     {
         Random r=new Random();
@@ -102,11 +105,12 @@ public class CreateUserPage extends BasePage
         char second_c = (char)(r.nextInt(26) + 'a');
         driver.findElement(EnterUserName).sendKeys(userName+first_c+second_c);
     }
-
+    @Step("Enter Existing UserName or InvalidUserName")
     public void EnterExistingUserName_or_InvalidUserName(String text) throws Exception
     {
         driver.findElement(EnterUserName).sendKeys(text);
     }
+    @Step("Enter Email")
     public void EnterEmail(String emialID)throws Exception
     {
         Random r=new Random();
@@ -114,12 +118,12 @@ public class CreateUserPage extends BasePage
         char second_c = (char)(r.nextInt(26) + 'a');
         driver.findElement(EnterEmail).sendKeys(first_c+second_c+emialID);
     }
-
+    @Step("Search Created User")
     public  void SearchCreatedUser(String text)throws Exception
     {
         driver.findElement(searchUser).sendKeys(text);
     }
-
+    @Step("select Searched User")
     public  void selectSearchedUser()throws Exception
     {
          Custome_Wait.wait(driver,selectSearchedUser);
@@ -127,36 +131,40 @@ public class CreateUserPage extends BasePage
         Thread.sleep(5000);
 
     }
-
+    @Step("Click On Enable Or Disable User Selection Toggle")
     public void ClickOnEnableOrDisableUserSelectionToggle()throws Exception
     {
         Thread.sleep(1000);
         Custome_Wait.wait(driver,enableDisableUserButton);
         driver.findElement(enableDisableUserButton).click();
     }
-
+    @Step("click On Update User Button")
     public void clickOnUpdateUserButton()throws Exception
     {
         driver.findElement(UpdateUser).click();
         Thread.sleep(5000);
     }
+    @Step("Click On Sort User Arrow")
     public void ClickOnSortUserArrow()throws Exception
     {
         driver.findElement(sortUserByName).click();
     }
+    @Step("clear User Name")
     public void clearUserName() throws Exception
     {
         driver.findElement(EnterUserName).clear();
     }
+    @Step("clear User Password")
     public  void clearUserPassword()throws Exception
     {
         driver.findElement(Password).clear();
     }
+    @Step("enter User Password")
     public void enterUserPassword(String text)throws Exception
     {
         driver.findElement(Password).sendKeys(text);
     }
-
+    @Step("get Updated Time And Date")
     public String getUpdatedTimeAndDate()
     {
         return driver.findElement(updatedDateAndTime).getText();

@@ -4,38 +4,47 @@ import Pages.DatasetPage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
+@Feature("Data Set Test")
 @Listeners(Utilities.TestListeners.class)
 public class DataSetTest extends BasePage {
     static DatasetPage DatasetPageObj;
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 001  - search_user")
+    @Description("verify user able to search_user")
+    @Test (priority=1,groups="smoke", description = "verify search_user")
     public void create_category_with_blank_name() throws Exception {
         DatasetPageObj = new DatasetPage(driver);
         DatasetPageObj.ClickDatasetBtn();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
-
         //TC 6.1 - Create category with blank name.
         DatasetPageObj.ClickAddCategoryBtn();
         Thread.sleep(2000);
         Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getCreateNewDatasetCategory()));
 
     }
-    @Test(priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 002  - create_category_with_invalid_name")
+    @Description("verify user able to create_category_with_invalid_name")
+    @Test (priority=2,groups="smoke", description = "verify create_category_with_invalid_name")
+
     public void create_category_with_invalid_name() throws Exception {
         //TC 6.2 - Create Category with Invalid Name.
         DatasetPageObj.ClickCategoryName(ReadProps.readAttr("Invalid_Name"));
@@ -45,7 +54,11 @@ public class DataSetTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
-    @Test(priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 003  - create_category_with_valid_name")
+    @Description("verify user able to create_category_with_valid_name")
+    @Test (priority=3,groups="smoke", description = "verify create_category_with_valid_name")
+
     public void create_category_with_valid_name() throws Exception {
         //TC 6.3 - Create category with Valid name.
         DatasetPageObj.ClickAddCategoryBtn();
@@ -58,7 +71,11 @@ public class DataSetTest extends BasePage {
         Assert.assertTrue(AssertionsFunction.isPresent(DatasetPageObj.getcreatedCategory()));
 
     }
-    @Test(priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 004  - add_dataset_with_blank_and_no_chosen_file")
+    @Description("verify user able to add_dataset_with_blank_and_no_chosen_file")
+    @Test (priority=4,groups="smoke", description = "verify add_dataset_with_blank_and_no_chosen_file")
+
     public void add_dataset_with_blank_and_no_chosen_file() throws Exception {
         //TC 6.4 - Perform action to add dataset with blank name and no chosen file.
         DatasetPageObj.ClickActionBtn();
@@ -68,7 +85,11 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
     }
-    @Test(priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 005  - add_dataset_with_blank_and_name_chosen_file")
+    @Description("verify user able to add_dataset_with_blank_and_name_chosen_file")
+    @Test (priority=5,groups="smoke", description = "verify add_dataset_with_blank_and_name_chosen_file")
+
     public void add_dataset_with_blank_and_name_chosen_file() throws Exception {
         //TC 6.5 - Perform action to add dataset with name and no chosen file.
         DatasetPageObj.ClickActionBtn();
@@ -80,7 +101,11 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
     }
-    @Test(priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 006  - add_dataset_with_csv_file_validation")
+    @Description("verify user able to add_dataset_with_csv_file_validation")
+    @Test (priority=6,groups="smoke", description = "verify add_dataset_with_csv_file_validation")
+
     public void add_dataset_with_csv_file_validation() throws Exception {
         //TC 6.6 - Perform action to add dataset with name, chosen file (.csv) but no validation type.
         DatasetPageObj.ClickActionBtn();
@@ -96,7 +121,11 @@ public class DataSetTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
-    @Test(priority = 7)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 007  - add_dataset_created_category_name_chosen_file_valid_type")
+    @Description("verify user able to add_dataset_created_category_name_chosen_file_valid_type")
+    @Test (priority=7,groups="smoke", description = "verify add_dataset_created_category_name_chosen_file_valid_type")
+
     public void add_dataset_created_category_name_chosen_file_valid_type() throws Exception {
         //TC 6.7 - Perform action to add dataset file in the created category with name, chosen file and validation type.
         DatasetPageObj.ClickActionBtn();
@@ -110,7 +139,11 @@ public class DataSetTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
 
     }
-    @Test(priority = 8)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 008  - validation_type_as_name_to_create_new_dataset")
+    @Description("verify user able to validation_type_as_name_to_create_new_dataset")
+    @Test (priority=8,groups="smoke", description = "verify validation_type_as_name_to_create_new_dataset")
+
     public void validation_type_as_name_to_create_new_dataset() throws Exception {
         //TC 6.8 - Validation type as "name" for dataset to create a new dataset.
         DatasetPageObj.ClickValidationDropDown();

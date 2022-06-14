@@ -3,7 +3,8 @@ package Pages;
 import java.util.List;
 import java.util.Random;
 
-import Utilities.Custome_Wait;
+import Utilities.*;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -14,9 +15,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import Utilities.Project_Module_Locators;
-import Utilities.Scroll_Page;
-import Utilities.Verification_Functions;
 
 public class Project_Module
 {
@@ -331,42 +329,48 @@ public class Project_Module
 
 	@FindBy (xpath="//mat-slide-toggle[@class='mat-slide-toggle mat-primary ng-valid ng-dirty ng-touched']")
 	public WebElement enabaleOrDisableUserToggleOnProjectPage;
-
-	public void clickOnProjectMenu() throws  Exception
-	{
-		projectMenu.click();
-		Thread.sleep(7000);
-	}
 	public Project_Module(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
+	@Step("click OnProject Menu")
+	public void clickOnProjectMenu() throws  Exception
+	{
+		projectMenu.click();
+		Thread.sleep(7000);
+	}
 
+
+	@Step("search Project")
 	public void searchProject(String projectName)
 	{
 		searchProject.sendKeys(projectName);
 	}
-
+	@Step("click OnEdit Project Icon")
 	public void clickOnEditProjectIcon() throws Exception
 	{
 		editIconForProject.click();
 
 	}
+	@Step("click On Create Project Button")
 	public  void clickOnCreateProjectButton() throws Exception
 	{
 
 		create_Project_button.click();
 	}
+	@Step("enter New Project Name")
 	public  void enterNewProjectName() throws Exception {
 		Random randam_num = new Random();
 		int int_num = randam_num.nextInt(2000);
 		project_Name_Filed.sendKeys("PRONAME" + int_num);
 	}
+	@Step("enter Existing Project Name")
 	public void enterExistingProjectName(String projectName)
 	{
 		project_Name_Filed.sendKeys("PRONAME");
 	}
+	@Step("select Lead")
 	public void selectLead(String emailID)  throws Exception
 	{
 		Thread.sleep(2000);
@@ -375,12 +379,13 @@ public class Project_Module
 		select_Lead.click();
 
 	}
+	@Step("enter Email ID")
 	public void enterEmailID()  throws Exception
 	{
 		search_Lead.sendKeys("qauser@gmail.com");
 
 	}
-
+	@Step("enter Start And EndDate")
 	public void enterStartAndEndDate()  throws Exception
 	{
 		Custome_Wait.waitElement(driver,start_Date);
@@ -389,7 +394,7 @@ public class Project_Module
 		end_Date.sendKeys("4/13/2022");
 
 	}
-
+	@Step("select Project Type")
 	public  void selectProjectType(String projectType) throws Exception
 	{
 		Thread.sleep(2000);
@@ -419,7 +424,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("select Processing Engine")
 	public  void selectProcessingEngine() throws Exception
 	{
 		Thread.sleep(2000);
@@ -427,7 +432,7 @@ public class Project_Module
 		Thread.sleep(1000);
 		nh_High_ProcessingEngine_For_Structure_project.click();
 	}
-
+	@Step("select Status")
 	public  void selectStatus(String project_type) throws Exception
 	{
 
@@ -451,7 +456,7 @@ public class Project_Module
 			document_Score.sendKeys("90");
 		}
 	}
-
+	@Step("enter Template Details")
 	public  void enterTemplateDetails() throws Exception
 	{
 		Thread.sleep(2000);
@@ -462,7 +467,7 @@ public class Project_Module
 		select_Template.click();
 		Scroll_Page.scroll_down_page(driver);
 	}
-
+	@Step("enter Roles Details")
 	public  void enterRolesDetails(String roleName) throws Exception
 	{
 		Scroll_Page.scroll_down_page(driver);
@@ -474,7 +479,7 @@ public class Project_Module
 		Custome_Wait.waitElement(driver,select_Role);
 		select_Role.click();
 	}
-
+	@Step("enter User Details InRole Section")
 	public  void enterUserDetailsInRoleSection() throws Exception
 	{
 		addButton_User_In_Roles_Details.click();
@@ -486,12 +491,12 @@ public class Project_Module
 		act.click().build().perform();
 
 	}
-
+	@Step("enabale Or DisableUser Toggle On Project Page")
 	public void enabaleOrDisableUserToggleOnProjectPage()
 	{
 		enabaleOrDisableUserToggleOnProjectPage.click();
 	}
-
+	@Step("click On Document Investigation Dropdown")
 	public  void clickOnDocumentInvestigationDropdown() throws Exception
 	{
 		Thread.sleep(2000);
@@ -500,12 +505,14 @@ public class Project_Module
 		channel_Type.click();
 
 	}
+	@Step("select GCPBucket")
 	public  void selectGCPBucket() throws Exception
 	{
 		Thread.sleep(2000);
 		gcp_Bucket_select.click();
 
 	}
+	@Step("enter Details For GoogleDrive Type")
 	public  void enterDetailsForGoogleDriveType(String user_Email) throws Exception
 	{
 		Thread.sleep(3000);
@@ -521,7 +528,7 @@ public class Project_Module
 		test_Connection_button.click();
 
 	}
-
+	@Step("check Connection Messages And Click On Ok Button")
 	public  void checkConnectionMessagesAndClickOnOkButton() throws Exception
 	{
 		Thread.sleep(3000);
@@ -539,7 +546,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("enter Details For AmazonS3 Type")
 	public  void enterDetailsForAmazonS3Type(String secret_key,String access_key,String bucket_region) throws Exception
 	{
 		Custome_Wait.waitElement(driver,amazon_s3_select);
@@ -557,7 +564,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("enter APIConfiguration Details")
 	public  void enterAPIConfigurationDetails() throws Exception
 	{
 
@@ -574,7 +581,7 @@ public class Project_Module
 		}
 
 	}
-
+	@Step("enter Attribute Details For Free Form Project Type")
 	public  void enterAttributeDetailsForFreeFormProjectType(String search_Attribute) throws Exception
 	{
 		Scroll_Page.scroll_down_page(driver);
@@ -586,7 +593,7 @@ public class Project_Module
 		select_Attribute.click();
 
 	}
-
+	@Step("addEntity Details For Medical Chart Project")
 	public  void addEntityDetailsForMedicalChartProject(String search_Entity) throws Exception
 	{
 		Scroll_Page.scroll_down_page(driver);
@@ -599,7 +606,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("project name filed validation")
 	public  void project_name_filed_validation(String projectName) throws Exception
 	{
 		String act_value=null;
@@ -610,7 +617,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(act_value);
 
 	}
-
+	@Step("lead filed validation")
 	public  void lead_filed_validation(String emailID) throws Exception
 	{
 		String act_value=null;
@@ -623,7 +630,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(act_value);
 	}
 
-
+	@Step("start date filed validation")
 	public  void start_date_filed_validation(String startDate) throws Exception
 	{
 		String act_value=null;
@@ -636,7 +643,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(startDate,act_value);
 
 	}
-
+	@Step("end date filed validation")
 	public  void end_date_filed_validation(String startDate,String endDate) throws Exception
 	{
 		String act_value=null;
@@ -650,7 +657,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(act_value);
 	}
 
-
+	@Step("document Structure filed validation")
 	public  void document_Structure_filed_validation() throws Exception
 	{
 		String act_value=null;
@@ -691,7 +698,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(act_value," Medical Chart ");
 	}
 
-
+	@Step("processing Engine filed validation for Structured Project")
 	public  void processing_Engine_filed_validation_for_Structured_Project(String projectName) throws Exception
 	{
 		String act_value=null;
@@ -718,7 +725,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("processing Engine filed validation for Semi Structured Project")
 	public  void processing_Engine_filed_validation_for_Semi_Structured_Project(String projectName) throws Exception
 	{
 		String act_value=null;
@@ -742,7 +749,7 @@ public class Project_Module
 
 	}
 
-
+	@Step("processing Engine For Free From Project")
 	public  void processing_Engine_For_Free_From_Project(String projectName) throws Exception
 	{
 		Thread.sleep(2000);
@@ -759,7 +766,7 @@ public class Project_Module
 			System.out.println("Element isn't clickable......Which means given field working as expected");
 		}
 	}
-
+	@Step("processing Engine For Medical Project")
 	public  void processing_Engine_For_Medical_Project(String projectName) throws Exception
 	{
 		Thread.sleep(2000);
@@ -778,7 +785,7 @@ public class Project_Module
 		}
 	}
 
-
+	@Step("status filed validate")
 	public  void status_filed_validate() throws Exception
 	{
 
@@ -788,7 +795,7 @@ public class Project_Module
 		Verification_Functions.check_statuses_enable_or_disable(driver, status_select);
 
 	}
-
+	@Step("document auto Assignment filed validate")
 	public  void document_auto_Assignment_filed_validate() throws Exception
 	{
 
@@ -799,7 +806,7 @@ public class Project_Module
 
 	}
 
-
+	@Step("straight through process and document scrore filed validate")
 	public  void straight_through_process_and_document_scrore_filed_validate() throws Exception
 	{
 		Thread.sleep(2000);
@@ -811,7 +818,7 @@ public class Project_Module
 		Verification_Functions.actual_text_data_Campare(act_value);
 
 	}
-
+	@Step("template fields validation")
 	public  void template_fields_validation() throws Exception
 	{
 		Thread.sleep(2000);
@@ -829,10 +836,11 @@ public class Project_Module
 		Scroll_Page.scroll_down_page(driver);
 		Custome_Wait.waitElement(driver,name_of_template);
 		String actual=name_of_template.getText();
+		Functions.logStep("actual_text_data_Campare");
 		Verification_Functions.actual_text_data_Campare(actual, expect);
 
 	}
-
+	@Step("roles fields validation")
 	public  void roles_fields_validation() throws Exception
 	{
 
@@ -849,21 +857,21 @@ public class Project_Module
 		String actual=role_Name.getText();
 		Verification_Functions.actual_text_data_Campare(actual, expected);
 	}
-
+	@Step("create Button")
 	public  void create_Button() throws Exception
 	{
 		Thread.sleep(1000);
 		create_button.click();
 
 	}
-
+	@Step("next Button")
 	public  void next_Button() throws Exception
 	{
 		Thread.sleep(1000);
 		next_Button.click();
 
 	}
-
+	@Step("error messages validation")
 	public  void error_messages_validation() throws Exception
 	{
 		Scroll_Page.scroll_down_page_till_end(driver);
@@ -899,7 +907,7 @@ public class Project_Module
 		}
 
 	}
-
+	@Step("click OnCancel Button")
 	public  void clickOnCancelButton() throws Exception
 	{
 
@@ -908,7 +916,7 @@ public class Project_Module
 
 		Verification_Functions.url_verification("https://alpha.neutrino-ai.com/#/home/project-management", driver.getCurrentUrl());
 	}
-
+	@Step("error messages for blank fileds project name and Lead and processing engine")
 	public  void error_messages_for_blank_fileds_project_name_and_Lead_and_processing_engine() throws Exception
 	{
 
@@ -938,7 +946,7 @@ public class Project_Module
 
 
 	}
-
+	@Step("select start date and end date from calendar application")
 	public  void select_start_date_and_end_date_from_calendar_application() throws Exception
 	{
 		Thread.sleep(1000);
@@ -952,7 +960,7 @@ public class Project_Module
 		select_end_date.click();
 
 	}
-
+	@Step("change year and month from calendar application")
 	public  void change_year_and_month_from_calendar_application() throws Exception
 	{
 		Thread.sleep(1000);
@@ -976,19 +984,20 @@ public class Project_Module
 		Custome_Wait.waitElement(driver,select_end_date);
 		select_end_date.click();
 	}
-
+	@Step("delete user from role section")
 	public  void delete_user_from_role_section() throws Exception
 	{
 		Thread.sleep(1000);
 		remove_user_from_Roles_section.click();
 
 	}
-
+	@Step("click OnUpdate Button")
 	public void clickOnUpdateButton() throws Exception
 	{
 		updateButton.click();
 		Thread.sleep(7000);
 	}
+	@Step("Table Structure")
 	public void TableStructure() throws Exception{
 
 		TableStructure.click();

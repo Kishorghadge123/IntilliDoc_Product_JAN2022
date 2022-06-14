@@ -9,6 +9,7 @@ import Pages.ProjectBREStructureChartDocumentPage;
 import Utilities.AssertionsFunction;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -22,14 +23,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
+@Feature("Project BRESemiStructure Test")
 
 @Listeners(Utilities.TestListeners.class)
 public class ProjectBRESemiStructureTest  extends BasePage {
 
     public static ProjectBRESemiStructurePage ProjectBRESemiStructurePageObj;
     public DocumentPage DocPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -37,12 +38,16 @@ public class ProjectBRESemiStructureTest  extends BasePage {
         driver.manage().window().maximize();
         //BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - Add_Attribute_In_SemiStructureProject")
+    @Description("verify user able to Add_Attribute_In_SemiStructureProject")
+    @Test (priority=1,groups="smoke", description = "verify Add_Attribute_In_SemiStructureProject")
     public void Add_Attribute_In_SemiStructureProject() throws  Exception{
         //IN 481 Manual Intervention for rejected documents for semi structure kind of documents
         LoginUser.login_users(driver, "pratiksha.bagal@neutrinotechlabs.com", "Pratiksha@12");

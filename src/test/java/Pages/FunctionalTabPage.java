@@ -1,4 +1,5 @@
 package Pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -28,21 +29,37 @@ public class FunctionalTabPage {
 
          // SoftAssert s= new SoftAssert();
 
+    @Step("ClickN Icon")
         public void ClickNIcon(){ driver.findElement(NIcon).click();}
+    @Step("Click Horizontal User")
         public void ClickHorizontalUser(){ driver.findElement(HorizontalUsers).click();}
+    @Step("Click Horizontal Roles")
         public void ClickHorizontalRoles(){ driver.findElement(HorizontalRoles).click();}
+    @Step("Click Horizontal Templates")
         public void ClickHorizontalTemplates(){ driver.findElement(HorizontalTemplates).click();}
+    @Step("Click Horizontal Dataset")
         public void ClickHorizontalDataset(){ driver.findElement(HorizontalDataset).click();}
+    @Step("Click Horizontal Projects")
         public void ClickHorizontalProjects(){ driver.findElement(HorizontalProjects).click();}
+    @Step("Click Horizontal Documents")
         public void ClickHorizontalDocuments(){ driver.findElement(HorizontalDocuments).click();}
+    @Step("Click Horizontal Analytics")
         public void ClickHorizontalAnalytics(){ driver.findElement(HorizontalAnalytics).click();}
+    @Step("Click Vertical User")
         public void ClickVerticalUser(){ driver.findElement(VerticalUsers).click();}
+    @Step("Click Vertical Roles")
         public void ClickVerticalRoles(){ driver.findElement(VerticalRoles).click();}
+    @Step("Click Vertical Templates")
         public void ClickVerticalTemplates(){ driver.findElement(VerticalTemplates).click();}
+    @Step("Click Vertical Dataset")
         public void ClickVerticalDataset(){ driver.findElement(VerticalDataset).click();}
+    @Step("Click Vertical Projects")
         public void ClickVerticalProjects(){ driver.findElement(VerticalProjects).click();}
+    @Step("Click Vertical Documents")
         public void ClickVerticalDocuments(){ driver.findElement(VerticalDocuments).click();}
+    @Step("Click Vertical Analytics")
         public void ClickVerticalAnalytics(){ driver.findElement(VerticalAnalytics).click();}
+
 
 
       public void verifyNtab()

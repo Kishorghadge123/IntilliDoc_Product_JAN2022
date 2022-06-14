@@ -1,6 +1,7 @@
 package Pages;
 
 import Utilities.ReadProps;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -48,31 +49,52 @@ public class DatasetPage {
         public By getcreatedCategory(){return this.createdCategory;}
 
         public DatasetPage(WebDriver driver) throws IOException { this.driver = driver;}
+        @Step("Click Dataset Button")
         public void ClickDatasetBtn(){ driver.findElement(DatasetBtn).click();}
+        @Step("Click Add Category Button")
         public void ClickAddCategoryBtn(){ driver.findElement(AddCategoryBtn).click();}
+        @Step("Click Category Name")
         public void ClickCategoryName(String text){ driver.findElement(CategoryName).sendKeys(text);}
+        @Step("Click Create Category")
         public void ClickCreateCategory(){driver.findElement(CreateCategory).click();}
-
+        @Step("Click Action Button")
         public void ClickActionBtn(){driver.findElement(ActionBtn).click();}
+        @Step("Click Dataset Name")
         public void ClickDatasetName(String text){ driver.findElement(DatasetName).sendKeys(text);}
+        @Step("Click Validation DropDown")
         public void ClickValidationDropDown(){driver.findElement(ValidationDropDown1).click();}
+        @Step("Click Validation Name")
         public void ClickValidationName(){driver.findElement(ValidationName).click();}
+        @Step("Click Validation Email")
         public void ClickValidationEmail(){driver.findElement(ValidationEmail).click();}
+        @Step("Click Validation Text")
         public void ClickValidationText(){driver.findElement(ValidationText).click();}
+        @Step("get Click Validation DropDown 2")
         public void ClickValidationDropDown2(){driver.findElement(ValidationDropDown2).click();}
+        @Step("Click Validation DropDown 3")
         public void ClickValidationDropDown3(){driver.findElement(validationDropdown3).click();}
+        @Step("Click Validation DropDown 4")
         public void ClickValidationDropDown4(){driver.findElement(ValidationDropDown4).click();}
+        @Step("Click Validation DropDown 5")
         public void ClickValidationDropDown5(){driver.findElement(ValidationDropDown5).click();}
+        @Step("Click Validation DropDown 6")
         public void ClickValidationDropDown6(){driver.findElement(ValidationdropDown6).click();}
-
+        @Step("Click Validation Roles")
         public void ClickValidationRoles(){driver.findElement(ValidationRoles).click();}
+        @Step("Click Create Dataset")
         public void ClickCreateDataset(){driver.findElement(CreateDataset).click();}
+        @Step("Click Category Cancel Button")
         public void ClickCategoryCancelBtn(){driver.findElement(CategoryCancelBtn).click();}
-
+        @Step("Click Search Box")
         public void ClickSearchBox(String text){ driver.findElement(SearchBox).sendKeys(text);}
+        @Step("Click Expand1")
         public void ClickExpand1(){driver.findElement(ExpandDataset1).click();}
+        @Step("Click Dataset FileName")
         public void ClickDatasetFileName(){ driver.findElement(DatasetFile).click();}
+        @Step("Click Cancel Dataset FileName")
         public void ClickCancelDatasetFileName(){ driver.findElement(CancelDatasetFile).click();}
+        @Step("Click Disable User")
         public void ClickDisableUser(){driver.findElement(DisableDataset).click();}
+        @Step("Click Add Dataset Cancel Btn")
         public void ClickAddDatasetCancelBtn(){ driver.findElement(NewDatasetCancelBtn).click();}
 }

@@ -5,6 +5,7 @@ import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.AssertionsFunction;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,13 +16,13 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Date;
-
+@Feature("Project BREMedical Chart Document Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREMedicalChartDocumentTest extends BasePage {
     public static ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj;
     public DocumentPage DocPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -29,7 +30,7 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         driver.manage().window().maximize();
         // BasePage.LoginTest();
     }
-
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
@@ -37,7 +38,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
     driver.quit();
     }
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - verify_edit_address_save_draft_Patient_Demographics")
+    @Description("verify_edit_address_save_draft_Patient_Demographics")
+    @Test (priority=1,groups="smoke", description = "verify_edit_address_save_draft_Patient_Demographics")
     public void verify_edit_address_save_draft_Patient_Demographics() throws Exception {
 
         LoginUser.login_users(driver, "pratiksha.bagal@neutrinotechlabs.com", "Pratiksha@12");
@@ -78,7 +82,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         //AssertionsFunction.verifyTargetPageURL(DocPageObj.DocTabUrl);
     }
 
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - verify_add_encounter_click_on_cancel")
+    @Description("verify_add_encounter_click_on_cancel")
+    @Test (priority=2,groups="smoke", description = "verify_add_encounter_click_on_cancel")
     public void verify_add_encounter_click_on_cancel() throws InterruptedException, IOException {
         // 2 Verify the Saved Data.
         //Open the Same Ready document.
@@ -99,7 +106,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(3000);
     }
 
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - verify_without_entring_encounter_details_click_on_save")
+    @Description("verify_without_entring_encounter_details_click_on_save")
+    @Test (priority=3,groups="smoke", description = "verify_without_entring_encounter_details_click_on_save")
     public void verify_without_entring_encounter_details_click_on_save() throws InterruptedException, IOException {
         //2.2 verify without entring encounter details click on  save
         ProjectBREMedicalChartDocumentPageObj.clickOnAddEncounter();
@@ -111,7 +121,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(3000);
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - verify_add_encounter_details_with_data_n_click_on_save")
+    @Description("verify_add_encounter_details_with_data_n_click_on_save")
+    @Test (priority=4,groups="smoke", description = "verify_add_encounter_details_with_data_n_click_on_saveg")
     public void verify_add_encounter_details_with_data_n_click_on_save() throws InterruptedException, IOException {
         // 2.3 verify add encounter details with data n click on save
         ProjectBREMedicalChartDocumentPageObj.clickOnAddEncounter();
@@ -130,7 +143,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(1000);
     }
 
-    @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - verify_Without_entering_details_of_HCC_click_on_save")
+    @Description("verify_Without_entering_details_of_HCC_click_on_save")
+    @Test (priority=5,groups="smoke", description = "verify_Without_entering_details_of_HCC_click_on_save")
     public void verify_Without_entering_details_of_HCC_click_on_save() throws InterruptedException, IOException {
         //2.4 verify  Without entering details of HCC click on save (-ve)
         ProjectBREMedicalChartDocumentPageObj.clickOnAddHCCorNonHCCplusBtn();
@@ -167,7 +183,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 6)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 006 - verifyeditEncounterDetails")
+    @Description("verifyeditEncounterDetails")
+    @Test (priority=6,groups="smoke", description = "verifyeditEncounterDetails")
     public void verifyeditEncounterDetails() throws InterruptedException, IOException {
         // TC 3 verify edit encounter Details n save draft
 
@@ -195,7 +214,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         Thread.sleep(5000);
     }
 
-    @Test(priority = 7)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 007 - verifyDeletandsaveEncounterDetails")
+    @Description("verifyDeletandsaveEncounterDetails")
+    @Test (priority=7,groups="smoke", description = "verifyDeletandsaveEncounterDetails")
     public void verifyDeletandsaveEncounterDetails() throws InterruptedException, IOException {
         // TC 4 verify Delete existing Details and save draft
         // (verify again)
@@ -223,7 +245,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
 //    // cardwise Document
 
-    @Test(priority = 8)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 008 - verify_System_should_be_able_to_retrieve_the_ICD_codes_for_the_captured_diseases")
+    @Description("verify_System_should_be_able_to_retrieve_the_ICD_codes_for_the_captured_diseases")
+    @Test (priority=8,groups="smoke", description = "verify_System_should_be_able_to_retrieve_the_ICD_codes_for_the_captured_diseases")
     public void verify_System_should_be_able_to_retrieve_the_ICD_codes_for_the_captured_diseases() throws InterruptedException, IOException {
         //IN-156 System should be able to retrieve the ICD codes for the captured diseases.
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
@@ -241,7 +266,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
     }
 
 
-    @Test(priority = 9)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 009 - Click_On_ItemPer_Page")
+    @Description("verify user able to Click_On_ItemPer_Page")
+    @Test (priority=9,groups="smoke", description = " verify Click_On_ItemPer_Page")
     public void Click_On_ItemPer_Page() throws Exception {
         ////IN-413 Document Navigation Page- Server side pagination and Analytics Change- UI side change
         Thread.sleep(2000);
@@ -252,7 +280,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 10)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 010 - Check_Email_Field")
+    @Description("verify user able to Check_Email_Field")
+    @Test (priority=10,groups="smoke", description = " verify Check_Email_Field")
     public void Check_Email_Field() throws Exception {
 
         //IN-406 Post-processing requirements for the validation type "E-Mail"-JAVA side changes
@@ -271,7 +302,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
     }
 
 
-    @Test(priority = 11)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 011 - check_cancel_button")
+    @Description("verify user able to check_cancel_button")
+    @Test (priority=11,groups="smoke", description = " verify check_cancel_button")
     public void check_cancel_button() throws Exception {
         //IN 501 ?While opening the document of the type 'Medical Charts', which is in the processed state, which is in read only mode right now, only 'Cancel' button should be made available
         //Search Medical Chart Project.
@@ -287,7 +321,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 12)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 012 - without_adding_comment")
+    @Description("verify user able to without_adding_comment")
+    @Test (priority=12,groups="smoke", description = " verify without_adding_comment")
     public void without_adding_comment() throws Exception {
         //IN 626 Comments are mandatory at the diagnosis level, if the comments have not been provided for the valid(enabled) disease, under that circumstances, the medical charts should not be allowed to get submitted
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();
@@ -308,7 +345,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 13)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 013 - System_should_open_rejected_document")
+    @Description("verify user able to System_should_open_rejected_document")
+    @Test (priority=13,groups="smoke", description = " verify System_should_open_rejected_document")
     public void System_should_open_rejected_document() throws Exception {
         //IN-492 Rejected medical charts not loading
         Thread.sleep(2000);
@@ -321,7 +361,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority =14)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 014 - Verify_provider_details")
+    @Description("verify user able to Verify_provider_details")
+    @Test (priority=14,groups="smoke", description = " verify Verify_provider_details")
     public void Verify_provider_details() throws  Exception {
 //  IN720 ??The system should be capable of verifying the medical charts based on the valid provider's signature (as in their qualifications) which will be available in the enterprise datasets.
         ///IN 180??The system should be capable of verifying the medical charts based on the valid provider's signature (as in their qualifications) which will be available in the enterprise datasets.
@@ -339,7 +382,10 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
 
 
 
-    @Test(priority = 15)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 015 - Check_the_comment")
+    @Description("verify user able to Check_the_comment")
+    @Test (priority=15,groups="smoke", description = " verify Check_the_comment")
     public  void Check_the_comment() throws  Exception{
         //IN 646 Refinement of the comments at the run time
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocument();

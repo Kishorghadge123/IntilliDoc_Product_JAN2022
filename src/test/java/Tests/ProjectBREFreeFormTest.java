@@ -7,6 +7,7 @@ import  Pages.ProjectBREFreeFormPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
@@ -15,10 +16,11 @@ import org.testng.annotations.Test;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
+@Feature("Project BREFree Form Test")
 public class ProjectBREFreeFormTest  extends BasePage {
     public static ProjectBREFreeFormPage  ProjectBREFreeFormPageobj;
     public DocumentPage DocPageObj;
+    @Step("Login Test started")
     @BeforeSuite
     public void login() throws Exception{
         BasePage.driverInit();
@@ -26,12 +28,16 @@ public class ProjectBREFreeFormTest  extends BasePage {
         driver.manage().window().maximize();
 
     }
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - Add_Attribute_In_FreeForm")
+    @Description("verification_Add_Attribute_In_FreeForm")
+    @Test (priority=1,groups="smoke", description = "verification_Add_Attribute_In_FreeForm")
     public void Add_Attribute_In_FreeForm () throws  Exception{
         //IN482 Manual Intervention for Free form kind of documents
         LoginUser.login_users(driver, "pratiksha.bagal@neutrinotechlabs.com", "Pratiksha@12");

@@ -5,27 +5,34 @@ import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("Doc Process Medical Chart Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class DocProcessMedicalChartTest extends BasePage
 {
     static DocumentPage DocPageObj;
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 001  - search_project")
+    @Description("verify user able to search_project")
+    @Test (priority=1,groups="smoke", description = "verify search_project")
     public void search_project() throws Exception {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
@@ -42,14 +49,21 @@ public class DocProcessMedicalChartTest extends BasePage
         AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
     }
-    @Test(priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 002  -searchbox_document")
+    @Description("verify user able to searchbox_document")
+    @Test (priority=2,groups="smoke", description = "verify searchbox_document")
     public void searchbox_document() throws Exception {
         //TC 8.2 SearchBox Document.
         DocPageObj.ClickSearchBox("Processed");
         //DocPageObj.ClickSearchDocument();
         Thread.sleep(2000);
     }
-    @Test(priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 003 - update_document_cancel_and_check_Chart_level_flags")
+    @Description("verify user able to update_document_cancel_and_check_Chart_level_flags")
+    @Test (priority=3,groups="smoke", description = "verify update_document_cancel_and_check_Chart_level_flags")
+
     public void update_document_cancel_and_check_Chart_level_flags() throws Exception {
         //TC 8.3 Update Document and Cancel it.
         DocPageObj.ClickViewDocIcon5();

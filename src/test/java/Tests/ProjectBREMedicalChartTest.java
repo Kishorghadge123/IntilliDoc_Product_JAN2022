@@ -6,10 +6,12 @@ import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.Functions;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("Project BREMedical Chart Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREMedicalChartTest extends BasePage
@@ -17,18 +19,22 @@ public class ProjectBREMedicalChartTest extends BasePage
         ProjectBREPage ProjectBREPageObj;
         static ProjectPage ProjectPageObj;
         static  ProjectBREDataSetPage ProjectBREDataSetPageObj;
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
-
     driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - check_all_functions_on_project_page")
+    @Description("verify user able to check_all_functions_on_project_page")
+    @Test (priority=1,groups="smoke", description = "verify check_all_functions_on_project_page")
     public void check_all_functions_on_project_page() throws Exception {
             Robot r = new Robot();
             //Initializing Object for Project Page.
@@ -96,7 +102,10 @@ public class ProjectBREMedicalChartTest extends BasePage
             ProjectBREDataSetPageObj.ClickOnDataSets();
             Thread.sleep(1000);
     }
-        @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - add_dataset")
+    @Description("verify user able to add_dataset")
+    @Test (priority=2,groups="smoke", description = "verify add_dataset")
         public void add_dataset() throws Exception {
                 //TC 2 Adding DataSet.
                 ProjectBREDataSetPageObj.ClickOnAddDataSets();
@@ -133,7 +142,10 @@ public class ProjectBREMedicalChartTest extends BasePage
                 ProjectBREPageObj.EnterRuleName("SampleRule1");
                 Thread.sleep(2000);
         }
-        @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - add_condition")
+    @Description("verify user able to add_condition")
+    @Test (priority=3,groups="smoke", description = "verify add_condition")
         public void add_condition() throws Exception {
             //TC 3 Add Condition.
             ProjectBREPageObj.EnterAddNameOfCondition("PName and DOB Check");
@@ -165,7 +177,10 @@ public class ProjectBREMedicalChartTest extends BasePage
             ProjectBREPageObj.ClickOnPNameCheck();
             Thread.sleep(2000);
         }
-    @Test(priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 004  - add_action")
+    @Description("verify user able to add_action")
+    @Test (priority=4,groups="smoke", description = "verify add_action")
     public void add_action() throws Exception {
         //TC 4 Add Action.
         ProjectBREPageObj.DoubleClickOnTrue1();
@@ -179,7 +194,10 @@ public class ProjectBREMedicalChartTest extends BasePage
         ProjectBREPageObj.ClickOnActionType();
         Thread.sleep(2000);
     }
-    @Test(priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 005  - set_document_status_ready")
+    @Description("verify user able to set_document_status_ready")
+    @Test (priority=5,groups="smoke", description = "verify set_document_status_ready")
     public void set_document_status_ready() throws Exception {
         //TC 5 Set Document Status = Ready.
         ProjectBREPageObj.ClickOnSetDocumentStatus();
@@ -203,7 +221,10 @@ public class ProjectBREMedicalChartTest extends BasePage
         //ProjectBREPageObj.ClickOnDocumentValue();
         //Thread.sleep(2000);
     }
-    @Test(priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 006  - set_document_status_rejected")
+    @Description("verify user able to set_document_status_rejected")
+    @Test (priority=6,groups="smoke", description = "verify set_document_status_rejected")
     public void set_document_status_rejected() throws Exception {
             //TC 6 Document Status = Rejected.
 //            ProjectBREPageObj.SelectDocumentStatusR();

@@ -204,7 +204,6 @@ public class ProjectPage   {
     }
 
     public void ClickSearchLead(String text) throws Exception{
-
         driver.findElement(SearchLead).sendKeys(text);
     }
 
