@@ -25,15 +25,17 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
         }
 
         @AfterClass
-//        public void cleanUp() throws Exception {
-//                driver.quit();
-//        }
+        public void cleanUp() throws Exception {
+                driver.quit();
+        }
 
         @Test(priority = 1)
         public void enterProjecPagetData() throws Exception {
                 Robot r = new Robot();
                 ProjectPageObj = new ProjectPage(driver);
+                ProjectBREPageObj=new ProjectBREPage(driver);
                 //Object Creation.
+                Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
                 ProjectPageObj.ClickOnCreateProjectBtn();
                 //Navigate to Project Page.
                 ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREProjectName"));
@@ -70,6 +72,7 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 Thread.sleep(2000);
                 //Navigate to Data Page. Adding Variables for Name, Address, State.
                 ProjectPageObj.ClickNextPage();
+                AssertionsFunction.isPresent(ProjectPageObj.NextPage);
 
 
 
@@ -80,6 +83,7 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
         @Test (priority=2)
         public void enterVariable  ()  throws Exception
         {
+                ProjectBREPageObj=new ProjectBREPage(driver);
                 ProjectBREPageObj.ClickOnExpandVariables();
                 AssertionsFunction.verifyElementPresent(ProjectBREPageObj.AddVariablesButton);
                 ProjectBREPageObj.ClickOnAddVariables();
@@ -170,9 +174,9 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
 
         public void addAndDeleteRulesButton() throws Exception
         {
+                ProjectBREPageObj=new ProjectBREPage(driver);
 
-
-
+                ProjectPageObj = new ProjectPage(driver);
                 //Navigate to Rules Page.
                 ProjectBREPageObj.ClickOnNextPageButton();
                 ProjectBREPageObj.ClickOnThreeDotsButton();
@@ -228,6 +232,7 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
         @Test(priority =4)
         public void bre_applied_to_name_fail() throws Exception {
                 //TC-2 BRE Applied to NAME-Fail.
+                ProjectBREPageObj=new ProjectBREPage(driver);
                 ProjectBREPageObj.DoubleClickOnFalse();
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 AssertionsFunction.verifyElementPresent(ProjectBREPageObj.FalseConditionBox);
@@ -238,6 +243,7 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnSave();
                 AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
+                AssertionsFunction.isPresent(ProjectBREPageObj.FalseBox);
 
 
         }
@@ -245,6 +251,7 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
         public void bre_applied_to_address_pass() throws Exception {
                 //Adding Second Rule for Address.
                 //TC-3 BRE Applied to Address = Pass.
+                ProjectBREPageObj=new ProjectBREPage(driver);
                 ProjectBREPageObj.ClickOnAddRulesButton();
                 ProjectBREPageObj.ClickOnExpandSecondRule();
 
@@ -321,6 +328,7 @@ Thread.sleep(2000);
                 Thread.sleep(2000);
 
         }
+
         @Test(priority = 8)
         public void bre_applied_to_state_fail() throws Exception {
                 //TC-6 BRE Applied to State-Fail.

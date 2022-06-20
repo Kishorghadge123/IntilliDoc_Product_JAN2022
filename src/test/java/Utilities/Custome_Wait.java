@@ -27,7 +27,6 @@ public class Custome_Wait {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-
 	public static void waitElement (WebDriver driver, WebElement element) {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 

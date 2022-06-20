@@ -10,11 +10,10 @@ import org.openqa.selenium.interactions.Actions;
 public class ProjectBREPage extends AssertionsFunction {
 
     WebDriver driver = null;
-
+//locators
     public String ProjectPageURL ="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
-
     public static By PeojectData=By.xpath("//span[contains(text(),'Project Data')]");
-    By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
+   public By NextPageOnRulesPage = By.xpath("(//span[contains(text(),'Next')])[2]");
     By ThreeDots = By.xpath("//mat-icon[contains(text(),'menu')]");
     public static By ExpandPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; transform: none; visibility: visible;']");
     public static By ScaleDownPanelOnRulePage = By.xpath("//*[@style='width: 20vw; height: 78vh; box-shadow: none; visibility: hidden;']");
@@ -95,7 +94,7 @@ public class ProjectBREPage extends AssertionsFunction {
 
     By Value = By.xpath("//input[@placeholder='value']");
     public static By ActionValue = By.xpath("//input[@data-placeholder='Enter name of Condition / Action']");
-    By FalseBox = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[2]");
+  public   By FalseBox = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[2]");
     public   By FalseBox2 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[4]");
     public By FalseBox3 = By.xpath("(//div[@class='opacity7 font-12 pt-3 text-center actionCardHeading'])[6]");
     By state=By.xpath("//span[@class='mat-tooltip-trigger text-center font-16 mt-2 opacity3 pointer h5 edit_rulename ng-star-inserted']");

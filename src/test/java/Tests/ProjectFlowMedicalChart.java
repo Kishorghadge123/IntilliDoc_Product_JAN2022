@@ -22,8 +22,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
-   @AfterClass
+    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();

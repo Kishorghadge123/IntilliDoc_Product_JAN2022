@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class ProjectBREDataSetPage   {
 
 
-    WebDriver driver = null;
+ WebDriver driver = null;
+    //locator
 public  String breurl="https://alpha.neutrino-ai.com/#/home/project-management/create-project";
     public ProjectBREDataSetPage(WebDriver driver) {
         this.driver = driver;

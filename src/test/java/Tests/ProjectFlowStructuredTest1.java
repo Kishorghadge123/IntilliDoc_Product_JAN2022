@@ -18,6 +18,7 @@ public class ProjectFlowStructuredTest1 extends BasePage {
     {
         driver.quit();
     }
+
     @Test(priority = 1)
     public void disable_active_project_on_Project_page() throws Exception {
 
@@ -42,6 +43,7 @@ Thread.sleep(15000);
     @Test(priority = 2)
     public void verify_disabled_project_on_Project_page() throws Exception {
         //TC 1.2 Verify Disable Project in List View.
+        //TC 18.20 Verify the Functionality of Table Structure.
         ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
         ProjectPageObj.TableStructure();
         Custome_Wait.waitElement(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));

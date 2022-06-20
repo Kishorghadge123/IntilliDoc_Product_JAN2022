@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class TakesScreen {
 
-        public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception
         {
             File screenshot = ((TakesScreenshot) webdriver).getScreenshotAs(OutputType.FILE);
 

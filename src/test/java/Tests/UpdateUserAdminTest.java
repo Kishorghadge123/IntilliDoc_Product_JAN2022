@@ -18,7 +18,6 @@ public class UpdateUserAdminTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-
     @Step("closed the browser")
     @AfterClass
     public void cleanUp() throws Exception

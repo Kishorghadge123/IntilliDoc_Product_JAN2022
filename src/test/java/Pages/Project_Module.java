@@ -23,8 +23,7 @@ public class Project_Module
 
 	WebDriver driver;
 
-	//locators for project module
-
+//locators
 	By ClickDocumentStructure = By.xpath("//*[@formcontrolname='documentStructure']");
 	public static By SelectStructure = By.xpath("//span[contains(text(),'Structured')]");
 	By clickfreeform=By.xpath("//span[contains(text(),' Free-Form ')]");

@@ -128,7 +128,6 @@ Thread.sleep(1000);
         Thread.sleep(10000);
         ProjectBREStructureChartDocumentPageobj.clickOnstructurePdf();
         Thread.sleep(2000);
-
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
         Thread.sleep(2000);
         ProjectBREStructureChartDocumentPageobj.getCancelButton();
@@ -161,6 +160,7 @@ Thread.sleep(1000);
     @Test(priority = 5)
     public void Observe_tooltip_for_text_overflow() throws  Exception{
         //In 736 Tooltip consistency in Document Navigator and Document Viewer
+        //838 Revamp of the screen, when, no projects/templates/roles are available, ie, when the screen is blank in the respective sections
         Robot r=new Robot();
         LoginUser.login_users(driver, "di-admin@neutrinotechsystems.com", "Nts#admin@123");
         Thread.sleep(2000);

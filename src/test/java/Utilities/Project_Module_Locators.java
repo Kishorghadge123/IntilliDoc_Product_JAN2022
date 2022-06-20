@@ -11,7 +11,6 @@ public class Project_Module_Locators
 	//locators for login test cases
 	
 	WebDriver driver;
-
 	@FindBy (xpath="//input[@formcontrolname='userName']")
 	public WebElement userName;
 	

@@ -6,6 +6,9 @@ import Utilities.AssertionsFunction;
 import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.*;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import Utilities.Custome_Wait;
 import org.testng.asserts.Assertion;
@@ -19,8 +22,6 @@ public class RoleWiseTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-
-
     @AfterClass
     public void cleanUp() throws Exception
     {
@@ -161,8 +162,11 @@ roleAccessObj.verify_supervisor_role_access_template();
 
 
     @Test(priority = 12)
-    public void operator_role_with_valid_login() throws InterruptedException, IOException {
+    public void operator_role_with_valid_login() throws Exception{
         //TC 19.12 Operator ROle Login with Valid ID and PWD.
+        roleAccessObj = new RoleAccessPage(driver);
+        driver.get(ReadProps.readAttr("URL"));
+        driver.manage().window().maximize();
         roleAccessObj.setUsername(ReadProps.readAttr("OperatorUser"));
         roleAccessObj.setPassword(ReadProps.readAttr("OperatorPwd"));
         roleAccessObj.clickLoginButton();
@@ -170,6 +174,8 @@ roleAccessObj.verify_supervisor_role_access_template();
         roleAccessObj.clickProfileIcon_operator_role();
         Thread.sleep(3000);
         roleAccessObj.verify_operator_role_with_valid_login();
+        Thread.sleep(2000);
+
     }
 
 
@@ -179,6 +185,8 @@ roleAccessObj.verify_supervisor_role_access_template();
     @Test(priority = 13)
     public void operator_role_access_document() throws InterruptedException, IOException {
         //TC 19.13 Operator Role Access Document.
+
+        Thread.sleep(7000);
         roleAccessObj.clickOperatorDocument();
         Thread.sleep(3000);
 

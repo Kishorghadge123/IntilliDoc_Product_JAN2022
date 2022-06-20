@@ -19,7 +19,6 @@ import java.nio.file.Paths;
                             FileInputStream(ReadProps.readAttr("GOOGLE_APPLICATION_CREDENTIALS")))).build();
             Storage storage = storageOptions.getService();
 
-
             BlobId blobId = BlobId.of(bucketName, objectName);
             BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
             storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));

@@ -1,9 +1,9 @@
 package Tests;
 
 import Base.BasePage;
+import Pages.DocumentPage;
 import Pages.TemplatePage;
 import Utilities.AssertionsFunction;
-import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import Utilities.Scroll_Page;
 import org.openqa.selenium.By;
@@ -20,9 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class TemplateTest extends BasePage {
     static TemplatePage TemplatePageObj;
     String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
-
-
-
+    static DocumentPage DocPageObj;
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -30,17 +28,17 @@ public class TemplateTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception
-    {
-        driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception
+//    {
+//        driver.quit();
+//    }
     @Test(priority = 1)
     public void create_template_with_invalid_name() throws Exception {
         TemplatePageObj = new TemplatePage(driver);
         Robot r = new Robot();
         TemplatePageObj.ClickTemplateBtn();
-Thread.sleep(4000);
+        Thread.sleep(4000);
         //TC 20.1 - Create Template with Invalid Name and Chosen File.
         TemplatePageObj.ClickOnUploadTemplateBtn();
         Thread.sleep(2000);
@@ -100,6 +98,7 @@ Thread.sleep(4000);
         TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique")); //AutoSample
         TemplatePageObj.ClickOnExpandTemplate();
         TemplatePageObj.ClickOnTemplateDataInfo();
+        Thread.sleep(5000);
         AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
         Thread.sleep(1000);
 
@@ -135,6 +134,7 @@ Thread.sleep(4000);
     @Test(priority = 8)
     public void delete_created_template_single_page() throws Exception {
         //TC 20.8 Delete created template (Single Page).
+
         TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique"));
         TemplatePageObj.ClickOnExpandTemplate();
         TemplatePageObj.DeleteTemplate();
@@ -149,6 +149,7 @@ Thread.sleep(4000);
     @Test(priority = 9)
     public void create_template_with_more_pages() throws Exception {
         //TC 20.9 Create Template with more pages.
+        //Tc 20.12 Verify the Template functionality of the Platform Admin to Delete created template (Multipage Page).
         TemplatePageObj.ClickOnUploadTemplateBtn();
         Thread.sleep(2000);
         TemplatePageObj.ClickOnTemplateNameNew(ReadProps.readAttr("TNameMorePages"));
@@ -212,6 +213,7 @@ Thread.sleep(4000);
     @Test(priority = 14)
     public void sortingOnTemplatePage() throws Exception {
 
+
         TemplatePageObj.ClickTemplateBtn();
         TemplatePageObj.verifySortingOnTemplatePage("TempalteName");
         TemplatePageObj.verifySortingOnTemplatePage("Projects");
@@ -219,133 +221,63 @@ Thread.sleep(4000);
         TemplatePageObj.verifySortingOnTemplatePage("Training");
         TemplatePageObj.verifySortingOnTemplatePage("Updated");
         TemplatePageObj.verifySortingOnTemplatePage("Created");
+        TemplatePageObj.clickoncompletedoc();
+        AssertionsFunction.isPresent(TemplatePageObj.completedoc);
+        Thread.sleep(7000);
     }
-
     @Test(priority = 15)
-    public void selected_template_loaded_or_not() throws Exception {
-        //TC 20.5 Search Created template.
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-
-    }
-
-
-    @Test(priority = 16)
-    public void fieldname_should_be_visiable_editable() throws Exception {
-        //TC 20.5 Search Created template.
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(1000);
-        TemplatePageObj.clickonName();
+    public void over_atrribute_list() throws Exception {
+        //IN-80 Template training show/highlight marked regions
+        //IN558 Introduction of mandatory fields for the attributes
+        TemplatePageObj.Hovername();
+        TemplatePageObj.Hoverstate();
+        TemplatePageObj.Hoverzip();
+        TemplatePageObj.clickonnamecheckbox();
+            Thread.sleep(3000);
+            TemplatePageObj.clickonupdate();
+            Thread.sleep(2000);
+            TemplatePageObj.ClickCompleteTraining();
+                Thread.sleep(20000);
+DocumentPage DocPageObj=new DocumentPage(driver);
+        Thread.sleep(20000);
+        DocPageObj.ClickDocumentBtn();
+        Thread.sleep(20000);
+        DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-
-    }
-
-    @Test(priority = 17)
-    public  void Validation_type_should_be_visible_and_delete() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
+//Search Medical Chart Project.
+        DocPageObj.ClickSearchProject(ReadProps.readAttr("TEMPPROJECT"));
+        Thread.sleep(2000);
+        DocPageObj.selectstructproject();
+        Thread.sleep(20000);
+        DocPageObj.clickonstructreadyDocument();
+        Thread.sleep(10000);
+        DocPageObj.clickonchartdata();
         Thread.sleep(9000);
-        TemplatePageObj.deletefield();
+
+
+    }
+    @Test(priority = 16)
+    public  void verify_semi_struct_rejected_document() throws Exception{
+
+      DocumentPage DocPageObj=new DocumentPage(driver);
+      TemplatePage TemplatePageObj=new TemplatePage(driver);
+
+        Thread.sleep(10000);
+        DocPageObj.ClickDocumentBtn();
+        Thread.sleep(10000);
+        DocPageObj.ClickDropDownBtn();
         Thread.sleep(2000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-    }
-    @Test(priority = 18)
-    public  void Working_of_CancleUpdate_Button() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(1000);
-        TemplatePageObj.clickonName();
+//Search Medical Chart Project.
+        DocPageObj.ClickSearchProject(ReadProps.readAttr("semistructprojectname"));
         Thread.sleep(2000);
-        TemplatePageObj.clickoncancelupdatebtn();
+        DocPageObj.selectsemiproject();
+        Thread.sleep(10000);
+        DocPageObj.clickonsemistructreadyDocument();
+        Thread.sleep(10000);
+        DocPageObj.clickonchartdata();
         Thread.sleep(2000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-
+        DocPageObj.clickonattributedropdown();
+        Thread.sleep(2000);
+        TemplatePageObj.refreshPage();
     }
-
-
-    @Test(priority = 19)
-    public  void Working_of_completetrainingbutton() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-
-    }
-    @Test(priority = 20)
-    public  void Working_of_savedraft() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        TemplatePageObj.ClickSaveDraft();
-
-    }
-    @Test(priority = 21)
-    public  void Working_of_cancelbutton() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-        TemplatePageObj.ClickCancel();
-
-    }
-    @Test(priority = 22)
-    public  void tempalte_name_should_display() throws Exception{
-        TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
-        TemplatePageObj.ClickOnExpandTemplate();
-        AssertionsFunction.isPresent(TemplatePageObj.TemplateDataInfo);
-        Thread.sleep(1000);
-        TemplatePageObj.clickoncompletedoc();
-        Thread.sleep(15000);
-      TemplatePageObj.getname();
-      Thread.sleep(2000);
-        TemplatePageObj.ClickCompleteTraining();
-        AssertionsFunction.isPresent(TemplatePageObj.CompleteTraining);
-
-
-    }
-
-
 }

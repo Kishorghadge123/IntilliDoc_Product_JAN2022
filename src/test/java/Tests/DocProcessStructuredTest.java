@@ -23,8 +23,7 @@ public class DocProcessStructuredTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
-   @AfterClass
+    @AfterClass
     public void cleanUp() throws Exception
     {
 
@@ -123,7 +122,6 @@ Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),' P
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
-
     @Test(priority = 6)
     public void sorting() throws Exception {
         //TC 10.6 sorting.
@@ -170,6 +168,11 @@ Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),' P
     @Test(priority = 9)
     public void anticlockwise_clockwise_zoomin_zoomout_navigate_right_left() throws Exception {
         //TC 10.9 Anti-Clock Wise, Clock Wise, Zoom IN, Zoom Out, Navigate Right and Navigate Left.
+       //TC 10.11 Verify  the  Zoom In Functionality for the Structured Project for the Platform Admin.
+        //TC 10.12 Verify  the  Zoom out Functionality for the Structured Project for the Platform Admin.
+        //TC-10.13 Verify the Navigate Right (Next Page) Functionality for the Structured Project for th
+        //TC 10.14 Verify the Navigate left Functionality for the Structured Project for th
+        //TC10.10 Verify  the Clock  Wise  Functionality for the Structured Project for the Platform Admin.
         DocPageObj.ClickSearchBox("form 1040.pdf");
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//mat-icon[contains(text(),'search')]")));
         DocPageObj.ClickSearchDocument();
@@ -208,6 +211,9 @@ Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),' P
     public void verify_tooltip() throws InterruptedException, IOException, AWTException {
         DocPageObj.ClickDocumentBtn();
         //TC 10.1 Search Project.
+        //TC 10.16 Verify Tooltip should display for long text Project Name which is selected
+        //TC 10.15 Verify Tooltip should display for long text Project Name in Project Name List
+       //TC 10.17 Verify Tooltip should display for long text Document Name in Document list
         DocPageObj.ClickDropDownBtn();
         Thread.sleep(5000);
         DocPageObj.ClickSearchProject("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View");

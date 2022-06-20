@@ -11,7 +11,7 @@ public class CreateRolePage {
     WebDriver driver = null;
     //TC 6.1 element locators
 
-    public static By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
+    public static By RoleManagementBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[2]");
     public static By CreateRoleBtn = By.xpath("//span[contains(text(),' Create Role ')]");
     public  static By project=By.xpath("//span[contains(text(),' Create Project ')]");
     public By ClickCreate = By.xpath("//span[text()= ' Create ']");
@@ -20,7 +20,7 @@ public class CreateRolePage {
     By AddPermission = By.xpath(" //button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By validationMsg=By.xpath("//*[text()='Only alphabets,digits,parenthesis and hyphens are allowed while giving a role name.']");
-    By Cancel=By.xpath("(//span[contains(text(),'Cancel')])[2]");
+   public By Cancel=By.xpath("(//span[contains(text(),'Cancel')])[2]");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
     By createrole=By.xpath("//span[contains(text(),' AutoAdminPA2304 ')]");
     By EditRole = By.xpath("(//td[@role='gridcell'])[1]"); //edit by suwarna  and work for all role selection
@@ -38,6 +38,11 @@ public class CreateRolePage {
     By RemoveProcessDocPermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
     By UpdateRole = By.xpath("//span[contains(text(),'Update Role')]");
     public static By ClickUpdateBtn = By.xpath("//span[contains(text(),'Update' )]");
+    public By rolesort=By.xpath("(//div[contains(@class,'mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns')])[1]");
+    public By permissionsort=By.xpath("(//div[contains(@class,'mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns')])[2]");
+    public By updatedsort=By.xpath("(//div[contains(@class,'mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns')])[3]");
+    public By createdsort=By.xpath("(//div[contains(@class,'mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns')])[4]");
+
     By RemovePermission = By.xpath("//mat-icon[contains(text(),'cancel')]");
     By Logout = By.xpath("//i[@class='fa fa-power-off']");
     By LoginBtn = By.xpath("//button[@type='submit']");
@@ -108,6 +113,38 @@ public class CreateRolePage {
 
 
     }
+
+    public void rolesorting(){
+        driver.findElement(rolesort).click();
+    }
+
+    public void permissionsorting(){
+        driver.findElement(permissionsort).click();
+    }
+    public void updatedsorting(){
+        driver.findElement(updatedsort).click();
+    }
+
+    public void createdsorting(){
+        driver.findElement(createdsort).click();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public  void clickcancel(){
 
         driver.findElement(Cancel).click();
@@ -136,9 +173,6 @@ public class CreateRolePage {
         driver.findElement(ActiveRole).click();
 
     }
-
-
-
     public void ClickCreateButton() throws Exception{
         driver.findElement(ClickCreate).click();
 

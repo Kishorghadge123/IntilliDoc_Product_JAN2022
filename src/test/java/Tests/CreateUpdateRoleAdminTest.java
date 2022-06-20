@@ -19,10 +19,10 @@ public class CreateUpdateRoleAdminTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception {
+//        driver.quit();
+//    }
     @Test(priority = 1)
     public void login_with_valid_details() throws Exception {
         driver.get(ReadProps.readAttr("URL"));
@@ -32,12 +32,13 @@ public class CreateUpdateRoleAdminTest extends BasePage {
         CreateRolePageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
         CreateRolePageObj.EnterPassword(ReadProps.readAttr("AdminPwd"));
         CreateRolePageObj.ClickLoginButton();
-       Thread.sleep(70000);
+        Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
         CreateRolePageObj.ClickRoleManagementBtn();
-        Thread.sleep(5000);
+       Custome_Wait.wait(driver,driver.findElement(By.xpath("//div[contains(text(),'Roles ')]")));
         CreateRolePageObj.ClickCreateRoleBtn();
         Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
+
      driver.navigate().back();
      Thread.sleep(9000);
         //Assert.assertEquals(errormsg,errormsgBlankDataCreateRoleClick);
@@ -75,6 +76,7 @@ Thread.sleep(3000);
     @Test(priority = 4)
     public void blank_role_name_valid_permission() throws Exception {
         //TC 2.4 Blank RoleName and Valid Permission.
+      //TC2.8  Verify the working of admin for Create role button when user status is enabled
         CreateRolePageObj.ClickActiveRole();
         CreateRolePageObj.AddPermissionPlusBtn();
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),' View Role ')]")));
@@ -86,9 +88,6 @@ Thread.sleep(3000);
         Thread.sleep(10000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(rolepageurl);
-Thread.sleep(3000);
-
 
 
     }
@@ -218,7 +217,7 @@ Thread.sleep(2000);
 
 
     }
-    @Test(priority = 13)
+    @Test(priority = 12)
     public void Creating_role_invalid_data_in_RoleName_Permissions() throws Exception {
         //TC-3.2 Verify the working of admin for Creating role by putting invalid data in Role name, blank Permissions
         Thread.sleep(3000);
@@ -235,7 +234,7 @@ Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(rolepageurl);
         Thread.sleep(3000);
     }
-    @Test(priority = 14)
+    @Test(priority = 13)
     public void Creating_role_invalid_data_with_disabled_status() throws Exception {
         //TC 3.5 Verify the working of admin for Create role button when user status is disabled
        Thread.sleep(5000);
@@ -258,7 +257,7 @@ Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(rolepageurl);
         Thread.sleep(3000);
     }
-    @Test(priority = 15)
+    @Test(priority = 14)
     public void Updating_role_invalid_data_RolenamePermissions() throws Exception {
         //TC 4.2  Verify the working of admin for Updating the role by putting invalid data in Role name,Permissions
         Thread.sleep(5000);
@@ -271,7 +270,7 @@ Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(rolepageurl);
         Thread.sleep(3000);
     }
-    @Test(priority = 16)
+    @Test(priority = 15)
     public void Sorting_role() throws InterruptedException {
         //TC 6.1 Sorting by role, permission,updated,created
       Thread.sleep(3000);
@@ -280,9 +279,24 @@ Thread.sleep(2000);
         CreateRolePageObj.ClickLogout();
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(loginPage_url);
-
+Thread.sleep(3000);
 
     }
 
+
+
+
+    @Test(priority = 16)
+    public  void sorting_on_role_permission_updated_created() throws Exception{
+        //IN2.16 Sorting by role, permission,updated,created
+        CreateRolePageObj.rolesorting();
+        CreateRolePageObj.permissionsorting();
+        CreateRolePageObj.updatedsorting();
+        CreateRolePageObj.createdsorting();
+        AssertionsFunction.verifyTargetPageURL(rolepageurl);
+        Thread.sleep(3000);
+
+
+    }
 
 }

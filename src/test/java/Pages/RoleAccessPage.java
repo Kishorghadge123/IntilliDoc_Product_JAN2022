@@ -11,7 +11,8 @@ import org.testng.Assert;
 
 public class RoleAccessPage {
     WebDriver driver = null;
-    //Actions act = new Actions(driver);
+ //locator
+
     public  String rolepageurl="https://alpha.neutrino-ai.com/#/home/project-management";
    public  String crateroleurl="https://alpha.neutrino-ai.com/#/home/role-management";
    public By help=By.xpath("//button[contains(text(),'Help')]");
@@ -19,14 +20,14 @@ public class RoleAccessPage {
     By password = By.xpath("//input[@formcontrolname='password']");
     By loginBtn = By.xpath("//button[@type='submit']");
    public By Logout = By.xpath("//i[@class='fa fa-power-off']");
-    By Document=(By.xpath("//i[@class='mat-tooltip-trigger fa fa-file-text m-0 side-icon ng-star-inserted']"));
-    By Project = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted'][1]");
+    By Document=(By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]"));
+    By Project = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
     By ProjectForSupervisor = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
     By ProjectForOperator = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
-    By Role =By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
+    By Role =By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[2]");
     By createrole=By.xpath("//span[contains(text(),' Create Role ')]");
-    By Template = By.xpath("//i[@class='mat-tooltip-trigger fa fa-newspaper-o m-0 side-icon ng-star-inserted']");
-    By Analytics = By.xpath("//i[@class='mat-tooltip-trigger fa fa-cubes m-0 side-icon ng-star-inserted']");
+    By Template = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
+    By Analytics = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
     By profileIconAdmin=By.xpath("(//div[text()='A'])[1]");
     public  static By forgotpassword= By.xpath("//a[contains(text(),'Forgot Password?')]");
     By ProfileIcon_SupervisorUser= By.xpath("//button[@class='mat-focus-indicator mat-tooltip-trigger mat-menu-trigger mat-icon-button mat-button-base mat-accent']");
@@ -49,7 +50,7 @@ public class RoleAccessPage {
     @Step("click OperatorDocument")
     public  void clickOperatorDocument(){
         Actions act = new Actions(driver);
-        WebElement ele2= driver.findElement(By.xpath("//i[@class='mat-tooltip-trigger fa fa-file-text m-0 side-icon ng-star-inserted']"));
+        WebElement ele2= driver.findElement(By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]"));
         act.doubleClick(ele2).perform();
     }
 
@@ -111,7 +112,7 @@ public class RoleAccessPage {
     @Step(" click Double_clickSupervisorTemplate")
     public void Double_clickSupervisorTemplate() {
         Actions act = new Actions(driver);
-        WebElement ele2 = driver.findElement(By.xpath("//i[@class='mat-tooltip-trigger fa fa-newspaper-o m-0 side-icon ng-star-inserted']"));
+        WebElement ele2 = driver.findElement(By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]"));
         act.doubleClick(ele2).perform();
     }
 

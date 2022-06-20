@@ -56,8 +56,7 @@ public class LoginTest extends BasePage {
         //TC 14.1 - Login with Blank Username and Blank Password for Platform Admin.
         loginPageObjects.clickOnLoginButtonForInvalidInput();
     }
-
-   @Test(priority = 2)
+    @Test(priority = 2)
     public static void login_with_invalid_username_and_blank_password() throws Exception {
         //TC 14.2 - Login with Invalid Username and Blank Password for Platform Admin.
         ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));

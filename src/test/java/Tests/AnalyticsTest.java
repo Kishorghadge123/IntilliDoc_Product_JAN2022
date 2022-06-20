@@ -5,6 +5,7 @@ import Pages.AnalyticsPage;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.LoginUser;
+import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,6 @@ import java.awt.*;
 
 
 @Listeners(Utilities.TestListeners.class)
-
 public class AnalyticsTest extends BasePage
 {
     static AnalyticsPage AnalyticsPageObj;
@@ -34,10 +34,16 @@ public class AnalyticsTest extends BasePage
     @Test(priority = 1)
     public void test_organization_arrows_on_analytics_page() throws Exception {
         //Object Creation.
+        //1.1. Verify the analytics functionality of the Platform Admin to Hide and UnHide organization statistics.
+        //1.16 To check whether navigate to Analytics section
+        //1.17 Verify project statistics displayed
+        //1.18Verify the working of dropdown button project statistics displayed
         AnalyticsPageObj = new AnalyticsPage(driver);
+       Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
+
         AnalyticsPageObj.ClickAnalyticsBtn();
 
-
+Thread.sleep(4000);
         // 1.1 Organization Statistics and Project Statistics Hide and UnHide.
         AnalyticsPageObj.ClickOrganizationArrow();
         AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsHidden);
@@ -46,11 +52,6 @@ public class AnalyticsTest extends BasePage
         AnalyticsPageObj.clickProjectStatisticsarrow();
         AssertionsFunction.verifyElementPresent(AnalyticsPage.ProjectStatistics);
         AssertionsFunction.verifyTargetPageURL(AnalyticsPageObj.analyticurl);
-
-
-
-
-
 
     }
     @Test(priority = 2)
@@ -186,16 +187,36 @@ Thread.sleep(2000);
     @Test(priority = 16)
     public void select_daily_data_on_Analytics_page() throws Exception {
         //1.16 Daily Data.
+        //1.19Verify the working of Vertical Scroll bar
         AnalyticsPageObj.ClickSelectDaily();
         Thread.sleep(2000);
         AnalyticsPageObj.ClickOnSortByReceived();
         AnalyticsPageObj.ClickOnSortByDocuments();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,10000)", "");
-        Thread.sleep(10000);
-        LoginUser.logoutUser(driver);
-       Thread.sleep(8000);
-        AssertionsFunction.verifyTargetPageURL(AnalyticsPageObj.loginurl);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0,10000)", "");
+//        Thread.sleep(10000);
+//        LoginUser.logoutUser(driver);
+//       Thread.sleep(8000);
+//        AssertionsFunction.verifyTargetPageURL(AnalyticsPageObj.loginurl);
+
+    }
+    @Test(priority = 17)
+    public void BRE_Analytics_Implementation() throws Exception{
+        //IN832 BRE Analytics- Implementation
+
+        AssertionsFunction.verifyElementPresent(AnalyticsPage.ProjectStatistics);
+AnalyticsPageObj.ClickProjectDownArrow();
+
+        AnalyticsPageObj.ClickSearchProjectNew(ReadProps.readAttr("ProjectBRE"));//change this name in Obj file.
+        Thread.sleep(2000);
+        AnalyticsPageObj.ClickSelectNewProject();
+        Thread.sleep(4000);
+        AnalyticsPageObj.ClickSelectDropDown();
+        AnalyticsPageObj.ClickSelectOverall();
+        AssertionsFunction.isPresent(AnalyticsPageObj.SelectOverall);
+Thread.sleep(1000);
+
+
 
     }
 }

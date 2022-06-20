@@ -16,6 +16,8 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
     public void cleanUp() throws Exception {
         driver.quit();
     }
+
+
     @Test(priority = 1)
     public void verify_rejected_document_no_data_extracted_on_medical_chart() throws Exception { //Object Creation.
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);

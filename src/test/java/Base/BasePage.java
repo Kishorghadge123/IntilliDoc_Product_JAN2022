@@ -44,7 +44,7 @@ public class BasePage {
 
     public static void AdminLoginTest() throws Exception {
 
-        loginPageObjects = new LoginPage(driver);
+        loginPageObjects =  new LoginPage(driver);
         ProjectPageObj = new ProjectPage(driver);
         driver.get(ReadProps.readAttr("URL"));
         driver.manage().window().maximize();

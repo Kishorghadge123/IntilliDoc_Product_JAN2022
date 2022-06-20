@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 public class ProjectBRESemiStructurePage {
 
-
     WebDriver driver = null;
+    //locators
     By selectFirst=By.xpath("//span[contains(text(),'Manifest Quantity')]");
     By submitbtn=By.xpath("//span[contains(text(),'Submit')]");
     By submitbtn2=By.xpath("(//div[@class='modal-footer'])//button[1]");

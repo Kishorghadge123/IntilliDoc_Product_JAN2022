@@ -5,8 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class ProjectFlowStructuredPage1 {
 
+
+
     WebDriver driver = null;
-    //Web Elements Declaration.
+//locators
     public  String projecturl="https://alpha.neutrino-ai.com/#/home/project-management";
     By ClickSearchBox = By.xpath("//input[@placeholder='Search']");
     By EditProjectBtn = By.xpath("//mat-icon[contains(text(),'create')]");

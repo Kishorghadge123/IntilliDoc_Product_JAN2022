@@ -9,9 +9,8 @@ import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 
 public class DatasetPage {
-
-        WebDriver driver = null;
-        public static By DatasetBtn = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-database ')]");
+    WebDriver driver = null;
+        public static By DatasetBtn= By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[4]");
         public static By AddCategoryBtn = By.xpath("//span[contains(text(),'Add Category')]");
         By CategoryName = By.xpath("//input[@formcontrolname='newCategoryName']");
         By CreateCategory = By.xpath("//span[contains(text(),'Create Category')]");

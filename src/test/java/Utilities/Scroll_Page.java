@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Scroll_Page 
 {
-	
 	public static void scroll_down_page(WebDriver driver) throws Exception
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;

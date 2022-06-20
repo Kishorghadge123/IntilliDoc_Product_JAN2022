@@ -42,7 +42,6 @@ public class FunctionalTabTest extends BasePage
         FunctionalTabObj.verifyNtab();
 
     }
-
     @Test(priority = 3)
     public void horizontal_roles_tab() throws Exception {
         //TC 13.3 Horizontal Roles Tab and Navigate Backward.
@@ -91,7 +90,7 @@ public class FunctionalTabTest extends BasePage
     public void horizontal_documents_tab() throws Exception {
         //TC 13.7 Horizontal Documents Tab and Navigate Backward.
         FunctionalTabObj.ClickHorizontalDocuments();
-        Thread.sleep(6000);
+        Thread.sleep(10000);
         FunctionalTabObj.verify_horizontal_documents_tab();
         driver.navigate().back();
         Thread.sleep(5000);

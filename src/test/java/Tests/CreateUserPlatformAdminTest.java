@@ -18,18 +18,17 @@ public class CreateUserPlatformAdminTest extends BasePage {
         BasePage.LoginTest();
     }
 
-    @AfterClass
-    public void cleanUp() throws Exception
-    {
-        driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception
+//    {
+//        driver.quit();
+//    }
 
     @Test(priority = 1)
     public void blank_username_blank_password() throws Exception {
         UserPageObj = new CreateUserPage(driver);
         //TC 5.1 Blank Username and Blank Password.
-
-       Thread.sleep(6000);
+        Thread.sleep(6000);
        UserPageObj.clickOnUserMenu();
         UserPageObj.ClickCreateUserBtn();
         UserPageObj.ClickCreateBtn();
@@ -37,6 +36,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
         AssertionsFunction.isPresent(UserPageObj.CreateBtn);
         Thread.sleep(2000);
     }
+
     @Test(priority = 2)
     public void valid_username_blank_password() throws Exception {
         //TC 5.2 inValid Username no enter emailId.
@@ -86,6 +86,7 @@ public class CreateUserPlatformAdminTest extends BasePage {
     @Test(priority = 7)
     public void create_user_with_existing_username_password() throws Exception {
         //TC 5.7 Create User with Existing Username and Password.
+        //TC 5.12 Verify the working of platform admin role for Create user button when"Active User" toggle button is enabled
         UserPageObj.EnterExistingUserName_or_InvalidUserName(ReadProps.readAttr("InvalidUsernameU"));
         UserPageObj.EnterEmail(ReadProps.readAttr("InvalidEmailU"));
         //added
@@ -178,7 +179,31 @@ public class CreateUserPlatformAdminTest extends BasePage {
 
 
     }
+
+
     @Test(priority = 10)
+    public void search_user() throws Exception
+    {
+        //TC 5.8 Search for Created user.
+        Thread.sleep(2000);
+        UserPageObj.SearchCreatedUser(ReadProps.readAttr("UserNameDisabled"));
+        Thread.sleep(2000);
+        UserPageObj.selectSearchedUser();
+        UserPageObj.ClickOnCancelBtn();
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
+    }
+
+    @Test(priority = 11)
+     public void create_userWith_valid_credential_status_Disabled() throws Exception
+     {
+         //TC 5.13 Verify the working of platform admin role for Create user button when "Active User" toggle button is disabled
+         UserPageObj.ClickCreateUserBtn();
+         UserPageObj.EnterNewUserName(ReadProps.readAttr("UserNameDisabled"));// change this value
+         UserPageObj.EnterEmail(ReadProps.readAttr("UseremailDisabled"));// change this value
+         UserPageObj.ClickCreateBtn();
+     }
+
+    @Test(priority = 12)
     public void create_userWith_valid_credential() throws Exception {
 
         // 5.8 Verify the Users functionality of the Platform Admin to Create User with Valid Details.
@@ -192,32 +217,13 @@ public class CreateUserPlatformAdminTest extends BasePage {
         UserPageObj.ClickCreateBtn();
         Thread.sleep(2000);
         AssertionsFunction.isPresent(UserPageObj.CreateBtn);
-        UserPageObj.ClickOnCancelBtn();
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         Thread.sleep(2000);
+        UserPageObj.ClickOnCancelBtn();
 
     }
-    /* @Test(priority = 11)
-     public void create_userWith_valid_credential_status_Disabled() throws Exception
-     {
-         //TC 5.13 Verify the working of platform admin role for Create user button when "Active User" toggle button is disabled
-         UserPageObj.ClickCreateUserBtn();
-         UserPageObj.EnterNewUserName(ReadProps.readAttr("UserNameDisabled"));// change this value
-         UserPageObj.EnterEmail(ReadProps.readAttr("UseremailDisabled"));// change this value
-         UserPageObj.ClickCreateBtn();
-     }*/
-    @Test(priority = 12)
-    public void search_user() throws Exception
-    {
-        //TC 5.8 Search for Created user.
-        Thread.sleep(2000);
-        UserPageObj.SearchCreatedUser(ReadProps.readAttr("UserNameDisabled"));
-        Thread.sleep(2000);
-        UserPageObj.selectSearchedUser();
-        UserPageObj.ClickOnCancelBtn();
-        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
 
 
-    }
+
+
 
 }

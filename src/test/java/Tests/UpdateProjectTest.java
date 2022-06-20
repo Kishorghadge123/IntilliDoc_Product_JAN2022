@@ -24,9 +24,6 @@ public class UpdateProjectTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
-
-
     @Test(priority = 1)
     public void updating_project_with_valid_data() throws Exception {
         Robot r = new Robot();
@@ -258,7 +255,7 @@ public class UpdateProjectTest extends BasePage {
     }
     @Test(priority = 10)
     public void to_maintain_script_two() throws Exception {
-        //To maintain script.
+      //TC 21.19To maintain script.
         ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(4000);
         ProjectPageObj.SearchProjectAdmin();
@@ -473,7 +470,7 @@ public class UpdateProjectTest extends BasePage {
     }
     @Test(priority = 20)
     public void  create_project_with_blank_data() throws Exception {
-        //TC 21.11 Verify the working of Admin for Update Project button  when role and user status is enabled.
+        //TC 21.18 create_project_with_blank_data .
         Project_Module project = new Project_Module(driver);
         Thread.sleep(10000);
         project.clickOnCreateProjectButton();

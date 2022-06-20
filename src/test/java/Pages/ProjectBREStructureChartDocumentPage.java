@@ -16,9 +16,8 @@ import java.util.Date;
 import org.openqa.selenium.WebDriver;
 
 public class ProjectBREStructureChartDocumentPage {
-
     static WebDriver driver = null;
-
+//locators
     By ele = By.xpath("//span[contains(text(),' text-overflowbythesystemadmin ')]");
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     By Email=By.xpath("//input[@id='mat-input-15']");

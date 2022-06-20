@@ -77,6 +77,7 @@ import java.awt.event.KeyEvent;
             AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
 
         }
+
         @Test(priority = 4)
         public void hide_unhide_analytics() throws Exception {
             //TC 7.4 Hide and UnHide Analytics.
@@ -120,6 +121,8 @@ import java.awt.event.KeyEvent;
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollBy(0,10000)", "");
         }
+
+
         @Test(priority = 7)
         public void items_per_page() throws Exception {
             //TC 7.7 Items Per Page.
@@ -134,6 +137,7 @@ import java.awt.event.KeyEvent;
             DocPageObj.ClickPreviousPage();
             DocPageObj.ClickLastPage();
             DocPageObj.ClickFirstPage();
+            AssertionsFunction.isPresent(DocPageObj.FirstPage);
             Thread.sleep(6000);
 
         }
@@ -156,7 +160,8 @@ import java.awt.event.KeyEvent;
             DocPageObj.ClickZoomOut();
             DocPageObj.ClickNvgtRt();
             DocPageObj.ClickNvgtLft();
-
+            AssertionsFunction.isPresent(DocPageObj.ClickNavigateLeft);
+Thread.sleep(2000);
     }
 
 

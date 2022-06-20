@@ -19,11 +19,10 @@ public class DataSetTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
-    //    @AfterClass
-//    public void cleanUp() throws Exception {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
+    }
     @Test(priority = 1)
     public void create_category_with_blank_name() throws Exception {
         DatasetPageObj = new DatasetPage(driver);
@@ -75,6 +74,8 @@ public class DataSetTest extends BasePage {
         Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(DatasetPageObj.dataSetTabUrl);
     }
+
+
 
     @Test(priority = 5)
     public void add_dataset_with_blank_and_name_chosen_file() throws Exception {

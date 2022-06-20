@@ -17,12 +17,12 @@ public class ProjectPage   {
     WebDriver driver = null;
 
 
-    //Define Project
+//locators
     public static String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
     public  String  EditProjectURL = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6221eeaa994e456345dd1030";
     public String EditProjectAdmin = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6200fd11cc453f40a6baf157";
 public  static By createrolebtn=By.xpath("//span[contains(text(),' Create User ')]");
-    public static By ProjectBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
+    public static By ProjectBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
     public static By CreateProject = By.xpath("//span[contains(text(),' Create Project ')]");
     By ProjectName = By.xpath("//input[@formcontrolname='project']");
     By Lead = By.xpath("//*[@formcontrolname='lead']");
@@ -88,12 +88,13 @@ public  static By createrolebtn=By.xpath("//span[contains(text(),' Create User '
     By SupervisorRoleDisable = By.xpath("//project-roles/mat-expansion-panel/div/div/div[1]/div[3]/div/div[3]/mat-slide-toggle/label[@class='mat-slide-toggle-label']");
     By RulesPage = By.xpath("//span[text()='Next']");
     By CreateButtonOnProjectPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/div[1]/button[1]/span[1]");
-
-
     By ItemsPerPage = By.xpath("//*[@aria-label='Items per page:']");
     By SelectItems = By.xpath("//span[contains(text(),'50')]");
-    By NextPage = By.xpath("//span[contains(text(),' Next')]");
+   public By NextPage = By.xpath("//span[contains(text(),' Next')]");
 public By create=By.xpath("//span[text()='Create']");
+public By field=By.xpath("//span[contains(text(),' Add Fields ')]");
+public By pname=By.xpath("//button[contains(text(),'PatientName')]");
+public By checkbox=By.xpath("(//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin'])[2]");
 public  By createbtutton=By.xpath("(//button[contains(@class,'mat-focus-indicator ml-2 ng-tns')])[1]");
 public By creatbtnforstruct=By.xpath("(//span[contains(text(),' Create')])[2]");
   public   By CancelOnProject = By.xpath("(//button[contains(@class,'mat-focus-indicator ml-2')])[3]");
@@ -182,6 +183,15 @@ public By creatbtnforstruct=By.xpath("(//span[contains(text(),' Create')])[2]");
     }
     public void clickoncreatebtn(){
         driver.findElement(createbtutton).click();
+    }
+    public void addfields(){
+        driver.findElement(field).click();
+    }
+    public  void selectpatientname(){
+        driver.findElement(pname).click();
+    }
+    public void selectdropdown(){
+        driver.findElement(checkbox).click();
     }
 
     public void clickoncreatebtnstruct(){

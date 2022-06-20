@@ -22,6 +22,7 @@ ProjectBREPage ProjectBREPageObj;
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
     @AfterClass
     public void cleanUp() throws Exception
     {

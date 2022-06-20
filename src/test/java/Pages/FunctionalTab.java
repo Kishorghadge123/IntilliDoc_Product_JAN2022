@@ -14,16 +14,14 @@ public class FunctionalTab {
         By HorizontalProjects = By.xpath("//span[contains(text(),'Projects')]");
         By HorizontalDocuments = By.xpath("//span[contains(text(),'Documents')]");
         By HorizontalAnalytics = By.xpath("//span[contains(text(),'Analytics')]");
-        By VerticalUsers = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-users')]");
-        By VerticalRoles = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-id-card ')]");
-        By VerticalTemplates = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-newspaper-o')]");
-        By VerticalDataset = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-database ')]");
-        By VerticalProjects = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-briefcase')]");
-        By VerticalDocuments = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-file-text ')]");
-        By VerticalAnalytics = By.xpath("//i[contains(@class,'mat-tooltip-trigger fa fa-cubes')]");
-
+        By VerticalUsers = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[1]");
+        By VerticalRoles = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[2]");
+        By VerticalTemplates = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
+        By VerticalDataset = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[4]");
+        By VerticalProjects = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
+        By VerticalDocuments = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]");
+        By VerticalAnalytics = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
         public FunctionalTab(WebDriver driver) { this.driver = driver;}
-
         public void ClickNIcon(){ driver.findElement(NIcon).click();}
         public void ClickHorizontalUser(){ driver.findElement(HorizontalUsers).click();}
         public void ClickHorizontalRoles(){ driver.findElement(HorizontalRoles).click();}

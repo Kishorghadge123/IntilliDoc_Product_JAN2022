@@ -17,8 +17,6 @@ public class Verification_Functions
 			System.err.println("Given Field Working as Expected......");
 		}
 	}
-	
-	
 	public static void check_statuses_enable_or_disable(WebDriver driver,WebElement element)
 	{
 	      String color_name = element.getCssValue("color");

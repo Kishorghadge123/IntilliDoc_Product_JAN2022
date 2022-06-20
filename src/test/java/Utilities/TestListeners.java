@@ -77,10 +77,7 @@ public class TestListeners implements ITestListener {
 //
 //    }
 
-
-
-
-        @Override
+    @Override
         public void onTestFailure(ITestResult result) {
             Functions.saveFailureScreenShot();
         }

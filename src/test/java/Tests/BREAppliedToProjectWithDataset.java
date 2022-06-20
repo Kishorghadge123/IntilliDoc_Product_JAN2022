@@ -18,6 +18,8 @@ public class BREAppliedToProjectWithDataset extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
+
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
@@ -27,6 +29,8 @@ public class BREAppliedToProjectWithDataset extends BasePage {
         ProjectPage ProjectPageObj = new ProjectPage(driver);
         //Object creation
         ProjectBREDataSetPage ProjectBREDataSetPageObj = new ProjectBREDataSetPage(driver);
+        Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
+
         Robot r = new Robot();
         //TC-1.1 BRE Applied to NAME RULE Using DataSet = Fail.
         ProjectPageObj.ClickOnCreateProjectBtn();

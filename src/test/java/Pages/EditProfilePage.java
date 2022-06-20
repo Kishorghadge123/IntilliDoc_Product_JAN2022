@@ -8,20 +8,24 @@ import org.testng.Assert;
 public class EditProfilePage
 {
     WebDriver driver = null;
+
+    // Locators
     public static By Profile = By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
     By NightMode = By.xpath("//mat-label[contains(text(),'Night Mode')]");
     public  static By project=By.xpath("//span[contains(text(),' Create Project ')]");
     By DayMode = By.xpath("//mat-label[contains(text(),'Day Mode')]");
     public  static By EditProfile = By.xpath("//button[@id='profile-modal-button']");
+    public By settingbtn=By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[9]");
     By Cancel = By.xpath("//mat-icon[contains(text(),'close')]");
     public  static By Visible = By.xpath("//mat-icon[contains(text(),'visibility')]");
    public By Save=By.xpath(" //span[contains(text(),' Save')]");
+   public By applybtn=By.xpath("//span[contains(text(),' Apply ')]");
+   public By theme=By.xpath("(//img[@class='img-responsive'])[1]");
     public String loginTabUrl="https://alpha.neutrino-ai.com/#/home/project-management";
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
     }
     public  void clickVisible(){driver.findElement(Visible).click();
-
     }
     public void ProfileButton() {
         driver.findElement(Profile).click();
@@ -39,12 +43,21 @@ public class EditProfilePage
         driver.findElement(EditProfile).click();
         Custome_Wait.wait(driver,Save);
     }
+    public  void clickonsettingbtn(){
+        driver.findElement(settingbtn).click();
+    }
     public void CancelButton() {
         driver.findElement(Cancel).click();
         Custome_Wait.wait(driver,project);
     }
+    public void clickontheme(){
+        driver.findElement(theme).click();
+    }
     public void SaveButton(){driver.findElement(Save).click();
         Custome_Wait.wait(driver,project);
+    }
+    public void clickonapplybtn(){
+        driver.findElement(applybtn).click();
     }
 
 

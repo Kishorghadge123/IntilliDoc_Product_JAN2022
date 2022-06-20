@@ -19,8 +19,6 @@ public class Project_Module_TC_For_Supervisor_User extends BasePage
 		driver.quit();
 	}
 
-
-
 	@Test
 			public void verify_project_name_field() throws Exception {
 		driver = Browser_Launch.browser_launch(ReadProps.readAttr("Url"));

@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class CreateUserPage extends BasePage
 {
-    public static By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
+    public static By UserBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[1]");
     public static By CreateUserBtn = By.xpath("//span[text()=' Create User ']");
    public By CreateBtn = By.xpath("//span[text()='Create']");
     By EnterUserName = By.xpath("//input[@formcontrolname='name']");
@@ -34,7 +34,7 @@ public class CreateUserPage extends BasePage
     By Password  = By.xpath("//input[@formcontrolname='password']");
     By logout = By.xpath("//span[@mattooltip='Logout']");
     By ProfileIcon=By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
-    By cancelButton=By.xpath("(//span[contains(text(),'Cancel')])[2]");
+  public   By cancelButton=By.xpath("//button[@tabindex='0']");
     public String homeurl="https://alpha.neutrino-ai.com/#/home";
     public  String userTabUrl="https://alpha.neutrino-ai.com/#/home/user-management";
     public String createUserUrl="https://alpha.neutrino-ai.com/#/home/user-management/create-user";

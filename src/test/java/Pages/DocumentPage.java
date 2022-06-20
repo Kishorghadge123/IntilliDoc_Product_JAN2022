@@ -10,12 +10,28 @@ import org.testng.Assert;
 
 public class DocumentPage {
     WebDriver driver = null;
-    ////mat-sidenav[@id='sidenav']/div/mat-nav-list/mat-list-item[6]
-    public static By DocumentBtn = By.xpath("(//i[contains(@class,\"mat-tooltip-trigger fa fa-file\")])");
+ /////locators
+    public static By DocumentBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]");
+   public static  By sreadydoc=By.xpath("//span[contains(text(),' An - OOLU2632030280.PDF ')]");
     public static By DocumentTable = By.xpath("//div[@class='example-container documentTable']");
+    public By chartdata=By.xpath("//mat-label[contains(text(),'Data')]");
+    public By rejdoc=By.xpath("//span[contains(text(),' Arbor Pharmaceuticals1_(copy).pdf ')]");
+    public  By structdoc=By.xpath("//span[contains(text(),' newstruct.jpg ')]");
+    public By freereadydocument1=By.xpath("//span[contains(text(),' freeeready.tif ')]");
+    public By freedocument1=By.xpath("//span[contains(text(),' QA-AutoProject-FreeForm2504 ')]");
+    public By freeformdoc=By.xpath("//span[contains(text(),' QA-AutoProject-FreeForm2504 ')]");
+    public By atrributedropdown=By.xpath("//span[contains(text(),'Attribute')]");
+    public  By firstattribute=By.xpath("(//span[@class='mat-option-text'])[1]");
+    public By secondattribute=By.xpath("(//span[@class='mat-option-text'])[2]");
+    public By semistruct=By.xpath("//span[contains(text(),' Arbor Pharmaceuticals1_(copy).pdf')]");
     By DropDown = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
+    By readydoc=By.xpath("(//span[contains(text(),' 2 page a matched.pdf ')])[2]");
     By SearchProject = By.xpath("//input[@placeholder='Search' and @class='p-2 theme_color']");
     public By SearchBox = By.xpath("//input[@data-placeholder='Search']");
+    public By projectname=By.xpath("(//span[contains(text(),' gd test 3 ')])[1]");
+    public  By semiprojectname=By.xpath("//span[contains(text(),' Alphasmoke Semistructured ')]");
+   public  By freeformproject=By.xpath("//span[contains(text(),' Alphasmoke Freeform ')]");
+    public  By structprojectname=By.xpath("(//span[contains(text(),' QA-AutoProject-Structured4 ')])[1]");
     public static By SelectStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]");
     public static By SelectSemiStructuredProject = By.xpath("//span[contains(text(),'QA-AutoProject-SemiStructured')]");
     public static By SelectFreeFormProject = By.xpath("//span[contains(text(),'QA-AutoProject-FreeForm')]");
@@ -114,7 +130,7 @@ public class DocumentPage {
     By SavedAttributeValue = By.xpath("//*[@id='tableRow'][1]/mat-cell[2]/div/mat-form-field/div/div[3]");
 
     By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
-    By Submit = By.xpath("//span[contains(text(),'Submit')]");
+   public By Submit = By.xpath("//span[contains(text(),'Submit')]");
     By SubmitChanges = By.xpath("//*[@id='mat-dialog-0']/app-confirmation-dialog/div/div/div[2]/button[1]");
     public static By StatusOfDoc = By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
 
@@ -136,7 +152,7 @@ public class DocumentPage {
     //public static  By PatientNameValue = By.xpath("//input[@pattern='^([a-zA-Z.s\\s])+([a-zA-Z.s\\s()]+)*(-[()a-zA-Z.s\\s]+)*$']");
     By ClassificationNameBtn = By.xpath("//mat-label[contains(text(),'Classification')]");
     By PatientNameBtn = By.xpath("(//mat-cell[contains(text(),' Patient Name ')])[2]");
-    By DeleteRule1Condition1 = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
+   public By DeleteRule1Condition1 = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
     By CNFDeleteRule1Condition1 = By.xpath("//span[contains(text(),'Delete')]");
     By DeleteFirstRule = By.xpath("(//mat-icon[contains(text(),'delete')])[3]");
     By patientDemographics = By.xpath("//div[@class='mat-ripple mat-tab-label mat-focus-indicator mat-tab-label-active ng-star-inserted']");
@@ -237,17 +253,65 @@ public class DocumentPage {
 
     }
 
+    public void clickonReadyDocument(){
+        driver.findElement(sreadydoc).click();
+    }
+    public void clickonchartdata(){
+        driver.findElement(chartdata).click();
+    }
+    public  void clickonrejectdoc(){
+        driver.findElement(rejdoc).click();
+    }
+    public void clickonstructreadyDocument(){
+        driver.findElement(structdoc).click();
+    }
+    public void selectfreeformproject()
+    {
+        driver.findElement(freedocument1).click();
+    }
+
+    public  void clickonfreereadyDocument(){
+        driver.findElement(freereadydocument1).click();
+    }
+
+    public void clickonattributedropdown(){
+        driver.findElement(atrributedropdown).click();
+    }
+public void addfirstattribute(){
+        driver.findElement(firstattribute).click();
+}
+    public void addsecondattribute(){
+        driver.findElement(secondattribute).click();
+    }
+    public void clickonsemistructreadyDocument(){
+        driver.findElement(semistruct).click();
+    }
     public void ClickDropDownBtn() {
         driver.findElement(DropDown).click();
 
 
+    }
+    public void clickonreadyDocument(){
+        driver.findElement(readydoc).click();
     }
 
     public void ClickSearchProject(String text) {
         driver.findElement(SearchProject).sendKeys(text);
         //Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]")));
     }
+    public void selectproject(){
+        driver.findElement(projectname).click();
+    }
 
+    public void selectstructproject(){
+        driver.findElement(structprojectname).click();
+    }
+    public void selectsemiproject(){
+        driver.findElement(semiprojectname).click();
+    }
+public  void selectFreeFormProjrct(){
+        driver.findElement(freedocument1).click();
+}
     public void ClickSelectStructuredProject() {
         driver.findElement(SelectStructuredProject).click();
     }

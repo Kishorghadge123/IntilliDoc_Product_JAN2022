@@ -20,6 +20,7 @@ public class DocProcessMedicalChartTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
     @AfterClass
     public void cleanUp() throws Exception
     {
@@ -180,6 +181,5 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
-
     }
 }

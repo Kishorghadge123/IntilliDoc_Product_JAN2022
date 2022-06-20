@@ -16,11 +16,10 @@ public class ForgetPwdTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-
-    @AfterClass(enabled = false)
-    public void cleanUp() throws Exception {
-        driver.quit();
-    }
+//    @AfterClass()
+//    public void cleanUp() throws Exception {
+//        driver.quit();
+//    }
 
     @Test(priority = 1)
     public void click_on_cancel_button_on_forgot_password() throws Exception {
@@ -50,21 +49,11 @@ public class ForgetPwdTest extends BasePage {
 
 
     }
+
     @Test(priority = 3)
-    public void invalid_email() throws Exception {
-        //TC 12.3 Invalid EmailID.
-        FwdPwdObj.ClickForgetPwdBtn();
-        Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//input[@formcontrolname='email']")));
-        FwdPwdObj.ClickEmailBtn(ReadProps.readAttr("Invalid1"));
-        FwdPwdObj.VerifyAssertEmailID();
-        FwdPwdObj.ClickCancelBtn();
-        AssertionsFunction.verifyTargetPageURL(FwdPwdObj.loginPageUrl);
-
-
-    }
-    @Test(priority = 4)
     public void user_not_exists() throws Exception {
         //12.4 User Does not Exist.
+        Thread.sleep(4000);
         FwdPwdObj.ClickForgetPwdBtn();
        Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//input[@formcontrolname='email']")));
         AssertionsFunction.verifyTargetPageURL(FwdPwdObj.forgotPwdUrl);
@@ -75,6 +64,19 @@ public class ForgetPwdTest extends BasePage {
         Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//input[@formcontrolname='userName']")));
 
         AssertionsFunction.verifyTargetPageURL(FwdPwdObj.loginPageUrl);
+
+    }
+    @Test(priority = 4)
+    public void invalid_email() throws Exception {
+        //TC 12.3 Invalid EmailID.
+
+        FwdPwdObj.ClickForgetPwdBtn();
+        Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//input[@formcontrolname='email']")));
+        FwdPwdObj.ClickEmailBtn(ReadProps.readAttr("Invalid1"));
+        FwdPwdObj.VerifyAssertEmailID();
+        FwdPwdObj.ClickCancelBtn();
+        AssertionsFunction.verifyTargetPageURL(FwdPwdObj.loginPageUrl);
+
 
     }
     @Test(priority = 5)
@@ -93,4 +95,7 @@ public class ForgetPwdTest extends BasePage {
 
 
     }
+
+
+
 }

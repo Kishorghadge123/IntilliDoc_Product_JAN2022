@@ -19,7 +19,8 @@ public class EditProfileTest extends BasePage {
     public void login() throws Exception {
         BasePage.driverInit();
     }
-        @AfterClass
+
+    @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
@@ -62,6 +63,7 @@ public class EditProfileTest extends BasePage {
         EditProfileObj.verify_edit_profile();
 
     }
+
     @Test(priority = 5)
     public void edit_profile_cancel() throws Exception {
         //TC 11.6 Edit Profile Cancel.
@@ -74,8 +76,16 @@ public class EditProfileTest extends BasePage {
         EditProfileObj.EditProfileButton();
         EditProfileObj.SaveButton();
         AssertionsFunction.isPresent(EditProfileObj.Save);
-
-
+        Thread.sleep(10000);
 
     }
-}
+
+        @Test(priority = 7)
+        public void add_theme() throws Exception{
+        EditProfileObj.clickonsettingbtn();
+        Thread.sleep(5000);
+        EditProfileObj.clickontheme();
+        EditProfileObj.clickonapplybtn();
+
+        }
+    }

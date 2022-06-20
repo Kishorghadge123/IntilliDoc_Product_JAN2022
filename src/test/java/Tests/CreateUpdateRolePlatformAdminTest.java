@@ -22,10 +22,10 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception {
-        driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception {
+//        driver.quit();
+//    }
     @Test(priority = 1)
     public void create_role_with_blank_rolename_permission() throws Exception {
         CreateRolePageObj = new CreateRolePage(driver);
@@ -37,7 +37,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         //TC 3.1 Create Role with Blank RoleName and Permission.
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-       AssertionsFunction.isPresent(CreateRolePageObj.ClickCreate);
+        AssertionsFunction.isPresent(CreateRolePageObj.ClickCreate);
     }
     @Test(priority = 2)
     public void create_role_with_valid_rolename_blank_permission() throws Exception {
@@ -61,7 +61,8 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(3000);
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(2000);
-
+        AssertionsFunction.isPresent(CreateRolePageObj.ClickCreate);
+Thread.sleep(1000);
     }
          /*   // Create AE admin role
             CreateRolePageObj.EnterRoleName(ReadProps.readAttr("AdminRole"));
@@ -193,6 +194,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
     @Test(priority = 8)
     public void update_role_with_valid_data() throws Exception {
         //TC 3.7 Update Role with Valid Data.
+        //Tc 3.15Verify functionality of Cancel button on Role Updation Page.
         Thread.sleep(2000);
         CreateRolePageObj.ClickEditRole();
         Thread.sleep(3000);
@@ -218,7 +220,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(2000);
         CreateRolePageObj.ClickUpdateBtn();
       Thread.sleep(2000);
-
+AssertionsFunction.isPresent(CreateRolePageObj.ClickUpdateBtn);
     }
     @Test(priority = 10)
     public void adding_new_permission() throws InterruptedException, AWTException {
@@ -272,8 +274,11 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(3000);
-        CreateRolePageObj.ClickCreateButton();
-        Thread.sleep(3000);
+        CreateRolePageObj.clickcancel();
+        AssertionsFunction.isPresent(CreateRolePageObj.Cancel);
+        Thread.sleep(4000);
+
+
     }
     @Test(priority = 14)
     public void ClickOn_Cancel_button_on_Role_Creation_Page() throws Exception {
@@ -283,9 +288,11 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(create_role_url);
         CreateRolePageObj.clickcancel();
+        AssertionsFunction.isPresent(CreateRolePageObj.Cancel);
         Thread.sleep(4000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+
     }
+
     @Test(priority = 15)
     public void validation_Role_Name_New_Role_creation_Page() throws Exception {
         //TC 3.8 Verify the validation of Role Name textbox on New Role creation Page.
@@ -304,9 +311,11 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         CreateRolePageObj.ClickCreateButton();
         Thread.sleep(1000);
         CreateRolePageObj.clickcancel();
-        Thread.sleep(5000);
-        AssertionsFunction.verifyTargetPageURL(role_tab_url);
+        AssertionsFunction.isPresent(CreateRolePageObj.Cancel);
+        Thread.sleep(4000);
     }
+
+
     @Test(priority = 16)
     public void Creating_role_with_invalid_data() throws Exception {
         //3.14 Verify the working of platform admin for Creating role by putting invalid data.
@@ -320,7 +329,7 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(role_tab_url);
         CreateRolePageObj.ClickLogout();
-        Thread.sleep(5000);
+        Thread.sleep(9000);
         AssertionsFunction.verifyTargetPageURL(loginPage_url);
     }
 }

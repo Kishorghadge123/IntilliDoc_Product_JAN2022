@@ -12,13 +12,11 @@ AnalyticsPage {
     WebDriver driver = null;
 
     //xpath change by suwarna
-    public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
-    public static By AnalyticsBtn = By.xpath("//mat-sidenav[@id='sidenav']//following::mat-list-item[8]/div/i");
+    public static String AnalyticsPageURL ="https://alpha.neutrino-ai.com/#/home/analytics";
+    public static By AnalyticsBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
     By OrganizationStatistics =By.xpath("//span[text()='Project Statistics']");
-
     public static By StatisticsHidden = By.xpath("//span[text()='Project Statistics']//following::span[2]");
     public static By StatisticsVisible = By.xpath("//span[text()='Project Statistics']//following::span[2]");
-
     public static By TotalUser = By.xpath("//div[text()=' Users ']");
     public  static By Document = By.xpath("//div[text()=' Users ']//following::div[5]");
    public static By Processed = By.xpath("//div[text()=' Users ']//following::div[22]");
@@ -42,13 +40,14 @@ AnalyticsPage {
     public static By ProjectSelected = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
     public static By SelectProject=By.xpath("//input[@placeholder='Search']//following::span[1]");
+public By SelectNewProject=By.xpath("//span[contains(text(),'gd test 3 ')]");
     public  static  By SelectDropDown= By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::div[7]");
 public String loginurl="https://alpha.neutrino-ai.com/#/login";
 public  String analyticurl="https://alpha.neutrino-ai.com/#/home/analytics";
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");
     By SelectDaily = By.xpath("//span[contains(text(),'Daily')]");
-    By SelectOverall = By.xpath("//mat-option[@id='mat-option-3']");
+   public By SelectOverall = By.xpath("//mat-option[@id='mat-option-3']");
     By SortByDocuments = By.xpath("//div[text()=' Received ']//preceding::div[1]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
     By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
@@ -200,12 +199,26 @@ public  String analyticurl="https://alpha.neutrino-ai.com/#/home/analytics";
     public  void ClickProjectDownArrow(){
         driver.findElement(ProjectDownArrow).click();
     }
+    public void ClickSearchProjectNew(String text) throws Exception{
+
+
+        driver.findElement(SearchProject).sendKeys(text);
+    }
+
+
     public void ClickSearchProject(){driver.findElement(SearchProject).click();}
     public void ClickSelectProject()
     {
         Custome_Wait.wait(driver,SelectProject);
         driver.findElement(SelectProject).click();
     }
+
+    public void ClickSelectNewProject()
+    {
+
+        driver.findElement(SelectNewProject).click();
+    }
+
     public void ClickSelectDropDown()  throws Exception
     {
         Thread.sleep(3000);

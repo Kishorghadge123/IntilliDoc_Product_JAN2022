@@ -3,6 +3,7 @@ package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
 import Pages.ProjectPage;
+import Pages.TemplatePage;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
@@ -24,7 +25,6 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
     @AfterClass
     public void cleanUp() throws Exception
     {
@@ -37,6 +37,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         ProjectPageObj = new ProjectPage(driver);
         DocPageObj = new DocumentPage(driver);
         //TC 17.1 Checking all the functionalities on the Project Page.
+        //IN 808 For the semi structure documents, need to change how we are handling the rejected document,earlier we were showing only the list of the attributes, now we have select the model, on basis of that list of attributes will be displayedF
         ProjectPageObj.ClickOnProjectBtn();
     Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
         ProjectPageObj.ClickOnCreateProjectBtn();
@@ -129,4 +130,39 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         ProjectPageObj.verifyProjectCreated("SemiStructuredProject");
         Thread.sleep(2000);
     }
+    @Test(priority =6 )
+    public  void check_data_extracted_from_Pharmalink_Inmar_document() throws Exception {
+        //IN807 Pharmalink Inmar document processing
+
+        DocumentPage DocPageObj=new DocumentPage(driver);
+        TemplatePage TemplatePageObj=new TemplatePage(driver);
+
+        Thread.sleep(10000);
+        DocPageObj.ClickDocumentBtn();
+        Thread.sleep(10000);
+        DocPageObj.ClickDropDownBtn();
+        Thread.sleep(2000);
+//Search Medical Chart Project.
+        DocPageObj.ClickSearchProject(ReadProps.readAttr("semistructprojectname"));
+        Thread.sleep(2000);
+        DocPageObj.selectsemiproject();
+        Thread.sleep(10000);
+        DocPageObj.clickonReadyDocument();
+        Thread.sleep(10000);
+        DocPageObj.clickonchartdata();
+        Thread.sleep(2000);
+DocPageObj.clickSaveDraft();
+Thread.sleep(4000);
+        DocPageObj.clickonrejectdoc();
+        Thread.sleep(5000);
+        DocPageObj.clickonattributedropdown();
+        Thread.sleep(2000);
+        DocPageObj.addfirstattribute();
+        DocPageObj.addsecondattribute();
+        Thread.sleep(2000);
+        DocPageObj.clickSubmit();
+        AssertionsFunction.isPresent(DocPageObj.Submit);
+
+    }
+
 }

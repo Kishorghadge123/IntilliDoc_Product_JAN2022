@@ -5,6 +5,8 @@ import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.util.Random;
@@ -12,25 +14,31 @@ import java.util.Random;
 public class TemplatePage   {
     WebDriver driver = null;
 
+//locator
+    public By name1=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[1]");
+    public By state=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[2]");
+    public By zip=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[3]");
 
-    public static By TemplateBtn = By.xpath("//div[@class='mat-drawer-backdrop ng-star-inserted']//following::i[3]");
+    public static By TemplateBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
     public static  By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
     By CreateTemplate = By.xpath("//span[contains(text(),'Create Template')]");
    public By CancelCreateTemplate = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
     By TemplateName = By.xpath("//*[@data-placeholder='Template Name']");
     By ChooseFile = By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input");
     By CloseBtn = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
-    By SearchTemplate = By.xpath("//*[@data-placeholder='Search']");
+    By SearchTemplate = By.xpath("//input[@data-placeholder='Search']");
     public static By ExpandTemplate = By.xpath("//tbody/tr[1]/td[1]");
+
     public By completedoc=By.xpath("//td[contains(text(),' Sample-page3 ')]");
     public By deletefield=By.xpath("(//mat-icon[@class='mat-icon notranslate material-icons mat-icon-no-color'])[7]");
     public By tempname=By.xpath("//input[@id='mat-input-23']");
   public   By ExpandTemplateMore = By.xpath("//td[contains(text(),'AutoSample')]");
     public By Cancel = By.xpath("//span[contains(text(),' Cancel ')]");
-    public By TemplateDataInfo = By.xpath("//td[contains(text(),'Template1')]");
+    public By TemplateDataInfo = By.xpath("//td[contains(text(),' Sample-page2 ')]");
     By TemplateDataInfo1 = By.xpath("//td[contains(text(),'Sample-page1')]");
     By TemplateDelete = By.xpath("//table[@matsortdirection='desc']/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td[6]/button[2]");
     public By ConfirmDeleteTemplate = By.xpath("//*[contains(text(),'Confirm')]");
+   By newexpand=By.xpath("//td[contains(text(),' QA-AutoTemplate ')]");
     By TemplateOnGrid = By.xpath("//thead/tr[1]/th[1]/div[1]/div[1]");
     By ZoomInIcon = By.xpath("//button[@mattooltip='Zoom In']");
     public By ZoomOutIcon = By.xpath("//button[@mattooltip='Zoom Out']");
@@ -65,6 +73,7 @@ public class TemplatePage   {
     public static By TemplateCreatedTime = By.xpath("//tbody/tr[1]/td[5]");
     public static By TemplateUpdatedTime = By.xpath("//tbody/tr[1]/td[6]");
     By TemplateNameSort = By.xpath("//div[text()=' Templates ']/parent::div/div[2]");
+    By namecheckbox=By.xpath("(//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin'])[1]");
     By BeforeSort = By.xpath("//*[@aria-sort='none'][1]");
     By AfterSort = By.xpath("//th[@aria-sort='ascending']");
     By ProjectsSort = By.xpath("//div[text()=' Projects ']/parent::div/div[2]");
@@ -197,6 +206,9 @@ public class TemplatePage   {
         driver.findElement(By.xpath("//table[@matsortdirection='desc']/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td[6]/button[2]")).click();
         //driver.findElement(TemplateDelete).click();
     }
+    public void ClickOnExpandTemplatenew(){
+        driver.findElement(newexpand).click();
+    }
 
     public void DeleteTemplateSinglePage() throws InterruptedException {
         driver.findElement(TemplateDelete).click();
@@ -307,6 +319,38 @@ public class TemplatePage   {
 
     public void refreshPage() {
         driver.navigate().refresh();
+    }
+
+
+
+
+    public void Hovername()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(name1);
+        action.moveToElement(element).build().perform();
+        System.out.println("Mouse hover");
+    }
+
+
+    public void Hoverstate()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(state);
+        action.moveToElement(element).build().perform();
+        System.out.println("Mouse hover");
+    }
+
+
+    public void clickonnamecheckbox(){
+        driver.findElement(namecheckbox).click();
+    }
+    public void Hoverzip()
+    {
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(zip);
+        action.moveToElement(element).build().perform();
+        System.out.println("Mouse hover");
     }
 
     public void verifySortingOnTemplatePage(String SortingHeader) throws InterruptedException

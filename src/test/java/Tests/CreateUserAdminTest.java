@@ -2,10 +2,12 @@ package Tests;
 import Base.BasePage;
 import Pages.CreateUserPage;
 import Utilities.AssertionsFunction;
+import  Utilities.Custome_Wait;
 import Utilities.Functions;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
 import com.google.cloud.storage.Acl;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -20,11 +22,11 @@ public class CreateUserAdminTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-    @AfterClass
-    public void cleanUp() throws Exception
-    {
-        driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception
+//    {
+//        driver.quit();
+//    }
     @Test(priority = 1)
     public void valid_login_with_admin_credentials() throws Exception {
         driver.get(ReadProps.readAttr("URL"));
@@ -42,6 +44,7 @@ Thread.sleep(2000);
         //TC 4.2 Create User with Blank data.
        Thread.sleep(6000);
         UserPageObj.clickOnUserMenu();
+        Custome_Wait.wait(driver,driver.findElement(By.xpath("//div[contains(text(),'Name')]")));
         UserPageObj.ClickCreateUserBtn();
         UserPageObj.ClickCreateBtn();
         UserPageObj.ClickOnCancelBtn();
@@ -86,6 +89,8 @@ Thread.sleep(2000);
         Thread.sleep(1000);
 
     }
+
+
     @Test(priority = 6)
     public void enable_disabled_user() throws Exception {
         //TC 4.6 Enable the Disabled user.
@@ -95,6 +100,7 @@ Thread.sleep(2000);
         UserPageObj.clickOnUpdateUserButton();
         AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         Thread.sleep(1000);
+
     }
     @Test(priority = 7)
     public void create_user_with_valid_data_status_disabled() throws Exception {
@@ -104,6 +110,22 @@ Thread.sleep(2000);
         UserPageObj.EnterEmail(ReadProps.readAttr("AdminEmailID"));
         UserPageObj.ClickCreateBtn();
         AssertionsFunction.verifyTargetPageURL(UserPageObj.createUserUrl);
+        Thread.sleep(1000);
+        UserPageObj.ClickOnCancelBtn();
+        AssertionsFunction.isPresent(UserPageObj.cancelButton);
+        Thread.sleep(5000);
+    }
+
+    @Test(priority = 8)
+    public void enable_user() throws Exception {
+        //TC 4.6 Enable the Disabled user.
+        //TC4.8 Verify that created user by admin should display in available user list
+        UserPageObj.SearchCreatedUser(ReadProps.readAttr("AdminUsername"));
+        UserPageObj.selectSearchedUser();
+        UserPageObj.ClickOnEnableOrDisableUserSelectionToggle();
+        UserPageObj.ClickOnEnableOrDisableUserSelectionToggle();
+        UserPageObj.clickOnUpdateUserButton();
+        AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         Thread.sleep(1000);
     }
 

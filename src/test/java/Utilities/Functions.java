@@ -24,6 +24,8 @@ public class Functions {
         FileUtils.copyFile(myfile, new File (System.getProperty("user.dir")+"\\HTMLReport\\"+testname+"_fail.png"));
 
     }
+
+
     public static boolean isElementPresent(By locator){
         try{
             BasePage.driver.findElement(locator).isDisplayed();
