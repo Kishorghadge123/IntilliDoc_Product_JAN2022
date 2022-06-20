@@ -4,29 +4,33 @@ import Base.BasePage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
+@Feature("Project Flow Medical Chart")
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectFlowMedicalChart extends BasePage {
     static ProjectPage ProjectPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - check_all_functionalities_on_project_page")
+    @Description("verify user able to check_all_functionalities_on_project_page")
+    @Test (priority=1,groups="smoke", description = "verify check_all_functionalities_on_project_page")
     public void check_all_functionalities_on_project_page() throws Exception {
         Robot r = new Robot();
         ProjectPageObj = new ProjectPage(driver);
@@ -69,7 +73,10 @@ public class ProjectFlowMedicalChart extends BasePage {
 
     }
 
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - create_project_without_entities_and_role")
+    @Description("verify user able to create_project_without_entities_and_role")
+    @Test (priority=2,groups="smoke", description = "verify create_project_without_entities_and_role")
     public void create_project_without_entities_and_role() throws Exception {
         //TC 16.2 Verify Create Project without Entities and Role.
         ProjectPageObj.ClickOnCreate();
@@ -77,7 +84,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - create_project_with_entities_without_role")
+    @Description("verify user able to create_project_with_entities_without_role")
+    @Test (priority=3,groups="smoke", description = "verify create_project_with_entities_without_role")
     public void create_project_with_entities_without_role() throws Exception {
         //TC 16.3 Verify Create Project with Entities and without Role
         ProjectPageObj.ClickOnAddEntity();
@@ -97,7 +107,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - create_project_without_user")
+    @Description("verify user able to create_project_without_user")
+    @Test (priority=4,groups="smoke", description = "verify create_project_without_user")
     public void create_project_without_user() throws Exception {
         //TC 16.4 Verify Create Project without User.
         ProjectPageObj.ClickOnRolesBtn();
@@ -113,7 +126,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         ProjectPageObj.VerifyAssertForUser();
     }
 
-    @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - verify_add_user")
+    @Description("verify user able to add_user")
+    @Test (priority=5,groups="smoke", description = "verify verify_add_user")
     public void verify_add_user() throws Exception {
         //TC 16.5 Verify Add User.
         ProjectPageObj.ClickOnAddUserBtn();
@@ -126,7 +142,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(5000);
     }
 
-    @Test(priority = 6)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 006  - navigate_next_to_datapage_back_page")
+    @Description("verify user able to navigate_next_to_datapage_back_page")
+    @Test (priority=6,groups="smoke", description = "verify navigate_next_to_datapage_back_page")
     public void navigate_next_to_datapage_back_page() throws Exception {
         //16.6 Navigate Next to Data Page and Rules Page and Back also.
         ProjectPageObj.ClickNextPage();
@@ -139,7 +158,10 @@ public class ProjectFlowMedicalChart extends BasePage {
         Thread.sleep(6000);
     }
 
-    @Test(priority = 7)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 007  - create_project_with_valid_details")
+    @Description("verify user able to create_project_with_valid_details")
+    @Test (priority=7,groups="smoke", description = "verify create_project_with_valid_details")
     public void create_project_with_valid_details() throws Exception {
         //TC 16.7 Verify Create Project with Valid Details.
         ProjectPageObj.ClickOnCreate();

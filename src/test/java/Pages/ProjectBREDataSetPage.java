@@ -1,6 +1,7 @@
 package Pages;
 
 import Utilities.AssertionsFunction;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -31,18 +32,31 @@ public class ProjectBREDataSetPage   {
     By FirstDecisionBox = By.xpath("//div[contains(@class,'opacity7 font-12 conditionCardHeading')]");
 
     public By getBRESelectDataSet(){return this.BRESelectDataSet;}
+    @Step("SelectDataSetHeader")
     public  void SelectDataSetHeader(){driver.findElement(SelectDataSetHeader).click();}
+    @Step("Click OnData SetHeader")
     public  void ClickOnDataSetHeader(){driver.findElement(DataSetHeader).click();}
+    @Step("Click OnData Sets")
     public  void ClickOnDataSets(){driver.findElement(DataSets).click();}
+    @Step("Click On AddData Sets")
     public  void ClickOnAddDataSets(){driver.findElement(AddDataSet).click();}
+    @Step("Click OnChoose DataSet")
     public  void ClickOnChooseDataSet(){driver.findElement(ChooseDataSet).click();}
+    @Step("Click OnBREChoose DataSet")
     public  void ClickOnBREChooseDataSet(){driver.findElement(BREChooseDataSet).click();}
+    @Step("Select DataSet")
     public  void SelectDataSet(){driver.findElement(SelectDataSet).click();}
+    @Step("Select Data Set1")
     public  void SelectDataSet1(){driver.findElement(SelectDataSet1).click();}
+    @Step("Select BREDataSet")
     public  void SelectBREDataSet(){driver.findElement(BRESelectDataSet).click();}
+    @Step("Select Operator Value ExistsIn")
     public  void SelectOperatorValueExistsIn(){driver.findElement(OperatorValueExistsIn).click();}
+    @Step("Click OnPredefined DataSet")
     public  void ClickOnPredefinedDataSet(){driver.findElement(PreDefinedDataSet).click();}
+    @Step("Select Predefined DataSet")
     public  void SelectPredefinedDataSet(){driver.findElement(SelectPreDefinedDataSet).click();}
+    @Step("Click On First Data SetBox")
     public  void ClickOnFirstDataSetBox(){driver.findElement(FirstDecisionBox).click();}
 
 }

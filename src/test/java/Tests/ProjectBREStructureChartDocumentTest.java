@@ -6,20 +6,21 @@ import Utilities.AssertionsFunction;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
+@Feature("Project BREStructure Chart Document Test")
 
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectBREStructureChartDocumentTest extends BasePage {
     public static ProjectBREStructureChartDocumentPage ProjectBREStructureChartDocumentPageobj;
     public DocumentPage DocPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -27,7 +28,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         driver.manage().window().maximize();
         // BasePage.LoginTest();
     }
-
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
@@ -35,7 +36,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
     }
 
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - verifyUI")
+    @Description("verify user able to verifyUI")
+    @Test (priority=1,groups="smoke", description = "verify verifyUI")
     public void verifyUI() throws Exception {
 
         //IN 510 Revamp of the screen for the documents of the status 'Rejected'.
@@ -56,7 +60,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - Verify_Button_Are_Available")
+    @Description("verify user able to Verify_Button_Are_Available")
+    @Test (priority=2,groups="smoke", description = "verify  Button_Are_Available")
     public void Verify_Button_Are_Available() throws Exception {
 //IN 581 Creation of permission to edit the 'Processed Document'
         ProjectBREStructureChartDocumentPageobj.clickOnStatusButton();
@@ -84,7 +91,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         driver.navigate().back();
         Thread.sleep(10000);
     }
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - verify_data_extracted_from_Each_page")
+    @Description("verify user able to verify_data_extracted_from_Each_page")
+    @Test (priority=3,groups="smoke", description = "verify_data_extracted_from_Each_page")
     public void verify_data_extracted_from_Each_page() throws  Exception{
 ///471 AIML Engine multithreading bug fix
         Thread.sleep(5000);
@@ -118,7 +128,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
 
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - Verify_data_and_buttons_available_on_page")
+    @Description("verify user able to Verify_data_and_buttons_available_on_page")
+    @Test (priority=4,groups="smoke", description = "Verify_data_and_buttons_available_on_page")
     public void Verify_data_and_buttons_available_on_page() throws  Exception{
 //IN 682  Once the document is in processed state, buttons like edit, add should not be available, the page should contain only the processed data and on the top right corner, 'Cancel' button should be made available
         Thread.sleep(10000);
@@ -154,7 +167,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
 
 
 
-    @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - Observe_tooltip_for_text_overflow")
+    @Description("verify user able to Observe_tooltip_for_text_overflow")
+    @Test (priority=5,groups="smoke", description = "verify Observe_tooltip_for_text_overflow")
     public void Observe_tooltip_for_text_overflow() throws  Exception{
         //In 736 Tooltip consistency in Document Navigator and Document Viewer
         Robot r=new Robot();

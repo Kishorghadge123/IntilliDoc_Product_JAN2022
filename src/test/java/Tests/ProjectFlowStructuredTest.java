@@ -3,28 +3,34 @@ import Base.BasePage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("Project Flow Structured Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectFlowStructuredTest extends BasePage {
     static ProjectPage ProjectPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - create_project_with_blank_data")
+    @Description("verify user able to create_project_with_blank_data")
+    @Test (priority=1,groups="smoke", description = "verify create_project_with_blank_data")
     public void create_project_with_blank_data() throws Exception {
         Robot r = new Robot();
         ProjectPageObj = new ProjectPage(driver);
@@ -38,7 +44,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(500);
 
     }
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - next_button_with_blank_info_for_platform_admin")
+    @Description("verify user able to click next_button_with_blank_info_for_platform_admin")
+    @Test (priority=2,groups="smoke", description = "verify next_button_with_blank_info_for_platform_admin")
     public void next_button_with_blank_info_for_platform_admin() throws Exception {
         //TC 18.2 Verify Next button with Blank information for Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -53,7 +62,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);
     }
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - cancel_with_blank_info")
+    @Description("verify user able to cancel_with_blank_info")
+    @Test (priority=3,groups="smoke", description = "verify cancel_with_blank_info")
     public void cancel_with_blank_info() throws Exception {
         //TC 18.3 Verify Cancel button with Blank information for Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -69,7 +81,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(2000);
 
     }
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - create_project_with_invalid_name")
+    @Description("verify user able to create_project_with_invalid_name")
+    @Test (priority=4,groups="smoke", description = "verify create_project_with_invalid_name")
     public void create_project_with_invalid_name() throws Exception {
         //TC 18.4 Create project with Invalid Project Name for Platform Admin , And Verify Disable Role should not be displayed in the Role List when adding Role.
         ProjectPageObj.ClickRoleManagementBtn();
@@ -152,7 +167,10 @@ public class ProjectFlowStructuredTest extends BasePage {
 
     }
 
-   @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005 - create_project_without_template")
+    @Description("verify user able to create_project_without_template")
+    @Test (priority=5,groups="smoke", description = "verify create_project_without_template")
     public void create_project_without_template() throws Exception {
         //TC 18.5  Create project with Project information without Template for Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -193,7 +211,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.VerifyAssertForNoTemplate();
         Thread.sleep(4000);
     }
-     @Test(priority = 6)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 006 - create_project_without_role")
+    @Description("verify user able to create_project_without_role")
+    @Test (priority=6,groups="smoke", description = "verify create_project_without_role")
     public void create_project_without_role() throws Exception {
         //TC 18.6 Create project without Role for Platform Admin.And not selecting the Process Engine
          ProjectPageObj.ClickOnAddTemplateBtn();
@@ -218,7 +239,10 @@ public class ProjectFlowStructuredTest extends BasePage {
          //ProjectPageObj.VerifyAssertForRole();
          Thread.sleep(2000);
     }
-   @Test(priority = 7)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 007 - create_project_without_user_and_with_valid_data")
+    @Description("verify user able to create_project_without_user_and_with_valid_data")
+    @Test (priority=7,groups="smoke", description = "verify create_project_without_user_and_with_valid_data")
     public void create_project_without_user_and_with_valid_data() throws Exception {
         //TC 18.7 Create Project without User for Platform Admin and
         //TC 18.8 Create Project with Valid Data.
@@ -250,7 +274,10 @@ public class ProjectFlowStructuredTest extends BasePage {
        Thread.sleep(1000);*/
 
    }
-    @Test(priority = 8)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 008 - create_project_with_disable_status")
+    @Description("verify user able to create_project_with_disable_status")
+    @Test (priority=8,groups="smoke", description = "verify create_project_with_disable_status")
     public void create_project_with_disable_status() throws Exception {
         //TC 18.9 Create Project with Disable Status for Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -306,7 +333,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         Thread.sleep(9000);
 
     }
-    @Test(priority = 9)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 009 - create_project_only_with_role_info")
+    @Description("verify user able to create_project_only_with_role_info")
+    @Test (priority=9,groups="smoke", description = "verify create_project_only_with_role_info")
     public void create_project_only_with_role_info() throws Exception {
         //TC 18.10  Create Project only with Role information for Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -333,7 +363,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickLogout();
         Thread.sleep(10000);
     }
-    @Test(priority = 10)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 010 - create_project_with_blank_info")
+    @Description("verify user able to create_project_with_blank_info")
+    @Test (priority=10,groups="smoke", description = "verify create_project_with_blank_info")
     public void create_project_with_blank_info() throws Exception {
         //TC 18.11 Create New Project with Blank information and also verify Create button for Admin.
         ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
@@ -349,7 +382,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         /*ProjectPageObj.VerifyAssertForBlank();
         Thread.sleep(2000);*/
     }
-    @Test(priority = 11)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 011 - verify_next_button_with_blank_info")
+    @Description("verify user able to verify_next_button_with_blank_info")
+    @Test (priority=11,groups="smoke", description = "verify next_button_with_blank_info")
     public void verify_next_button_with_blank_info() throws Exception {
         //TC 18.12 Verify Next button with Blank information for Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -359,7 +395,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickNextPage();
         Thread.sleep(2000);
     }
-    @Test(priority = 12)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 012 - verify_cancel_with_blank_info")
+    @Description("verify user able to verify_cancel_with_blank_info")
+    @Test (priority=12,groups="smoke", description = "verify _cancel_with_blank_info")
     public void verify_cancel_with_blank_info() throws Exception {
         //TC 18.13 Verify Cancel button with Blank Information for Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -369,7 +408,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnCancelProject();
         Thread.sleep(5000);
     }
-    @Test(priority = 13)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 013 - create_project_with_invalid_project_name")
+    @Description("verify user able to create_project_with_invalid_project_name")
+    @Test (priority=13,groups="smoke", description = "verify create_project_with_invalid_project_name")
     public void create_project_with_invalid_project_name() throws Exception {
         //TC 18.14 Create Project with Invalid Project Name for Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -427,7 +469,10 @@ public class ProjectFlowStructuredTest extends BasePage {
        /* ProjectPageObj.VerifyAssertForData();*/
         Thread.sleep(6000);
     }
-    @Test(priority = 14)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 014 - create_project_without_template_for_admin")
+    @Description("verify user able to create_project_without_template_for_admin")
+    @Test (priority=14,groups="smoke", description = "verify create_project_without_template_for_admin")
     public void create_project_without_template_for_admin() throws Exception {
         //TC 18.15 Create project with Project information without Template for Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -469,7 +514,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         /*ProjectPageObj.VerifyAssertForNoTemplate();
         Thread.sleep(4000);*/
     }
-    @Test(priority = 15)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 015 - create_project_without_role_for_admin")
+    @Description("verify user able to create_project_without_role_for_admin")
+    @Test (priority=15,groups="smoke", description = "verify create_project_without_role_for_admin")
     public void create_project_without_role_for_admin() throws Exception {
         //TC 18.16 Create project without Role for Admin.
         ProjectPageObj.ClickOnAddTemplateBtn();
@@ -480,7 +528,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         /*ProjectPageObj.VerifyAssertForRole();
         Thread.sleep(2000);*/
     }
-    @Test(priority = 16)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 016 - create_project_without_user_for_admin")
+    @Description("verify user able to create_project_without_user_for_admin")
+    @Test (priority=16,groups="smoke", description = "verify create_project_without_user_for_admin")
     public void create_project_without_user_for_admin() throws Exception {
         //TC 18.17 Create project without User for Admin.
         ProjectPageObj.ClickOnRolesBtn();
@@ -494,7 +545,10 @@ public class ProjectFlowStructuredTest extends BasePage {
 
 
     }
-    @Test(priority = 17)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 017 - create_project_with_disable_status_for_admin")
+    @Description("verify user able to create_project_with_disable_status_for_admin")
+    @Test (priority=17,groups="smoke", description = "verify create_project_with_disable_status_for_admin")
     public void create_project_with_disable_status_for_admin() throws Exception {
         //TC 18.18 Create Project with Disable Status for Admin.
         ProjectPageObj.ClickOnProjectBtn();
@@ -549,7 +603,10 @@ public class ProjectFlowStructuredTest extends BasePage {
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(6000);
     }
-    @Test(priority = 18)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 018 - create_project_only_with_role_info_for_admin")
+    @Description("verify user able to create_project_only_with_role_info_for_admin")
+    @Test (priority=18,groups="smoke", description = "verify create_project_only_with_role_info_for_admin")
     public void create_project_only_with_role_info_for_admin() throws Exception {
         //TC 18.19  Create Project only with Role information for Admin.
         ProjectPageObj.ClickOnProjectBtn();

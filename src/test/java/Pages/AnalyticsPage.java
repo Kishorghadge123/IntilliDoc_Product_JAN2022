@@ -1,5 +1,6 @@
 package Pages;
 import Utilities.Custome_Wait;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,18 +59,18 @@ AnalyticsPage {
         this.driver = driver;
     }
 
+    @Step("Click Analytics Button")
     public void ClickAnalyticsBtn() throws Exception {
         Custome_Wait.wait(driver,AnalyticsBtn);
         driver.findElement(AnalyticsBtn).click();
     }
-
+    @Step("Click OnSort By Received")
     public void ClickOnSortByReceived() throws Exception
     {
-
         Custome_Wait.wait(driver,SortByReceived);
         driver.findElement(SortByReceived).click();
     }
-
+    @Step("Click OnSort By Documents")
     public void ClickOnSortByDocuments() throws Exception {
         By documentArrow = By.xpath("//span[@class='rejected']//following::div[8]");
         Custome_Wait.wait(driver,documentArrow);
@@ -77,26 +78,25 @@ AnalyticsPage {
         act.moveToElement(driver.findElement(By.xpath("//span[@class='rejected']//following::div[8]"))).build().perform();
         act.click(driver.findElement(By.xpath("//span[@class='rejected']//following::div[9]")));
     }
-
+    @Step("Click Organization Arrow")
     public  void ClickOrganizationArrow() throws Exception{
         Custome_Wait.wait(driver,OrganizationStatistics);
         Thread.sleep(2000);
         driver.findElement(OrganizationStatistics).click();
     }
-
+    @Step("clickProject Statistic sarrow")
     public  void clickProjectStatisticsarrow() throws Exception{
         Custome_Wait.wait(driver,ProjectStatistics);
         driver.findElement(ProjectStatistics).click();
     }
-
-
+    @Step("Hover Total User")
     public  void HoverTotalUser(){
         Actions action = new Actions(driver);
         WebElement element= driver.findElement(TotalUser);
         action.moveToElement(element).build().perform();
         System.out.println("Mouse hover");
     }
-
+    @Step("Hover Documents")
     public void HoverDocuments()
     {
         Actions action = new Actions(driver);
@@ -104,7 +104,7 @@ AnalyticsPage {
         action.moveToElement(element).build().perform();
         System.out.println("Mouse hover");
     }
-
+    @Step("Hover Processed")
     public void HoverProcessed()
     {
         Actions action = new Actions(driver);
@@ -112,21 +112,21 @@ AnalyticsPage {
         action.moveToElement(element).build().perform();
 
     }
-
+    @Step("Hover Ready To Process")
     public void HoverReadyToProcess()
     {
         Actions action = new Actions(driver);
         WebElement element= driver.findElement(ReadyToProcess);
         action.moveToElement(element).build().perform();
     }
-
+    @Step("Hover Rejected")
     public void HoverRejected()
     {
         Actions action = new Actions(driver);
         WebElement element= driver.findElement(Rejected);
         action.moveToElement(element).build().perform();
     }
-
+    @Step("Hover Validation Time")
     public void HoverValidationTime()
     {
         Actions action = new Actions(driver);
@@ -134,6 +134,7 @@ AnalyticsPage {
         action.moveToElement(element).build().perform();
     }
 
+    @Step("Hover Structured Bar")
     public void HoverStructuredBar()
     {
         Actions action = new Actions(driver);
@@ -146,7 +147,7 @@ AnalyticsPage {
         WebElement element3= driver.findElement(SRejectedBar);
         action.moveToElement(element3).build().perform();
     }
-
+    @Step("Hover Semi Structured")
     public void HoverSemiStructured()
     {
         Actions action = new Actions(driver);
@@ -160,6 +161,7 @@ AnalyticsPage {
         action.moveToElement(element3).build().perform();
     }
 
+    @Step("Hover Free Form")
     public void HoverFreeForm()
     {
         Actions action = new Actions(driver);
@@ -172,7 +174,7 @@ AnalyticsPage {
         WebElement element3= driver.findElement(FFRejectedBar);
         action.moveToElement(element3).build().perform();
     }
-
+    @Step("Hover Medical Chart")
     public void HoverMedicalChart()
     {
         Actions action = new Actions(driver);
@@ -185,30 +187,37 @@ AnalyticsPage {
         WebElement element3= driver.findElement(MCRejectedBar);
         action.moveToElement(element3).build().perform();
     }
-
+    @Step("ClickProject DownArrow")
     public  void ClickProjectDownArrow(){
         driver.findElement(ProjectDownArrow).click();
     }
+    @Step("Click Search Project")
     public void ClickSearchProject(){driver.findElement(SearchProject).click();}
+    @Step("Click Select Project")
     public void ClickSelectProject()
     {
         Custome_Wait.wait(driver,SelectProject);
         driver.findElement(SelectProject).click();
     }
+    @Step("Click Select DropDown")
     public void ClickSelectDropDown()  throws Exception
     {
         Thread.sleep(3000);
         driver.findElement(SelectDropDown).click();
     }
+    @Step("Click Select Monthly")
     public void ClickSelectMonthly()
     {driver.findElement(SelectMonthly).click();}
+    @Step("Click Select Weekly")
     public void ClickSelectWeekly(){driver.findElement(SelectWeekly).click();}
+    @Step("Click Select Daily")
     public void ClickSelectDaily(){driver.findElement(SelectDaily).click();}
+    @Step("Click Select overall")
     public void ClickSelectOverall()
     {
         driver.findElement(SelectOverall).click();
     }
-
+    @Step("Verify Operator Performance")
     public void VerifyOperatorPerformance ()
     {
         Assert.assertTrue(driver.findElement(By.xpath("//div[text()=' Operator Performance']")).isDisplayed());

@@ -1,13 +1,15 @@
 package Utilities;
 
 import Base.BasePage;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -19,8 +21,7 @@ import java.util.TimeZone;
 public class Functions {
     public static void takescreenshot(String testname) throws IOException {
         File myfile = ((TakesScreenshot) BasePage.driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(myfile, new File (System.getProperty("user.dir")+"\\HTMLReport\\"+testname+"_fail.png"));
-
+      FileUtils.copyFile(myfile, new File (System.getProperty("user.dir")+"\\HTMLReport\\"+testname+"_fail.png"));
     }
     public static boolean isElementPresent(By locator){
         try{
@@ -51,9 +52,17 @@ public class Functions {
     {
         WebDriverWait wait = new WebDriverWait(BasePage.driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+
     }
-
-
+    @Attachment
+    public static byte[] saveFailureScreenShot()
+    {
+        return ((TakesScreenshot)BasePage.driver).getScreenshotAs(OutputType.BYTES);
+    }
+    @Step("{0}")
+    public static void logStep(String message){
+        // intentionally kept empty
+    }
 
 
 }

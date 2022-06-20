@@ -4,6 +4,7 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -11,21 +12,28 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("BREApplied To Project Without Dataset")
 @Listeners(Utilities.TestListeners.class)
 public class BREAppliedToProjectWithoutDataset extends BasePage {
         static  ProjectPage ProjectPageObj;
         static  ProjectBREPage ProjectBREPageObj;
+        @Step("Login Test started")
         @BeforeClass
+
         public void login() throws Exception {
                 BasePage.driverInit();
                 BasePage.LoginTest();
         }
+        @Step("Closed the Browser")
        @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-        @Test(priority = 1)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 001 - enter Projec Paget Data")
+        @Description("verify user able to enter Projec Paget Data")
+        @Test(priority = 1 ,groups="smoke", description = "verify enter Projec Paget Data")
         public void enterProjecPagetData() throws Exception {
                 Robot r = new Robot();
                 ProjectPageObj = new ProjectPage(driver);
@@ -88,9 +96,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectPageObj.ClickNextPage();
                 Thread.sleep(2000);
         }
-
-
-        @Test (priority=2)
+        @Severity(SeverityLevel.NORMAL)
+        @Story("story_id: 002 - enter Variable")
+        @Description("verify user able to enter Variable")
+        @Test (priority=2,groups="smoke", description = "verify enter Variable")
                 public void enterVariable  ()  throws Exception
         {
                 ProjectBREPageObj.ClickOnExpandVariables();
@@ -101,8 +110,6 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 Thread.sleep(2000);
                 AssertionsFunction.verifyElementPresent(ProjectBREPageObj.VariableAddWindow);
                 Thread.sleep(1000);
-
-
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName1"));
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnValidationType();
@@ -113,7 +120,6 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
-
                 //Adding Second Variable for Name.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName2"));
                 Thread.sleep(2000);
@@ -125,7 +131,6 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 Thread.sleep(2000);
                 ProjectBREPageObj.ClickOnAddButton();
                 Thread.sleep(2000);
-
                 //Adding Third Variable for Address.
                 ProjectBREPageObj.EnterVariableName(ReadProps.readAttr("VariableName3"));
                 Thread.sleep(2000);
@@ -228,14 +233,12 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 AssertionsFunction.verifyElementPresent(ProjectBREPageObj.VariableAddedTable);
                 Thread.sleep(1000);
         }
-
-        @Test (priority = 3)
-
-                public void addAndDeleteRulesButton() throws Exception
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 003 - add And Delete Rules Button")
+        @Description("verify user able to add And Delete Rules Button")
+        @Test (priority = 3,groups="smoke", description = "verify add And Delete Rules Button")
+        public void addAndDeleteRulesButton() throws Exception
         {
-
-
-
                 //Navigate to Rules Page.
                 ProjectBREPageObj.ClickOnNextPageButton();
                 Thread.sleep(3000);
@@ -319,7 +322,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnSave();
                 Thread.sleep(2000);
         }
-        @Test(priority =4)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 004 - bre applied to name fail")
+        @Description("verify user able to bre applied to name fail")
+        @Test(priority =4,groups="smoke", description = "verify bre applied to name fail")
         public void bre_applied_to_name_fail() throws Exception {
                 //TC-2 BRE Applied to NAME-Fail.
                 ProjectBREPageObj.DoubleClickOnFalse();
@@ -342,7 +348,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnFalseBoxButton1();
                 Thread.sleep(2000);
         }
-       @Test(priority = 5)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 005 - brev applied to address pass")
+        @Description("verify user able to brev applied to address pass")
+        @Test(priority =5,groups="smoke", description = "verify brev applied to address pass")
         public void bre_applied_to_address_pass() throws Exception {
                 //Adding Second Rule for Address.
                 //TC-3 BRE Applied to Address = Pass.
@@ -387,7 +396,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnSecondTrueBoxButton();
                 Thread.sleep(2000);
         }
-        @Test(priority = 6)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 006 - bre applied to address fail")
+        @Description("verify user able to bre applied to address fail")
+        @Test(priority =6,groups="smoke", description = "verify bre applied to address fail")
         public void bre_applied_to_address_fail() throws Exception {
                 //TC-4 BRE Applied to Address-Fail.
                 ProjectBREPageObj.DoubleClickOnFalse2();
@@ -407,7 +419,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnFalseBoxButton2();
                 Thread.sleep(2000);
         }
-        @Test(priority = 7)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 007 - bre applied to state pass")
+        @Description("verify user able to bre applied to state pass")
+        @Test(priority =7,groups="smoke", description = "verify bre applied to state pass")
         public void bre_applied_to_state_pass() throws Exception {
                 //Adding Third Rule for State.
                 //TC-5 BRE Applied to State = Pass.
@@ -450,7 +465,10 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 ProjectBREPageObj.ClickOnThirdTrueBoxButton();
                 Thread.sleep(2000);
         }
-        @Test(priority = 8)
+        @Severity(SeverityLevel.CRITICAL)
+        @Story("story_id: 008 - bre applied to state fail")
+        @Description("verify user able to bre applied to state fail")
+        @Test(priority =8,groups="smoke", description = "verify bre applied to state fail")
         public void bre_applied_to_state_fail() throws Exception {
                 //TC-6 BRE Applied to State-Fail.
                 ProjectBREPageObj.DoubleClickOnFalse3();

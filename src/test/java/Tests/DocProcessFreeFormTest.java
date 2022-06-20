@@ -4,26 +4,34 @@ import Pages.DocumentPage;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+@Feature("Doc Process Free Form Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class    DocProcessFreeFormTest extends BasePage {
     static DocumentPage DocPageObj;
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 001  - search_project")
+    @Description("verify user able to search_project")
+    @Test (priority=1,groups="smoke", description = "verify search_project")
+
     public void search_project() throws Exception {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
@@ -41,7 +49,11 @@ public class    DocProcessFreeFormTest extends BasePage {
         AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
     }
-    @Test(priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 002  - search_document")
+    @Description("verify user able to search_document")
+    @Test (priority=2,groups="smoke", description = "verify search_document")
+
     public void search_document() throws Exception {
         //TC 7.2 SearchBox Document.
         DocPageObj.ClickSearchBox("Pfizer");
@@ -53,7 +65,10 @@ public class    DocProcessFreeFormTest extends BasePage {
         AssertionsFunction.verifyElementPresent(DocPageObj.SearchedDocument);
         AssertionsFunction.verifyElementText("Processed",DocPageObj.StatusOfDoc);
     }
-    @Test(priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 003  - update_document_cancel_it")
+    @Description("verify user able to update_document_cancel_it")
+    @Test (priority=3,groups="smoke", description = "verify update_document_cancel_it")
     public void update_document_cancel_it() throws Exception {
         //TC 7.3 Update document and cancel it.
         DocPageObj.ClickViewDocIcon2();
@@ -63,7 +78,10 @@ public class    DocProcessFreeFormTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
 
     }
-    @Test(priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 004  - hide_unhide_analytics")
+    @Description("verify user able to hide_unhide_analytics")
+    @Test (priority=4,groups="smoke", description = "verify hide_unhide_analytics")
     public void hide_unhide_analytics() throws Exception {
         //TC 7.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
@@ -71,7 +89,11 @@ public class    DocProcessFreeFormTest extends BasePage {
         DocPageObj.ClickUnHideAnalytics();
         AssertionsFunction.verifyElementPresent(DocPageObj.AnalyticsUnhide);
     }
-    @Test(priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 005  - documents_filter")
+    @Description("verify user able to documents_filter")
+    @Test (priority=5,groups="smoke", description = "verify documents_filter")
+
     public void documents_filter() throws Exception {
         //TC 7.5 Documents filter.
         DocPageObj.ClickFilterDoc();
@@ -84,7 +106,10 @@ public class    DocProcessFreeFormTest extends BasePage {
         DocPageObj.ClickCancelFilterSearch();
         r.keyPress(KeyEvent.VK_ESCAPE);
     }
-    @Test(priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 006  - sorting")
+    @Description("verify user able to sorting")
+    @Test (priority=6,groups="smoke", description = "verify sorting")
     public void sorting() throws Exception {
         //TC 7.6 Sorting.
         DocPageObj.ClickDocSort();
@@ -98,7 +123,11 @@ public class    DocProcessFreeFormTest extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,10000)", "");
     }
-    @Test(priority = 7)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("story_id: 007  - items_per_page")
+    @Description("verify items_per_page")
+    @Test (priority=7,groups="smoke", description = "verify items_per_page")
+
     public void items_per_page() throws Exception {
         //TC 7.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();

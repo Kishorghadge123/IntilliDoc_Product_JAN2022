@@ -4,6 +4,7 @@ import Pages.LoginPage;
 import Pages.ProjectPage;
 import Utilities.ReadProps;
 import com.relevantcodes.extentreports.ExtentTest;
+import io.qameta.allure.Step;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
@@ -12,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+//import javax.naming.ConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,15 +23,13 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-
 public class BasePage {
-
     public static WebDriver driver;
-    public static ExtentTest test;
+//    public static ExtentTest test;
     static ProjectPage ProjectPageObj;
     static LoginPage loginPageObjects;
+    @Step("login into the IntelliDoc application")
     public static void LoginTest() throws Exception {
-
         loginPageObjects = new LoginPage(driver);
         ProjectPageObj = new ProjectPage(driver);
         driver.get(ReadProps.readAttr("URL"));
@@ -39,14 +39,14 @@ public class BasePage {
         loginPageObjects.clickLoginButtonForValidInput();
         Thread.sleep(10000);
     }
+    @Step("initialize the driver")
     public static void driverInit() throws Exception {
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
-
-
+    @Step("update object repository")
     @BeforeSuite
     public static void updateObjectRepo() throws IOException, ConfigurationException {
         int exec_id = Integer.valueOf(ReadProps.readAttr("exec_id"));
@@ -66,9 +66,7 @@ public class BasePage {
         config.setProperty("MedicalChartProjectName1","QA-AutoProject-MedicalChart"+ exec_id);
         config.setProperty("StartDate", new SimpleDateFormat("M/d/yyyy").format(new Date()));
         config.setProperty("EndDate", config.getProperty("StartDate"));
-        config.save();}
-
-
-
+        config.save();
+    }
 }
 

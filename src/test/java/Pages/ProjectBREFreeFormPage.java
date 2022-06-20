@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -34,53 +35,61 @@ public class ProjectBREFreeFormPage {
     public ProjectBREFreeFormPage(WebDriver driver) throws Exception {
         this.driver = driver;
     }
-
+    @Step("click On RunRule Button")
     public  void clickOnRunRuleButton(){
         driver.findElement(RunRuleBtn).click();
     }
+    @Step("click On Status Buttonr")
     public  void clickOnStatusButton(){driver.findElement(clickOnStatusButton).click();}
+    @Step("click on Reject Document")
     public  void clickonRejectDocument(){
         driver.findElement(RejectedDocumnet).click();
     }
-
+    @Step("click on search project")
     public void click_on_search_project() {
         driver.findElement(clickOnStructutrProject).click();
     }
+    @Step("select free form project")
     public void select_free_form_project() {
         driver.findElement(selectFreeFormProject).click();
     }
+    @Step("click onRejected Document")
     public void clickonRejectedDocument() {
         driver.findElement(RejectedDocumnet).click();
     }
-
+    @Step("click On chart Data")
     public  void clickOnchartData(){
         driver.findElement(chartData).click();
     }
+    @Step("click on Add Attribute")
     public  void  clickonAddAttribute(){
         driver.findElement(clickonAddAttribute).click();
     }
+    @Step("select Attribute")
     public  void  selectAttribute(){
         driver.findElement(Age).click();
     }
+    @Step("select Attribute Second")
     public  void  selectAttributeSecond(){
         driver.findElement(Phone).click();
     }
+    @Step("Add Button")
     public  void AddButton(){
         driver.findElement(Add).click();
     }
+    @Step("Check Processed Document")
     public void CheckProcessedDocument(){
         driver.findElement(CheckProcessedDocument).click();
     }
-
-
-
+    @Step("enter Age")
     public  void enterAge(){
         driver.findElement(agetextbox).sendKeys("24");
     }
+    @Step("click On Submit")
     public  void clickOnSubmit(){
         driver.findElement(submitbtn).click();
     }
-
+    @Step("click OnSecond Submit Btn")
     public  void clickOnSecondSubmitBtn(){
         driver.findElement(submitbtn2).click();
     }

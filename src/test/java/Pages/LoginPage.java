@@ -2,6 +2,7 @@ package Pages;
 
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,32 +40,34 @@ public class LoginPage {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-
+    @Step("Enter  Username")
     public void EnterUsername(String text) throws Exception
     {
         Custome_Wait.waitElement(driver,userName);
         driver.navigate().refresh();
         userName.sendKeys(text);
     }
-
+    @Step("set Password")
     //Methods Declaration.
     public void setPassword(String text) throws Exception{
         Custome_Wait.waitElement(driver,password);
         password.sendKeys(text);
     }
-
+    @Step("click Login Button For ValidInput")
     public void clickLoginButtonForValidInput() throws Exception
     {
         Custome_Wait.waitElement(driver,loginBtn);
         loginBtn.click();
         Thread.sleep(15000);
     }
+    @Step("click On LoginButton For InvalidInput")
 
     public void clickOnLoginButtonForInvalidInput() throws Exception
     {
         Custome_Wait.waitElement(driver,loginBtn);
         loginBtn.click();
     }
+    @Step("Click Logout Btn")
     public void ClickLogoutBtn() throws Exception
     {
         Thread.sleep(5000);
@@ -73,20 +76,17 @@ public class LoginPage {
         Thread.sleep(5000);
 
     }
-
+    @Step("Clear UserID")
     public void ClearUserID() throws Exception{
-
-
         userName.clear();
     }
-
+    @Step("Clear PWD")
     public void ClearPWD() throws Exception{
 
         password.clear();
     }
 
     public void VerifyAssertError() {
-
         String actual_msg = ErrorMsgBlankData.getText();
         String expect = "Please Enter Valid Data ...!";
         Assert.assertEquals(actual_msg, expect);
@@ -117,12 +117,13 @@ public class LoginPage {
         String expected_page = "https://alpha.neutrino-ai.com/#/login";
         Assert.assertEquals(actual_page, expected_page);
     }
+    @Step("Refresh Page")
     public void RefreshPage() throws Exception
     {
         driver.navigate().refresh();
         Thread.sleep(3000);
     }
-
+    @Step("Navigate Back")
     public void NavigateBack()
     {
         driver.navigate().back();
@@ -130,34 +131,23 @@ public class LoginPage {
 
     public void accessPermission(String TabName) throws Exception {
         switch (TabName){
-
-
-
             case "User":
             {
                 Thread.sleep(3000);
                 driver.findElement(CreateUserPage.UserBtn).click();
                 driver.findElement(By.xpath("//*[text()=' Action ']//following::tr[1]/td[1]")).click();
                 break;
-
             }
-
             case "Role":
             {
                 AssertionsFunction.verifyElementPresent(CreateRolePage.RoleManagementBtn);
                 driver.findElement(CreateRolePage.RoleManagementBtn).click();
-
                 Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()='Roles ']")));
                 AssertionsFunction.verifyElementPresent(CreateRolePage.CreateRoleBtn);
-
                 driver.findElement(By.xpath("//tbody[@role='rowgroup']/tr[1]/td[5]")).click();
-
                 AssertionsFunction.verifyElementPresent(CreateRolePage.ClickUpdateBtn);
-
                 break;
-
             }
-
             case "Templates":
             {
                 AssertionsFunction.verifyElementPresent(TemplatePage.TemplateBtn);
@@ -169,7 +159,6 @@ public class LoginPage {
 
             case "Dataset":
             {
-
                 AssertionsFunction.verifyElementPresent(DatasetPage.DatasetBtn);
                 driver.findElement(DatasetPage.DatasetBtn).click();
                 Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[text()=' Category ']")));

@@ -14,7 +14,7 @@ public class Project_Module_Locators
 
 	@FindBy (xpath="//input[@formcontrolname='userName']")
 	public WebElement userName;
-	
+
 	@FindBy (xpath="//input[@formcontrolname='password']")
 	public WebElement password;
 	
@@ -44,7 +44,6 @@ public class Project_Module_Locators
 	
 	@FindBy (xpath="//*[text()=' Action ']//following::tr[1]/td[8]")
 	public WebElement click_on_Action_Button;
-
 
 	//locators for project module
 

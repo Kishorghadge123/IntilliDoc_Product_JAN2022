@@ -14,7 +14,6 @@ public class Project_Module_TC_For_Operator_User
 				driver = Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");
 				LoginUser.login_users(driver, "Operator@Test.com", "Operator@111");
 				Project_Module project = new Project_Module(driver);
-
 				project.clickOnCreateProjectButton();
 				project.project_name_filed_validation("ProjectDemo");
 				driver.quit();
@@ -103,8 +102,6 @@ public class Project_Module_TC_For_Operator_User
 				driver = Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");
 				LoginUser.login_users(driver, "Operator@Test.com", "Operator@111");
 				Project_Module project = new Project_Module(driver);
-
-
 				project.clickOnCreateProjectButton();
 				project.processing_Engine_For_Medical_Project("Medical_Chart");
 				driver.quit();
@@ -164,8 +161,6 @@ public class Project_Module_TC_For_Operator_User
 				driver = Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");
 				LoginUser.login_users(driver, "Operator@Test.com", "Operator@111");
 				Project_Module project = new Project_Module(driver);
-
-
 				project.clickOnCreateProjectButton();
 				project.straight_through_process_and_document_scrore_filed_validate();
 				driver.quit();

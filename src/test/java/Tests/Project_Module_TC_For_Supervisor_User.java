@@ -19,7 +19,6 @@ public class Project_Module_TC_For_Supervisor_User
 				driver = Browser_Launch.browser_launch("https://alpha.neutrino-ai.com/#/home");
 				LoginUser.login_users(driver, "Supervisor@Test.com", "Super@111");
 				Project_Module project = new Project_Module(driver);
-
 				project.clickOnCreateProjectButton();
 				project.project_name_filed_validation("ProjectDemo");
 				driver.quit();

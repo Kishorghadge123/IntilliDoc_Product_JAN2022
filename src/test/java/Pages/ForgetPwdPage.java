@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -21,10 +22,13 @@ public class ForgetPwdPage
         public String forgotPwdUrl="https://alpha.neutrino-ai.com/#/forgot-password";
         public String loginPageUrl="https://alpha.neutrino-ai.com/#/login";
         public ForgetPwdPage(WebDriver driver) { this.driver = driver;}
-
+        @Step("Click Forget PwdBtn")
         public void ClickForgetPwdBtn(){ driver.findElement(ForgetPwd).click();}
+        @Step("Click Cancel Btn")
         public void ClickCancelBtn(){ driver.findElement(Cancel).click();}
+        @Step("Click Email Btn")
         public void ClickEmailBtn(String text){ driver.findElement(email).sendKeys(text);}
+        @Step("Click Submit Btn")
         public void ClickSubmitBtn(){ driver.findElement(Submit).click();}
 
         public void VerifyAssertForErrorSW (){

@@ -1,4 +1,5 @@
 package Pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,24 +19,35 @@ public class EditProfilePage
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
     }
+    @Step("click Visible")
     public  void clickVisible(){driver.findElement(Visible).click();}
+    @Step("Profile Button")
     public void ProfileButton() {
         driver.findElement(Profile).click();
     }
+    @Step("Night Mode Button")
     public void NightModeButton() {
         driver.findElement(NightMode).click();
     }
+    @Step("DayMode Button")
     public void DayModeButton() {
         driver.findElement(DayMode).click();
     }
+    @Step("Edit Profile Button")
 
     public void EditProfileButton() {
         driver.findElement(EditProfile).click();
     }
-    public void CancelButton() {
+    @Step("Cancel Button")
+    public void CancelButton()
+    {
         driver.findElement(Cancel).click();
     }
-    public void SaveButton(){driver.findElement(Save).click();}
+    @Step("Save Button")
+    public void SaveButton()
+    {
+        driver.findElement(Save).click();
+    }
 
 
     public void verify_profile_icon()

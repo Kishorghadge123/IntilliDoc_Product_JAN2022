@@ -2,20 +2,27 @@ package Tests;
 import Base.BasePage;
 import Pages.ProjectFlowStructuredPage1;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
+@Feature("Project Flow Structured Test1")
 @Listeners(Utilities.TestListeners.class)
 public class ProjectFlowStructuredTest1 extends BasePage {
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
    @AfterClass
     public void cleanUp() throws Exception
     {
     driver.quit();
     }
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001 - disable_active_project_on_Project_page")
+    @Description("verify user able to disable_active_project_on_Project_page")
+    @Test (priority=1,groups="smoke", description = "verify disable_active_project_on_Project_page")
     public void disable_active_project_on_Project_page() throws Exception {
 
             ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
@@ -36,7 +43,10 @@ public class ProjectFlowStructuredTest1 extends BasePage {
             ProjectPageObj.ClearSearch();
             Thread.sleep(2000);
         }
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002 - verify_disabled_project_on_Project_page")
+    @Description("verify user able to verify_disabled_project_on_Project_page")
+    @Test (priority=2,groups="smoke", description = "verify_disabled_project_on_Project_page")
     public void verify_disabled_project_on_Project_page() throws Exception {
             //TC 1.2 Verify Disable Project in List View.
             ProjectFlowStructuredPage1 ProjectPageObj = new ProjectFlowStructuredPage1(driver);
