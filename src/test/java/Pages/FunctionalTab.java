@@ -3,9 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class FunctionalTab {
-
         WebDriver driver = null;
-
         By NIcon = By.xpath("//*[@id='sidenav']/div/ul/li/img");
         By HorizontalUsers = By.xpath("//span[contains(text(),'Users')]");
         By HorizontalRoles = By.xpath("//span[contains(text(),'Roles')]");

@@ -22,11 +22,11 @@ public class CreateUserAdminTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+        driver.quit();
+    }
     @Test(priority = 1)
     public void valid_login_with_admin_credentials() throws Exception {
         driver.get(ReadProps.readAttr("URL"));
@@ -78,6 +78,7 @@ Thread.sleep(2000);
         AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
 
     }
+
     @Test(priority = 5)
     public void disable_user() throws Exception {
         //TC 4.5 Disable user.
@@ -87,7 +88,6 @@ Thread.sleep(2000);
         UserPageObj.clickOnUpdateUserButton();
         AssertionsFunction.verifyTargetPageURL(UserPageObj.userTabUrl);
         Thread.sleep(1000);
-
     }
 
 

@@ -36,6 +36,7 @@ public class ForgetPwdTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(FwdPwdObj.loginPageUrl);
 
     }
+
     @Test(priority = 2)
     public void first_login_not_done() throws Exception {
         //TC 12.2 First Login is not Done By the User.

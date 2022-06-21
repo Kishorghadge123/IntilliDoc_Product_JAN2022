@@ -14,12 +14,10 @@ public class EditProfileTest extends BasePage {
     static LoginPage loginPageObjects;
     static EditProfilePage EditProfileObj;
     static ProjectPage ProjectPageObj;
-
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
     }
-
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();

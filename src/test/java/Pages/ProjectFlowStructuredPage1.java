@@ -8,7 +8,7 @@ public class ProjectFlowStructuredPage1 {
 
 
     WebDriver driver = null;
-//locators
+    //locators
     public  String projecturl="https://alpha.neutrino-ai.com/#/home/project-management";
     By ClickSearchBox = By.xpath("//input[@placeholder='Search']");
     By EditProjectBtn = By.xpath("//mat-icon[contains(text(),'create')]");

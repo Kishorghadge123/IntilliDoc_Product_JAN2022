@@ -22,10 +22,10 @@ public class CreateUpdateRolePlatformAdminTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-//    @AfterClass
-//    public void cleanUp() throws Exception {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
+    }
     @Test(priority = 1)
     public void create_role_with_blank_rolename_permission() throws Exception {
         CreateRolePageObj = new CreateRolePage(driver);
@@ -224,8 +224,6 @@ AssertionsFunction.isPresent(CreateRolePageObj.ClickUpdateBtn);
     }
     @Test(priority = 10)
     public void adding_new_permission() throws InterruptedException, AWTException {
-        //
-
         CreateRolePageObj.AddPermissionPlusBtn();
         CreateRolePageObj.ClickViewApiConfig();
         Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getProcessDocumentPermission()));

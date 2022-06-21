@@ -6,8 +6,9 @@ import org.testng.asserts.SoftAssert;
 
 public class FunctionalTabPage {
 
-        WebDriver driver = null;
 
+
+    WebDriver driver = null;
         By NIcon = By.xpath("//*[@id='sidenav']/div/ul/li/img");
         By HorizontalUsers = By.xpath("//span[contains(text(),'Users')]");
         By HorizontalRoles = By.xpath("//span[contains(text(),'Roles')]");

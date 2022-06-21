@@ -40,10 +40,8 @@ public class AnalyticsTest extends BasePage
         //1.18Verify the working of dropdown button project statistics displayed
         AnalyticsPageObj = new AnalyticsPage(driver);
        Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
-
-        AnalyticsPageObj.ClickAnalyticsBtn();
-
-Thread.sleep(4000);
+       AnalyticsPageObj.ClickAnalyticsBtn();
+       Thread.sleep(4000);
         // 1.1 Organization Statistics and Project Statistics Hide and UnHide.
         AnalyticsPageObj.ClickOrganizationArrow();
         AssertionsFunction.verifyElementPresent(AnalyticsPage.StatisticsHidden);

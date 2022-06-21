@@ -8,6 +8,7 @@ import java.io.IOException;
 public class ProjectBREFreeFormPage {
     WebDriver driver=null;
 //locator
+
     By clickOnStructutrProject= By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
     By selectFreeFormProject=By.xpath("//span[contains(text(),'J1003')]//preceding::span[3]");
     By RejectedDocumnet=By.xpath("//span[contains(text(),'inputDocs/AE Free-Form/PDF 4.pdf')]");

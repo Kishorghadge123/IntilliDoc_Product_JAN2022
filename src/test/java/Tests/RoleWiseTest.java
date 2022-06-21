@@ -17,7 +17,6 @@ import org.testng.asserts.Assertion;
 @Listeners(Utilities.TestListeners.class)
 public class RoleWiseTest extends BasePage {
     static RoleAccessPage roleAccessObj;
-
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -28,10 +27,7 @@ public class RoleWiseTest extends BasePage {
         driver.quit();
     }
 
-
-
-
-  @Test(priority = 1)
+    @Test(priority = 1)
     public void login_with_valid_username_password() throws InterruptedException, IOException {
         roleAccessObj = new RoleAccessPage(driver);
         driver.get(ReadProps.readAttr("URL"));

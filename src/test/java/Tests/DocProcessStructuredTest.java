@@ -14,7 +14,6 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 @Listeners(Utilities.TestListeners.class)
-
 public class DocProcessStructuredTest extends BasePage {
     static DocumentPage DocPageObj;
 

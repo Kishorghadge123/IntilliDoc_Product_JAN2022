@@ -17,12 +17,11 @@ public class CreateUserPlatformAdminTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+        driver.quit();
+    }
 
     @Test(priority = 1)
     public void blank_username_blank_password() throws Exception {

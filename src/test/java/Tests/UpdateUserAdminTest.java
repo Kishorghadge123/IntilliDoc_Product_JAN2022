@@ -13,12 +13,13 @@ import javax.annotation.Priority;
 public class UpdateUserAdminTest extends BasePage {
     static CreateUserPage UserPageObj1;
 
-   @Step("login test started")
+
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
     }
-    @Step("closed the browser")
+
     @AfterClass
     public void cleanUp() throws Exception
     {

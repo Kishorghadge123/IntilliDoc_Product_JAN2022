@@ -13,8 +13,7 @@ import java.util.Random;
 
 public class TemplatePage   {
     WebDriver driver = null;
-
-//locator
+    //locator
     public By name1=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[1]");
     public By state=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[2]");
     public By zip=By.xpath("(//mat-cell[@class='mat-cell cdk-cell ellipsis cdk-column-attributeName mat-column-attributeName ng-star-inserted'])[3]");

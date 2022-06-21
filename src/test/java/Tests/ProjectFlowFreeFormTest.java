@@ -24,12 +24,16 @@ public class ProjectFlowFreeFormTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//
-//    driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+
+    driver.quit();
+    }
+
+
+
+
     @Test(priority = 1)
     public void create_project_without_adding_attributes_and_role() throws Exception {
             Robot r = new Robot();
@@ -37,7 +41,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
             DocPageObj = new DocumentPage(driver);
             //TC 15.1 Verify Create Project without adding the Attributes and Role.
             ProjectPageObj.ClickOnCreateProjectBtn();
-            Thread.sleep(5000);
+            Thread.sleep(15000);
             ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("FreeFormProjectName1"));
             ProjectPageObj.ClickOnLeadBtn();
             ProjectPageObj.SelectOnLeadBtn();
@@ -99,7 +103,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
         public void next_to_data() throws Exception {
                 //TC 15.5 Navigate Next to Data Page and Rules Page and Back to Project Page.
                 ProjectPageObj.ClickNextPage();
-                Thread.sleep(4000);
+                Thread.sleep(9000);
                 ProjectPageObj.ClickRulesPage();
                 Thread.sleep(4000);
                 ProjectPageObj.ClickBackRulePage();
@@ -134,7 +138,7 @@ public class ProjectFlowFreeFormTest extends BasePage {
     DocPageObj.selectfreeformproject();
     Thread.sleep(20000);
     DocPageObj.clickonfreereadyDocument();
-    Thread.sleep(10000);
+    Thread.sleep(30000);
     DocPageObj.clickonchartdata();
     AssertionsFunction.isPresent(DocPageObj.chartdata);
     Thread.sleep(9000);

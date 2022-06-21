@@ -434,6 +434,7 @@ public class UpdateProjectTest extends BasePage {
         Thread.sleep(2000);
         Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
     }
+
     @Test(priority = 18)
     public void status_is_disabled_for_admin_when_action_is_true() throws Exception {
         //TC 21.16 Verify that project status is enabled for admin when the action checkbox  of the status is True.

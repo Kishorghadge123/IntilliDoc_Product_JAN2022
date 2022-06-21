@@ -9,11 +9,7 @@ import org.testng.Assert;
 import java.io.IOException;
 
 public class ProjectBREMedicalChartDocumentPage {
-
     WebDriver driver = null;
-
-
-
     //locator
     public By icd=By.xpath("//input[@id='mat-input-51']");
     By userName = By.xpath("//input[@formcontrolname='userName']");

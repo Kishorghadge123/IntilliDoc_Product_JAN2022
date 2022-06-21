@@ -20,6 +20,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
     static ProjectPage ProjectPageObj;
     static DocumentPage DocPageObj;
 
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();

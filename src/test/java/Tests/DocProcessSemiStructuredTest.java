@@ -14,10 +14,10 @@ import javax.print.Doc;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-
-    @Listeners(Utilities.TestListeners.class)
+@Listeners(Utilities.TestListeners.class)
     public class DocProcessSemiStructuredTest extends BasePage {
         static DocumentPage DocPageObj;
+
         @BeforeClass
         public void login() throws Exception {
             BasePage.driverInit();

@@ -17,11 +17,14 @@ import java.awt.event.KeyEvent;
 public class ProjectFlowMedicalChart extends BasePage {
     static ProjectPage ProjectPageObj;
 
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
+
     @AfterClass
     public void cleanUp() throws Exception
     {

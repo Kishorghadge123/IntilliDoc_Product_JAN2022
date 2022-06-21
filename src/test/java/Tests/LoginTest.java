@@ -30,6 +30,7 @@ public class LoginTest extends BasePage {
         driver.quit();
     }
 
+
     @Test(priority = 1)
     public static void verification_of_title_logo_and_login_with_blank_details() throws Exception {
         //Object creation

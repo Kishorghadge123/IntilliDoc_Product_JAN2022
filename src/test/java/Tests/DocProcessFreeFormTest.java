@@ -1,6 +1,4 @@
 
-
-
 package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
@@ -13,7 +11,6 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
     @Listeners(Utilities.TestListeners.class)
-
     public class    DocProcessFreeFormTest extends BasePage {
         static DocumentPage DocPageObj;
 

@@ -10,7 +10,6 @@ public class CreateRolePage {
 
     WebDriver driver = null;
     //TC 6.1 element locators
-
     public static By RoleManagementBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[2]");
     public static By CreateRoleBtn = By.xpath("//span[contains(text(),' Create Role ')]");
     public  static By project=By.xpath("//span[contains(text(),' Create Project ')]");
@@ -20,8 +19,7 @@ public class CreateRolePage {
     By AddPermission = By.xpath(" //button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By ViewDocumentPermission = By.xpath("//span[contains(text(),'View Document' )]");
     By validationMsg=By.xpath("//*[text()='Only alphabets,digits,parenthesis and hyphens are allowed while giving a role name.']");
-   public By Cancel=By.xpath("(//span[contains(text(),'Cancel')])[2]");
-    By SearchRole = By.xpath("//input[@data-placeholder='Search']");
+   public By Cancel=By.xpath("(//span[contains(text(),'Cancel')])[2]");By SearchRole = By.xpath("//input[@data-placeholder='Search']");
     By createrole=By.xpath("//span[contains(text(),' AutoAdminPA2304 ')]");
     By EditRole = By.xpath("(//td[@role='gridcell'])[1]"); //edit by suwarna  and work for all role selection
     By ProcessDocumentPermission = By.xpath("//span[contains(text(),' Process Document ')]");

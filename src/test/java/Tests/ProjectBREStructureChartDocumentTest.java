@@ -18,7 +18,6 @@ import java.awt.event.KeyEvent;
 public class ProjectBREStructureChartDocumentTest extends BasePage {
     public static ProjectBREStructureChartDocumentPage ProjectBREStructureChartDocumentPageobj;
     public DocumentPage DocPageObj;
-
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -26,6 +25,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         driver.manage().window().maximize();
         // BasePage.LoginTest();
     }
+
 
     @AfterClass
     public void cleanUp() throws Exception

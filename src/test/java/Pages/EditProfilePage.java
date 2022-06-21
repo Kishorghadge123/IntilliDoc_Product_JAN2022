@@ -8,8 +8,9 @@ import org.testng.Assert;
 public class EditProfilePage
 {
     WebDriver driver = null;
-
     // Locators
+
+
     public static By Profile = By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
     By NightMode = By.xpath("//mat-label[contains(text(),'Night Mode')]");
     public  static By project=By.xpath("//span[contains(text(),' Create Project ')]");

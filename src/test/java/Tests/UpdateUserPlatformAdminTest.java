@@ -11,26 +11,25 @@ import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.*;
 
-@Feature("UpdateUserPlatformAdminTest")
 @Listeners(Utilities.TestListeners.class)
 
 public class UpdateUserPlatformAdminTest extends BasePage {
     static CreateUserPage UserPageObj1;
-    @Step("login test started")
+
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
 
-    @Step("closed the browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
 
-@Test(priority =1)
+    @Test(priority =1)
     public void update_user_enable_disable() throws Exception {
         UserPageObj1 = new CreateUserPage(driver);
         UserPageObj1.clickOnUserMenu();
@@ -250,10 +249,7 @@ AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
 
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("story_id: 15 - password_field_onlyUpperCase")
-    @Description("verify password_field_onlyUpperCase")
-    @Test (priority=15,groups="smoke", description = " verify password_field_onlyUpperCase")
+    @Test(priority =15)
     public void password_field_onlyUpperCase() throws Exception
     {
         //Only UpperCase
@@ -270,10 +266,8 @@ AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
     }
 
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("story_id: 16 - valid_name_and_blank_password")
-    @Description("verify valid_name_and_blank_password")
-    @Test (priority=16,groups="smoke", description = " verify  valid_name_and_blank_password")
+
+    @Test(priority =16)
     public void password_field_onlyLowerCase() throws Exception {
 
         //Only LowerCase
@@ -289,10 +283,7 @@ AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
         AssertionsFunction.isPresent(UserPageObj1.CreateUserBtn);
     }
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("story_id: 17 - password_field_LessThan8CharLimit")
-    @Description("verify password_field_LessThan8CharLimit")
-    @Test (priority=17,groups="smoke", description = " verify password_field_LessThan8CharLimit")
+    @Test(priority =17)
     public void password_field_LessThan8CharLimit() throws Exception {
 
 
@@ -312,10 +303,7 @@ AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
 
 
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("story_id: 18 - cancelUpdate")
-    @Description("verify cancelUpdate")
-    @Test (priority=18,groups="smoke", description = " verify cancelUpdate")
+    @Test(priority =18)
     public void cancelUpdate() throws Exception
     {
 
@@ -329,11 +317,8 @@ AssertionsFunction.verifyTargetPageURL(UserPageObj1.userTabUrl);
     }
 
 
+    @Test(priority =19)
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("story_id: 19 - userUpdateValidData")
-    @Description("verify valid_name_and_blank_password")
-    @Test (priority=19,groups="smoke", description = " verify  valid_name_and_blank_password")
     public void userUpdateValidData() throws Exception {
 
 

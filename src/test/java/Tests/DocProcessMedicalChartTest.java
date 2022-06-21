@@ -1,3 +1,4 @@
+
 package Tests;
 import Base.BasePage;
 import Pages.DocumentPage;
@@ -14,6 +15,8 @@ import java.awt.event.KeyEvent;
 
 public class DocProcessMedicalChartTest extends BasePage
 {
+
+
     static DocumentPage DocPageObj;
     @BeforeClass
     public void login() throws Exception {

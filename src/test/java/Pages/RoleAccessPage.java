@@ -12,7 +12,6 @@ import org.testng.Assert;
 public class RoleAccessPage {
     WebDriver driver = null;
  //locator
-
     public  String rolepageurl="https://alpha.neutrino-ai.com/#/home/project-management";
    public  String crateroleurl="https://alpha.neutrino-ai.com/#/home/role-management";
    public By help=By.xpath("//button[contains(text(),'Help')]");

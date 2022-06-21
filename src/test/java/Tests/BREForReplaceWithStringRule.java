@@ -22,6 +22,8 @@ public class BREForReplaceWithStringRule extends BasePage {
     static AnalyticsPage AnalyticsPageObj;
     static ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj;
 
+
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -144,8 +146,6 @@ DocPageObj.clickonchartdata();
        AssertionsFunction.isPresent(AnalyticsPageObj.AnalyticsBtn);
 
 Thread.sleep(2000);
-
-
     }
 
     @Test(priority = 2)

@@ -13,6 +13,7 @@ public class ProjectFlowStructuredTest1 extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
     @AfterClass
     public void cleanUp() throws Exception
     {
@@ -40,6 +41,8 @@ Thread.sleep(15000);
         AssertionsFunction.verifyTargetPageURL(ProjectPageObj.projecturl);
 
     }
+
+
     @Test(priority = 2)
     public void verify_disabled_project_on_Project_page() throws Exception {
         //TC 1.2 Verify Disable Project in List View.
@@ -54,4 +57,5 @@ Thread.sleep(15000);
         ProjectPageObj.ClickUpdateBtn();
         Custome_Wait.waitElement(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
         AssertionsFunction.verifyTargetPageURL(ProjectPageObj.projecturl);
+
     }  }

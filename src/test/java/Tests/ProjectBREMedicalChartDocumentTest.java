@@ -29,7 +29,6 @@ public class ProjectBREMedicalChartDocumentTest extends BasePage {
         driver.manage().window().maximize();
 
     }
-
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();

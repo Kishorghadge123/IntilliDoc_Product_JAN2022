@@ -17,7 +17,6 @@ import static Utilities.Browser_Launch.driver;
 
 public class Custome_Wait {
 
-
 	public static void wait(WebDriver driver, WebElement element) {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 

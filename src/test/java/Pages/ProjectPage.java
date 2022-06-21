@@ -15,9 +15,7 @@ import java.util.Date;
 public class ProjectPage   {
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
-
-
-//locators
+    //locators
     public static String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
     public  String  EditProjectURL = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6221eeaa994e456345dd1030";
     public String EditProjectAdmin = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6200fd11cc453f40a6baf157";

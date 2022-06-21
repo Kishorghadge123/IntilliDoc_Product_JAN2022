@@ -21,6 +21,7 @@ public class TemplateTest extends BasePage {
     static TemplatePage TemplatePageObj;
     String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
     static DocumentPage DocPageObj;
+
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -28,11 +29,11 @@ public class TemplateTest extends BasePage {
         BasePage.LoginTest();
     }
 
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+        driver.quit();
+    }
     @Test(priority = 1)
     public void create_template_with_invalid_name() throws Exception {
         TemplatePageObj = new TemplatePage(driver);
@@ -103,7 +104,6 @@ public class TemplateTest extends BasePage {
         Thread.sleep(1000);
 
     }
-
     @Test(priority = 6)
     public void zoom_in() throws Exception {
         //TC 20.6 Zoom IN.

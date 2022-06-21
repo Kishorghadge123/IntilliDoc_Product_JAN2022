@@ -7,10 +7,10 @@ import org.testng.Assert;
 
 public class ForgetPwdPage
 {
-
-
         WebDriver driver = null;
         ///locators
+
+
         By ForgetPwd = By.xpath("//a[contains(text(),'Forgot Password?')]");
         By Cancel = By.xpath("//span[contains(text(),'Cancel')]");
         By email = By.xpath("//input[@formcontrolname='email']");

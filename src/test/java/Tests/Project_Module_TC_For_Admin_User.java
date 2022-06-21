@@ -10,7 +10,6 @@ public class Project_Module_TC_For_Admin_User
 {
     WebDriver driver;
 
-
     @AfterMethod
     public void tearDown()
     {

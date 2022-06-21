@@ -9,14 +9,14 @@ import org.testng.Assert;
 
 public class AssertionsFunction extends BasePage{
 
+
+
     public static void verifyElementText(String expectedValue, By element_Locator)
     {
         String actualValue= driver.findElement(element_Locator).getText();
         System.out.println(actualValue);
         Assert.assertEquals(actualValue,expectedValue);
     }
-
-
 
     public static void verifyElementTextNotSame(By eleOne,By eleTwo)
     {

@@ -17,7 +17,6 @@ import java.awt.event.KeyEvent;
 public class BREAppliedToProjectWithoutDataset extends BasePage {
         static ProjectPage ProjectPageObj;
         static ProjectBREPage ProjectBREPageObj;
-
         @BeforeClass
         public void login() throws Exception {
                 BasePage.driverInit();
@@ -73,9 +72,6 @@ public class BREAppliedToProjectWithoutDataset extends BasePage {
                 //Navigate to Data Page. Adding Variables for Name, Address, State.
                 ProjectPageObj.ClickNextPage();
                 AssertionsFunction.isPresent(ProjectPageObj.NextPage);
-
-
-
         }
 
 

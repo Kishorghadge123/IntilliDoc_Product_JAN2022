@@ -6,11 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 ///pages classs
-public class
-AnalyticsPage {
+public class AnalyticsPage {
 
     WebDriver driver = null;
-
     //xpath change by suwarna
     public static String AnalyticsPageURL ="https://alpha.neutrino-ai.com/#/home/analytics";
     public static By AnalyticsBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
@@ -66,7 +64,6 @@ public  String analyticurl="https://alpha.neutrino-ai.com/#/home/analytics";
 
     public void ClickOnSortByReceived() throws Exception
     {
-
         Custome_Wait.wait(driver,SortByReceived);
         driver.findElement(SortByReceived).click();
     }
