@@ -15,17 +15,17 @@ import java.util.Random;
 
 public class CreateUserPage extends BasePage
 {
-    public static By UserBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-users m-0 side-icon ng-star-inserted']");
+    public static By UserBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[1]");
     public static By CreateUserBtn = By.xpath("//span[text()=' Create User ']");
-    By CreateBtn = By.xpath("//span[text()='Create']");
+   public By CreateBtn = By.xpath("//span[text()='Create']");
     By EnterUserName = By.xpath("//input[@formcontrolname='name']");
     By EnterEmail  = By.xpath("//input[@formcontrolname='email']");
     By enableDisableUserButton = By.xpath("//div[@class='mat-slide-toggle-thumb']");
     By errorMessageForWrongInput=By.xpath("//simple-snack-bar[@class='mat-simple-snackbar ng-star-inserted']");
     By ValidationUserName=By.xpath("//mat-error[text()='Please enter only characters.']");
     By ValidationEmailID=By.xpath("//mat-error[text()='Please enter a valid email id.']");
-    By searchUser  = By.xpath("//input[@data-placeholder='Search']");
-    By selectSearchedUser=By.xpath("//td[@class='mat-cell cdk-cell cdk-column-name mat-column-name ng-star-inserted']");
+    By searchUser  = By.xpath("//input[@placeholder='Search']");
+    public  static By selectSearchedUser=By.xpath("(//mat-icon[contains(text(),'create')])[1]");
 
     public static By UpdateUser  = By.xpath("//span[contains(text(),'Update')]");
     public static By updatedDateAndTime=By.xpath("//tbody[@role='rowgroup']/tr[1]/td[3]");
@@ -34,10 +34,12 @@ public class CreateUserPage extends BasePage
     By Password  = By.xpath("//input[@formcontrolname='password']");
     By logout = By.xpath("//span[@mattooltip='Logout']");
     By ProfileIcon=By.xpath("//div[@class='profileImageIcon ng-star-inserted']");
-    By cancelButton=By.xpath("//span[text()='Cancel']");
+  public   By cancelButton=By.xpath("//button[@tabindex='0']");
+    public String homeurl="https://alpha.neutrino-ai.com/#/home";
     public  String userTabUrl="https://alpha.neutrino-ai.com/#/home/user-management";
     public String createUserUrl="https://alpha.neutrino-ai.com/#/home/user-management/create-user";
-
+    public static By errormsgBlankDataCreateRoleClick=By.xpath("//mat-error[contains(text(),'Please enter a valid user name.')]");
+   public  static By errormsgInvalidName=By.xpath("//mat-error[contains(text(),'Please enter only characters.')]");
     public CreateUserPage(WebDriver driver) throws IOException
     {
         BasePage.driver = driver;
@@ -54,6 +56,10 @@ public class CreateUserPage extends BasePage
     public  void clickOnUserMenu()
     {
         driver.findElement(UserBtn).click();
+    }
+
+    public  void clickoncraeteuser(){
+        driver.findElement(CreateUserBtn).click();
     }
     public By getValidationEmailID()
     {
@@ -122,7 +128,7 @@ public class CreateUserPage extends BasePage
 
     public  void selectSearchedUser()throws Exception
     {
-         Custome_Wait.wait(driver,selectSearchedUser);
+        Custome_Wait.wait(driver,selectSearchedUser);
         driver.findElement(selectSearchedUser).click();
         Thread.sleep(5000);
 

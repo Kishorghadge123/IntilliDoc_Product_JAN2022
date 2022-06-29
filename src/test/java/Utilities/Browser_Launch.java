@@ -18,7 +18,7 @@ public class Browser_Launch
 	  public static WebDriver browser_launch(String url) throws Exception
 	  {
 		  String projectPath = System.getProperty("user.dir");
-		  System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver", projectPath + "\\Drivers\\chromedriver.exe");
 		  
 		  driver=new ChromeDriver();
 		  

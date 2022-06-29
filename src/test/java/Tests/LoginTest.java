@@ -1,20 +1,14 @@
 package Tests;
 
 import Base.BasePage;
+import Pages.CreateRolePage;
 import Pages.CreateUserPage;
 import Pages.LoginPage;
 import Pages.ProjectPage;
-import Pages.Project_Module;
 import Utilities.*;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.testng.Assert.assertEquals;
 
@@ -22,7 +16,8 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BasePage {
     static ProjectPage ProjectPageObj;
     static LoginPage loginPageObjects;
-    static CreateUserPage userobj ;
+    static CreateUserPage userobj;
+    static CreateRolePage CreateRolePageObj;
 
 
     @BeforeClass
@@ -30,17 +25,19 @@ public class LoginTest extends BasePage {
         BasePage.driverInit();
     }
 
-   @AfterClass
-    public void cleanUp() throws Exception
-    {
-    driver.quit();
+    @AfterClass
+    public void cleanUp() throws Exception {
+        driver.quit();
     }
+
+
     @Test(priority = 1)
     public static void verification_of_title_logo_and_login_with_blank_details() throws Exception {
         //Object creation
         loginPageObjects = new LoginPage(driver);
         ProjectPageObj = new ProjectPage(driver);
         userobj = new CreateUserPage(driver);
+        CreateRolePageObj = new CreateRolePage(driver);
         driver.get(ReadProps.readAttr("URL"));
         Thread.sleep(2000);
         String actualTitle = driver.getTitle();
@@ -60,8 +57,7 @@ public class LoginTest extends BasePage {
         //TC 14.1 - Login with Blank Username and Blank Password for Platform Admin.
         loginPageObjects.clickOnLoginButtonForInvalidInput();
     }
-
-   @Test(priority = 2)
+    @Test(priority = 2)
     public static void login_with_invalid_username_and_blank_password() throws Exception {
         //TC 14.2 - Login with Invalid Username and Blank Password for Platform Admin.
         ProjectPageObj.EnterUsername(ReadProps.readAttr("InvalidUsername"));
@@ -142,23 +138,13 @@ public class LoginTest extends BasePage {
 
     }
 
-   @Test(priority = 11)
-    public static void platfomrAdminAccess() throws Exception {
-        loginPageObjects.accessPermission("User");
-        loginPageObjects.accessPermission("Role");
-        loginPageObjects.accessPermission("Templates");
-        loginPageObjects.accessPermission("Dataset");
-        loginPageObjects.accessPermission("Projects");
-        loginPageObjects.accessPermission("Documents");
-        loginPageObjects.accessPermission("Analytics");
 
-    }
 
     @Test(priority = 12)
     public static void disableUserLogin() throws Exception
     {
         userobj.clickOnUserMenu();
-        userobj.SearchCreatedUser("Qa Super");
+        userobj.SearchCreatedUser("QAuser ");
         userobj.selectSearchedUser();
         userobj.ClickOnEnableOrDisableUserSelectionToggle();
         userobj.clickOnUpdateUserButton();
@@ -177,7 +163,7 @@ public class LoginTest extends BasePage {
         userobj.ClickOnEnableOrDisableUserSelectionToggle();
         userobj.clickOnUpdateUserButton();
     }
-   @Test(priority = 13)
+    @Test(priority = 13)
     public static void disableProjectAccess() throws Exception
     {
         ProjectPageObj.ClickOnProjectBtn();
@@ -257,24 +243,22 @@ public class LoginTest extends BasePage {
     {
 
         userobj.clickOnUserMenu();
-        userobj.SearchCreatedUser("Qa Super");
+        Thread.sleep(3000);
+        userobj.SearchCreatedUser("Qa");
         userobj.selectSearchedUser();
         userobj.ClickOnEnableOrDisableUserSelectionToggle();
         userobj.clickOnUpdateUserButton();
         loginPageObjects.ClickLogoutBtn();
-
-        loginPageObjects.EnterUsername("Qa Super");
-        loginPageObjects.setPassword("Suwarna@123");
-        loginPageObjects.clickOnLoginButtonForInvalidInput();
+        Thread.sleep(6000);
 
 
-        loginPageObjects.RefreshPage();
         loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
         loginPageObjects.setPassword(ReadProps.readAttr("Password"));
         loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(6000);
         userobj.clickOnUserMenu();
-
-        userobj.SearchCreatedUser("QA Super");
+        Thread.sleep(3000);
+        userobj.SearchCreatedUser("Qa");
         userobj.selectSearchedUser();
         userobj.ClickOnEnableOrDisableUserSelectionToggle();
         userobj.clickOnUpdateUserButton();
@@ -291,7 +275,7 @@ public class LoginTest extends BasePage {
 
         ProjectPageObj.SearchProjectForStatus("BRE");
         ProjectPageObj.ClickOnEditProject();
-  //     ProjectPageObj.ClickOnStatusBtn();
+        //     ProjectPageObj.ClickOnStatusBtn();
         ProjectPageObj.ClickOnUpdateProject();
 
         ProjectPageObj.SearchProjectForStatus("BRE");
@@ -381,6 +365,86 @@ public class LoginTest extends BasePage {
         loginPageObjects.EnterUsername(ReadProps.readAttr("OperatorUser"));
         loginPageObjects.setPassword(ReadProps.readAttr("OperatorPwd"));
         loginPageObjects.clickLoginButtonForValidInput();
-        loginPageObjects.ClickLogoutBtn();
+
+        Thread.sleep(4000);
     }
+
+    @Test(priority = 30)
+    public static void disable_created_user() throws Exception {
+
+        userobj.clickOnUserMenu();
+        Thread.sleep(4000);
+        userobj.SearchCreatedUser(" Qa");
+        userobj.selectSearchedUser();
+        userobj.ClickOnEnableOrDisableUserSelectionToggle();
+        userobj.ClickOnEnableOrDisableUserSelectionToggle();
+        userobj.clickOnUpdateUserButton();
+        Thread.sleep(4000);
+        loginPageObjects.ClickLogoutBtn();
+        Thread.sleep(4000);
+
+
+    }
+
+    @Test(priority = 31)
+    public static void disable_created_role() throws Exception {
+        loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
+        loginPageObjects.setPassword(ReadProps.readAttr("Password"));
+        loginPageObjects.clickLoginButtonForValidInput();
+
+        Thread.sleep(4000);
+        CreateRolePageObj.ClickRoleManagementBtn();
+       Thread.sleep(4000);
+        CreateRolePageObj.SearchCreatedRole(ReadProps.readAttr("role1"));//Change everytime before u ran
+        Assert.assertTrue(AssertionsFunction.isPresent(CreateRolePageObj.getSearch_created_role_element()));
+        Thread.sleep(1000);
+        CreateRolePageObj.clickOncreatedrole();
+        Thread.sleep(2000);
+        userobj.ClickOnEnableOrDisableUserSelectionToggle();
+        userobj.ClickOnEnableOrDisableUserSelectionToggle();
+        Thread.sleep(3000);
+        userobj.clickOnUpdateUserButton();
+       Thread.sleep(3000);
+        loginPageObjects.ClickLogoutBtn();
+        Thread.sleep(3000);
+        loginPageObjects.EnterUsername(ReadProps.readAttr("Roleusername"));
+        loginPageObjects.setPassword(ReadProps.readAttr("Rolepassword"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(3000);
+
+
+    }
+    @Test(priority = 32)
+    public static  void password_contains_only_uppercase() throws Exception{
+        loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
+        loginPageObjects.setPassword(ReadProps.readAttr("uppercasepass"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(3000);
+
+    }
+    @Test(priority =33)
+    public static void password_contains_specialsymbols() throws Exception{
+        loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
+        loginPageObjects.setPassword(ReadProps.readAttr("specail"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(3000);
+    }
+    @Test(priority =34)
+    public static void password_contains_digit() throws Exception{
+        loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
+        loginPageObjects.setPassword(ReadProps.readAttr("digit"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(3000);
+
+    }
+    @Test(priority =35)
+    public static void password_should_same_as_loginid() throws Exception{
+        loginPageObjects.EnterUsername(ReadProps.readAttr("UserID"));
+        loginPageObjects.setPassword(ReadProps.readAttr("UserID"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(3000);
+
+    }
+
+
 }

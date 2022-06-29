@@ -12,8 +12,8 @@ import java.util.Random;
 public class TemplatePage   {
     WebDriver driver = null;
 
-
-    public static By TemplateBtn = By.xpath("//i[@aria-describedby='cdk-describedby-message-4']");
+    By superdocumnet=By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
+    public static By TemplateBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
     public static  By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
     By CreateTemplate = By.xpath("//span[contains(text(),'Create Template')]");
     By CancelCreateTemplate = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
@@ -58,10 +58,10 @@ public class TemplatePage   {
     public static By TemplateStatus = By.xpath("//tbody/tr[1]/td[4]");
     public static By TemplateCreatedTime = By.xpath("//tbody/tr[1]/td[5]");
     public static By TemplateUpdatedTime = By.xpath("//tbody/tr[1]/td[6]");
-      By TemplateNameSort = By.xpath("//div[text()=' Templates ']/parent::div/div[2]");
-      By BeforeSort = By.xpath("//*[@aria-sort='none'][1]");
-      By AfterSort = By.xpath("//th[@aria-sort='ascending']");
-      By ProjectsSort = By.xpath("//div[text()=' Projects ']/parent::div/div[2]");
+    By TemplateNameSort = By.xpath("//div[text()=' Templates ']/parent::div/div[2]");
+    By BeforeSort = By.xpath("//*[@aria-sort='none'][1]");
+    By AfterSort = By.xpath("//th[@aria-sort='ascending']");
+    By ProjectsSort = By.xpath("//div[text()=' Projects ']/parent::div/div[2]");
     By PagesSort = By.xpath("//div[text()=' Pages ']/parent::div/div[2]");
     By TrainingSort =By.xpath("//div[text()=' Training ']/parent::div/div[2]");
     By UpdatedSort =By.xpath("//div[text()=' Updated ']/parent::div/div[2]");
@@ -103,6 +103,9 @@ public class TemplatePage   {
         Custome_Wait.wait(driver,CancelCreateTemplate);
         driver.findElement(CancelCreateTemplate).click();
         Thread.sleep(1000);
+    }
+    public void  superdocumnet(){
+        driver.findElement(superdocumnet).click();
     }
 
     public void ClickOnTemplateNameExisting(String text)
@@ -169,7 +172,7 @@ public class TemplatePage   {
 
     public void ClickCancel() throws Exception
     {
-       Thread.sleep(6000);
+        Thread.sleep(6000);
         Custome_Wait.wait(driver,Cancel);
         driver.findElement(Cancel).click();
     }
@@ -284,80 +287,80 @@ public class TemplatePage   {
     }
 
     public void verifySortingOnTemplatePage(String SortingHeader) throws InterruptedException
+    {
+        switch ( SortingHeader)
         {
-            switch ( SortingHeader)
+            case "TempalteName":
             {
-                case "TempalteName":
-                {
 
-                   // AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(TemplateNameSort).click();
+                // AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(TemplateNameSort).click();
                   /*  Thread.sleep(5000);
                     AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-
-                case "Projects":
-                {
-
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(ProjectsSort).click();
-                    /*Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-                case "Pages":
-                {
-
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(PagesSort).click();
-                    /*Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-                case "Training":
-                {
-
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(TrainingSort).click();
-                 /*   Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-                case "Updated":
-                {
-
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(UpdatedSort).click();
-                    /*Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-
-                case "Created":
-                {
-
-                    AssertionsFunction.verifyElementPresent(BeforeSort);
-                    Thread.sleep(2000);
-                    driver.findElement(CreatedSort).click();
-                    /*Thread.sleep(5000);
-                    AssertionsFunction.verifyElementPresent(AfterSort);*/
-                    break;
-
-                }
-
+                break;
 
             }
+
+            case "Projects":
+            {
+
+                AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(ProjectsSort).click();
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
+                break;
+
+            }
+            case "Pages":
+            {
+
+                AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(PagesSort).click();
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
+                break;
+
+            }
+            case "Training":
+            {
+
+                AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(TrainingSort).click();
+                 /*   Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
+                break;
+
+            }
+            case "Updated":
+            {
+
+                AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(UpdatedSort).click();
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
+                break;
+
+            }
+
+            case "Created":
+            {
+
+                AssertionsFunction.verifyElementPresent(BeforeSort);
+                Thread.sleep(2000);
+                driver.findElement(CreatedSort).click();
+                    /*Thread.sleep(5000);
+                    AssertionsFunction.verifyElementPresent(AfterSort);*/
+                break;
+
+            }
+
+
+        }
 
 
     }

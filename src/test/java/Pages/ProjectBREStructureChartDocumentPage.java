@@ -1,4 +1,3 @@
-
 package Pages;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
@@ -17,14 +16,14 @@ import java.util.Date;
 import org.openqa.selenium.WebDriver;
 
 public class ProjectBREStructureChartDocumentPage {
-
     static WebDriver driver = null;
-
+//locators
     By ele = By.xpath("//span[contains(text(),' text-overflowbythesystemadmin ')]");
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     By Email=By.xpath("//input[@id='mat-input-15']");
     By email=By.xpath("//input[@class='mat-tooltip-trigger mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger ellipsis ng-tns-c97-84 ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched']");
-
+public String docurl="https://alpha.neutrino-ai.com/#/home/documents";
+public String loginurl="https://alpha.neutrino-ai.com/#/login";
     By password=By.xpath("//button[@type='submit']//preceding::input[1]");
     By lButton=By.xpath("//input[@type='text']//following::button[1]");
     By CreateProject=By.xpath("//span[contains(text(),' Create Project ')]");

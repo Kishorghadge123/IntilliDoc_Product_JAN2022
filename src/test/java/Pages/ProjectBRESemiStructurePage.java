@@ -1,4 +1,3 @@
-
 package Pages;
 
 import Base.BasePage;
@@ -10,8 +9,8 @@ import org.testng.annotations.Test;
 
 public class ProjectBRESemiStructurePage {
 
-
     WebDriver driver = null;
+    //locators
     By selectFirst=By.xpath("//span[contains(text(),'Manifest Quantity')]");
     By submitbtn=By.xpath("//span[contains(text(),'Submit')]");
     By submitbtn2=By.xpath("(//div[@class='modal-footer'])//button[1]");
@@ -29,7 +28,7 @@ public class ProjectBRESemiStructurePage {
     By OpenSemiStructurePdf=By.xpath("//*[@class='mat-header-row cdk-header-row table-list-header secondary-background ng-star-inserted']//following::span[contains(text(), ' MD - ProgressNotes  -1137768581 -  - LIBRE -- IL - NEW - 12-2-2020.tif')]");
     By CheckProcessedDocument = By.xpath("//div[@role='listbox']/mat-option[3]");
     By processedStatus=By.xpath("//span[contains(text(),'Cancel')]//following::mat-label[2]");
-    By RejectedDocument=By.xpath("//*[text()=' Type ']//following::tr[1]/td[4]");
+    By RejectedDocument=By.xpath("//span[contains(text(),' MD - InboundRX -2746121966 -  - LIBRE -  -  NEW  - TN- 12-15-2020.tif ')]");
 
     public ProjectBRESemiStructurePage(WebDriver driver) {
         this.driver = driver;
@@ -94,4 +93,3 @@ public class ProjectBRESemiStructurePage {
         driver.findElement(clickOnStatusButton).click();
     }
 }
-

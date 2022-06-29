@@ -12,7 +12,10 @@ public class ProjectBREMedicalChartDocumentPage {
 
     WebDriver driver = null;
 
-    //Element Locators
+
+
+    //locator
+    public By icd=By.xpath("//input[@id='mat-input-51']");
     By userName = By.xpath("//input[@formcontrolname='userName']");
     By password = By.xpath("//input[@formcontrolname='password']");
     By loginBtn = By.xpath("//button[@type='submit']");
@@ -44,7 +47,7 @@ public class ProjectBREMedicalChartDocumentPage {
     By Address= By.xpath("//input[@pattern=\"^([a-zA-Z0-9,\\s])+([a-zA-Z0-9\\s()]+)*(-[()a-zA-Z0-9\\s]+)*$\"]");
     By ClickOnRejectedDocument=By.xpath("//tbody[@role='rowgroup']//following::span[contains(text(),' t1if.tif ')]");
 
-    By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
+    public By SaveDraft = By.xpath("//span[contains(text(),'Save Draft')]");
     By ChronicConditions = By.xpath("//div[contains(text(),' Chronic Conditions ')]");
 
     By AddChronicCondition = By.xpath("//mat-icon[contains(text(),'add')]");
@@ -60,7 +63,7 @@ public class ProjectBREMedicalChartDocumentPage {
     By PickCommentAdd = By.xpath("//span[contains(text(),'ADD')]");
     By EndDate = By.xpath("//input[@formcontrolname='endDate']");
     By ClickAddedChronicCondition = By.xpath("//div[contains(text(),' Chronic Conditions ')]//following::button[1]/span/mat-icon");
-    By SaveBtn = By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
+    public By SaveBtn = By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By DeleteCC = By.xpath("//mat-icon[contains(text(),'delete')]");
     By CancelCC = By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By EditEncounterDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[1]/span[1]/mat-icon[1]");
@@ -73,8 +76,10 @@ public class ProjectBREMedicalChartDocumentPage {
     By AddDiagnosisDetails = By.xpath("//mat-expansion-panel-header/span[1]/mat-panel-description[1]/button[2]/span[1]/mat-icon[1]");
     By CancelDiagnosisDetails = By.xpath("//button[@id='category-close-modal']");
     By RunRule = By.xpath("//*[@id='docImag']//following::button[2]");
-    By AddComment = By.xpath("//span[contains(text(),'Add Comment')]");
-    By CancelBtnICD = By.xpath("//span[text()='Cancel']");
+    By AddComment = By.xpath("(//span[contains(text(),'Add Comment')])[4]");
+  public  By Save=By.xpath("//button[contains(@class,'mat-focus-indicator disabled-font-color addIcd ')]");
+   public By CancelBtnICD = By.xpath("//button[contains(@class,'mat-focus-indicator ml')]");
+   public  By cancel=By.xpath("//button[contains(@class,'mat-focus-indicator mr')]");
     By SelectICDCode = By.xpath("//span[contains(text(),' Cholera due to Vibrio cholerae 01, biovar cholerae')]");
     By OpenReadyDocumentICD1 = By.xpath("//span[contains(text(),'Karis Garner_only 8 page.pdf')]");
     By npnNum=By.xpath("//mat-label[contains(text(),'NPI Number')]");
@@ -82,16 +87,18 @@ public class ProjectBREMedicalChartDocumentPage {
     By selectDescription=By.xpath("//span[contains(text(),' Type 2 diabetes mellitus with diabetic nephropathy')]");
     By Diagnosis=By.xpath("//div[text()='Patient Demographics']/following::div[contains(text(),' Diagnosis')]");
     By DignosisPlusBtn=By.xpath("(//mat-icon[contains(text(),'add')])[1]");
-    By CancelEncounterDetails=By.xpath("//span[contains(text(),' Cancel ')]");
-    By AddHCCorNonHCCBtn=By.xpath("//div[text()='DOS End Date ']/following::button/span/mat-icon[contains(text(),' add')]");
-    By LatestEncounter=By.xpath("(//*[contains(text(),'DOS End Date ')])[1]");
+  public   By CancelEncounterDetails=By.xpath("//span[contains(text(),' Cancel ')]");
+    By AddHCCorNonHCCBtn=By.xpath("(//mat-icon[contains(text(),' add')])[2]");
+    public By LatestEncounter=By.xpath("(//div[contains(text(),'DOS End Date ')])[1]");
+    public By LatestEncounter1=By.xpath("//span[contains(text(),' Dr.John ')]");
     By HCCdiagnosis=By.xpath("//input[@name='Diagnosis']");
     By PageNum=By.xpath("//input[@id='mat-chip-list-input-1']");
     By PageNumNonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']//following::mat-label[text()='Diagnosis']//following::input[@name='NonHccPageRange']");
     By AddICD=By.xpath("//span[contains(text(),'Add ICD')]");
     By ICD=By.xpath("(//input[@type='text'])[4]");
+    By option=By.xpath("(//span[@class='mat-option-text'])[1]");
     By HCC=By.xpath("//*[text()=' HCC ']//following::input[2]");
-    By SaveHCC=By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
+  public   By SaveHCC=By.xpath("//button[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']");
     By cancelHCC=By.xpath("//button[@class='mat-focus-indicator mr-2 mat-stroked-button mat-button-base mat-accent']");
     By EditEncounter=By.xpath("//div[text()='DOS End Date ']/following::button/span/mat-icon[contains(text(),' create')]");
     By NonHCC=By.xpath("//div[text()='HCC']//following::div[text()='Non HCC']");
@@ -126,7 +133,7 @@ public class ProjectBREMedicalChartDocumentPage {
     By projectname=By.xpath("//span[contains(text(),' DEV Medical Chart Automation ')]");
     By readydocument=By.xpath("//span[contains(text(),' inputDocs_medical project_Hughes Nancy Jane1.pdf ')]");
     By readydocumentnew=By.xpath("//span[contains(text(),' DEV.pdf ')]");
-    By clickOnChartFlags=By.xpath("//span[contains(text(),'Cancel')]//following::mat-label[4]//following::div[1]");
+   public By clickOnChartFlags=By.xpath("//span[contains(text(),'Cancel')]//following::mat-label[4]//following::div[1]");
     By ageAttribute=By.xpath("//div[text()='Patient Demographics']//following::mat-row[2]");
     By birthDate=By.xpath("//div[text()='Patient Demographics']//following::mat-row[3]");
     By email_address=By.xpath("//div[text()='Patient Demographics']//following::mat-row[4]");
@@ -146,6 +153,9 @@ public class ProjectBREMedicalChartDocumentPage {
         driver.findElement(DropDown).click();
     }
 
+    public  void SaveIcd(){
+        driver.findElement(Save).click();
+    }
     public  void clickonProjectName(){
         driver.findElement(projectname).click();
     }
@@ -426,13 +436,21 @@ public class ProjectBREMedicalChartDocumentPage {
         driver.findElement(selectDescription).click();
     }
     public void clickLatestEncounter(){driver.findElement(LatestEncounter).click();}
+    public void clickLatestEncounter1(){driver.findElement(LatestEncounter1).click();}
     public void clickOnAddHCCorNonHCCplusBtn(){driver.findElement(AddHCCorNonHCCBtn).click();}
     public void enterDiagnosisForHCC(){driver.findElement(HCCdiagnosis).sendKeys("fever");}
 
 
 
     public void selectCommentDropdown() throws InterruptedException {
-        WebElement CommentDropdown=driver.findElement(By.xpath("//span[text()='Add Comment']"));
+        WebElement CommentDropdown=driver.findElement(By.xpath("(//span[text()='Add Comment'])[2]"));
+        CommentDropdown.click();
+        Thread.sleep(1000);
+        WebElement option=driver.findElement(By.xpath("//span[text()=' Dx listed but not Monitored/Evaluated/Assessed/Treated ']"));
+        option.click();
+    }
+    public void selectCommentDropdown1() throws InterruptedException {
+        WebElement CommentDropdown=driver.findElement(By.xpath("//span[contains(text(),'Add Comment')]"));
         CommentDropdown.click();
         Thread.sleep(1000);
         WebElement option=driver.findElement(By.xpath("//span[text()=' Dx listed but not Monitored/Evaluated/Assessed/Treated ']"));
@@ -442,10 +460,12 @@ public class ProjectBREMedicalChartDocumentPage {
 
     public void clickOnAddICD(){driver.findElement(AddICD).click();}
     public void enterICDCode(String text){driver.findElement(ICD).sendKeys(text);}
-    public void enterICDCodeClick(){driver.findElement(ICD).click();}
+    public void Clickonoption(){driver.findElement(option).click();}
     public void enterICDCodeClear(){driver.findElement(ICD).clear();}
 
-
+public  void clickOnCancel(){
+        driver.findElement(cancel).click();
+}
     public void enterHCC(String text){driver.findElement(HCC).sendKeys(text);}
 
     public void selectICDDisciptionDropdown() throws InterruptedException {

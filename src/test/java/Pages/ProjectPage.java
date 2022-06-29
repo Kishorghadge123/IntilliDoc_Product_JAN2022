@@ -5,6 +5,7 @@ import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
@@ -14,14 +15,12 @@ import java.util.Date;
 public class ProjectPage   {
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
-
-
-    //Define Project
+    //locators
     public static String ProjectPageURl = "https://alpha.neutrino-ai.com/#/home/project-management";
     public  String  EditProjectURL = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6221eeaa994e456345dd1030";
     public String EditProjectAdmin = "https://alpha.neutrino-ai.com/#/home/project-management/edit-project/6200fd11cc453f40a6baf157";
-
-    public static By ProjectBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-briefcase m-0 side-icon ng-star-inserted']");
+    public  static By createrolebtn=By.xpath("//span[contains(text(),' Create User ')]");
+    public static By ProjectBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
     public static By CreateProject = By.xpath("//span[contains(text(),' Create Project ')]");
     By ProjectName = By.xpath("//input[@formcontrolname='project']");
     By Lead = By.xpath("//*[@formcontrolname='lead']");
@@ -46,17 +45,18 @@ public class ProjectPage   {
     By AddEntity = By.xpath("//span[contains(text(),' Add Entity ')]");
 
 
-    By PatientDemoGraphics = By.xpath("//button[contains(text(),' Patient Demographics')]");
-    By HCCConditions = By.xpath("//button[contains(text(),' HCC Conditions')]");
+    By PatientDemoGraphics = By.xpath("(//button[@class='mat-focus-indicator mat-menu-item'])[1]");
+    By HCCConditions = By.xpath("(//button[@class='mat-focus-indicator mat-menu-item'])[2]");
+    By PatientDemoGraphics1 = By.xpath("(//button[@class='mat-focus-indicator mat-menu-item'])[1]");
     public static By PatientDemoGraphicsSelected = By.xpath("//*[text()=' Patient Demographics ']");
     public static By HCCCConditionsSelected = By.xpath("//*[text()=' HCC Conditions ']");
 
 
-    By ClickProcessingEngine = By.xpath("//*[@formcontrolname='processingEngine']/div[1]/div[2]");
-    By SelectProcessingEngine = By.xpath("//mat-label[text()=' Processing Engine ']//following::mat-option[1]");
-    public static By SelectProcessingEngineNNLow = By.xpath("//mat-label[text()=' Processing Engine ']//following::mat-option[2]");
+    By ClickProcessingEngine = By.xpath("//mat-select[@formcontrolname='processingEngine']");
+    By SelectProcessingEngine = By.xpath("//span[contains(text(),' NN High ')]");
+    public static By SelectProcessingEngineNNLow = By.xpath("//span[contains(text(),' NN Low')]");
     public static By StraightThroughProcess = By.xpath("//*[@formcontrolname='staightThroughProcessing']/label/div");
-    By DocumentScore = By.xpath("//input[@formcontrolname='score']");
+    public By DocumentScore = By.xpath("//input[@formcontrolname='score']");
     public static By Status = By.xpath("//*[@formcontrolname='status']/label/div");
     By Attributes = By.xpath("//span[contains(text(),'Attributes')]");
     public static By DocumentAutoAssign = By.xpath("//*[@formcontrolname='autoAssignment']/label/div");
@@ -73,27 +73,31 @@ public class ProjectPage   {
 
     By ClickRoles = By.xpath("//span[contains(text(),'Roles')]");
     public static   By AddRoleAdmin = By.xpath("//span[contains(text(),'Add Role')]");
-    public static By SelectRoleAdmin = By.xpath("//button[contains(text(),'AE Admin')]");
+    public static By SelectRoleAdmin = By.xpath("//div[@class='cdk-overlay-pane']//following::button[1]");
     public static By SelectedRoleAdmin = By.xpath("//*[text()=' AE Admin ']");
 
 
     By SelectRoleSuperVisor = By.xpath("//button[contains(text(),'AE Supervisor')]");
     By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
     By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
-    public static By SelectUserAdmin = By.xpath("//span[contains(text(),'j1@gmail.com')]");
-    By UpdateProject = By.xpath("//project-info-section/following-sibling::div/button/span[text()=' Update']/parent::button");
+    public static By SelectUserAdmin = By.xpath("//*[@class='cdk-overlay-connected-position-bounding-box']//following::mat-option[1]/span[1]");
+    public By UpdateProject = By.xpath("//project-info-section/following-sibling::div/button/span[text()=' Update']/parent::button");
     By UpdatePrjectOnRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()=' Update ']/parent::button");
     By RoleUserDisableEnable = By.xpath("//div[@class='row']/div[3]/mat-slide-toggle");
     By SupervisorRoleDisable = By.xpath("//project-roles/mat-expansion-panel/div/div/div[1]/div[3]/div/div[3]/mat-slide-toggle/label[@class='mat-slide-toggle-label']");
     By RulesPage = By.xpath("//span[text()='Next']");
     By CreateButtonOnProjectPage = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/div[1]/button[1]/span[1]");
-
-
     By ItemsPerPage = By.xpath("//*[@aria-label='Items per page:']");
     By SelectItems = By.xpath("//span[contains(text(),'50')]");
-    By NextPage = By.xpath("//span[contains(text(),' Next')]");
-
-    By CancelOnProject = By.xpath("//*[contains(text(),'Cancel')]");
+    public By NextPage = By.xpath("//span[contains(text(),' Next')]");
+    public By create=By.xpath("//span[text()='Create']");
+    public By field=By.xpath("//span[contains(text(),' Add Fields ')]");
+    public By pname=By.xpath("//button[contains(text(),'PatientName')]");
+    public By checkbox=By.xpath("(//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin'])[2]");
+    public  By createbtutton=By.xpath("(//button[contains(@class,'mat-focus-indicator ml-2 ng-tns')])[1]");
+    public By creatbtnforstruct=By.xpath("(//span[contains(text(),' Create')])[2]");
+    public   By CancelOnProject = By.xpath("(//button[contains(@class,'mat-focus-indicator ml-2')])[3]");
+    By cancel=By.xpath("(//span[contains(text(),'Cancel')])[2]");
     By ErrorMsgBlank = By.xpath("//span[contains(text(),'Please add the attributes before creating the project.')]");
     By ErrorMsgRoleUser = By.xpath("//span[contains(text(),'Role cannot have empty users')]");
     By ErrorMsgTemplate = By.xpath("//span[contains(text(),'Please add the template before creating the project.')]");
@@ -102,10 +106,10 @@ public class ProjectPage   {
     By ErrorMsgDisableRole = By.xpath("//span[contains(text(),'AE Supervisor role is Disabled')]");
     By ErrorMsgDataRole = By.xpath("//span[contains(text(),'Please check form data and role(s) cannot be empty')]");
     By TableStructure = By.xpath("//*[contains(text(),' list ')]");
-    By SearchProject = By.xpath("//input[@data-placeholder='Search']");
+    public By SearchProject = By.xpath("//input[@data-placeholder='Search']");
 
 
-    By RoleManagementBtn = By.xpath("//i[@class='mat-tooltip-trigger fa fa-id-card m-0 side-icon ng-star-inserted']");
+    By RoleManagementBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[2]");
     By SearchRole = By.xpath("//input[@data-placeholder='Search']");
     By EditRole = By.xpath("//*[text()='Roles ']//following::span[1]");// updated
     By ActiveRole = By.xpath("//div[@class='mat-slide-toggle-thumb']");
@@ -168,13 +172,30 @@ public class ProjectPage   {
 
 
     }
+    public void createrolebutton(){
+        driver.findElement(createrolebtn).click();
+    }
 
     public void ClickOnCreateProjectBtn() throws Exception {
         driver.findElement(CreateProject).click();
-        Thread.sleep(5000);
-       // AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
+        // AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
+    }
+    public void clickoncreatebtn(){
+        driver.findElement(createbtutton).click();
+    }
+    public void addfields(){
+        driver.findElement(field).click();
+    }
+    public  void selectpatientname(){
+        driver.findElement(pname).click();
+    }
+    public void selectdropdown(){
+        driver.findElement(checkbox).click();
     }
 
+    public void clickoncreatebtnstruct(){
+        driver.findElement(creatbtnforstruct).click();
+    }
     public void ClickOnProjectNameBtn(String text) throws Exception{
 
 
@@ -183,7 +204,7 @@ public class ProjectPage   {
 
     public void ClickOnLeadBtn() throws Exception
     {
-      Thread.sleep(2000);
+        Thread.sleep(2000);
         driver.findElement(Lead).click();
     }
 
@@ -191,8 +212,11 @@ public class ProjectPage   {
         Thread.sleep(2000);
         driver.findElement(PatientDemoGraphics).click();
     }
-
-    public void SelectHCCConditions() throws Exception{
+    public void SelectPatientGraphics1() throws Exception{
+        Thread.sleep(2000);
+        driver.findElement(PatientDemoGraphics1).click();
+}
+        public void SelectHCCConditions() throws Exception{
         Thread.sleep(2000);
         driver.findElement(HCCConditions).click();
     }
@@ -373,6 +397,9 @@ public class ProjectPage   {
     public void ClickOnSelectUserBtn() throws Exception{
 
         driver.findElement(SelectUserAdmin).click();
+        Actions act=new Actions(driver);
+        act.moveToElement(driver.findElement(By.xpath("//div[text()=' Users ']//following::mat-chip")));
+        act.click().build().perform();
     }
 
 
@@ -388,7 +415,12 @@ public class ProjectPage   {
 
     public void ClickNextPage() throws Exception{
 
+        Thread.sleep(5000);
+        Custome_Wait.wait(driver,NextPage);
         driver.findElement(NextPage).click();
+    }
+    public void createbtn(){
+        driver.findElement(create).click();
     }
 
 
@@ -405,6 +437,9 @@ public class ProjectPage   {
     public void ClickOnCancelProject() throws  InterruptedException
     {
         driver.findElement(CancelOnProject).click();
+    }
+    public void clickoncancel(){
+        driver.findElement(cancel).click();
     }
 
     public void VerifyAssertForBlank()
@@ -477,7 +512,7 @@ public class ProjectPage   {
 
     public void TableStructure() throws Exception{
 
-        Custome_Wait.wait(driver,TableStructure);
+
         driver.findElement(TableStructure).click();
     }
 
@@ -551,7 +586,7 @@ public class ProjectPage   {
         driver.findElement(UpdateProject).click();
         Thread.sleep(5000);
 
-       // Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']")));
+        // Custome_Wait.waitElement(driver,driver.findElement(By.xpath("//*[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']")));
 
     }
 
@@ -595,12 +630,13 @@ public class ProjectPage   {
 
         driver.findElement(BackButtonDataPage).click();
     }
-    public void ClickOnSearchBox(String text)throws Exception{
-
+    public void ClickOnSearchBox(String text)throws Exception
+    {
+        Custome_Wait.wait(driver,ClickSearchBox);
         driver.findElement(ClickSearchBox).sendKeys(text);
     }
     public void ClickEditProjectBtn()throws Exception{
-
+        Custome_Wait.wait(driver,EditProjectBtn);
         driver.findElement(EditProjectBtn).click();
     }
 

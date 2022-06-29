@@ -1,4 +1,3 @@
-
 package Tests;
 import Pages.*;
 import Base.BasePage;
@@ -28,10 +27,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         // BasePage.LoginTest();
     }
 
-   @AfterClass
+    @AfterClass
     public void cleanUp() throws Exception
     {
-    driver.quit();
+        driver.quit();
     }
 
 
@@ -40,19 +39,20 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
 
         //IN 510 Revamp of the screen for the documents of the status 'Rejected'.
         LoginUser.login_users(driver, "pratiksha.bagal@neutrinotechlabs.com", "Pratiksha@12");
-        Thread.sleep(9000);
+        //read.sleep(9000);
         DocPageObj = new DocumentPage(driver);
         ProjectBREStructureChartDocumentPageobj = new ProjectBREStructureChartDocumentPage(driver);
         Thread.sleep(5000);
 
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(6000);
+        Thread.sleep(300);
         ProjectBREStructureChartDocumentPageobj.clickOnstructurePdf();
         Thread.sleep(2000);
-
         //Search Medical Chart Project
         driver.navigate().back();
-        Thread.sleep(8000);
+        Thread.sleep(3000);
+        AssertionsFunction.verifyTargetPageURL(ProjectBREStructureChartDocumentPageobj.docurl);
+Thread.sleep(1000);
 
     }
 
@@ -65,12 +65,17 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         Thread.sleep(2000);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         ProjectBREStructureChartDocumentPageobj.clickOnProcessedPdf();
+        Thread.sleep(3000);
         ProjectBREStructureChartDocumentPageobj.getCancelButton();
+        Thread.sleep(1000);
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getCancelButton())));
+        Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.getReleaseButton();
+        Thread.sleep(1000);
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getReleaseButton())));
+        Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.getsubmitButton();
         Assert.assertTrue(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getRunRuleButton())));
         ProjectBREStructureChartDocumentPageobj.getsubmitButton();
@@ -82,15 +87,17 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         //Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getRunRuleButton())));
 
         driver.navigate().back();
-        Thread.sleep(10000);
+        Thread.sleep(2000);
+        AssertionsFunction.verifyTargetPageURL(ProjectBREStructureChartDocumentPageobj.docurl);
+        Thread.sleep(1000);
+
     }
     @Test(priority = 3)
     public void verify_data_extracted_from_Each_page() throws  Exception{
 ///471 AIML Engine multithreading bug fix
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         ProjectBREStructureChartDocumentPageobj.clickOnProcessedPdf();
-        Thread.sleep(20000);
-
+        Thread.sleep(2000);
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
@@ -110,10 +117,12 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
         Thread.sleep(2000);
-        Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
         driver.navigate().back();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
+        AssertionsFunction.verifyTargetPageURL(ProjectBREStructureChartDocumentPageobj.docurl);
+        Thread.sleep(1000);
+
 
 
     }
@@ -121,10 +130,9 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
     @Test(priority = 4)
     public void Verify_data_and_buttons_available_on_page() throws  Exception{
 //IN 682  Once the document is in processed state, buttons like edit, add should not be available, the page should contain only the processed data and on the top right corner, 'Cancel' button should be made available
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.clickOnstructurePdf();
         Thread.sleep(2000);
-
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
         Thread.sleep(2000);
         ProjectBREStructureChartDocumentPageobj.getCancelButton();
@@ -143,10 +151,10 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         Thread.sleep(2000);
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         driver.navigate().back();
-        Thread.sleep(10000);
-
+        Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.ClickLogoutBtn();
         Thread.sleep(3000);
+        AssertionsFunction.verifyTargetPageURL(ProjectBREStructureChartDocumentPageobj.loginurl);
 
 
     }
@@ -157,12 +165,13 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
     @Test(priority = 5)
     public void Observe_tooltip_for_text_overflow() throws  Exception{
         //In 736 Tooltip consistency in Document Navigator and Document Viewer
+        //838 Revamp of the screen, when, no projects/templates/roles are available, ie, when the screen is blank in the respective sections
         Robot r=new Robot();
         LoginUser.login_users(driver, "di-admin@neutrinotechsystems.com", "Nts#admin@123");
         Thread.sleep(2000);
 
         ProjectBREStructureChartDocumentPageobj.ClickOnCreateProjectBtn();
-        Thread.sleep(9000);
+        Thread.sleep(400);
         ProjectBREStructureChartDocumentPageobj.clickOnNameField();
 
         Thread.sleep(2000);
@@ -210,12 +219,12 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         ProjectBREStructureChartDocumentPageobj.ClickOnSelectUserBtn();
         Thread.sleep(2000);
         r.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(5000);
+        Thread.sleep(200);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-1000)", "");
         Thread.sleep(10000);
         ProjectBREStructureChartDocumentPageobj.ClickOnCreate();
-        Thread.sleep(4000);
+        Thread.sleep(7000);
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(2000);
         js.executeScript("window.scrollBy(0,-1000)", "");
@@ -226,9 +235,4 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         Thread.sleep(2000);
     }
 }
-
-
-
-
-
 

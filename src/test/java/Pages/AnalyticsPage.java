@@ -5,48 +5,49 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
+///pages classs
 public class
 AnalyticsPage {
 
     WebDriver driver = null;
 
     //xpath change by suwarna
-    public static String AnalyticsPageURL = "https://alpha.neutrino-ai.com/#/home/analytics";
-    public static By AnalyticsBtn = By.xpath("//mat-sidenav[@id='sidenav']//following::mat-list-item[8]/div/i");
+    public static String AnalyticsPageURL ="https://alpha.neutrino-ai.com/#/home/analytics";
+    public static By AnalyticsBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
     By OrganizationStatistics =By.xpath("//span[text()='Project Statistics']");
-
     public static By StatisticsHidden = By.xpath("//span[text()='Project Statistics']//following::span[2]");
     public static By StatisticsVisible = By.xpath("//span[text()='Project Statistics']//following::span[2]");
-
     public static By TotalUser = By.xpath("//div[text()=' Users ']");
-    By Document = By.xpath("//div[text()=' Users ']//following::div[5]");
-    By Processed = By.xpath("//div[text()=' Users ']//following::div[22]");
+    public  static By Document = By.xpath("//div[text()=' Users ']//following::div[5]");
+   public static By Processed = By.xpath("//div[text()=' Users ']//following::div[22]");
 
-    By ReadyToProcess = By.xpath("//div[text()=' Users ']//following::div[32]");
-    By Rejected = By.xpath("//div[text()=' Users ']//following::div[40]");
-    By ValidationTime = By.xpath("//div[text()=' Validation Time ']");
-    By SProcessedBar = By.xpath("//div[text()=' Structured ']//following::div[2]");
+    public  static  By ReadyToProcess = By.xpath("//div[text()=' Users ']//following::div[32]");
+  public  static   By Rejected = By.xpath("//div[text()=' Users ']//following::div[40]");
+    public  static  By ValidationTime = By.xpath("//div[text()=' Validation Time ']");
+    public  static By SProcessedBar = By.xpath("//div[text()=' Structured ']//following::div[2]");
     By SReadyBar = By.xpath("//div[text()=' Structured ']//following::div[3]");
     By SRejectedBar = By.xpath("//div[text()=' Structured ']//following::div[4]");
-    By SSProcessedBar = By.xpath("//div[text()=' Semi-Structured ']//following::div[1]");
+   public static By SSProcessedBar = By.xpath("//div[text()=' Semi-Structured ']//following::div[1]");
     By SSReadyBar = By.xpath("//div[text()=' Semi-Structured ']//following::div[3]");
     By SSRejectedBar = By.xpath("//div[text()=' Semi-Structured ']//following::div[4]");
-    By FFProcessedBar = By.xpath("//div[text()=' Free-Form ']//following::div[2]");
+    public  static By FFProcessedBar = By.xpath("//div[text()=' Free-Form ']//following::div[2]");
     By FFReadyBar = By.xpath("//div[text()=' Free-Form ']//following::div[3]");
     By FFRejectedBar = By.xpath("//div[text()=' Free-Form ']//following::div[4]");
     By MCProcessedBar = By.xpath("//div[text()=' Medical Chart ']//following::div[2]");
     By MCReadyBar = By.xpath("//div[text()=' Medical Chart ']//following::div[3]");
     By MCRejectedBar = By.xpath("//div[text()=' Medical Chart ']//following::div[4]");
-    By ProjectDownArrow=By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::i");
+    public  static By ProjectDownArrow=By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::i");
     public static By ProjectSelected = By.xpath("//span[@class='mat-tooltip-trigger projectname']");
     By SearchProject=By.xpath("//input[@placeholder='Search']");
     public static By SelectProject=By.xpath("//input[@placeholder='Search']//following::span[1]");
-    By SelectDropDown= By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::div[7]");
+public By SelectNewProject=By.xpath("//span[contains(text(),'gd test 3 ')]");
+    public  static  By SelectDropDown= By.xpath("//mat-icon[@class='mat-icon notranslate docStIconPos material-icons mat-icon-no-color']//following::div[7]");
+public String loginurl="https://alpha.neutrino-ai.com/#/login";
+public  String analyticurl="https://alpha.neutrino-ai.com/#/home/analytics";
     By SelectMonthly = By.xpath("//span[contains(text(),'Monthly')]");
     By SelectWeekly = By.xpath("//span[contains(text(),'Weekly')]");
     By SelectDaily = By.xpath("//span[contains(text(),'Daily')]");
-    By SelectOverall = By.xpath("//mat-option[@id='mat-option-3']");
+   public By SelectOverall = By.xpath("//mat-option[@id='mat-option-3']");
     By SortByDocuments = By.xpath("//div[text()=' Received ']//preceding::div[1]");
     By SortByReceived = By.xpath("//div[contains(text(),'Received')]");
     By OperatorPerformanceSection = By.xpath("//div[text()=' Operator Performance']");
@@ -68,6 +69,15 @@ AnalyticsPage {
 
         Custome_Wait.wait(driver,SortByReceived);
         driver.findElement(SortByReceived).click();
+    }
+
+
+    public  void  overOnProjectName() throws  Exception{
+        Actions action = new Actions(driver);
+        WebElement element= driver.findElement(SRejectedBar);
+        action.moveToElement(element).build().perform();
+        System.out.println("Mouse hover");
+
     }
 
     public void ClickOnSortByDocuments() throws Exception {
@@ -189,12 +199,26 @@ AnalyticsPage {
     public  void ClickProjectDownArrow(){
         driver.findElement(ProjectDownArrow).click();
     }
+    public void ClickSearchProjectNew(String text) throws Exception{
+
+
+        driver.findElement(SearchProject).sendKeys(text);
+    }
+
+
     public void ClickSearchProject(){driver.findElement(SearchProject).click();}
     public void ClickSelectProject()
     {
         Custome_Wait.wait(driver,SelectProject);
         driver.findElement(SelectProject).click();
     }
+
+    public void ClickSelectNewProject()
+    {
+
+        driver.findElement(SelectNewProject).click();
+    }
+
     public void ClickSelectDropDown()  throws Exception
     {
         Thread.sleep(3000);

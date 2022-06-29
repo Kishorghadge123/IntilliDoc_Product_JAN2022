@@ -16,171 +16,136 @@ public class ProjectBREDataSetTest extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-   @AfterClass
-    public void cleanUp() throws Exception
-    {
-    driver.quit();
-    }
+//    @AfterClass
+//    public void cleanUp() throws Exception
+//    {
+//        driver.quit();
+//    }
+
+
     @Test(priority = 1)
     public void bre_applied_to_name_using_dataset_fail() throws Exception {
-            ProjectPage ProjectPageObj = new ProjectPage(driver);
-            //Object creation
-            ProjectBREDataSetPage ProjectBREDataSetPageObj = new ProjectBREDataSetPage(driver);
-            Robot r = new Robot();
-            //TC-1.1 BRE Applied to NAME RULE Using DataSet = Fail.
-            ProjectPageObj.ClickOnCreateProjectBtn();
-            Thread.sleep(3000);
-            //Navigate to Project Page.
-            ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREProjectName"));
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnLeadBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectOnLeadBtn();
-            Thread.sleep(2000);
-            //Starting Date should be updated in Xpath to Current Date before executing the Script.
-            ProjectPageObj.ClickOnStartDateBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectStartDateBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnEndDate();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectEndDate();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnDocumentStructureBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectDocumentStructureBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnProcessingEngineBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.SelectOnProcessingEngineBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnStatusBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnDocumentAutoAssignBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnStraightThroughProcessBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnDocumentScoreBtn(ReadProps.readAttr("Score"));
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnAddTemplateBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnTemplateBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnRolesBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnAddRoleBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnSelectRoleBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnAddUserBtn();
-            Thread.sleep(2000);
-            ProjectPageObj.ClickOnSelectUserBtn();
-            Thread.sleep(1000);
-            r.keyPress(KeyEvent.VK_ESCAPE);
-            Thread.sleep(1000);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0,-1000)", "");
-            Thread.sleep(2000);
-            js.executeScript("window.scrollBy(0,1000)", "");
-            Thread.sleep(1000);
-            ProjectPageObj.ClickNextPage();
-            Thread.sleep(2000);
-            //Navigate to Data Page.
-            ProjectBREDataSetPageObj.ClickOnDataSets();
-            Thread.sleep(1000);
-            AssertionsFunction.verifyElementPresent(ProjectBREDataSetPageObj.AddDataSet);
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.ClickOnAddDataSets();
-            Thread.sleep(1000);
-            AssertionsFunction.verifyElementPresent(ProjectBREDataSetPageObj.DatasetNameList);
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.ClickOnChooseDataSet();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.SelectDataSet();
-            Thread.sleep(1000);
-            AssertionsFunction.verifyElementPresent(ProjectBREDataSetPageObj.DataSetSelected);
-            Thread.sleep(1000);
-            ProjectBREPage ProjectBREPageObj = new ProjectBREPage(driver);
-            //Navigate to Rules Page.
-            ProjectBREPageObj.ClickOnNextPageButton();
-            Thread.sleep(3000);
-            ProjectBREPageObj.ClickOnThreeDotsButton();
-            Thread.sleep(2000);
-            AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ExpandPanelOnRulePage);
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnProjectData();
-            Thread.sleep(4000);
-            ProjectBREPageObj.ClickOnProjectData();
-            Thread.sleep(3000);
-            ProjectBREPageObj.ClickOnDataSets();
-            Thread.sleep(2000);
-            ProjectBREPageObj.ClickOnVariables();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnThreeDotsButton();
-            Thread.sleep(2000);
-            AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ScaleDownPanelOnRulePage);
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnAddRulesButton();
-            Thread.sleep(2000);
-         //   ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RuleBoxDisplay);
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnDeleteRulesButton();
-            Thread.sleep(2000);
-            //ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RuleBoxDisplay);
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnAddRulesButton();
-            Thread.sleep(2000);
-            ProjectBREPageObj.ClickOnExpandFirstRule();
-            Thread.sleep(2000);
-            AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionBoxDisplay);
-            Thread.sleep(1000);
-            AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionPanelDisplay);
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnContractRuleButton();
-            Thread.sleep(2000);
-            ProjectBREPageObj.ClickOnVisibility();
-            Thread.sleep(2000);
-            ProjectBREPageObj.DoubleClickOnRule1();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnRule();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnClearRule();
-            Thread.sleep(1000);
-            ProjectBREPageObj.DoubleClickOnRule1Second();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnRule();
-            Thread.sleep(1000);
-            ProjectBREPageObj.EnterRuleName("Sample Rule");
-            Thread.sleep(1000);
-            //Add Condition.
-            ProjectBREPageObj.EnterAddNameOfCondition("Name");
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnAddCondition();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnAttributeValue();
-            Thread.sleep(1000);
-            ProjectBREPageObj.SelectNameAttribute();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnOperator();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.SelectOperatorValueExistsIn();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.ClickOnPredefinedDataSet();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.SelectPredefinedDataSet();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.ClickOnDataSetHeader();
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.SelectDataSetHeader();
-            Thread.sleep(1000);
-            ProjectBREPageObj.ClickOnSave();
-            Thread.sleep(1000);
-            AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
-            Thread.sleep(1000);
-            ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
-            Thread.sleep(5000);
+        ProjectPage ProjectPageObj = new ProjectPage(driver);
+        //Object creation
+        ProjectBREDataSetPage ProjectBREDataSetPageObj = new ProjectBREDataSetPage(driver);
+        Robot r = new Robot();
+        //TC-1.1 BRE Applied to NAME RULE Using DataSet = Fail.
+        ProjectPageObj.ClickOnCreateProjectBtn();
+        Thread.sleep(3000);
+        //Navigate to Project Page.
+        ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("BREProjectName"));
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnLeadBtn();
+        ProjectPageObj.SelectOnLeadBtn();
+        Thread.sleep(2000);
+        //Starting Date should be updated in Xpath to Current Date before executing the Script.
+        ProjectPageObj.ClickOnStartDateBtn();
+        ProjectPageObj.SelectStartDateBtn();
+        ProjectPageObj.ClickOnEndDate();
+        ProjectPageObj.SelectEndDate();
+        ProjectPageObj.ClickOnDocumentStructureBtn();
+        ProjectPageObj.SelectDocumentStructureBtn();
+        ProjectPageObj.ClickOnProcessingEngineBtn();
+        ProjectPageObj.SelectOnProcessingEngineBtn();
+        ProjectPageObj.ClickOnStatusBtn();
+        ProjectPageObj.ClickOnDocumentAutoAssignBtn();
+        ProjectPageObj.ClickOnStraightThroughProcessBtn();
+        ProjectPageObj.ClickOnDocumentScoreBtn(ReadProps.readAttr("Score"));
+        ProjectPageObj.ClickOnAddTemplateBtn();
+        ProjectPageObj.ClickOnTemplateBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnRolesBtn();
+        ProjectPageObj.ClickOnAddRoleBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnSelectRoleBtn();
+        Thread.sleep(2000);
+        ProjectPageObj.ClickOnAddUserBtn();
+        ProjectPageObj.ClickOnSelectUserBtn();
+        Thread.sleep(1000);
+        r.keyPress(KeyEvent.VK_ESCAPE);
+        Thread.sleep(1000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-1000)", "");
+        Thread.sleep(2000);
+        js.executeScript("window.scrollBy(0,1000)", "");
+        Thread.sleep(9000);
+        ProjectPageObj.ClickNextPage();
+        Thread.sleep(2000);
+        //Navigate to Data Page.
+        ProjectBREDataSetPageObj.ClickOnDataSets();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(ProjectBREDataSetPageObj.AddDataSet);
+        Thread.sleep(1000);
+        ProjectBREDataSetPageObj.ClickOnAddDataSets();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(ProjectBREDataSetPageObj.DatasetNameList);
+        Thread.sleep(1000);
+        ProjectBREDataSetPageObj.ClickOnChooseDataSet();
+        ProjectBREDataSetPageObj.SelectDataSet();
+        Thread.sleep(2000);
+        ProjectBREDataSetPageObj.SelectData();
+        Thread.sleep(2000);
+        ProjectBREPage ProjectBREPageObj = new ProjectBREPage(driver);
+        //Navigate to Rules Page.
+        Thread.sleep(5000);
+        ProjectBREPageObj.ClickOnNextPageButton();
+        Thread.sleep(3000);
+        ProjectBREPageObj.ClickOnThreeDotsButton();
+        AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ExpandPanelOnRulePage);
+        Thread.sleep(1000);
+        ProjectBREPageObj.ClickOnProjectData();
+        ProjectBREPageObj.ClickOnProjectData();
+        ProjectBREPageObj.ClickOnDataSets();
+        ProjectBREPageObj.ClickOnVariables();
+        ProjectBREPageObj.ClickOnThreeDotsButton();
+        AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ScaleDownPanelOnRulePage);
+        Thread.sleep(1000);
+        ProjectBREPageObj.ClickOnAddRulesButton();
 
-            //Document should be uploaded from backend to check the output.
+        //   ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RuleBoxDisplay);
+        Thread.sleep(1000);
+        ProjectBREPageObj.ClickOnDeleteRulesButton();
+        //ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RuleBoxDisplay);
+        ProjectBREPageObj.ClickOnAddRulesButton();
+        ProjectBREPageObj.ClickOnExpandFirstRule();
+        Thread.sleep(2000);
+        AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionBoxDisplay);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionPanelDisplay);
+        Thread.sleep(1000);
+        ProjectBREPageObj.ClickOnContractRuleButton();
+        ProjectBREPageObj.ClickOnVisibility();
+        ProjectBREPageObj.DoubleClickOnRule1();
+        ProjectBREPageObj.ClickOnRule();
+        ProjectBREPageObj.ClickOnClearRule();
+        ProjectBREPageObj.DoubleClickOnRule1Second();
+        ProjectBREPageObj.ClickOnRule();
+        ProjectBREPageObj.EnterRuleName("Sample Rule");
 
-        }
-        }
+        //Add Condition.
+        ProjectBREPageObj.EnterAddNameOfCondition("Name");
+        ProjectBREPageObj.ClickOnAddCondition();
+        ProjectBREPageObj.ClickOnAttributeValue();
+        ProjectBREPageObj.SelectNameAttribute();
+        ProjectBREPageObj.ClickOnOperator();
+        ProjectBREDataSetPageObj.SelectOperatorValueExistsIn();
+        ProjectBREDataSetPageObj.ClickOnPredefinedDataSet();
+        ProjectBREDataSetPageObj.SelectPredefinedDataSet();
+        ProjectBREDataSetPageObj.ClickOnDataSetHeader();
+        Thread.sleep(1000);
+        ProjectBREDataSetPageObj.SelectDataSetHeader();
+        ProjectBREPageObj.ClickOnSave();
+        Thread.sleep(1000);
+        AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
+        Thread.sleep(1000);
+        ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
+        Thread.sleep(5000);
+        AssertionsFunction.isPresent(ProjectBREDataSetPageObj.FirstDecisionBox);
+        Thread.sleep(1000);
+        AssertionsFunction.verifyTargetPageURL(ProjectBREDataSetPageObj.breurl);
+
+
+        //Document should be uploaded from backend to check the output.
+
+    }
+}

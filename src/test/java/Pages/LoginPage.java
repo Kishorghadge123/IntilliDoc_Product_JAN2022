@@ -13,6 +13,8 @@ public class LoginPage {
 
     WebDriver driver = null;
 
+    //locator
+    public By usererrmsg=By.xpath("//span[text()='User is inactive. Please contact Administration']");
     @FindBy (xpath="//label[text()='Email Id']//following::input[1]")
     WebElement userName;
     @FindBy (xpath="//input[@formcontrolname='password']")
@@ -55,10 +57,11 @@ public class LoginPage {
 
     public void clickLoginButtonForValidInput() throws Exception
     {
-        Custome_Wait.waitElement(driver,loginBtn);
+
         loginBtn.click();
-        Thread.sleep(15000);
+        Thread.sleep(8000);
     }
+
 
     public void clickOnLoginButtonForInvalidInput() throws Exception
     {

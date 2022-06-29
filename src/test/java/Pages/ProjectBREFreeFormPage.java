@@ -6,30 +6,30 @@ import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 
 public class ProjectBREFreeFormPage {
-
-
     WebDriver driver=null;
-
+//locator
     By clickOnStructutrProject= By.xpath("//button[@class='mat-focus-indicator mat-menu-trigger white_bg mat-button mat-button-base mat-primary ng-star-inserted']");
     By selectFreeFormProject=By.xpath("//span[contains(text(),'J1003')]//preceding::span[3]");
     By RejectedDocumnet=By.xpath("//span[contains(text(),'inputDocs/AE Free-Form/PDF 4.pdf')]");
     By chartData=By.xpath("//mat-label[contains(text(),'Data')]");
     By clickonAddAttribute=By.xpath("//span[contains(text(),'Attribute')]");
     By agetextbox=By.xpath("//input[@class='mat-tooltip-trigger mat-input-element mat-form-field-autofill-control tooltip-input ellipsis ng-tns-c97-31 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored']");
-
+    By cancel=By.xpath("//span[contains(text(),'Cancel')]");
     By Phone=By.xpath("(//span[contains(text(),'Phone')])");
     By RunRuleBtn=By.xpath("//span[contains(text(),'Run Rule')]");
-    By CheckProcessedDocument=By.xpath("//div[@role='listbox']/mat-option[3]");
+    By CheckProcessedDocument=By.xpath("//span[contains(text(),' Processed ')]");
+    By DOB=By.xpath("//div[@class='mat-form-field-infix ng-tns-c97-54']");
 
-    By submitbtn=By.xpath("//span[contains(text(),'Submit')]");
+    By submitbtn=By.xpath("(//span[@class='mat-button-wrapper'])[11]");
     By submitbtn2=By.xpath("(//div[@class='modal-footer'])//button[1]");
     By Age=By.xpath("(//span[contains(text(),'Age')])");
-    By Add=By.xpath("//*[text()=' Add ']");
-    By clickOnProcessedPdf=By.xpath("//*[text()=' Type ']//following::tr[1]/td[4]");
+    By Add=By.xpath("//span[contains( text(),' Add ')]");
+    By clickOnStatusButton = By.xpath("//mat-icon[@class='mat-icon notranslate table-header-icon material-icons filter-icon mat-icon-no-color']");
+
+    By clickOnProcessedPdf=By.xpath("(//span[contains(text(),' MD - MiscInformation - 2621820318 -  - LIBRE - - CA- NEW - 12-28-2020.tif ')])[1]");
     public  void clickOnProcessedPdf(){
         driver.findElement(clickOnProcessedPdf).click();
     }
-    By clickOnStatusButton = By.xpath("//*[text()=' Status ']//following::span[1]/mat-icon");
 
     public ProjectBREFreeFormPage(WebDriver driver) throws Exception {
         this.driver = driver;

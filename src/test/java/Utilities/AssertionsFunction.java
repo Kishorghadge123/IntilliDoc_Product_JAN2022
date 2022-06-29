@@ -4,10 +4,8 @@ import Base.BasePage;
         import org.openqa.selenium.By;
         import org.openqa.selenium.WebElement;
         import org.openqa.selenium.interactions.Actions;
-        import org.testng.Assert;
-        import org.xml.sax.Locator;
-
-        import java.security.PublicKey;
+import org.openqa.selenium.support.Color;
+import org.testng.Assert;
 
 public class AssertionsFunction extends BasePage{
 
@@ -17,6 +15,9 @@ public class AssertionsFunction extends BasePage{
         System.out.println(actualValue);
         Assert.assertEquals(actualValue,expectedValue);
     }
+
+
+
     public static void verifyElementTextNotSame(By eleOne,By eleTwo)
     {
         String act=driver.findElement(eleOne).getText();
@@ -70,6 +71,7 @@ public class AssertionsFunction extends BasePage{
         }
         catch(Exception e){
             return false;
+
         }
     }
     public static boolean is_Enabled(By locator){
@@ -87,6 +89,7 @@ public class AssertionsFunction extends BasePage{
     {
         String actualValue = driver.getCurrentUrl();
         Assert.assertEquals(actualValue , expectedValue);
+        System.out.println(actualValue);
     }
 
     public static void verifyElementSelected(By element_Locator)
@@ -116,9 +119,16 @@ public class AssertionsFunction extends BasePage{
         Assert.assertNotEquals(actualValue,expectedValue);
     }
 
+    public  static boolean verifyColor(By element_Locator, String exc) {
 
-
-
+        //WebElement color =driver.findElement(By.xpath("//div[text()=' Structured ']//following::div[2]"));
+       WebElement color=driver.findElement(element_Locator);
+        String backgroundcolor=color.getCssValue("background-color");
+        String hexcolor= Color.fromString(backgroundcolor).asHex();
+        String actual=hexcolor;
+        Assert.assertEquals(actual,exc);
+        return false;
+    }
 
 
 }

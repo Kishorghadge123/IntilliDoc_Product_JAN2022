@@ -20,25 +20,32 @@ public class DocProcessMedicalChartTest extends BasePage
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-   @AfterClass
+
+    @AfterClass
     public void cleanUp() throws Exception
     {
-    driver.quit();
+        driver.quit();
     }
     @Test(priority = 1)
     public void search_project() throws Exception {
         Robot r = new Robot();
         DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-
+        Thread.sleep(8000);
         //TC 8.1 Search Project.
+        DocPageObj = new DocumentPage(driver);
         DocPageObj.ClickDropDownBtn();
+        Thread.sleep(2000);
         DocPageObj.ClickSearchProject(ReadProps.readAttr("MedicalChartProjectName"));
-         DocPageObj.ClickSelectMedicalChartProject();
-      //  Thread.sleep(3000);
+        Thread.sleep(2000);
+        DocPageObj.ClickSelectMedicalChartProject();
+        //  Thread.sleep(3000);
         AssertionsFunction.verifyElementText(ReadProps.readAttr("MedicalChartProjectName"),DocPageObj.SelectMedicalChartProject);
+        Thread.sleep(2000);
         DocPageObj.ClickStatusFilter();
+        Thread.sleep(2000);
         DocPageObj.ClickCheckProcessed();
+        Thread.sleep(2000);
         AssertionsFunction.verifyElementSelected(DocPageObj.CheckProcessed);
         r.keyPress(KeyEvent.VK_ESCAPE);
     }
@@ -46,46 +53,48 @@ public class DocProcessMedicalChartTest extends BasePage
     public void searchbox_document() throws Exception {
         //TC 8.2 SearchBox Document.
         DocPageObj.ClickSearchBox("Processed");
-        //DocPageObj.ClickSearchDocument();
+        Thread.sleep(2000);
+        AssertionsFunction.isPresent(DocPageObj.SearchBox);
         Thread.sleep(2000);
     }
     @Test(priority = 3)
     public void update_document_cancel_and_check_Chart_level_flags() throws Exception {
         //TC 8.3 Update Document and Cancel it.
         DocPageObj.ClickViewDocIcon5();
-        Thread.sleep(1000);
-     //   Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
+        Thread.sleep(30000);
+        //   Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@class='col-md-6 pr-4 ng-tns-c278-31']")));
         DocPageObj.ClickOnChartLevelFlagsBtn();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
 
         DocPageObj.selectNONHCCBtn();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
         DocPageObj.ClickOnChartLevelFlagsBtn();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
         DocPageObj.selectInvalidRecordBtn();
-      //  Thread.sleep(2000);
+        //  Thread.sleep(2000);
         DocPageObj.ClickOnChartLevelFlagsBtn();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
 
         DocPageObj.selectPatientNameMismatchBtn();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
         DocPageObj.ClickExpansionPanel();
-       // Thread.sleep(2000);
+        // Thread.sleep(2000);
         DocPageObj.ClickCancelDoc2();
         Thread.sleep(5000);
-
         DocPageObj.ClickRefreshDocument();
         Thread.sleep(7000);
+        AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
     }
-  //  @Test(priority = 4)
+    @Test(priority = 4)
     public void hide_unhide_analytics() throws Exception {
         //TC 8.4 Hide and UnHide Analytics.
         DocPageObj.ClickHideAnalytics();
         Thread.sleep(2000);
         DocPageObj.ClickUnHideAnalytics();
         Thread.sleep(2000);
+        AssertionsFunction.isPresent(DocPageObj.UnHideAnalytics);
     }
- //   @Test(priority = 5)
+    @Test(priority = 5)
     public void documents_filter() throws Exception {
         //TC 8.5 Documents filter.
         DocPageObj.ClickFilterDoc();
@@ -106,7 +115,7 @@ public class DocProcessMedicalChartTest extends BasePage
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
     }
- //   @Test(priority = 6)
+    @Test(priority = 6)
     public void sorting() throws Exception {
         //TC 8.6 sorting.
         DocPageObj.ClickDocSort();
@@ -125,7 +134,7 @@ public class DocProcessMedicalChartTest extends BasePage
         js.executeScript("window.scrollBy(0,5000)", "");
         Thread.sleep(4000);
     }
-  //  @Test(priority = 7)
+    @Test(priority = 7)
     public void items_page() throws Exception {
         //TC 8.7 Items Per Page.
         DocPageObj.ClickItemsPerPage();
@@ -135,7 +144,7 @@ public class DocProcessMedicalChartTest extends BasePage
         AssertionsFunction.verifyElementText("10",DocPageObj.ItemSelectedNumber );
         Thread.sleep(1000);
     }
-   // @Test(priority = 8)
+    @Test(priority = 8)
     public void next_page_previous_page_first_page_last_page() throws Exception {
         //TC 8.8 Next Page, Previous Page, Last Page and First Page.
         DocPageObj.ClickNextPage();
@@ -147,7 +156,7 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickFirstPage();
         Thread.sleep(5000);
     }
- //   @Test(enabled = false)
+    @Test(enabled = false)
     public void create_chronic_condition() throws Exception {
         //TC 8.9 Create Chronic condition.
         DocPageObj.ClickViewDocIcon2();
@@ -160,15 +169,10 @@ public class DocProcessMedicalChartTest extends BasePage
         DocPageObj.ClickAddCondition();
         Thread.sleep(3000);
         DocPageObj.AddNPINumber();
-        Thread.sleep(2000);
         DocPageObj.AddPhysicianName();
-        Thread.sleep(2000);
         DocPageObj.ClickStartDate();
-        Thread.sleep(4000);
         DocPageObj.SelectStartDate();
-        Thread.sleep(2000);
         DocPageObj.ClickEndDate();
-        Thread.sleep(4000);
         DocPageObj.SelectEndDate();
         Thread.sleep(2000);
         DocPageObj.SaveChronicCondition();
@@ -177,6 +181,5 @@ public class DocProcessMedicalChartTest extends BasePage
         Thread.sleep(4000);
         AssertionsFunction.verifyTargetPageURL(DocPageObj.DocumentPageURL);
         Thread.sleep(2000);
-
     }
 }

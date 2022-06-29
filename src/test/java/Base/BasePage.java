@@ -6,7 +6,7 @@ import Utilities.ReadProps;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
@@ -20,6 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+
 
 
 public class BasePage {
@@ -39,11 +41,48 @@ public class BasePage {
         loginPageObjects.clickLoginButtonForValidInput();
         Thread.sleep(10000);
     }
+
+    public static void AdminLoginTest() throws Exception {
+
+        loginPageObjects =  new LoginPage(driver);
+        ProjectPageObj = new ProjectPage(driver);
+        driver.get(ReadProps.readAttr("URL"));
+        driver.manage().window().maximize();
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("AdminUser"));
+        loginPageObjects.setPassword(ReadProps.readAttr("AdminPwd"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(10000);
+    }
+
+    public static void OperatorLoginTest() throws Exception {
+
+        loginPageObjects = new LoginPage(driver);
+        ProjectPageObj = new ProjectPage(driver);
+        driver.get(ReadProps.readAttr("URL"));
+        driver.manage().window().maximize();
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("OperatorUser"));
+        loginPageObjects.setPassword(ReadProps.readAttr("OperatorPwd"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(10000);
+    }
+
+    public static void supervisiorLoginTest() throws Exception {
+
+        loginPageObjects = new LoginPage(driver);
+        ProjectPageObj = new ProjectPage(driver);
+        driver.get(ReadProps.readAttr("URL"));
+        driver.manage().window().maximize();
+        ProjectPageObj.EnterUsername(ReadProps.readAttr("SupervisorUser"));
+        loginPageObjects.setPassword(ReadProps.readAttr("SupervisorPwd"));
+        loginPageObjects.clickLoginButtonForValidInput();
+        Thread.sleep(10000);
+    }
+
     public static void driverInit() throws Exception {
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
     }
 
 
@@ -71,4 +110,3 @@ public class BasePage {
 
 
 }
-
