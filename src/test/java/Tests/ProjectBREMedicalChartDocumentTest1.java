@@ -1,24 +1,34 @@
 package Tests;
 import Base.BasePage;
+import io.qameta.allure.*;
 import Utilities.AssertionsFunction;
 import Pages.DocumentPage;
 import Pages.ProjectBREMedicalChartDocumentPage;
 import Utilities.ReadProps;
 import org.testng.annotations.*;
+
+@Feature("Project BREMedical Chart Document Test1")
 @Listeners(Utilities.TestListeners.class)
 public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
 
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - verify_rejected_document_no_data_extracted_on_medical_chart")
+    @Description("verify_rejected_document_no_data_extracted_on_medical_chart")
+    @Test (priority=1,groups="smoke", description = "verify_rejected_document_no_data_extracted_on_medical_chart")
+
     public void verify_rejected_document_no_data_extracted_on_medical_chart() throws Exception { //Object Creation.
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
 //TC 1.1 Open Ready Document and verify the Patient Demographics and Chronic conditions.
@@ -41,7 +51,13 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         Thread.sleep(1000);
 
     }
-    @Test(priority = 2)
+
+
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart")
+    @Description("verify user able to edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart")
+    @Test (priority=2,groups="smoke", description = " verify edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart")
     public void edit_encounter_detail_and_enter_invalid_npi_physician_on_medical_chart() throws Exception {
 //Object Creation.
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
@@ -67,7 +83,15 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         Thread.sleep(1000);
 //Error message for NPI and Physician details.
     }
-    @Test(priority = 3) public void run_rule_for_invalid_physicians_sign_on_medical_chart() throws Exception
+
+
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - run_rule_for_invalid_physicians_sign_on_medical_chart")
+    @Description("verify user able to run_rule_for_invalid_physicians_sign_on_medical_chart")
+    @Test (priority=3,groups="smoke", description = " verify run_rule_for_invalid_physicians_sign_on_medical_chart")
+
+    public void run_rule_for_invalid_physicians_sign_on_medical_chart() throws Exception
     {
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver);
 //TC 1.3 Perform Run rule.
@@ -88,13 +112,17 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
 
 
     }
-    @Test(priority = 4)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - verify_icd_on_medical_chart")
+    @Description("verify user able to verify_icd_on_medical_chart")
+    @Test (priority=4,groups="smoke", description = "  verify_icd_on_medical_chart")
+
     public void verify_icd_on_medical_chart() throws Exception
     {
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver);
 //TC 1.4 verify all conditions for ICD Code.
 //Open Ready document Thread.sleep(1000);
-        Thread.sleep(5000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnReadyDocumentICD1();
         Thread.sleep(2000);
         ProjectBREMedicalChartDocumentPageObj.ClickOnChartData();
@@ -106,13 +134,26 @@ public class ProjectBREMedicalChartDocumentTest1 extends BasePage {
         AssertionsFunction.isPresent(ProjectBREMedicalChartDocumentPageObj.icd);
         Thread.sleep(2000);
     }
-    @Test(priority = 5) public void save_without_hcc_comments_on_medical_chart() throws Exception {
+
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - save_without_hcc_comments_on_medical_chart")
+    @Description("verify user able to save_without_hcc_comments_on_medical_chart")
+    @Test (priority=5,groups="smoke", description = " verify save_without_hcc_comments_on_medical_chart")
+
+    public void save_without_hcc_comments_on_medical_chart() throws Exception {
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj =new ProjectBREMedicalChartDocumentPage(driver);
         Thread.sleep(1000);
 //Save without HCC and Comments.
         ProjectBREMedicalChartDocumentPageObj.SaveIcd();
     }
-    @Test(priority = 6) public void save_with_hcc_comments_on_medical_chart() throws Exception
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 006  - save_with_hcc_comments_on_medical_chart")
+    @Description("verify user able to save_with_hcc_comments_on_medical_chart")
+    @Test (priority=6,groups="smoke", description = " verify save_with_hcc_comments_on_medical_chart")
+
+    public void save_with_hcc_comments_on_medical_chart() throws Exception
     {
         ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         Thread.sleep(2000);

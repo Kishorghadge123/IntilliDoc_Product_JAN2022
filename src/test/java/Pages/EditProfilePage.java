@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import io.qameta.allure.Step;
 
 public class EditProfilePage
 {
@@ -25,8 +26,13 @@ public class EditProfilePage
     public EditProfilePage(WebDriver driver) {
         this.driver = driver;
     }
+
+    @Step("clickVisible")
     public  void clickVisible(){driver.findElement(Visible).click();
     }
+
+
+    @Step(" click on ProfileIcon")
     public void ProfileButton() {
         driver.findElement(Profile).click();
 
@@ -39,40 +45,54 @@ public class EditProfilePage
         driver.findElement(DayMode).click();
     }
 
+    @Step(" click on EditProfileButton")
     public void EditProfileButton() {
         driver.findElement(EditProfile).click();
         Custome_Wait.wait(driver,Save);
     }
+
+    @Step("clickonsettingbtn")
     public  void clickonsettingbtn(){
         driver.findElement(settingbtn).click();
     }
+
+    @Step(" click on CancelButton")
     public void CancelButton() {
         driver.findElement(Cancel).click();
         Custome_Wait.wait(driver,project);
     }
+
+    @Step(" click on theme")
     public void clickontheme(){
         driver.findElement(theme).click();
     }
+
+    @Step(" click on SaveButton")
     public void SaveButton(){driver.findElement(Save).click();
         Custome_Wait.wait(driver,project);
     }
+
+    @Step("click on applybtn")
     public void clickonapplybtn(){
         driver.findElement(applybtn).click();
     }
 
-
+    @Step("verify_profile_icon")
     public void verify_profile_icon()
     {
         String acutal_value="NTS Platform Admin";
         String exp_value=driver.findElement(By.xpath("//span[contains(text(),'NTS Platform Admin')]")).getText();
         Assert.assertEquals(acutal_value,exp_value);
     }
+    @Step("verify_edit_profile")
     public  void verify_edit_profile()
     {
         String acutal_value="Edit Profile";
         String exp_value=driver.findElement(By.xpath("//span[text()='Edit Profile']")).getText();
         Assert.assertEquals(acutal_value,exp_value);
     }
+
+    @Step("verify_Day_Mode")
     public void verify_Day_Mode()
     {
         String acutal_value="Day Mode";
@@ -80,13 +100,14 @@ public class EditProfilePage
         Assert.assertEquals(acutal_value,exp_value);
 
     }
+    @Step("verify_night_mode")
     public void verify_night_mode()
     {
         String actual_value="Night Mode";
         String exp_value=driver.findElement(By.xpath("//mat-label[text()='Night Mode']")).getText();
         Assert.assertEquals(actual_value,exp_value);
     }
-
+    @Step("verify_edit_profile_cancel")
     public void verify_edit_profile_cancel()
     {
         String acutal_value="N";

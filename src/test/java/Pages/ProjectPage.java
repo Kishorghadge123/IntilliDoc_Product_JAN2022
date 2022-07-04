@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import io.qameta.allure.Step;
 public class ProjectPage   {
     String currentDate = new SimpleDateFormat("dd").format(new Date());
     WebDriver driver = null;
@@ -78,8 +78,8 @@ public class ProjectPage   {
 
 
     By SelectRoleSuperVisor = By.xpath("//button[contains(text(),'AE Supervisor')]");
-    By AddUser = By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[2]/div[1]/form[1]/project-info-section[1]/mat-accordion[1]/project-roles[1]/mat-expansion-panel[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/mat-icon[1]");
-    By AddUserAdmin = By.xpath("//button[@class='mat-focus-indicator disabled-font-color mat-icon-button mat-button-base primary-font-color']");       //esc method
+    By AddUser = By.xpath("(//span[@class='mat-option-text'])[1]");
+    By AddUserAdmin = By.xpath("//div[text()=' Users ']//following::mat-icon[1]");       //esc method
     public static By SelectUserAdmin = By.xpath("//*[@class='cdk-overlay-connected-position-bounding-box']//following::mat-option[1]/span[1]");
     public By UpdateProject = By.xpath("//project-info-section/following-sibling::div/button/span[text()=' Update']/parent::button");
     By UpdatePrjectOnRulePage = By.xpath("//project-rule-section/following-sibling::div/button/span[text()=' Update ']/parent::button");
@@ -151,6 +151,7 @@ public class ProjectPage   {
 
     SoftAssert softAssert = new SoftAssert();
 
+    @Step(" click on ClickOnDeleteAttributeFieldName")
     public void ClickOnDeleteAttributeFieldName() {
         driver.findElement(DeleteAttributeFieldName).click();
     }
@@ -166,6 +167,8 @@ public class ProjectPage   {
     public By GetSelectMedical(){return this.SelectMedical;}
     public By GetLead(){return this.Lead;}
     public By GetselectLead(){return this.SelectLead;}
+
+    @Step(" click on ClickOnProjectBtn")
     public void ClickOnProjectBtn() throws  Exception{
         driver.findElement(ProjectBtn).click();
         Thread.sleep(8000);
@@ -175,11 +178,12 @@ public class ProjectPage   {
     public void createrolebutton(){
         driver.findElement(createrolebtn).click();
     }
-
+    @Step(" click on ClickOnCreateProjectBtn")
     public void ClickOnCreateProjectBtn() throws Exception {
         driver.findElement(CreateProject).click();
         // AssertionsFunction.verifyTargetPageURL ("https://alpha.neutrino-ai.com/#/home/project-management/create-project");
     }
+    @Step(" click on clickoncreatebtn")
     public void clickoncreatebtn(){
         driver.findElement(createbtutton).click();
     }
@@ -189,6 +193,7 @@ public class ProjectPage   {
     public  void selectpatientname(){
         driver.findElement(pname).click();
     }
+    @Step(" click on selectdropdown")
     public void selectdropdown(){
         driver.findElement(checkbox).click();
     }
@@ -196,22 +201,31 @@ public class ProjectPage   {
     public void clickoncreatebtnstruct(){
         driver.findElement(creatbtnforstruct).click();
     }
+
+
+    @Step("ClickOnProjectNameBtn")
     public void ClickOnProjectNameBtn(String text) throws Exception{
 
 
         driver.findElement(ProjectName).sendKeys(text);
     }
 
+
+    @Step("ClickOnLeadBtn")
     public void ClickOnLeadBtn() throws Exception
     {
         Thread.sleep(2000);
         driver.findElement(Lead).click();
     }
 
+
+    @Step("SelectPatientGraphics")
     public void SelectPatientGraphics() throws Exception{
         Thread.sleep(2000);
         driver.findElement(PatientDemoGraphics).click();
     }
+
+    @Step("SelectPatientGraphics1")
     public void SelectPatientGraphics1() throws Exception{
         Thread.sleep(2000);
         driver.findElement(PatientDemoGraphics1).click();
@@ -221,81 +235,81 @@ public class ProjectPage   {
         driver.findElement(HCCConditions).click();
     }
 
-
+    @Step("ClickOnAddEntity")
     public void ClickOnAddEntity() throws Exception{
         Thread.sleep(2000);
         driver.findElement(AddEntity).click();
     }
-
+    @Step("ClickSearchLead")
     public void ClickSearchLead(String text) throws Exception{
 
         driver.findElement(SearchLead).sendKeys(text);
     }
-
+    @Step(" click on ClearSearchLead")
     public void ClearSearchLead() throws Exception{
 
         driver.findElement(SearchLead).clear();
     }
-
+    @Step("SelectOnLeadBtn")
     public void SelectOnLeadBtn() throws Exception{
 
         driver.findElement(SelectLead).click();
     }
-
+    @Step("SelectOnLeadSampleBtn")
     public void SelectOnLeadSampleBtn() throws Exception{
 
         Thread.sleep(2000);
         driver.findElement(SelectLeadSample).click();
     }
-
+    @Step(" click on SelectOnLeadAdminBtn")
     public void SelectOnLeadAdminBtn()throws Exception{
 
         driver.findElement(SelectLeadAdmin).click();
     }
 
-
+    @Step("ClickOnStartDateBtn")
     public void ClickOnStartDateBtn() throws Exception{
 
         driver.findElement(ClickStartDate).click();
     }
-
+    @Step(" SelectStartDateBtn")
     public void SelectStartDateBtn()throws Exception{
 
         driver.findElement(SelectStartDate).click();
     }
-
+    @Step("ClickOnDocumentStructureBtn")
     public void ClickOnDocumentStructureBtn() throws Exception{
 
         driver.findElement(ClickDocumentStructure).click();
     }
-
+    @Step("SelectDocumentStructureBtn")
     public void SelectDocumentStructureBtn() throws Exception{
 
         driver.findElement(SelectStructure).click();
     }
 
-
+    @Step("SelectDocumentStructureMedicalBtn")
     public void SelectDocumentStructureMedicalBtn() throws Exception{
 
         driver.findElement(SelectMedical).click();
     }
 
-
+    @Step("SelectOnSemiStructure")
     public void SelectOnSemiStructure() throws Exception{
 
         driver.findElement(SelectSemiStructure).click();
     }
-
+    @Step("SelectOnFreeFormStructure")
     public void SelectOnFreeFormStructure() throws Exception{
 
         driver.findElement(SelectFreeForm).click();
     }
-
+    @Step("ClickOnProcessingEngineBtn")
     public void ClickOnProcessingEngineBtn() throws Exception{
 
         driver.findElement(ClickProcessingEngine).click();
     }
-
+    @Step("SelectOnProcessingEngineBtn")
     public void SelectOnProcessingEngineBtn() throws Exception{
 
         driver.findElement(SelectProcessingEngine).click();
@@ -305,95 +319,99 @@ public class ProjectPage   {
 
         driver.findElement(SelectProcessingEngineNNLow).click();
     }
-
+    @Step("ClickOnStraightThroughProcessBtn")
     public void ClickOnStraightThroughProcessBtn() throws Exception{
 
         driver.findElement(StraightThroughProcess).click();
     }
-
+    @Step(" ClickOnDocumentScoreBtn")
     public void ClickOnDocumentScoreBtn(String text)throws Exception{
 
         driver.findElement(DocumentScore).sendKeys(text);
     }
-
+    @Step(" ClickOnStatusBtn")
     public void ClickOnStatusBtn() throws Exception
     {
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Custome_Wait.wait(driver,Status);
         driver.findElement(Status).click();
     }
-
+    @Step(" ClickOnDocumentAutoAssignBtn")
     public void ClickOnDocumentAutoAssignBtn() throws Exception{
 
         driver.findElement(DocumentAutoAssign).click();
     }
-
+    @Step("ClickOnAddTemplateBtn")
     public void ClickOnAddTemplateBtn() throws Exception{
 
         driver.findElement(ClickAddTemplate).click();
     }
-
+    @Step(" ClickOnAddFieldBtn")
     public void ClickOnAddFieldBtn() throws Exception{
 
         driver.findElement(AddFields).click();
     }
-
+    @Step(" click on SelectFieldValue")
     public void SelectFieldValue() throws Exception{
 
         driver.findElement(SelectField).click();
     }
 
+    @Step("ClickOnRoleUserDisableEnable")
     public void ClickOnRoleUserDisableEnable() throws Exception{
 
         driver.findElement(RoleUserDisableEnable).click();
     }
-
+    @Step("ClickOnSupervisorRoleDisable")
     public void ClickOnSupervisorRoleDisable() throws Exception{
 
         driver.findElement(SupervisorRoleDisable).click();
     }
-
+    @Step("ClickOnTemplateBtn")
     public void ClickOnTemplateBtn() throws Exception{
 
         driver.findElement(SelectTemplate).click();
     }
-
+    @Step("ClickOnRolesBtn")
     public void ClickOnRolesBtn() throws Exception{
 
         driver.findElement(ClickRoles).click();
     }
-
+    @Step(" ClickOnAddRoleBtn")
     public void ClickOnAddRoleBtn() throws Exception{
 
         driver.findElement(AddRoleAdmin).click();
     }
-
+    @Step("ClickOnSelectRoleBtn")
     public void ClickOnSelectRoleBtn() throws Exception{
 
         driver.findElement(SelectRoleAdmin).click();
     }
-
+    @Step("ClickOnSelectSupervisorRoleBtn")
     public void ClickOnSelectSupervisorRoleBtn() throws Exception{
 
         driver.findElement(SelectRoleSuperVisor).click();
     }
-
+    @Step("ClickUpdateBtn")
     public void ClickUpdateBtn() throws Exception{
 
         driver.findElement(ClickUpdateBtn).click();
     }
 
-
+    @Step(" ClickOnAddUserBtn")
     public void ClickOnAddUserBtn() throws Exception{
 
         driver.findElement(AddUserAdmin).click();
     }
 
+
+    @Step("ClickOnAddUser")
     public void ClickOnAddUser() throws Exception{
 
         driver.findElement(AddUser).click();
     }
 
+    @Step("ClickOnSelectUserBtn")
     public void ClickOnSelectUserBtn() throws Exception{
 
         driver.findElement(SelectUserAdmin).click();
@@ -413,6 +431,7 @@ public class ProjectPage   {
         driver.findElement(SelectItems).click();
     }
 
+    @Step("ClickNextPage")
     public void ClickNextPage() throws Exception{
 
         Thread.sleep(5000);
@@ -423,30 +442,38 @@ public class ProjectPage   {
         driver.findElement(create).click();
     }
 
-
+    @Step("ClickRulesPage")
     public void ClickRulesPage() throws Exception{
 
         driver.findElement(RulesPage).click();
     }
-
+    @Step(" ClickOnCreate")
     public void ClickOnCreate()  throws Exception{
 
         driver.findElement(CreateButtonOnProjectPage).click();
     }
 
+
+    @Step("ClickOnCancelProject")
     public void ClickOnCancelProject() throws  InterruptedException
     {
         driver.findElement(CancelOnProject).click();
     }
+
+    @Step(" clickoncancel")
     public void clickoncancel(){
         driver.findElement(cancel).click();
     }
 
+
+    @Step("VerifyAssertForBlank")
     public void VerifyAssertForBlank()
     {
         AssertionsFunction.verifyElementText("Please add the attributes before creating the project.",ErrorMsgBlank);
     }
 
+
+    @Step("VerifyAssertForUser")
     public void VerifyAssertForUser()
     {
         AssertionsFunction.verifyElementText("Role cannot have empty users",ErrorMsgRoleUser);
@@ -459,7 +486,7 @@ public class ProjectPage   {
         AssertionsFunction.verifyElementText("Please add the template before creating the project.",ErrorMsgTemplate);
 
     }
-
+    @Step("VerifyAssertForData")
     public void VerifyAssertForData()
     {
 
@@ -472,7 +499,7 @@ public class ProjectPage   {
         AssertionsFunction.verifyElementText("Please check form data and role(s) cannot be empty",ErrorMsgDataRole);
 
     }
-
+    @Step("VerifyAssertForRole")
     public void VerifyAssertForRole() {
 
         AssertionsFunction.verifyElementText("Role(s) cannot be empty",ErrorMsgRole);
@@ -499,32 +526,36 @@ public class ProjectPage   {
     }
 
 
-
+    @Step("ClickOnEndDate")
     public void ClickOnEndDate() throws Exception{
 
         driver.findElement(ClickEndDate).click();
     }
-
+    @Step("SelectEndDate")
     public void SelectEndDate() throws Exception{
 
         driver.findElement(SelectEndDate).click();
     }
-
+    @Step(" click on TableStructure")
     public void TableStructure() throws Exception{
 
 
         driver.findElement(TableStructure).click();
     }
-
+    @Step(" click on SearchProject")
     public void SearchProject() throws Exception{
 
         driver.findElement(SearchProject).sendKeys("QA-AutoProject");
     }
 
+
+    @Step(" click on SearchProjectAdmin")
     public void SearchProjectAdmin() throws Exception{
 
         driver.findElement(SearchProject).sendKeys("QA-AutoAdmin");
     }
+
+    @Step(" click on SearchProjectForStatus")
     public void SearchProjectForStatus(String projectName) throws Exception{
         Custome_Wait.wait(driver,SearchProject);
         driver.findElement(SearchProject).sendKeys(projectName);
@@ -532,54 +563,64 @@ public class ProjectPage   {
     }
 
 
+
+    @Step(" click on ClickRoleManagementBtn")
     public void ClickRoleManagementBtn() throws Exception{
 
         driver.findElement(RoleManagementBtn).click();
     }
 
+
+    @Step(" click on SearchCreatedRole")
     public void SearchCreatedRole(String text)throws Exception{
 
         driver.findElement(SearchRole).sendKeys(text);
     }
 
+
+    @Step("ClickEditRole")
     public void ClickEditRole() throws Exception{
 
         driver.findElement(EditRole).click();
     }
 
+    @Step(" ClickActiveRole")
     public void ClickActiveRole() throws Exception{
 
         driver.findElement(ActiveRole).click();
     }
 
+    @Step(" ClickLogout")
     public void ClickLogout() throws Exception{
 
         driver.findElement(Logout).click();
     }
 
     //Admin Login
+
+    @Step(" EnterUsername")
     public void EnterUsername(String text) throws Exception{
 
         driver.findElement(Username).sendKeys(text);
     }
-
+    @Step("EnterPassword")
     public void EnterPassword(String text) throws Exception{
 
         driver.findElement(Password).sendKeys(text);
     }
-
+    @Step("ClickLoginButton")
     public void ClickLoginButton() throws Exception{
 
         driver.findElement(LoginBtn).click();
         Thread.sleep(8000);
     }
-
+    @Step("ClickOnEditProject")
     public void ClickOnEditProject() throws Exception{
 
         driver.findElement(EditProject).click();
-        Thread.sleep(8000);
+        Thread.sleep(3000);
     }
-
+    @Step(" ClickOnUpdateProject")
     public void ClickOnUpdateProject() throws Exception
     {
         Custome_Wait.wait(driver,UpdateProject);
@@ -620,27 +661,31 @@ public class ProjectPage   {
 
         driver.findElement(UpdateUser).click();
     }
-
+    @Step(" ClickBackRulePage")
     public void ClickBackRulePage() throws Exception{
 
         driver.findElement(BackButtonRulePage).click();
     }
-
+    @Step(" CLickBackDataPage")
     public void CLickBackDataPage() throws Exception{
 
         driver.findElement(BackButtonDataPage).click();
     }
+
+    @Step(" ClickOnSearchBox")
     public void ClickOnSearchBox(String text)throws Exception
     {
         Custome_Wait.wait(driver,ClickSearchBox);
         driver.findElement(ClickSearchBox).sendKeys(text);
     }
+
+    @Step("ClickEditProjectBtn")
     public void ClickEditProjectBtn()throws Exception{
         Custome_Wait.wait(driver,EditProjectBtn);
         driver.findElement(EditProjectBtn).click();
     }
 
-
+    @Step("verifyProjectCreated ")
     public void verifyProjectCreated(String TupeOfProject) throws IOException {
         switch (TupeOfProject) {
             case "MedicalChartProject": {

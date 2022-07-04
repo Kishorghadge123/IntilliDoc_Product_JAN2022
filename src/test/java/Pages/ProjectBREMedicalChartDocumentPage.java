@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.io.IOException;
-
+import io.qameta.allure.Step;
 public class ProjectBREMedicalChartDocumentPage {
 
     WebDriver driver = null;
@@ -138,8 +138,13 @@ public class ProjectBREMedicalChartDocumentPage {
     By birthDate=By.xpath("//div[text()='Patient Demographics']//following::mat-row[3]");
     By email_address=By.xpath("//div[text()='Patient Demographics']//following::mat-row[4]");
 
+    @Step("getEmail_address")
     public By getEmail_address(){return this.email_address;}
+
+    @Step("getBirthDate")
     public By getBirthDate(){return this.birthDate;}
+
+    @Step("getAgeAttribute")
     public By getAgeAttribute(){return this.ageAttribute;}
 
 
@@ -148,23 +153,34 @@ public class ProjectBREMedicalChartDocumentPage {
     public ProjectBREMedicalChartDocumentPage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
+
+    @Step("clickonDropDown")
     public  void clickonDropDown() throws  Exception{
         Thread.sleep(8000);
         driver.findElement(DropDown).click();
     }
-
+    @Step(" click on SaveIcd")
     public  void SaveIcd(){
         driver.findElement(Save).click();
     }
+    @Step("clickonProjectName")
     public  void clickonProjectName(){
         driver.findElement(projectname).click();
     }
+
+
+
+    @Step("clickOnReadyDocument")
     public  void clickOnReadyDocument(){
         driver.findElement(readydocument).click();
     }
+
+    @Step("click OnReadyNewDocument")
     public  void clickOnReadyNewDocument(){
         driver.findElement(readydocumentnew).click();
     }
+
+    @Step(" click on clickOnChartFlags")
     public  void clickOnChartFlags(){
         driver.findElement(clickOnChartFlags).click();
     }
@@ -176,6 +192,7 @@ public class ProjectBREMedicalChartDocumentPage {
         driver.findElement(ProjectName).sendKeys(text);
     }
 
+    @Step(" click on enterUserName")
     public  void enterUserName(String text){
         driver.findElement(userName).sendKeys(text);
     }
@@ -194,17 +211,29 @@ public class ProjectBREMedicalChartDocumentPage {
     public  void clickOnStatusButton(){
         driver.findElement(clickOnStatusButton).click();
     }
+    @Step(" getcreatedICD")
     public By getcreatedICD(){return this.createdICD;}
+
+    @Step("getNewCreatedICD")
     public  By getNewCreatedICD(){ return  this.createICDNew;}
+
+    @Step("getcreatedEmail ")
     public  By getcreatedEmail(){return  this.cratedEmail;}
     public  void clickOnActionButton(){
         driver.findElement(clickOnActionButton).click();
     }
+
+    @Step(" click on clickOnImagename")
     public void clickOnImagename(){
         Assert.assertTrue(driver.findElement(By.xpath("//mat-label[contains(text(),'t1if.tif')]")).isDisplayed());}
 
     public By getendDate(){return  this.endDate;}
+
+    @Step("getnpnNum")
     public By getnpnNum(){return this.npnNum;}
+
+
+    @Step("ClickOnEncounterDetails")
     public void ClickOnEncounterDetails() {
         driver.findElement(EncounterDetails).click();
     }
@@ -220,11 +249,19 @@ public class ProjectBREMedicalChartDocumentPage {
         driver.findElement(SelectICDCode).click();
     }
 
+
+    @Step("ClickOnReadyDocument")
     public void ClickOnReadyDocument() {driver.findElement(OpenReadyDocument).click();
     }
+
+
+    @Step("clickOnrejectedDocument")
     public  void clickOnrejectedDocument(){
         driver.findElement(ClickOnRejectedDocument).click();
     }
+
+
+    @Step("ClickOnTopEncounterDetail")
     public  void   ClickOnTopEncounterDetail(){
         driver.findElement(clickOnTopEncounterDetail).click();}
 
@@ -234,11 +271,18 @@ public class ProjectBREMedicalChartDocumentPage {
     }
     public  void ClickOnMedicalDocument(){driver.findElement(openMedicalReadyDocument).click();}
 
+
+    @Step("getCancelButton")
     public By getCancelButton(){ return  this.CancelButton;}
     public By getReleaseButton(){ return  this.ReleaseButton;}
     public By getsubmitButton(){ return  this.submitButton;}
     public By getRunRuleButton(){ return  this.RunRuleButton;}
+
+    @Step("getDiagnosisName")
     public  By getDiagnosisName(){ return  this.getDiagnosisName;}
+
+
+    @Step("getHcccode")
     public  By getHcccode(){ return  this.getHcccode;}
 
 
@@ -252,13 +296,21 @@ public class ProjectBREMedicalChartDocumentPage {
     {
         driver.findElement(clickOnLatestEncouter).click();
     }
+
+
+    @Step("clickOnEditEncounter")
     public void clickOnEditEncounter(){
         driver.findElement(clickoneditencouter).click();
     }
     public void ClickOnClearICDCode() {
         driver.findElement(EditICDCodeDetailsOnEditDiagnosisDetails).clear();
     }
+
+
+    @Step(" ClickOnendDate")
     public void ClickOnendDate(){driver.findElement(endDate).click();}
+
+    @Step("ClickOnEditICDCodeOnEditDiagnosisDetails")
     public void ClickOnEditICDCodeOnEditDiagnosisDetails() {
         driver.findElement(EditICDCodeDetails).click();
     }
@@ -268,7 +320,7 @@ public class ProjectBREMedicalChartDocumentPage {
     public void ClickOnCancelEditDiagnosisDetails() {
         driver.findElement(CancelCC).click();
     }
-
+    @Step("ClickOnReadyDocumentICD")
     public void ClickOnReadyDocumentICD() {
         driver.findElement(OpenReadyDocumentICD).click();
     }
@@ -291,41 +343,65 @@ public class ProjectBREMedicalChartDocumentPage {
     public void select_structure_project(){
         driver.findElement(selectStructureProject).click();
     }
+
+    @Step("ClickOnReadyDocumentICD1")
     public void ClickOnReadyDocumentICD1() {
         driver.findElement(OpenReadyDocumentICD1).click();
     }
     public void ClickOnEditICDDetails() {
         driver.findElement(EditICDCodeDetails).click();
     }
+
+    @Step("ClickOnRejectedDocument")
     public void ClickOnRejectedDocument() {
         driver.findElement(OpenRejectedDocument).click();
     }
+
+
+    @Step("ClickOnEditEncounterDetails")
     public void ClickOnEditEncounterDetails() {
         driver.findElement(EditEncounterDetails).click();
     }
 
+
+    @Step(" ClickOnChartData")
     public void ClickOnChartData() {driver.findElement(ChartData).click();}
     public  void  ClickOnStructureChartData(){driver.findElement(ClickOnStructureChartData).click();}
+
+    @Step("clickOnMedicalProjectChartData")
     public  void  clickOnMedicalProjectChartData()
     {driver.findElement(clickOnMedicalChartData).click();}
 
+
+    @Step("ClickOnClearAddress")
     public void ClickOnClearAddress() {
         driver.findElement(Address).clear();
     }
 
+
+    @Step("ClickOnEnterAddress")
     public void ClickOnEnterAddress(String text) {
         driver.findElement(Address).sendKeys(text);
     }
+
+    @Step("ClickOnEnterHCCCodes")
     public void ClickOnEnterHCCCodes(String text) {
         driver.findElement(HCCCodes).sendKeys(text);
     }
 
+
+    @Step("ClickOnSaveDraft")
     public void ClickOnSaveDraft() {
         driver.findElement(SaveDraft).click();
     }
+
+    @Step("ClickOnAddComment")
     public void ClickOnAddComment() {
         driver.findElement(AddComment).click();
     }
+
+
+    @Step("ClickOnDiagnosisTab")
     public void ClickOnDiagnosisTab() {
         driver.findElement(diagnosis_Tab).click();
     }
@@ -335,13 +411,19 @@ public class ProjectBREMedicalChartDocumentPage {
         String expected_page="https://alpha.neutrino-ai.com/#/home/documents/processed-forms?faxPageId=61ee411f70d5f50479efa7c4&imageName=structure%203.pdf&type=pdf&_st=Ready";
         Assert.assertEquals(actual_page, expected_page);
     }
-
+    @Step("ClickOnAddChronicCondition")
     public void ClickOnAddChronicCondition() {
         driver.findElement(AddDiagnosisDetails).click();
     }
 
+    @Step("clickOnEnterNPI")
     public void clickOnEnterNPI(String text) {driver.findElement(NPINumber).sendKeys(text);}
+
+    @Step(" click on clearNPINUM")
     public void clearNPINUM(){driver.findElement(NPINumber).clear();}
+
+
+    @Step( "ClickOnEnterNPI")
     public void ClickOnEnterNPI(String text) {
         driver.findElement(NPINumber).sendKeys(text);
     }
@@ -356,30 +438,44 @@ public class ProjectBREMedicalChartDocumentPage {
     }
 
 
-
+    @Step("ClickOnEnterPhysicianName")
     public void ClickOnEnterPhysicianName(String text) {driver.findElement(DoctorName).sendKeys(text);}
+
+    @Step(" click on clearPhysicianName")
     public void clearPhysicianName(){driver.findElement(DoctorName).clear();}
     public void ClickOnEnterInvalidICDCode(String text) {
         driver.findElement(EditICDCodeDetailsOnEditDiagnosisDetails).sendKeys(text);
     }
+
+    @Step(" click on ClearDoctorName")
     public void ClearDoctorName() {
         driver.findElement(DoctorName).clear();
     }
 
+
+    @Step(" ClickOnEnterStarDate")
     public void ClickOnEnterStarDate(String text) {
         driver.findElement(StartDate).sendKeys(text);
     }
 
+    @Step("ClickOnEnterEndDate")
     public void ClickOnEnterEndDate(String text) {
         driver.findElement(EndDate).sendKeys(text);
     }
+
+    @Step("ClickOnAddEncounterButton")
     public void ClickOnAddEncounterButton(){
         driver.findElement(ClickOnAddEncounterButton).click();
     }
 
+
+    @Step("clickOnSaveDiagonis")
     public void clickOnSaveDiagonis() {
         driver.findElement(SaveBtn).click();
     }
+
+
+    @Step("ClickOnSaveDiagosisConditionButton")
     public void ClickOnSaveDiagosisConditionButton() {
         driver.findElement(SaveBtn).click();
     }
@@ -413,6 +509,8 @@ public class ProjectBREMedicalChartDocumentPage {
     public void ClickOnAddDiagnosisDetails() {
         driver.findElement(AddDiagnosisDetails).click();
     }
+
+    @Step(" ClickOnSelectCommentAdd")
     public void ClickOnSelectCommentAdd() {
         driver.findElement(PickCommentAdd).click();
     }
@@ -422,12 +520,22 @@ public class ProjectBREMedicalChartDocumentPage {
     public void ClickOnSaveDiagnosisDetails() {
         driver.findElement(SaveBtn).click();
     }
+    @Step("ClickOnRunRuleBtn")
     public void ClickOnRunRuleBtn() {driver.findElement(RunRule).click();}
+
+    @Step("ClickOnCancelButtonICD")
     public void ClickOnCancelButtonICD() {driver.findElement(CancelBtnICD).click();}
+
+    @Step("ClickOnPatientDemography")
     public void ClickOnPatientDemography(){driver.findElement(PatientDemography).click();}
 
+    @Step("clickOnDiagnosis")
     public void clickOnDiagnosis(){driver.findElement(Diagnosis).click();}
+
+    @Step("clickOnAddEncounter")
     public void clickOnAddEncounter(){driver.findElement(DignosisPlusBtn).click();}
+
+    @Step("clickOnCancelAddEncounter")
     public void clickOnCancelAddEncounter(){driver.findElement(CancelEncounterDetails).click();}
     public  void clickonDescriptionDropdown(){
         driver.findElement(clickonDescriptionDropdown).click();
@@ -435,12 +543,22 @@ public class ProjectBREMedicalChartDocumentPage {
     public  void selectDescription(){
         driver.findElement(selectDescription).click();
     }
+
+    @Step("clickLatestEncounter")
     public void clickLatestEncounter(){driver.findElement(LatestEncounter).click();}
+
+    @Step("clickLatestEncounter1")
     public void clickLatestEncounter1(){driver.findElement(LatestEncounter1).click();}
+
+
+    @Step("clickOnAddHCCorNonHCCplusBtn")
     public void clickOnAddHCCorNonHCCplusBtn(){driver.findElement(AddHCCorNonHCCBtn).click();}
+
+    @Step("enterDiagnosisForHCC")
     public void enterDiagnosisForHCC(){driver.findElement(HCCdiagnosis).sendKeys("fever");}
 
 
+    @Step("selectCommentDropdown")
 
     public void selectCommentDropdown() throws InterruptedException {
         WebElement CommentDropdown=driver.findElement(By.xpath("(//span[text()='Add Comment'])[2]"));
@@ -449,6 +567,9 @@ public class ProjectBREMedicalChartDocumentPage {
         WebElement option=driver.findElement(By.xpath("//span[text()=' Dx listed but not Monitored/Evaluated/Assessed/Treated ']"));
         option.click();
     }
+
+    @Step("selectCommentDropdown1")
+
     public void selectCommentDropdown1() throws InterruptedException {
         WebElement CommentDropdown=driver.findElement(By.xpath("//span[contains(text(),'Add Comment')]"));
         CommentDropdown.click();
@@ -456,17 +577,35 @@ public class ProjectBREMedicalChartDocumentPage {
         WebElement option=driver.findElement(By.xpath("//span[text()=' Dx listed but not Monitored/Evaluated/Assessed/Treated ']"));
         option.click();
     }
+
+    @Step("enterPageNum")
+
     public void enterPageNum(String text){driver.findElement(PageNum).sendKeys(text);}
 
+
+    @Step("clickOnAddICD")
+
     public void clickOnAddICD(){driver.findElement(AddICD).click();}
+
+    @Step("enterICDCode")
+
     public void enterICDCode(String text){driver.findElement(ICD).sendKeys(text);}
+
+    @Step("Click onoption")
+
     public void Clickonoption(){driver.findElement(option).click();}
+
     public void enterICDCodeClear(){driver.findElement(ICD).clear();}
 
-public  void clickOnCancel(){
+
+    @Step("clickOnCancel")
+    public  void clickOnCancel(){
         driver.findElement(cancel).click();
 }
-    public void enterHCC(String text){driver.findElement(HCC).sendKeys(text);}
+
+
+    @Step("enterHCC")
+public void enterHCC(String text){driver.findElement(HCC).sendKeys(text);}
 
     public void selectICDDisciptionDropdown() throws InterruptedException {
         WebElement ICDDiscription = driver.findElement(By.xpath("//*[text()=' Description ']//following::span[3]"));
@@ -476,7 +615,11 @@ public  void clickOnCancel(){
     {
         driver.findElement(ICDDesctrionOption).click();
     }
+
+    @Step("click On saveBtnHCC")
     public void clickOnsaveBtnHCC(){driver.findElement(SaveHCC).click();}
+
+    @Step(" click On CancelHCC")
     public void clickOnCancelHCC(){driver.findElement(cancelHCC).click();}
     public void clickOnNonHCC(){driver.findElement(NonHCC).click();}
     public void addDiagnosisNonHCC(String text){driver.findElement(DignosisNonHCC).sendKeys(text);}
@@ -486,8 +629,12 @@ public  void clickOnCancel(){
         Thread.sleep(1000);
         driver.findElement(By.xpath("//input[@name='NonHccPageRange']//following::mat-select[@name='NonHccComment']//following::span[text()=' No valid records found ']")).click();
     }
+
+    @Step("click On ItemPerPage")
     public  void clickOnItemPerPage(){
         driver.findElement(clickOnItemPage).click();
     }
+
+    @Step("click On Save")
     public  void clickOnSave(){driver.findElement(SaveBtn).click();}
 }

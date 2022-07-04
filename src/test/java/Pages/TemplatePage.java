@@ -1,5 +1,5 @@
 package Pages;
-
+import io.qameta.allure.Step;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
@@ -12,7 +12,7 @@ import java.util.Random;
 public class TemplatePage   {
     WebDriver driver = null;
 
-    By superdocumnet=By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
+
     public static By TemplateBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[3]");
     public static  By UploadTemplate = By.xpath("//*[contains (text(),'Upload Template')]");
     By CreateTemplate = By.xpath("//span[contains(text(),'Create Template')]");
@@ -21,10 +21,11 @@ public class TemplatePage   {
     By ChooseFile = By.xpath("//*[@id='faxDetailModal']/div/div/div[2]/div/form/div/input");
     By CloseBtn = By.xpath("//*[@id='close-modal']/span[1]/mat-icon");
     By SearchTemplate = By.xpath("//*[@data-placeholder='Search']");
-    public static By ExpandTemplate = By.xpath("//tbody/tr[1]/td[1]");
+    public static By ExpandTemplate = By.xpath("(//td[@role='gridcell'])[1]");
+
     By ExpandTemplateMore = By.xpath("//td[contains(text(),'AutoSample')]");
     By Cancel = By.xpath("//span[contains(text(),' Cancel ')]");
-    By TemplateDataInfo = By.xpath("//td[contains(text(),'Template1')]");
+    By TemplateDataInfo = By.xpath("(//td[@role='gridcell'])[9]");
     By TemplateDataInfo1 = By.xpath("//td[contains(text(),'Sample-page1')]");
     By TemplateDelete = By.xpath("//table[@matsortdirection='desc']/tbody/tr[2]/td/div/div/table/tbody/tr[1]/td[6]/button[2]");
     By ConfirmDeleteTemplate = By.xpath("//*[contains(text(),'Confirm')]");
@@ -74,7 +75,12 @@ public class TemplatePage   {
     public TemplatePage(WebDriver driver) {
         this.driver = driver;
     }
+    public void ClickOnExpandTemplate1()throws InterruptedException {
+        driver.findElement(ExpandTemplate).click();
+        Thread.sleep(2000);
 
+    }
+    @Step("ClickTemplateBtn")
     public void ClickTemplateBtn() throws Exception
     {
         Thread.sleep(3000);
@@ -82,6 +88,7 @@ public class TemplatePage   {
         driver.findElement(TemplateBtn).click();
     }
 
+    @Step("ClickOnUploadTemplateBtn")
     public void ClickOnUploadTemplateBtn() throws Exception
     {
         Thread.sleep(3000);
@@ -89,7 +96,7 @@ public class TemplatePage   {
         driver.findElement(UploadTemplate).click();
 
     }
-
+    @Step("ClickCreateTemplate")
     public void ClickCreateTemplate() throws Exception
     {
         Thread.sleep(2000);
@@ -97,17 +104,14 @@ public class TemplatePage   {
         driver.findElement(CreateTemplate).click();
         Thread.sleep(15000);
     }
-
+    @Step("ClickCancelCreateTemplate")
     public void ClickCancelCreateTemplate()throws Exception
     {
         Custome_Wait.wait(driver,CancelCreateTemplate);
         driver.findElement(CancelCreateTemplate).click();
         Thread.sleep(1000);
     }
-    public void  superdocumnet(){
-        driver.findElement(superdocumnet).click();
-    }
-
+    @Step("ClickOnTemplateNameExisting")
     public void ClickOnTemplateNameExisting(String text)
     {
         Custome_Wait.wait(driver,TemplateName);
@@ -115,7 +119,7 @@ public class TemplatePage   {
         driver.findElement(TemplateName).click();
 
     }
-
+    @Step("ClickOnTemplateNameNew")
     public void ClickOnTemplateNameNew(String text)
     {
         Random r = new Random();
@@ -132,51 +136,53 @@ public class TemplatePage   {
     public void ClickOnCloseButton() {
         driver.findElement(CloseBtn).click();
     }
-
+    @Step("ClickOnSearchSinglePageTemplate")
     public void ClickOnSearchSinglePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
 
     }
+    @Step("ClickOnSearchMultiplePageTemplate")
     public void ClickOnSearchMultiplePageTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
 
     }
-
+    @Step("ClickOnSearchTemplate")
     public void ClickOnSearchTemplate(String tName) throws InterruptedException {
         driver.findElement(SearchTemplate).sendKeys(tName);
         Thread.sleep(2000);
 
     }
 
-
+    @Step("ClickOnExpandTemplate")
     public void ClickOnExpandTemplate() throws InterruptedException {
         driver.findElement(ExpandTemplate).click();
         Thread.sleep(2000);
 
     }
-
+    @Step("ClickExpandMore")
     public void ClickExpandMore() {
 
         Custome_Wait.wait(driver,ExpandTemplateMore);
         driver.findElement(ExpandTemplateMore).click();
     }
 
+    @Step("ClickOnTemplateDataInfo")
     public void ClickOnTemplateDataInfo()
     {
 
         Custome_Wait.wait(driver,TemplateDataInfo);
         driver.findElement(TemplateDataInfo).click();
     }
-
+    @Step("ClickCancel")
     public void ClickCancel() throws Exception
     {
         Thread.sleep(6000);
         Custome_Wait.wait(driver,Cancel);
         driver.findElement(Cancel).click();
     }
-
+    @Step("DeleteTemplate")
     public void DeleteTemplate() {
 
         Custome_Wait.wait(driver,TemplateDelete);
@@ -190,7 +196,7 @@ public class TemplatePage   {
     }
 
 
-
+    @Step("ConfirmDeleteTemplate")
     public void ConfirmDeleteTemplate() {
         driver.findElement(ConfirmDeleteTemplate).click();
     }
@@ -198,17 +204,17 @@ public class TemplatePage   {
     public void ClickOnTemplateGrid() {
         driver.findElement(TemplateOnGrid).click();
     }
-
+    @Step("ClickOnZoomIn")
     public void ClickOnZoomIn()  throws Exception
     {
         Thread.sleep(3000);
         driver.findElement(ZoomInIcon).click();
     }
-
+    @Step("ClickOnZoomOut")
     public void ClickOnZoomOut() {
         driver.findElement(ZoomOutIcon).click();
     }
-
+    @Step("ClickClassificationBox")
     public void ClickClassificationBox () throws InterruptedException
     {
         driver.findElement(ClickClassification).click();
@@ -216,28 +222,28 @@ public class TemplatePage   {
         AssertionsFunction.verifyElementPresent (ClassificationListBox);
 
     }
-
+    @Step("SelectClassification")
     public void SelectClassification() {
         driver.findElement(SelectClassification).click();
     }
-
+    @Step("ClickValidation")
     public void ClickValidation() {
         driver.findElement(ClickValidation).click();
     }
-
+    @Step("SelectValidation")
     public void SelectValidation() {
         driver.findElement(SelectValidation).click();
     }
-
+    @Step("ClickCropIcon")
     public void ClickCropIcon() {
         driver.findElement(CropDragIcon).click();
     }
-
+    @Step("ClickMap")
     public void EnterFieldName() {
         driver.findElement(FieldName).sendKeys("Verify");
     }
 
-
+    @Step("ClickMap")
     public void ClickMap() {
         driver.findElement(MapButton).click();
 
@@ -251,7 +257,7 @@ public class TemplatePage   {
     public void ClickCompleteTraining() {
         driver.findElement(CompleteTraining).click();
     }
-
+    @Step("ClickCancelTraining")
     public void ClickCancelTraining() throws Exception
     {
         Thread.sleep(5000);
@@ -259,29 +265,29 @@ public class TemplatePage   {
         Thread.sleep(1000);
 
     }
-
+    @Step("ClickNavigateNext")
     public void ClickNavigateNext() throws Exception{
         driver.findElement(NavigateNext).click();
         Thread.sleep(6000);
     }
 
-
+    @Step("ClickNavigateBack")
     public void ClickNavigateBack() throws Exception
     {
         Thread.sleep(5000);
         driver.findElement(NavigateBack).click();
     }
-
+    @Step("ClickOnTemplateMorePagesInfo")
     public void ClickOnTemplateMorePagesInfo() throws Exception
     {
         driver.findElement(TemplateDataInfo1).click();
         Thread.sleep(10000);
     }
-
+    @Step("cancelDeleteTemplate")
     public void cancelDeleteTemplate() {
         driver.findElement(CancelDeleteTemplate).click();
     }
-
+    @Step("refreshPage")
     public void refreshPage() {
         driver.navigate().refresh();
     }

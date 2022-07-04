@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BasePage;
 import Pages.DocumentPage;
+import io.qameta.allure.*;
 import Pages.ProjectPage;
 import Pages.TemplatePage;
 import Utilities.AssertionsFunction;
@@ -13,25 +14,30 @@ import org.testng.annotations.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
+@Feature("Project Flow Semi Structure Test")
 @Listeners(Utilities.TestListeners.class)
 
 public class ProjectFlowSemiStructureTest extends BasePage {
     static ProjectPage ProjectPageObj;
     static DocumentPage DocPageObj;
-
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - check_all_the_functions_on_project_page")
+    @Description("verify user able to check_all_the_functions_on_project_page")
+    @Test (priority=1,groups="smoke", description = "verify check_all_the_functions_on_project_page")
+
     public void check_all_the_functions_on_project_page() throws Exception {
         Robot r = new Robot();
         ProjectPageObj = new ProjectPage(driver);
@@ -44,9 +50,9 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         Thread.sleep(2000);
         ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("SemiStructuredProjectName1"));
         ProjectPageObj.ClickOnLeadBtn();
-      Thread.sleep(2000);
+      Thread.sleep(1000);
         ProjectPageObj.SelectOnLeadBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         ProjectPageObj.ClickOnStartDateBtn();
         ProjectPageObj.SelectStartDateBtn();
         ProjectPageObj.ClickOnEndDate();
@@ -61,17 +67,26 @@ public class ProjectFlowSemiStructureTest extends BasePage {
 
     }
 
-    @Test(priority = 2)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - check_delete_attribute")
+    @Description("verify user able to check_delete_attribute")
+    @Test (priority=2,groups="smoke", description = "verify check_delete_attribute")
+
     public void check_delete_attribute() throws Exception {
         //TC 17.2 Checking Delete Attribute.
         ProjectPageObj.ClickOnDeleteAttributeFieldName();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         AssertionsFunction.verifyDeletedElementText("Invoice No",ProjectPageObj.DeletedInvoiceAttribute);
         Thread.sleep(1000);
 
     }
 
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - create_project_without_role")
+    @Description("verify user able to create_project_without_role")
+    @Test (priority=3,groups="smoke", description = "verify create_project_without_role")
+
     public void create_project_without_role() throws Exception {
         //TC 17.3 Verify Create Project without Role.
         ProjectPageObj.ClickOnStatusBtn();
@@ -88,7 +103,7 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         ProjectPageObj.ClickOnAddRoleBtn();
        Custome_Wait.wait(driver,ProjectPageObj.SelectRoleAdmin);
         ProjectPageObj.ClickOnSelectRoleBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         ProjectPageObj.ClickOnCreate();
         Thread.sleep(2000);
         ProjectPageObj.VerifyAssertForUser();
@@ -103,7 +118,11 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         AssertionsFunction.verifyTargetPageURL(ProjectPageObj.createProjectUrl);
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - navigate_to_data_page_and_Rules_page")
+    @Description("verify user able to navigate_to_data_page_and_Rules_page")
+    @Test (priority=4,groups="smoke", description = "verify navigate_to_data_page_and_Rules_page")
+
     public void navigate_to_data_page_and_Rules_page() throws Exception {
         //17.4 Navigate Next to Data Page and Rules Page and Back also.
         ProjectPageObj.ClickNextPage();
@@ -118,7 +137,12 @@ public class ProjectFlowSemiStructureTest extends BasePage {
 
     }
 
-    @Test(priority = 5)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - verify_create_project")
+    @Description("verify user able to create_project")
+    @Test (priority=5,groups="smoke", description = "verify_create_project")
+
     public void verify_create_project() throws Exception {
         //TC 17.5 Verify Create Project.
         ProjectPageObj.ClickOnCreate();
@@ -130,7 +154,13 @@ public class ProjectFlowSemiStructureTest extends BasePage {
         ProjectPageObj.verifyProjectCreated("SemiStructuredProject");
         Thread.sleep(2000);
     }
-    @Test(priority =6 )
+
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - check_data_extracted_from_Pharmalink_Inmar_document")
+    @Description("verify user able to check_data_extracted_from_Pharmalink_Inmar_document")
+    @Test (priority=5,groups="smoke", description = "check_data_extracted_from_Pharmalink_Inmar_document")
+
     public  void check_data_extracted_from_Pharmalink_Inmar_document() throws Exception {
         //IN807 Pharmalink Inmar document processing
 
@@ -139,32 +169,32 @@ public class ProjectFlowSemiStructureTest extends BasePage {
 
         Thread.sleep(2000);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.ClickDropDownBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 //Search Medical Chart Project.
         DocPageObj.ClickSearchProject(ReadProps.readAttr("semistructprojectname"));
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.selectsemiproject();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.clickonReadyDocument();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.clickonchartdata();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 DocPageObj.clickSaveDraft();
-Thread.sleep(2000);
+Thread.sleep(1000);
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,9000)", "");
         DocPageObj.clickonrejectdoc();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.clickonchartdata();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.clickonattributedropdown();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.addfirstattribute();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         DocPageObj.addsecondattribute();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Robot r=new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(4000);

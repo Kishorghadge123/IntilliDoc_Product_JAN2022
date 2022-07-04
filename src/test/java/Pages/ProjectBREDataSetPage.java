@@ -3,7 +3,7 @@ package Pages;
 import Utilities.AssertionsFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import io.qameta.allure.Step;
 
 public class ProjectBREDataSetPage   {
 
@@ -33,20 +33,48 @@ public  String breurl="https://alpha.neutrino-ai.com/#/home/project-management/c
      public  static By FirstDecisionBox = By.xpath("//div[contains(@class,'opacity7 font-12 conditionCardHeading')]");
 
     public By getBRESelectDataSet(){return this.BRESelectDataSet;}
-    public  void SelectDataSetHeader(){driver.findElement(SelectDataSetHeader).click();}
+
+ @Step("SelectDataSetHeader")
+ public  void SelectDataSetHeader(){driver.findElement(SelectDataSetHeader).click();}
+
+ @Step("Click On DataSetHeader")
     public  void ClickOnDataSetHeader(){driver.findElement(DataSetHeader).click();}
-    public  void ClickOnDataSets(){driver.findElement(DataSets).click();}
+
+ @Step("Click On DataSets")
+ public  void ClickOnDataSets(){driver.findElement(DataSets).click();}
+
+ @Step("Click OnAddDataSets")
     public  void ClickOnAddDataSets(){driver.findElement(AddDataSet).click();}
+
+ @Step("Click OnChooseDataSet")
     public  void ClickOnChooseDataSet(){driver.findElement(ChooseDataSet).click();}
+
+ @Step("Click On BREChooseDataSet")
     public  void ClickOnBREChooseDataSet(){driver.findElement(BREChooseDataSet).click();}
+
+ @Step(" click on SelectDataSet")
     public  void SelectDataSet(){driver.findElement(SelectDataSet).click();}
+
+ @Step(" click on SelectData")
     public  void SelectData(){driver.findElement(SelectData).click();}
-    public  void SelectDataSet1(){driver.findElement(SelectDataSet1).click();}
-    public  void SelectBREDataSet(){driver.findElement(BRESelectDataSet).click();}
-    public  void SelectOperatorValueExistsIn(){driver.findElement(OperatorValueExistsIn).click();}
+
+ @Step(" click on ProfileIcon")
+ public  void SelectDataSet1(){driver.findElement(SelectDataSet1).click();}
+
+ @Step("SelectBREDataSet")
+ public  void SelectBREDataSet(){driver.findElement(BRESelectDataSet).click();}
+
+ @Step("SelectOperatorValueExistsIn")
+ public  void SelectOperatorValueExistsIn(){driver.findElement(OperatorValueExistsIn).click();}
+
+ @Step("ClickOnPredefinedDataSet")
     public  void ClickOnPredefinedDataSet(){driver.findElement(PreDefinedDataSet).click();}
-    public  void SelectPredefinedDataSet(){driver.findElement(SelectPreDefinedDataSet).click();}
-    public  void ClickOnFirstDataSetBox(){driver.findElement(FirstDecisionBox).click();}
+
+ @Step("SelectPredefinedDataSet")
+ public  void SelectPredefinedDataSet(){driver.findElement(SelectPreDefinedDataSet).click();}
+
+ @Step("ClickOnFirstDataSetBox")
+ public  void ClickOnFirstDataSetBox(){driver.findElement(FirstDecisionBox).click();}
 
 }
 

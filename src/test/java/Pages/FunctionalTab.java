@@ -1,7 +1,7 @@
 package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import io.qameta.allure.Step;
 public class FunctionalTab {
 
         WebDriver driver = null;
@@ -21,6 +21,8 @@ public class FunctionalTab {
         By VerticalProjects = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
         By VerticalDocuments = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]");
         By VerticalAnalytics = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
+
+
         public FunctionalTab(WebDriver driver) { this.driver = driver;}
         public void ClickNIcon(){ driver.findElement(NIcon).click();}
         public void ClickHorizontalUser(){ driver.findElement(HorizontalUsers).click();}

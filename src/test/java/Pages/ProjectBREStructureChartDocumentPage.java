@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.WebDriver;
-
+import io.qameta.allure.Step;
 public class ProjectBREStructureChartDocumentPage {
     static WebDriver driver = null;
 //locators
@@ -90,37 +90,50 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public  void clickonCancel(){
         driver.findElement(submitButt).click();
     }
+
+    @Step("click_on_search_project ")
     public void click_on_search_project() {
         driver.findElement(clickOnStructutrProject).click();
     }
+
+    @Step("CheckProcessedDocument")
     public void CheckProcessedDocument() throws  Exception{
         Thread.sleep(3000);
         driver.findElement(CheckProcessedDocument).click();
     }
 
+    @Step(" ClickNvgtRt")
     public  void  ClickNvgtRt(){
         driver.findElement(ClickNvgtRight).click();
     }
-
+    @Step(" ClickLogoutBtn")
     public void ClickLogoutBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(Logout).click();
     }
+    @Step("clickOnNameField")
     public void clickOnNameField(){
         driver.findElement(EnterOnTextField).sendKeys("text-overflowbythesystemadmin");
     }
+
+    @Step("ClickOnEndDate")
     public void ClickOnEndDate() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickEndDate).click();
     }
 
+    @Step(" SelectEndDate")
     public void SelectEndDate() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectEndDate).click();
     }
+
+    @Step(" clickOnLead")
     public void clickOnLead(){
         driver.findElement(lead).click();
     }
+
+    @Step("SelectOnLeadBtn")
     public void SelectOnLeadBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectLead).click();
@@ -128,11 +141,14 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public void click_on_dropdown(){
         driver.findElement(select_lead).click();
     }
+
+    @Step("ClickOnStartDateBtn")
     public void ClickOnStartDateBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickStartDate).click();
     }
 
+    @Step(" SelectStartDateBtn")
     public void SelectStartDateBtn()throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectStartDate).click();
@@ -149,31 +165,38 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public void select_new_Structured_Project(){
         driver.findElement(selectStructureNewProject).click();
     }
+
+    @Step(" clickOnstructurePdf")
     public void clickOnstructurePdf() {
         driver.findElement(OpenStructurePdf).click();
 
 
     }
+
+    @Step("ClickOnCreateProjectBtn")
     public void ClickOnCreateProjectBtn() throws InterruptedException {
         Thread.sleep(4000);
         driver.findElement(CreateProject).click();
 
 
     }
+    @Step("ClickOnDocumentStructureBtn")
     public void ClickOnDocumentStructureBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickDocumentStructure).click();
     }
-
+    @Step("SelectDocumentStructureBtn")
     public void SelectDocumentStructureBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectStructure).click();
     }
+
+    @Step("ClickOnProcessingEngineBtn")
     public void ClickOnProcessingEngineBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickProcessingEngine).click();
     }
-
+    @Step("SelectOnProcessingEngineBtn")
     public void SelectOnProcessingEngineBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectProcessingEngine).click();
@@ -183,67 +206,71 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
         Thread.sleep(2000);
         driver.findElement(SelectProcessingEngineNNLow).click();
     }
-
+    @Step("ClickOnStraightThroughProcessBtn")
     public void ClickOnStraightThroughProcessBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(StraightThroughProcess).click();
     }
-
+    @Step("ClickOnDocumentScoreButton")
     public void ClickOnDocumentScoreButton()throws Exception{
         Thread.sleep(2000);
         driver.findElement(DocumentScore).sendKeys("60");
     }
-
+    @Step("ClickOnStatusBtn")
     public void ClickOnStatusBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(Status).click();
     }
-
+    @Step(" ClickOnDocumentAutoAssignBtn")
     public void ClickOnDocumentAutoAssignBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(DocumentAutoAssign).click();
     }
-
+    @Step(" ClickOnAddTemplateBtn")
     public void ClickOnAddTemplateBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickAddTemplate).click();
     }
 
 
-
+    @Step("ClickOnTemplateBtn")
     public void ClickOnTemplateBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectTemplate).click();
     }
-
+    @Step("ClickOnRolesBtn")
     public void ClickOnRolesBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(ClickRoles).click();
     }
-
+    @Step("ClickOnAddRoleBtn")
     public void ClickOnAddRoleBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(AddRoleAdmin).click();
     }
-
+    @Step("ClickOnSelectRoleBtn")
     public void ClickOnSelectRoleBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectRoleAdmin).click();
     }
-
+    @Step("ClickOnAddUserBtn")
     public void ClickOnAddUserBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(AddUserAdmin).click();
     }
 
-
+    @Step("ClickOnSelectUserBtn")
     public void ClickOnSelectUserBtn() throws Exception{
         Thread.sleep(2000);
         driver.findElement(SelectUserAdmin).click();
     }
+    @Step("ClickOnCreate")
     public void ClickOnCreate() throws Exception{
         driver.findElement(CraeteProjectButton).click();
     }
+
+
+    @Step("overOnProjectName")
     public  void  overOnProjectName() throws  Exception{
         Actions action = new Actions(driver);
         WebElement element= driver.findElement(ele);
@@ -262,27 +289,32 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public void clickOnsubmit(){
         driver.findElement(clickOnCancel).click();
     }
+
+    @Step("clickOnProcessedPdf")
     public  void clickOnProcessedPdf() throws  Exception{
 
         driver.findElement(ProcessedPdf).click();
         Thread.sleep(3000);
     }
+    @Step("clickOnStatusButton")
     public void clickOnStatusButton() {
         driver.findElement(clickOnStatusButton).click();
     }
 
-
+    @Step(" getCancelButton")
     public By getCancelButton() {
         return this.CancelButton;
     }
-
+    @Step(" getReleaseButton")
     public By getReleaseButton() {
         return this.ReleaseButton;
     }
-
+    @Step("getsubmitButton")
     public By getsubmitButton() {
         return this.submitButton;
     }
+
+    @Step(" getEmail")
     public By getEmail() {
         return this.Email;
     }
@@ -292,7 +324,7 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public  void clickOnActionButton(){
         driver.findElement(clickOnActionButton).click();
     }
-
+    @Step("getRunRuleButton")
     public By getRunRuleButton() {
         return this.RunRuleButton;
     }
@@ -300,6 +332,8 @@ public String loginurl="https://alpha.neutrino-ai.com/#/login";
     public  void clickOnNewStructurePdf(){
         driver.findElement(OpenStructureNewPdf).click();
     }
+
+    @Step(" clickOnStructureChartData")
     public void clickOnStructureChartData(){
         driver.findElement(clickOnStructureChartData).click();
     }

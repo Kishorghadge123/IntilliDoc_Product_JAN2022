@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+import io.qameta.allure.Step;
 public class ProjectBRESemiStructurePage {
 
     WebDriver driver = null;
@@ -54,15 +54,19 @@ public class ProjectBRESemiStructurePage {
         driver.findElement(submitbtn2).click();
     }
 
+
+    @Step("click_on_search_project")
     public void click_on_search_project() {
         driver.findElement(clickOnStructutrProject).click();
     }
 
 
-
+    @Step("select_semi_structure_project")
     public void select_semi_structure_project() {
         driver.findElement(selectSemiStructureProject).click();
     }
+
+    @Step("clickonRejectedDocument")
     public  void clickonRejectedDocument(){
         driver.findElement(RejectedDocument).click();
     }
@@ -70,6 +74,8 @@ public class ProjectBRESemiStructurePage {
         driver.findElement(OpenSemiStructurePdf).click();
 
     }
+
+    @Step("clickOnchartData")
     public  void clickOnchartData(){
         driver.findElement(chartData).click();
     }

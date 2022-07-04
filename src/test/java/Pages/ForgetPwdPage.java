@@ -4,6 +4,7 @@ import Utilities.Custome_Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import io.qameta.allure.Step;
 
 public class ForgetPwdPage
 {
@@ -25,15 +26,23 @@ public class ForgetPwdPage
         public String loginPageUrl="https://alpha.neutrino-ai.com/#/login";
         public ForgetPwdPage(WebDriver driver) { this.driver = driver;}
 
+
+        @Step("ClickForgetPwdBtn")
         public void ClickForgetPwdBtn(){ driver.findElement(ForgetPwd).click();
                 Custome_Wait.wait(driver,Cancel);
         }
+
+        @Step(" ClickCancelBtn")
         public void ClickCancelBtn(){ driver.findElement(Cancel).click();
 
         }
+
+        @Step(" ClickEmailBtn")
         public void ClickEmailBtn(String text){ driver.findElement(email).sendKeys(text);
                 Custome_Wait.wait(driver,Cancel);
         }
+
+        @Step("ClickSubmitBtn")
         public void ClickSubmitBtn(){ driver.findElement(Submit).click();
 //                Custome_Wait.wait(driver,Cancel);
         }
@@ -43,6 +52,8 @@ public class ForgetPwdPage
                 String expect="Something Went Wrong ...!";
                 Assert.assertEquals(actual_msg, expect);
         }
+
+        @Step("VerifyAssertEmailID")
         public void  VerifyAssertEmailID(){
                 String actual_msg=driver.findElement(ErrorMsgEmailID).getText();
                 String expect="*Please Check Email Id";

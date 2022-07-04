@@ -5,25 +5,36 @@ import Pages.ProjectBREPage;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
+
 import java.awt.event.KeyEvent;
+@Feature("Project BREDataSet Test")
 @Listeners(Utilities.TestListeners.class)
 public class ProjectBREDataSetTest extends BasePage {
+
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//        driver.quit();
-//    }
+
+    @Step("Closed the Browser")
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+        driver.quit();
+    }
 
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - bre_applied_to_name_using_dataset_fail")
+    @Description("verification_bre_applied_to_name_using_dataset_fail")
+    @Test (priority=1,groups="smoke", description = "verification_bre_applied_to_name_using_dataset_fail")
+
     public void bre_applied_to_name_using_dataset_fail() throws Exception {
         ProjectPage ProjectPageObj = new ProjectPage(driver);
         //Object creation
@@ -68,7 +79,7 @@ public class ProjectBREDataSetTest extends BasePage {
         js.executeScript("window.scrollBy(0,-1000)", "");
         Thread.sleep(2000);
         js.executeScript("window.scrollBy(0,1000)", "");
-        Thread.sleep(9000);
+        Thread.sleep(4000);
         ProjectPageObj.ClickNextPage();
         Thread.sleep(2000);
         //Navigate to Data Page.
@@ -87,7 +98,6 @@ public class ProjectBREDataSetTest extends BasePage {
         Thread.sleep(2000);
         ProjectBREPage ProjectBREPageObj = new ProjectBREPage(driver);
         //Navigate to Rules Page.
-        Thread.sleep(5000);
         ProjectBREPageObj.ClickOnNextPageButton();
         Thread.sleep(3000);
         ProjectBREPageObj.ClickOnThreeDotsButton();
@@ -108,7 +118,7 @@ public class ProjectBREDataSetTest extends BasePage {
         //ProjectBREPageObj.verifyElementPresent(ProjectBREPageObj.RuleBoxDisplay);
         ProjectBREPageObj.ClickOnAddRulesButton();
         ProjectBREPageObj.ClickOnExpandFirstRule();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionBoxDisplay);
         Thread.sleep(1000);
         AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionPanelDisplay);
@@ -139,7 +149,7 @@ public class ProjectBREDataSetTest extends BasePage {
         AssertionsFunction.verifyElementPresent(ProjectBREPageObj.ConditionSaved);
         Thread.sleep(1000);
         ProjectBREDataSetPageObj.ClickOnFirstDataSetBox();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         AssertionsFunction.isPresent(ProjectBREDataSetPageObj.FirstDecisionBox);
         Thread.sleep(1000);
         AssertionsFunction.verifyTargetPageURL(ProjectBREDataSetPageObj.breurl);

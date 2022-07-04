@@ -5,7 +5,7 @@ import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import io.qameta.allure.Step;
 import java.io.IOException;
 
 public class DatasetPage {
@@ -41,43 +41,96 @@ public class DatasetPage {
         By createdCategory=By.xpath("//td[contains(text(),\""+ ReadProps.readAttr("DName")+"\")]");
         public By getNameOptionValidationDropdown(){return this.NameOptionValidationDropdown;}
         public String dataSetTabUrl ="https://alpha.neutrino-ai.com/#/home/datasets";
+
+    @Step(" getCreateNewDataset")
         public By getCreateNewDataset(){return this.CreateNewDataset;}
         public By getNoRecordFound(){return this.NoRecordFound;}
+
+    @Step("getCreateNewDatasetCategory")
         public By getCreateNewDatasetCategory(){return this.CreateNewDatasetCategory;}
-        public By getcreatedCategory(){return this.createdCategory;}
+
+    @Step("getcreatedCategory")
+    public By getcreatedCategory(){return this.createdCategory;}
+
+
         public DatasetPage(WebDriver driver) throws IOException { this.driver = driver;}
+
+    @Step("ClickDatasetBtn")
         public void ClickDatasetBtn(){ driver.findElement(DatasetBtn).click();}
+
+    @Step("ClickAddCategoryBtn")
         public void ClickAddCategoryBtn(){ driver.findElement(AddCategoryBtn).click();}
+
+    @Step("ClickCategoryName")
         public void ClickCategoryName(String text){ driver.findElement(CategoryName).sendKeys(text);
                 Custome_Wait.wait(driver,CreateCategory);
         }
+    @Step(" ClickCreateCategory")
         public void ClickCreateCategory(){driver.findElement(CreateCategory).click();}
+
+    @Step("ClickActionBtn")
         public void ClickActionBtn(){driver.findElement(ActionBtn).click();
                 // Custome_Wait.wait(driver,NewDatasetCancelBtn);
         }
+
+    @Step("ClickDatasetName")
         public void ClickDatasetName(String text){ driver.findElement(DatasetName).sendKeys(text);
                 Custome_Wait.wait(driver,NewDatasetCancelBtn);
 
         }
+
+    @Step("ClickValidationDropDown")
         public void ClickValidationDropDown(){driver.findElement(ValidationDropDown1).click();
                 Custome_Wait.wait(driver,ValidationName);
         }
+
+    @Step("ClickValidationName")
         public void ClickValidationName(){driver.findElement(ValidationName).click();}
-        public void ClickValidationEmail(){driver.findElement(ValidationEmail).click();}
+
+    @Step("ClickValidationEmail")
+    public void ClickValidationEmail(){driver.findElement(ValidationEmail).click();}
+
+    @Step("ClickValidationText")
         public void ClickValidationText(){driver.findElement(ValidationText).click();}
+
+    @Step(" ClickValidationDropDown2")
         public void ClickValidationDropDown2(){driver.findElement(ValidationDropDown2).click();}
+
+    @Step("ClickValidationDropDown3")
         public void ClickValidationDropDown3(){driver.findElement(validationDropdown3).click();}
+
+    @Step("ClickValidationDropDown4")
         public void ClickValidationDropDown4(){driver.findElement(ValidationDropDown4).click();}
+
+    @Step("ClickValidationDropDown5")
         public void ClickValidationDropDown5(){driver.findElement(ValidationDropDown5).click();}
+
+    @Step("ClickValidationDropDown6")
         public void ClickValidationDropDown6(){driver.findElement(ValidationdropDown6).click();}
-        public void ClickValidationRoles(){driver.findElement(ValidationRoles).click();}
-        public void ClickCreateDataset(){driver.findElement(CreateDataset).click();}
+
+    @Step("Click ValidationRoles")
+    public void ClickValidationRoles(){driver.findElement(ValidationRoles).click();}
+
+    @Step("Click CreateDataset")
+    public void ClickCreateDataset(){driver.findElement(CreateDataset).click();}
+
+    @Step("Click CategoryCancelBtn")
         public void ClickCategoryCancelBtn(){driver.findElement(CategoryCancelBtn).click();}
+
+    @Step("ClickSearchBox")
         public void ClickSearchBox(String text){ driver.findElement(SearchBox).sendKeys(text);}
-        public void ClickExpand1(){driver.findElement(ExpandDataset1).click();}
-        public void ClickDatasetFileName(){ driver.findElement(DatasetFile).click();}
+    @Step("Click Expand1")
+    public void ClickExpand1(){driver.findElement(ExpandDataset1).click();}
+
+    @Step("Click DatasetFileName")
+    public void ClickDatasetFileName(){ driver.findElement(DatasetFile).click();}
+
+
+
         public void ClickCancelDatasetFileName(){ driver.findElement(CancelDatasetFile).click();}
         public void ClickDisableUser(){driver.findElement(DisableDataset).click();}
+
+    @Step("Click AddDatasetCancelBtn")
         public void ClickAddDatasetCancelBtn(){ driver.findElement(NewDatasetCancelBtn).click();
 
                 Custome_Wait.wait(driver,AddCategoryBtn);

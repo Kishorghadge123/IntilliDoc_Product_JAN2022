@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
+import io.qameta.allure.Step;
 public class DocumentPage {
     WebDriver driver = null;
     /////locators
@@ -177,23 +177,29 @@ public class DocumentPage {
         this.driver = driver;
     }
 
+
+    @Step("getpatientDemographics")
     public By getpatientDemographics() {
         return this.patientDemographics;
     }
 
     //Chart Level Flags
+    @Step("Click OnChartLevelFlagsBtn")
     public void ClickOnChartLevelFlagsBtn() {
         driver.findElement(chartLevelFlagDropdown).click();
     }
 
+    @Step("selectNONHCCBtn")
     public void selectNONHCCBtn() {
         driver.findElement(nonHCC).click();
     }
 
+    @Step("selectInvalidRecordBtn")
     public void selectInvalidRecordBtn() {
         driver.findElement(invalidRecord).click();
     }
 
+    @Step("selectPatientNameMismatchBtn")
     public void selectPatientNameMismatchBtn() {
         driver.findElement(patientNameMismatch).click();
     }
@@ -218,6 +224,7 @@ public class DocumentPage {
         driver.findElement(PatientNameBtn).click();
     }
 
+    @Step("Click OnDeleteRule1Condition1")
     public void ClickOnDeleteRule1Condition1() {
         driver.findElement(DeleteRule1Condition1).click();
     }
@@ -247,58 +254,82 @@ public class DocumentPage {
         Assert.assertEquals(ActualValue, ExpectedValue);
     }
 
+
+    @Step("Click DocumentBtn")
     public void ClickDocumentBtn() {
 
         driver.findElement(DocumentBtn).click();
 
     }
-
+    @Step("click onReadyDocument")
     public void clickonReadyDocument(){
         driver.findElement(sreadydoc).click();
     }
+
+
+    @Step("click onchartdata")
     public void clickonchartdata(){
         driver.findElement(chartdata).click();
     }
+
+    @Step("click onrejectdoc")
     public  void clickonrejectdoc(){
         driver.findElement(rejdoc).click();
     }
+
+
     public void clickonstructreadyDocument(){
         driver.findElement(structdoc).click();
     }
+
+
+    @Step("select freeformproject")
     public void selectfreeformproject()
     {
         driver.findElement(freedocument1).click();
     }
 
+    @Step("click on freereadyDocument")
     public  void clickonfreereadyDocument(){
         driver.findElement(freereadydocument1).click();
     }
 
+    @Step("click on attributedropdown")
     public void clickonattributedropdown(){
         driver.findElement(atrributedropdown).click();
     }
+
+    @Step("add firstattribute")
     public void addfirstattribute(){
         driver.findElement(firstattribute).click();
     }
+
+    @Step("add secondattribute")
     public void addsecondattribute(){
         driver.findElement(secondattribute).click();
     }
+
     public void clickonsemistructreadyDocument(){
         driver.findElement(semistruct).click();
     }
+    @Step("Click DropDownBtn")
     public void ClickDropDownBtn() {
         driver.findElement(DropDown).click();
 
 
     }
+    @Step("click on readyDocument")
     public void clickonreadyDocument(){
         driver.findElement(readydoc).click();
     }
 
+    @Step("Click SearchProject")
     public void ClickSearchProject(String text) {
         driver.findElement(SearchProject).sendKeys(text);
         //Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'QA-AutoProject-Structured')]")));
     }
+
+    @Step(" click on selectproject")
     public void selectproject(){
         driver.findElement(projectname).click();
     }
@@ -306,149 +337,180 @@ public class DocumentPage {
     public void selectstructproject(){
         driver.findElement(structprojectname).click();
     }
+
+    @Step(" select semiproject")
     public void selectsemiproject(){
         driver.findElement(semiprojectname).click();
     }
     public  void selectFreeFormProjrct(){
         driver.findElement(freedocument1).click();
     }
+
+    @Step("Click Select StructuredProject")
     public void ClickSelectStructuredProject() {
         driver.findElement(SelectStructuredProject).click();
     }
-
+    @Step("Click SelectStructuredProjectTooltip")
     public void ClickSelectStructuredProjectTooltip() {
         driver.findElement(SelectStructuredProjectTooltip).click();
     }
 
+    @Step("Click SelectFreeFormProject")
     public void ClickSelectFreeFormProject() {
         driver.findElement(SelectFreeFormProject).click();
     }
 
 
+
+   @ Step("Click SelectSemiStructuredProject")
     public void ClickSelectSemiStructuredProject() throws Exception {
         driver.findElement(SelectSemiStructuredProject).click();
         AssertionsFunction.verifyElementText("QA-AutoProject-SemiStructured", SelectSemiStructuredProject);
 
     }
-
+    @Step("Click selectMedicalChartProject")
     public void ClickSelectMedicalChartProject() {
         driver.findElement(SelectMedicalChartProject).click();
     }
 
+
+    @Step("Click SelectMedicalChartProjectICD")
     public void ClickSelectMedicalChartProjectICD() {
         driver.findElement(SelectMedicalChartProjectICD).click();
     }
 
+    @Step("Click SearchBox")
     public void ClickSearchBox(String text) {
         driver.findElement(SearchBox).sendKeys(text);
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//mat-icon[contains(text(),'search')]")));
 
     }
-
+    @Step("Click SearchDocument")
     public void ClickSearchDocument() {
 
         driver.findElement(SearchDocument).click();
 
     }
 
+    @Step("ClickClearSearch")
     public void ClickClearSearch() {
 
         driver.findElement(ClearSearchDocument).click();
 
     }
 
+
+    @Step("ClickCancelDoc2")
     public void ClickCancelDoc2() {
         driver.findElement(CancelDoc2).click();
     }
 
+    @Step("ClickCancel")
     public void ClickCancel() {
         driver.findElement(cancel).click();
     }
 
-
+    @Step("ClickViewDocIcon")
     public void ClickViewDocIcon() {
         driver.findElement(ViewDoc).click();
     }
 
+
+    @Step("ClickViewDocIcon1")
     public void ClickViewDocIcon1() {
         driver.findElement(ViewDoc1).click();
     }
 
+    @Step("ClickViewDocIcon2")
     public void ClickViewDocIcon2() {
 
         driver.findElement(ViewDoc2).click();
 
     }
 
+    @Step("ClickViewDocIcon3")
     public void ClickViewDocIcon3() {
         driver.findElement(ViewDoc3).click();
     }
 
+    @Step("ClickViewDocIcon4")
     public void ClickViewDocIcon4() {
         driver.findElement(ViewDoc4).click();
     }
 
+    @Step("ClickViewDocIcon5")
     public void ClickViewDocIcon5() {
         driver.findElement(ViewDoc5).click();
     }
 
+
+
+
+
+
+    @Step("ClickExpansionPanel")
     public void ClickExpansionPanel() {
         driver.findElement(ExpansionPanel).click();
     }
 
+    @Step("ClickHideAnalytics")
     public void ClickHideAnalytics() {
         driver.findElement(HideAnalytics).click();
 
     }
-
+    @Step("ClickUnHideAnalytics")
     public void ClickUnHideAnalytics() {
         driver.findElement(UnHideAnalytics).click();
 
     }
-
+    @Step("ClickRefreshDocument")
     public void ClickRefreshDocument() {
         driver.findElement(RefreshDocuments).click();
     }
 
     //Script Enhancement
+
+    @Step("ClickFilterDoc")
     public void ClickFilterDoc() {
         driver.findElement(FilterDoc).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//input[contains(@class,'mat-input-element mat-form-field-autofill-control theme_color ng-tns')]")));
 
     }
-
+    @Step("ClickSearchFilterDoc")
     public void ClickSearchFilterDoc(String text) {
         driver.findElement(SearchFilterDoc).sendKeys(text);
         Custome_Wait.wait(driver, driver.findElement(By.xpath("(//mat-icon[contains(text(),'search')])[2]")));
 
     }
-
+    @Step("ClickFilterSearchIcon")
     public void ClickFilterSearchIcon() {
         driver.findElement(FilterSearchIcon).click();
 
     }
-
+    @Step("ClickCancelFilterSearch")
     public void ClickCancelFilterSearch() {
         driver.findElement(CancelFilterSearch).click();
     }
-
+    @Step("ClickDocSort")
     public void ClickDocSort() {
         driver.findElement(DocSort).click();
     }
 
+
+    @Step("ClickAssigneeSort")
     public void ClickAssigneeSort() {
         driver.findElement(AssigneeSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
 
     }
-
+    @Step("ClickStatusSort")
     public void ClickStatusSort() {
         driver.findElement(StatusSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
 
 
     }
-
+    @Step("ClickTypeSort")
     public void ClickTypeSort() {
         driver.findElement(TypeSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
@@ -456,6 +518,7 @@ public class DocumentPage {
 
     }
 
+    @Step("ClickScoreSort")
     public void ClickScoreSort() {
         driver.findElement(ScoreSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
@@ -463,18 +526,22 @@ public class DocumentPage {
 
     }
 
+    @Step("ClickSizeSort")
     public void ClickSizeSort() {
         driver.findElement(SizeSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
 
     }
 
+
+    @Step("ClickUpdateSort")
     public void ClickUpdateSort() {
         driver.findElement(UpdateSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
 
     }
 
+    @Step("ClickReceivedSort")
     public void ClickReceivedSort() {
         driver.findElement(ReceivedSort).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[contains(text(),' Documents ')]")));
@@ -482,98 +549,114 @@ public class DocumentPage {
     }
 
     //status filter
+
+    @Step("ClickStatusFilter")
     public void ClickStatusFilter() {
         driver.findElement(StatusFilter).click();
     }
 
+    @Step("ClickCheckProcessed")
     public void ClickCheckProcessed() {
         driver.findElement(CheckProcessed).click();
 
     }
-
+    @Step("ClickItemsPerPage")
     public void ClickItemsPerPage() {
         driver.findElement(ItemsPerPage).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//div[@role='listbox']/mat-option[1]")));
     }
-
+    @Step("SelectItemsPerPage")
     public void SelectItemsPerPage() {
         driver.findElement(SelectItems).click();
     }
 
+
+    @Step("ClickNextPage")
     public void ClickNextPage() {
         driver.findElement(NextPage).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//button[@aria-label='Previous page']")));
     }
 
+
+    @Step("ClickLastPage")
     public void ClickLastPage() {
         driver.findElement(LastPage).click();
     }
 
+
+    @Step("ClickPreviousPage")
     public void ClickPreviousPage() {
         driver.findElement(PreviousPage).click();
         Custome_Wait.wait(driver, driver.findElement(By.xpath("//button[@aria-label='Last page']")));
     }
 
+
+    @Step("ClickFirstPage")
     public void ClickFirstPage() {
         driver.findElement(FirstPage).click();
     }
 
+
+    @Step("ClickAntiWiseIcon")
     public void ClickAntiWiseIcon() {
         driver.findElement(ClickAntiClkWise).click();
     }
 
+    @Step("ClickClockWiseIcon")
     public void ClickClockWiseIcon() {
         driver.findElement(ClickClkWise).click();
     }
-
+    @Step("ClickZoomIN")
     public void ClickZoomIN() {
         driver.findElement(ClickZoomIn).click();
     }
-
+    @Step("ClickZoomOut")
     public void ClickZoomOut() {
         driver.findElement(ClickZoomOut).click();
     }
-
+    @Step("ClickNvgtRt")
     public void ClickNvgtRt() {
         driver.findElement(ClickNavigateRight).click();
     }
-
+    @Step("ClickNvgtLft")
     public void ClickNvgtLft() {
         driver.findElement(ClickNavigateLeft).click();
     }
-
+    @Step("ClickChronicCondition")
     public void ClickChronicCondition() {
         driver.findElement(ChronicCondition).click();
     }
 
+    @Step("ClickAddCondition")
     public void ClickAddCondition() {
         driver.findElement(AddCondition).click();
     }
-
+    @Step("AddNPINumber")
     public void AddNPINumber() {
         driver.findElement(NPINo).sendKeys("3216549871");
     }
-
+    @Step("AddPhysicianName")
     public void AddPhysicianName() {
         driver.findElement(PhysicianName).sendKeys("Dr. Andrew");
     }
 
+    @Step("ClickStartDate")
     public void ClickStartDate() {
         driver.findElement(StartDate).click();
     }
-
+    @Step("SelectStartDate")
     public void SelectStartDate() {
         driver.findElement(SelectStartDate).click();
     }
-
+    @Step("ClickEndDate")
     public void ClickEndDate() {
         driver.findElement(EndDate).click();
     }
-
+    @Step("SelectEndDate")
     public void SelectEndDate() {
         driver.findElement(SelectEndDate).click();
     }
-
+    @Step("SaveChronicCondition")
     public void SaveChronicCondition() {
         driver.findElement(SaveCondition).click();
     }
@@ -678,12 +761,12 @@ public class DocumentPage {
 
     }
 
-
+    @Step("clickSaveDraft")
     public void clickSaveDraft() {
         driver.findElement(SaveDraft).click();
     }
 
-
+@Step("clickSubmit")
     public void clickSubmit() {
         driver.findElement(Submit).click();
     }
@@ -707,16 +790,17 @@ public class DocumentPage {
         driver.findElement(SelectAddress).click();
 
     }
-
+    @Step("verifytooltipOnHoverProjectSearchList")
     public void verifytooltipOnHoverProjectSearchList() {
         AssertionsFunction.verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View", HoverProjectSearch);
     }
 
+    @Step("verifytooltipOnHoverProjectSearched")
     public void verifytooltipOnHoverProjectSearched() {
         AssertionsFunction.verify_ElementHover("QA-AutProject-For-Tool-Tip-Testing-In-Document-Window-View", HoverSearcheProjectd);
 
     }
-
+    @Step("verifytooltipOnHoverOnDocumentName")
     public void verifytooltipOnHoverOnDocumentName() {
         AssertionsFunction.verify_ElementHover("inputDocs_QA-AutoProject-Structured_Pfizer.jpg", HoverDocumentName);
     }

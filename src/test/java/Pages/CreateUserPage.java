@@ -3,6 +3,7 @@ import Base.BasePage;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
 import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -45,6 +46,8 @@ public class CreateUserPage extends BasePage
         BasePage.driver = driver;
     }
 
+
+    @Step(" click on ProfileIcon")
     public void ProfileIconClick() throws Exception
     {
         driver.findElement(ProfileIcon).click();
@@ -53,10 +56,12 @@ public class CreateUserPage extends BasePage
     }
 
 
+    @Step("click On UserMenu")
     public  void clickOnUserMenu()
     {
         driver.findElement(UserBtn).click();
     }
+
 
     public  void clickoncraeteuser(){
         driver.findElement(CreateUserBtn).click();
@@ -65,10 +70,14 @@ public class CreateUserPage extends BasePage
     {
         return this.ValidationEmailID;
     }
+
+    @Step("getValidationUserName")
     public By getValidationUserName()
     {
         return this.ValidationUserName;
     }
+
+    @Step("getUser")
     public By getUser()
     {
         return this.selectSearchedUser;
@@ -82,25 +91,31 @@ public class CreateUserPage extends BasePage
         return this.selectSearchedUser;
     }
 
+    @Step("Click On CancelBtn")
     public  void ClickOnCancelBtn()throws Exception
     {
 
         driver.findElement(cancelButton).click();
     }
 
+    @Step("Click CreateUserBtn")
     public void ClickCreateUserBtn() throws Exception
     {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         Custome_Wait.wait(driver,CreateUserBtn);
         driver.findElement(CreateUserBtn).click();
     }
 
+
+    @Step("ClickCreateBtn")
     public void ClickCreateBtn()throws Exception
     {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         Custome_Wait.wait(driver,CreateBtn);
         driver.findElement(CreateBtn).click();
     }
+
+    @Step("click On EnterNewUserName")
     public void EnterNewUserName(String userName) throws Exception
     {
         Random r=new Random();
@@ -109,10 +124,14 @@ public class CreateUserPage extends BasePage
         driver.findElement(EnterUserName).sendKeys(userName+first_c+second_c);
     }
 
+
+    @Step("click On EnterExistingUserName_or_InvalidUserName")
     public void EnterExistingUserName_or_InvalidUserName(String text) throws Exception
     {
         driver.findElement(EnterUserName).sendKeys(text);
     }
+
+    @Step("EnterEmail")
     public void EnterEmail(String emialID)throws Exception
     {
         Random r=new Random();
@@ -121,19 +140,21 @@ public class CreateUserPage extends BasePage
         driver.findElement(EnterEmail).sendKeys(first_c+second_c+emialID);
     }
 
+    @Step("click On SearchCreatedUser")
     public  void SearchCreatedUser(String text)throws Exception
     {
         driver.findElement(searchUser).sendKeys(text);
     }
 
+    @Step("selectSearchedUser")
     public  void selectSearchedUser()throws Exception
     {
         Custome_Wait.wait(driver,selectSearchedUser);
         driver.findElement(selectSearchedUser).click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
     }
-
+    @Step("Click On EnableOrDisableUserSelectionToggle")
     public void ClickOnEnableOrDisableUserSelectionToggle()throws Exception
     {
         Thread.sleep(1000);
@@ -141,23 +162,32 @@ public class CreateUserPage extends BasePage
         driver.findElement(enableDisableUserButton).click();
     }
 
+    @Step("click On UpdateUserButton")
     public void clickOnUpdateUserButton()throws Exception
     {
         driver.findElement(UpdateUser).click();
         Thread.sleep(5000);
     }
+
+    @Step("click On ClickOnSortUserArrow")
     public void ClickOnSortUserArrow()throws Exception
     {
         driver.findElement(sortUserByName).click();
     }
+    @Step("click On clearUserName ")
     public void clearUserName() throws Exception
     {
         driver.findElement(EnterUserName).clear();
     }
+
+
+    @Step("click On clearUserPassword ")
     public  void clearUserPassword()throws Exception
     {
         driver.findElement(Password).clear();
     }
+
+    @Step("enterUserPassword")
     public void enterUserPassword(String text)throws Exception
     {
         driver.findElement(Password).sendKeys(text);

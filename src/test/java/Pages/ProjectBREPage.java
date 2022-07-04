@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
+import io.qameta.allure.Step;
 public class ProjectBREPage extends AssertionsFunction {
 
     WebDriver driver = null;
@@ -146,62 +146,93 @@ public class ProjectBREPage extends AssertionsFunction {
     public ProjectBREPage(WebDriver driver) {
         this.driver = driver;
     }
+
+
+    @Step(" click on ProfileIcon")
+
     public void ClickOnFirstTrueBoxButton(){driver.findElement(TrueBox1).click();
         Custome_Wait.wait(driver,ActionValue);
     }
+
+    @Step(" ClickOnSecondTrueBoxButton")
     public void ClickOnSecondTrueBoxButton(){driver.findElement(TrueBox2).click();}
+
+    @Step(" ClickOnThirdTrueBoxButton")
     public void ClickOnThirdTrueBoxButton(){driver.findElement(TrueBox3).click();
 
         Custome_Wait.wait(driver,state);
     }
+
+
+    @Step("clicksecondbox")
     public void clicksecondbox(){
         driver.findElement(truebox2).click();
     }
     //RE Medical Chart
+
+    @Step("ClickOnPNameCheck")
     public void ClickOnPNameCheck(){driver.findElement(PNameCheck).click();}
+
+    @Step("ClickOnActionType")
     public void ClickOnActionType(){
         // Custome_Wait.wait(driver,ReplaceString);
         driver.findElement(ActionType).click();
 
     }
     public void ClickOnDocumentValue(){driver.findElement(DocumentValue).click();}
+
+    @Step("ClickOnSetDocumentStatus")
     public void ClickOnSetDocumentStatus(){driver.findElement(SetDocumentStatus).click();}
     public void SelectDocumentStatusR(){driver.findElement(Rejected).click();}
+
+
+    @Step("ClickOnNextPageButton")
     public void ClickOnNextPageButton(){
 
         driver.findElement(NextPageOnRulesPage).click();
 
     }
+
+    @Step("ClickOnThreeDotsButton")
     public void ClickOnThreeDotsButton(){
         //Custome_Wait.wait(driver,AddRules);
         driver.findElement(ThreeDots).click();
 
     }
+
+    @Step("ClickOnProjectData")
     public void ClickOnProjectData(){
         driver.findElement(ProjectData).click();
 
     }
+    @Step("ClickOnDataSets")
     public void ClickOnDataSets(){
         Custome_Wait.wait(driver,Variables);
 
         driver.findElement(DataSets).click();
 
     }
+    @Step(" ClickOnVariables")
     public void ClickOnVariables(){
         Custome_Wait.wait(driver,ThreeDots);
         driver.findElement(Variables).click();
     }
+    @Step(" ClickOnAddRulesButton")
     public void ClickOnAddRulesButton(){
 
         driver.findElement(AddRules).click();
 
     }
+
+    @Step(" ClickOnDeleteRulesButton")
     public void ClickOnDeleteRulesButton(){
 
         Custome_Wait.wait(driver,AddRules);
         driver.findElement(DeleteRules).click();
 
     }
+
+    @Step("ClickOnFirstDecisionBox")
     public void ClickOnFirstDecisionBox(){
 
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//button[@class='float-left conditinBlockTrueButton ng-star-inserted']")));
@@ -211,18 +242,23 @@ public class ProjectBREPage extends AssertionsFunction {
     public void SearchCreatedProject(){driver.findElement(Project).click();}
 
     //Replace String methods
+    @Step("SelectReplaceStringBtn ")
     public void SelectReplaceStringBtn(){
 
         ///  Custome_Wait.wait(driver,Entity);
         driver.findElement(ReplaceString).click();
 
     }
+
+    @Step("SelectEntityBtn ")
     public void SelectEntityBtn(){
         /// Custome_Wait.wait(driver,PatientDemoGraphics);
 
         driver.findElement(Entity).click();
 
     }
+
+    @Step("SelectPatientGraphicsBtn")
     public void SelectPatientGraphicsBtn(){
 
         // Custome_Wait.wait(driver,AttributeDropDown);
@@ -283,161 +319,236 @@ public class ProjectBREPage extends AssertionsFunction {
 
 
 
-
+    @Step("ClickOnExpandFirstRule")
     public void ClickOnExpandFirstRule(){driver.findElement(ExpandRule).click();
         Custome_Wait.wait(driver,ContractFirstRule);}
+
+    @Step("ClickOnExpandSecondRule")
     public void ClickOnExpandSecondRule(){driver.findElement(ExpandRule).click();
         Custome_Wait.wait(driver,AddNameOfCondition);
     }
+
+    @Step("ClickOnExpandThirdRule")
     public void ClickOnExpandThirdRule(){driver.findElement(ExpandRule).click();
 
         Custome_Wait.wait(driver,AddNameOfCondition);
     }
 
+    @Step(" EnterAddNameOfCondition")
     public void EnterAddNameOfCondition(String text){ driver.findElement(AddNameOfCondition).sendKeys(text);
         Custome_Wait.wait(driver,AddCondition);
     }
-
+    @Step(" ClickOnRule")
     public  void ClickOnRule(){driver.findElement(RuleName).click();
         Custome_Wait.wait(driver,RuleName);
     }
+    @Step("ClickOnClearRule")
     public  void ClickOnClearRule(){driver.findElement(RuleName).clear();}
+
+
+    @Step("EnterValue")
     public  void EnterValue(String text){ driver.findElement(Value).sendKeys(text);
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[@ class='py-2 rulesetName']")));
     }
-
+    @Step("ClickOnAddCondition")
     public  void ClickOnAddCondition(){driver.findElement(AddCondition).click();
         Custome_Wait.wait(driver,AttributeValue);
     }
+    @Step("ClickOnFirstCondition")
     public  void ClickOnFirstCondition(){driver.findElement(FirstCondition).click();}
 
     public  void ClickOnANDCondition(){driver.findElement(AndCondition).click();}
 
+    @Step("ClickOnAddBREEntity")
     public  void ClickOnAddBREEntity(){driver.findElement(AddBREEntity).click();
 
         Custome_Wait.wait(driver,SelectPatientDemographics);
     }
     public  void ClickOnAddBREEntity1(){driver.findElement(AddBREEntity1).click();}
     public  void ClickOnAddBREEntityPD1(){driver.findElement(SelectPatientDemographics).click();}
+
+    @Step("ClickOnAddBREEntityPD")
     public  void ClickOnAddBREEntityPD(){driver.findElement(SelectPatientDemographics).click();
         Custome_Wait.wait(driver,AttributeValue);
     }
-
+    @Step("ClickOnAttributeValue")
     public  void ClickOnAttributeValue(){driver.findElement(AttributeValue).click();
         Custome_Wait.wait(driver,Operator);
     }
+
+    @Step("SelectNameAttribute")
     public  void SelectNameAttribute(){driver.findElement(NameAttribute).click();
         Custome_Wait.wait(driver,Operator);
     }
+
+    @Step("SelectPatientNameAttribute")
     public  void SelectPatientNameAttribute(){driver.findElement(PatientName).click();
         Custome_Wait.wait(driver,Operator);
     }
+
+    @Step("SelectBRENameAttribute")
     public  void SelectBRENameAttribute(){driver.findElement(BRENameAttributePN).click();}
     public  void SelectBREDOBAttribute(){driver.findElement(BRENameAttributeDOB).click();}
+
+    @Step("SelectAddressAttribute")
     public  void SelectAddressAttribute(){driver.findElement(AddressAttribute).click();}
+
+    @Step("SelectStateAttribute")
     public  void SelectStateAttribute(){driver.findElement(StateAttribute).click();
         Custome_Wait.wait(driver,Operator);
     }
-
+    @Step("ClickOnSelectBREDataSet")
     public  void ClickOnSelectBREDataSet(){driver.findElement(ClickOnBREDataSet).click();}
 
+
+    @Step("ClickOnChooseBREDataSet")
     public  void ClickOnChooseBREDataSet(){driver.findElement(ClickOnAddBREDataSet).click();}
     public  void ClickOnChooseBREDataSet1(){driver.findElement(ClickOnAddBREDataSet1).click();}
 
+    @Step("ClickOnBREDataHeader")
     public  void ClickOnBREDataHeader(){driver.findElement(ClickOnBREDataHeader).click();}
+
+    @Step("SelectBREDataHeaderDXCode")
     public  void SelectBREDataHeaderDXCode(){driver.findElement(SelectBREDatasetHeaderDXCode).click();}
     public  void SelectBREDataHeaderDOB(){driver.findElement(SelectBREDatasetHeaderDOB).click();}
 
-
+    @Step("ClickOnOperator")
     public  void ClickOnOperator(){driver.findElement(Operator).click();
         Custome_Wait.wait(driver,OperatorValueEqualTo);
     }
+
+    @Step("ClickOnVisibility")
     public  void ClickOnVisibility(){driver.findElement(Visibility).click();
         Custome_Wait.wait(driver,driver.findElement(By.xpath("//span[contains(text(),'Rule-1')]")));
     }
+
+    @Step("SelectOperatorValueEqualTo")
     public  void SelectOperatorValueEqualTo(){driver.findElement(OperatorValueEqualTo).click();
         Custome_Wait.wait(driver,Value);
     }
+
+    @Step("SelectOperatorValueExistsIn")
     public  void SelectOperatorValueExistsIn(){driver.findElement(OperatorValueExistsIN).click();}
 
-
+    @Step("ClickOnAddAction")
     public  void ClickOnAddAction(){driver.findElement(AddAction).click();
 
 
         Custome_Wait.wait(driver,VariableDropdown);
     }
+
+    @Step("ClickOnSave")
     public  void ClickOnSave(){driver.findElement(Save).click();
         Custome_Wait.wait(driver,FirstDecisionBox);
     }
+
+    @Step("ClickOnExpandVariables")
     public  void ClickOnExpandVariables(){driver.findElement(ExpandVariables).click();
         Custome_Wait.wait(driver,AddVariablesButton);
     }
+
+
+    @Step("ClickOnAddVariables")
     public  void ClickOnAddVariables(){driver.findElement(AddVariablesButton).click();
         Custome_Wait.wait(driver,VariableName);
     }
+
+    @Step("EnterVariableName")
     public  void EnterVariableName(String text){ driver.findElement(VariableName).sendKeys(text);
         Custome_Wait.wait(driver,ValidationType);
     }
+
+    @Step(" ClickOnValidationType")
     public  void ClickOnValidationType(){driver.findElement(ValidationType).click();
         Custome_Wait.wait(driver,Name);
     }
+
+    @Step("ClickOnName")
     public  void ClickOnName(){driver.findElement(Name).click();
         Custome_Wait.wait(driver,DefaultValue);
     }
+
+
+    @Step(" ClickOnState")
     public  void ClickOnState(){driver.findElement(State).click();
         Custome_Wait.wait(driver,DefaultValue);
     }
+
+    @Step("ClickOnAddress")
     public  void ClickOnAddress(){driver.findElement(Address).click();
         Custome_Wait.wait(driver,DefaultValue);
     }
+
+    @Step(" ClickOnZIP")
     public  void ClickOnZIP(){driver.findElement(ZIP).click();
         Custome_Wait.wait(driver,DefaultValue);
     }
+
+    @Step("ClickOnCity")
     public  void ClickOnCity(){driver.findElement(City).click();
         Custome_Wait.wait(driver,DefaultValue);
     }
+
+    @Step(" EnterDefaultValue")
     public  void EnterDefaultValue(String text){ driver.findElement(DefaultValue).sendKeys(text);
         Custome_Wait.wait(driver,AddButton);
     }
-
+    @Step("ClickOnAddButton")
     public  void ClickOnAddButton(){driver.findElement(AddButton).click();
         Custome_Wait.wait(driver,VariableName);
     }
+
+    @Step("ClickOnCancelButton")
     public  void ClickOnCancelButton(){driver.findElement(CancelButton).click();}
+
+    @Step("ClickOnContractRuleButton")
     public  void ClickOnContractRuleButton(){driver.findElement(ContractFirstRule).click();
 
     }
-
+    @Step("ClickOnFalseBoxButton1")
     public  void ClickOnFalseBoxButton1(){driver.findElement(FalseBox).click();
         Custome_Wait.wait(driver,newFalse);
 
     }
+    @Step("ClickOnFalseBoxButton2")
     public  void ClickOnFalseBoxButton2(){driver.findElement(FalseBox2).click();
         Custome_Wait.wait(driver,AddressNot);
     }
+    @Step(" ClickOnFalseBoxButton3")
     public  void ClickOnFalseBoxButton3(){driver.findElement(FalseBox3).click();
         Custome_Wait.wait(driver,state1);
     }
+
+    @Step("EnterActionValue")
     public  void EnterActionValue(String text){ driver.findElement(ActionValue).sendKeys(text);
 //        Custome_Wait.wait(driver,AddAction);
     }
+    @Step("ClickOnVariableDropdown")
     public  void ClickOnVariableDropdown(){driver.findElement(VariableDropdown).click();
 
 //    Custome_Wait.wait(driver,SelectVariable1);
     }
+    @Step("SelectVariable1")
     public  void SelectVariable1(){driver.findElement(SelectVariable1).click();
         Custome_Wait.wait(driver,Save);
     }
+    @Step("SelectVariable2")
     public  void SelectVariable2(){driver.findElement(SelectVariable2).click();
         Custome_Wait.wait(driver,Save);
     }
+    @Step(" SelectVariable3")
     public  void SelectVariable3(){driver.findElement(SelectVariable3).click();}
+    @Step("SelectVariable4")
     public  void SelectVariable4(){driver.findElement(SelectVariable4).click();
         Custome_Wait.wait(driver,Save);
     }
+
+    @Step("SelectVariable5")
     public  void SelectVariable5(){driver.findElement(SelectVariable5).click();
         Custome_Wait.wait(driver,Save);
     }
+    @Step(" SelectVariable6")
+
     public  void SelectVariable6(){driver.findElement(SelectVariable6).click();
 
         Custome_Wait.wait(driver,Save);
@@ -448,34 +559,36 @@ public class ProjectBREPage extends AssertionsFunction {
     public  void SelectVariable10(){driver.findElement(SelectVariable10).click();}
 
 
-
+    @Step("EnterRuleName")
     public  void EnterRuleName(String text){ driver.findElement(RuleName).sendKeys(text);}
-
+    @Step(" click on ProfileIcon")
     public void DoubleClickOnRule1(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//span[contains(text(),'Rule-1')]"));
         act.doubleClick(ele).perform();
         Custome_Wait.wait(driver,RuleName);
     }
-
+    @Step(" click on DoubleClickOnRule1Second ")
     public void DoubleClickOnRule1Second(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//span[@ class='py-2 rulesetName']"));
         act.doubleClick(ele).perform();
     }
+
+    @Step(" click on DoubleClickOnTrue1")
     public void DoubleClickOnTrue1(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//button[@class='float-left conditinBlockTrueButton ng-star-inserted']"));
         act.doubleClick(ele).perform();
         Custome_Wait.wait(driver,TrueBox1);
     }
-
+    @Step(" click on DoubleClickOnTrue2")
     public void DoubleClickOnTrue2(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("(//button[@class='float-left conditinBlockTrueButton ng-star-inserted'])[2]"));
         act.doubleClick(ele).perform();
     }
-
+    @Step(" click on DoubleClickOnTrue3")
     public void DoubleClickOnTrue3(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/button[1]"));
@@ -496,7 +609,7 @@ public class ProjectBREPage extends AssertionsFunction {
         act.doubleClick(ele).perform();
     }
 
-
+    @Step(" click on DoubleClickOnFalse")
     public void DoubleClickOnFalse(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//button[@class='float-right conditionBlockFalseButton ng-star-inserted']"));
@@ -509,14 +622,14 @@ public class ProjectBREPage extends AssertionsFunction {
         WebElement ele = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/button[2]"));
         act.doubleClick(ele).perform();
     }
-
+    @Step(" click on  DoubleClickOnFalse2")
     public void DoubleClickOnFalse2(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[2]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/button[2]"));
         act.doubleClick(ele).perform();
         Custome_Wait.wait(driver,FalseBox2);
     }
-
+    @Step(" click on DoubleClickOnFalse3")
     public void DoubleClickOnFalse3(){
         Actions act = new Actions(driver);
         WebElement ele = driver.findElement(By.xpath("//body/app-root[1]/div[1]/app-landing[1]/div[1]/div[1]/main[1]/div[1]/app-create-project[1]/div[4]/div[1]/project-rule-section[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[2]/div[3]/div[1]/div[1]/div[2]/app-tree-node[1]/div[1]/div[1]/div[1]/div[2]/mat-card[1]/div[1]/button[2]"));

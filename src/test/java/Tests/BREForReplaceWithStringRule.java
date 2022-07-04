@@ -4,6 +4,7 @@ import Pages.*;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
 import Utilities.ReadProps;
+import io.qameta.allure.*;
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,6 +15,8 @@ import org.testng.annotations.Test;
 
 import javax.print.Doc;
 import java.awt.*;
+
+@Feature("BREForReplace With StringRule")
 @Listeners(Utilities.TestListeners.class)
 public class BREForReplaceWithStringRule extends BasePage {
     static ProjectPage ProjectPageObj;
@@ -22,18 +25,23 @@ public class BREForReplaceWithStringRule extends BasePage {
     static AnalyticsPage AnalyticsPageObj;
     static ProjectBREMedicalChartDocumentPage ProjectBREMedicalChartDocumentPageObj;
 
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
 
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
 
-    @Test(priority = 1)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001 - bre applied to patient name")
+    @Description("verify bre applied to patient name")
+    @Test (priority=1,groups="smoke", description = "verify bre applied to patient name")
     public void bre_applied_to_patient_name() throws Exception {
 // In 667Implementation of Document display page after the rules have been run
         Robot r = new Robot();
@@ -45,20 +53,20 @@ public class BREForReplaceWithStringRule extends BasePage {
         ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         Custome_Wait.wait(driver,driver.findElement(By.xpath("(//mat-icon[contains(text(),'create')])[1]")));
         ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         ProjectPageObj.ClickEditProjectBtn();
-        Thread.sleep(8000);
+        Thread.sleep(2000);
         //Navigate to Data Page.
         ProjectPageObj.ClickNextPage();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         AssertionsFunction.verifyElementPresent(ProjectPage.DataPageDispaly);
         Thread.sleep(1000);
 
         //Navigate to Rules Page.
         ProjectBREPageObj.ClickOnNextPageButton();
-        Thread.sleep(3000);
-        ProjectBREPageObj.ClickOnAddRulesButton();
         Thread.sleep(2000);
+        ProjectBREPageObj.ClickOnAddRulesButton();
+        Thread.sleep(1000);
         AssertionsFunction.verifyElementPresent(ProjectBREPage.RuleBoxDisplay);
         Thread.sleep(1000);
         ProjectBREPageObj.ClickOnExpandFirstRule();
@@ -72,7 +80,7 @@ public class BREForReplaceWithStringRule extends BasePage {
         AssertionsFunction.verifyElementPresent(ProjectBREPage.AddNameOfCondition);
         Thread.sleep(1000);
         ProjectBREPageObj.ClickOnAddCondition();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         AssertionsFunction.verifyElementPresent(ProjectBREPage.ConditionBox);
         Thread.sleep(1000);
         ProjectBREPageObj.ClickOnAddBREEntity();
@@ -136,10 +144,10 @@ public class BREForReplaceWithStringRule extends BasePage {
 DocPageObj.selectproject();
 Thread.sleep(20000);
 DocPageObj.clickonreadyDocument();
-Thread.sleep(10000);
+Thread.sleep(3000);
 DocPageObj.clickonchartdata();
         AssertionsFunction.isPresent(DocPageObj.chartdata);
-        Thread.sleep(7000);
+        Thread.sleep(1000);
         AnalyticsPageObj.ClickAnalyticsBtn();
        AssertionsFunction.isPresent(AnalyticsPageObj.AnalyticsBtn);
        Thread.sleep(1000);
@@ -153,13 +161,13 @@ DocPageObj.clickonchartdata();
         DocPageObj = new DocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(10000);
-        ProjectPageObj.ClickOnProjectBtn();
         Thread.sleep(3000);
+        ProjectPageObj.ClickOnProjectBtn();
+        Thread.sleep(2000);
         ProjectPageObj.ClickOnSearchBox(ReadProps.readAttr("ProjectBRE"));
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         ProjectPageObj.ClickEditProjectBtn();
-        Thread.sleep(8000);
+        Thread.sleep(2000);
         //Navigate to Data Page.
         ProjectPageObj.ClickNextPage();
         Thread.sleep(5000);
@@ -236,19 +244,19 @@ DocPageObj.clickonchartdata();
         DocPageObj = new DocumentPage(driver);
         ProjectBREMedicalChartDocumentPageObj = new ProjectBREMedicalChartDocumentPage(driver);
         DocPageObj.ClickDocumentBtn();
-        Thread.sleep(8000);
+        Thread.sleep(3000);
         ProjectPageObj.ClickOnProjectBtn();
-        Thread.sleep(10000);
+        Thread.sleep(4000);
         ProjectPageObj.ClickOnSearchBox("medical 524");
         Thread.sleep(2000);
         ProjectPageObj.ClickEditProjectBtn();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         //Navigate to Data Page.
         ProjectPageObj.ClickNextPage();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         //Navigate to Rules Page.
         ProjectBREPageObj.ClickOnNextPageButton();
-        Thread.sleep(6000);
+        Thread.sleep(2000);
         AssertionsFunction.isPresent(ProjectBREPageObj.NextPageOnRulesPage);
 Thread.sleep(2000);
     }

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
-
+import io.qameta.allure.Step;
 public class ProjectBREFreeFormPage {
     WebDriver driver=null;
 //locator
@@ -38,45 +38,65 @@ public class ProjectBREFreeFormPage {
     public  void clickOnRunRuleButton(){
         driver.findElement(RunRuleBtn).click();
     }
+
+    @Step("click On StatusButton")
     public  void clickOnStatusButton(){driver.findElement(clickOnStatusButton).click();}
+    @Step("click on RejectDocument")
     public  void clickonRejectDocument(){
         driver.findElement(RejectedDocumnet).click();
     }
 
+    @Step("click_on_search_project")
     public void click_on_search_project() {
         driver.findElement(clickOnStructutrProject).click();
     }
+
+    @Step("select_free_form_project")
     public void select_free_form_project() {
         driver.findElement(selectFreeFormProject).click();
     }
+
+    @Step("clickonRejectedDocument")
     public void clickonRejectedDocument() {
         driver.findElement(RejectedDocumnet).click();
     }
 
+    @Step("clickOnchartData")
     public  void clickOnchartData(){
         driver.findElement(chartData).click();
     }
+
+    @Step("clickonAddAttribute")
     public  void  clickonAddAttribute(){
         driver.findElement(clickonAddAttribute).click();
     }
+
+    @Step("selectAttribute")
     public  void  selectAttribute(){
         driver.findElement(Age).click();
     }
+
+    @Step(" click on ProfileIcon")
     public  void  selectAttributeSecond(){
         driver.findElement(Phone).click();
     }
+
+    @Step(" click on AddButton")
     public  void AddButton(){
         driver.findElement(Add).click();
     }
+    @Step(" click on CheckProcessedDocument")
     public void CheckProcessedDocument(){
         driver.findElement(CheckProcessedDocument).click();
     }
 
 
-
+    @Step("enterAge")
     public  void enterAge(){
         driver.findElement(agetextbox).sendKeys("24");
     }
+
+    @Step("clickOnSubmit")
     public  void clickOnSubmit(){
         driver.findElement(submitbtn).click();
     }

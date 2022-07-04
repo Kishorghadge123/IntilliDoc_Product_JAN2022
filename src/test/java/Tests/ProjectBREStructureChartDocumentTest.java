@@ -1,6 +1,7 @@
 package Tests;
 import Pages.*;
 import Base.BasePage;
+import io.qameta.allure.*;
 import Utilities.AssertionsFunction;
 import Utilities.LoginUser;
 import Utilities.ReadProps;
@@ -12,6 +13,7 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
+@Feature("Project BREStructure Chart Document Test")
 
 @Listeners(Utilities.TestListeners.class)
 
@@ -19,6 +21,7 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
     public static ProjectBREStructureChartDocumentPage ProjectBREStructureChartDocumentPageobj;
     public DocumentPage DocPageObj;
 
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
@@ -27,14 +30,19 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         // BasePage.LoginTest();
     }
 
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001  - verifyUI")
+    @Description("verify user able to verifyUI")
+    @Test (priority=1,groups="smoke", description = "verify verifyUI")
 
-    @Test(priority = 1)
+
     public void verifyUI() throws Exception {
 
         //IN 510 Revamp of the screen for the documents of the status 'Rejected'.
@@ -42,7 +50,6 @@ public class ProjectBREStructureChartDocumentTest extends BasePage {
         //read.sleep(9000);
         DocPageObj = new DocumentPage(driver);
         ProjectBREStructureChartDocumentPageobj = new ProjectBREStructureChartDocumentPage(driver);
-        Thread.sleep(5000);
 
         DocPageObj.ClickDocumentBtn();
         Thread.sleep(300);
@@ -56,13 +63,17 @@ Thread.sleep(1000);
 
     }
 
-    @Test(priority = 2)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002  - Verify_Button_Are_Available")
+    @Description("verify user able to Verify_Button_Are_Available")
+    @Test (priority=2,groups="smoke", description = "verify  Button_Are_Available")
+
     public void Verify_Button_Are_Available() throws Exception {
 //IN 581 Creation of permission to edit the 'Processed Document'
         ProjectBREStructureChartDocumentPageobj.clickOnStatusButton();
-        Thread.sleep(3000);
-        ProjectBREStructureChartDocumentPageobj.CheckProcessedDocument();
         Thread.sleep(2000);
+        ProjectBREStructureChartDocumentPageobj.CheckProcessedDocument();
+        Thread.sleep(1000);
         Robot r = new Robot();
         r.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(2000);
@@ -92,7 +103,13 @@ Thread.sleep(1000);
         Thread.sleep(1000);
 
     }
-    @Test(priority = 3)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003  - verify_data_extracted_from_Each_page")
+    @Description("verify user able to verify_data_extracted_from_Each_page")
+    @Test (priority=3,groups="smoke", description = "verify_data_extracted_from_Each_page")
+
+
     public void verify_data_extracted_from_Each_page() throws  Exception{
 ///471 AIML Engine multithreading bug fix
         Thread.sleep(3000);
@@ -103,20 +120,20 @@ Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
 
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
 
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertFalse(AssertionsFunction.isPresent((ProjectBREStructureChartDocumentPageobj.getEmail())));
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
         ProjectBREStructureChartDocumentPageobj.clickOnStructureChartData();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         ProjectBREStructureChartDocumentPageobj.ClickNvgtRt();
         driver.navigate().back();
         Thread.sleep(2000);
@@ -127,7 +144,11 @@ Thread.sleep(1000);
 
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004  - Verify_data_and_buttons_available_on_page")
+    @Description("verify user able to Verify_data_and_buttons_available_on_page")
+    @Test (priority=4,groups="smoke", description = "Verify_data_and_buttons_available_on_page")
+
     public void Verify_data_and_buttons_available_on_page() throws  Exception{
 //IN 682  Once the document is in processed state, buttons like edit, add should not be available, the page should contain only the processed data and on the top right corner, 'Cancel' button should be made available
         Thread.sleep(1000);
@@ -162,7 +183,12 @@ Thread.sleep(1000);
 
 
 
-    @Test(priority = 5)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005  - Observe_tooltip_for_text_overflow")
+    @Description("verify user able to Observe_tooltip_for_text_overflow")
+    @Test (priority=5,groups="smoke", description = "verify Observe_tooltip_for_text_overflow")
+
+
     public void Observe_tooltip_for_text_overflow() throws  Exception{
         //In 736 Tooltip consistency in Document Navigator and Document Viewer
         //838 Revamp of the screen, when, no projects/templates/roles are available, ie, when the screen is blank in the respective sections

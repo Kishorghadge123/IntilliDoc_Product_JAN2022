@@ -22,11 +22,11 @@ public class ProjectFlowMedicalChart extends BasePage {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
-//    @AfterClass
-//    public void cleanUp() throws Exception
-//    {
-//    driver.quit();
-//    }
+    @AfterClass
+    public void cleanUp() throws Exception
+    {
+    driver.quit();
+    }
 
     @Test(priority = 1)
     public void check_all_functionalities_on_project_page() throws Exception {
@@ -34,7 +34,7 @@ public class ProjectFlowMedicalChart extends BasePage {
         ProjectPageObj = new ProjectPage(driver);
         //TC 16.1 Checking all the functionalities on the Project Page Platform Admin.
         ProjectPageObj.ClickOnProjectBtn();
-        Thread.sleep(6000);
+        Thread.sleep(3000);
         ProjectPageObj.ClickOnCreateProjectBtn();
         Thread.sleep(2000);
         ProjectPageObj.ClickOnProjectNameBtn(ReadProps.readAttr("MedicalChartProjectName1"));//change this name in Obj file.

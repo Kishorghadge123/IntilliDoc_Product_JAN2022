@@ -2,6 +2,7 @@ package Tests;
 import Base.BasePage;
 import Pages.ProjectBREDataSetPage;
 import Pages.ProjectBREPage;
+import io.qameta.allure.*;
 import Pages.ProjectPage;
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
@@ -11,20 +12,29 @@ import org.testng.annotations.*;
 import org.openqa.selenium.JavascriptExecutor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+
+@Feature("BREApplied To Project With Dataset")
 @Listeners(Utilities.TestListeners.class)
 public class BREAppliedToProjectWithDataset extends BasePage {
+
+    @Step("Login Test started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         BasePage.LoginTest();
     }
 
-
+    @Step("Closed the Browser")
     @AfterClass
     public void cleanUp() throws Exception {
         driver.quit();
     }
-    @Test(priority = 1)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001 - bre applied to name using dataset fail")
+    @Description("verify user able to bre applied to name using dataset fail")
+    @Test(priority = 1,groups="smoke", description = "verify test bre applied to name using dataset fail")
+
     public void bre_applied_to_name_using_dataset_fail() throws Exception {
         ProjectPage ProjectPageObj = new ProjectPage(driver);
         //Object creation

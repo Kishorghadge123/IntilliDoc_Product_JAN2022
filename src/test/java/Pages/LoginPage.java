@@ -2,6 +2,7 @@ package Pages;
 
 import Utilities.AssertionsFunction;
 import Utilities.Custome_Wait;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,7 @@ public class LoginPage {
         PageFactory.initElements(driver,this);
     }
 
+    @Step("EnterUsername")
     public void EnterUsername(String text) throws Exception
     {
         Custome_Wait.waitElement(driver,userName);
@@ -50,24 +52,30 @@ public class LoginPage {
     }
 
     //Methods Declaration.
+    @Step("setPassword")
     public void setPassword(String text) throws Exception{
         Custome_Wait.waitElement(driver,password);
         password.sendKeys(text);
     }
 
+
+    @Step("clickLoginButtonForValidInput")
     public void clickLoginButtonForValidInput() throws Exception
     {
 
         loginBtn.click();
-        Thread.sleep(8000);
+        Thread.sleep(10000);
     }
 
-
+    @Step("clickOnLoginButtonForInvalidInput")
     public void clickOnLoginButtonForInvalidInput() throws Exception
     {
         Custome_Wait.waitElement(driver,loginBtn);
         loginBtn.click();
     }
+
+
+    @Step("ClickLogoutBtn")
     public void ClickLogoutBtn() throws Exception
     {
         Thread.sleep(5000);
@@ -120,12 +128,15 @@ public class LoginPage {
         String expected_page = "https://alpha.neutrino-ai.com/#/login";
         Assert.assertEquals(actual_page, expected_page);
     }
+
+    @Step(" click on RefreshPage")
     public void RefreshPage() throws Exception
     {
         driver.navigate().refresh();
         Thread.sleep(3000);
     }
 
+    @Step(" click on NavigateBack")
     public void NavigateBack()
     {
         driver.navigate().back();

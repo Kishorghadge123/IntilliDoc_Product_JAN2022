@@ -7,8 +7,13 @@ import Base.BasePage;
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 
-public class AssertionsFunction extends BasePage{
 
+
+
+
+
+public class AssertionsFunction extends BasePage{
+///assertions
     public static void verifyElementText(String expectedValue, By element_Locator)
     {
         String actualValue= driver.findElement(element_Locator).getText();

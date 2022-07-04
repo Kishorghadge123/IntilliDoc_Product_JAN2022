@@ -6,8 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 public class Browser_Launch 
 {
-	
-	 static WebDriver driver;
+	///browser
+
+
+
+
+	static WebDriver driver;
 	
 	  public Browser_Launch(WebDriver driver)
 	  {

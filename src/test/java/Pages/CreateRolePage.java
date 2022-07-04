@@ -2,7 +2,7 @@ package Pages;
 import Utilities.Custome_Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import io.qameta.allure.*;
 import java.io.IOException;
 import java.util.Random;
 
@@ -81,11 +81,14 @@ public class CreateRolePage {
 
     public CreateRolePage(WebDriver driver) throws IOException {this.driver = driver;}
 
+    @Step("click On Sort Button")
     public void ClickSortRoleBtn(){driver.findElement(sortRole).click();}
+    @Step("click On Role Menu")
     public void ClickRoleManagementBtn() {
         driver.findElement(RoleManagementBtn).click();
 
     }
+    @Step("click On Create Role Button")
     public void ClickCreateRoleBtn() {
         driver.findElement(CreateRoleBtn).click();
 
@@ -93,7 +96,7 @@ public class CreateRolePage {
 
 
     }
-
+    @Step("enter New Role Name")
     public void EnterNewRoleName(String roleName)
     {
         Random r = new Random();
@@ -103,28 +106,36 @@ public class CreateRolePage {
         Custome_Wait.wait(driver,AddPermission);
     }
 
+
+
+    @Step("enter Existing Role Name O rInvalid Role Name")
+
     public void enterExistingRoleName_OrInvalidRoleName(String roleName)
     {
         driver.findElement(RoleName).click();
 
     }
+    @Step("click On AddPermission Button")
     public void AddPermissionPlusBtn() {driver.findElement(AddPermission).click();
         Custome_Wait.wait(driver,ClickUpdateBtn);
 
 
     }
 
+    @Step("click On AddPermission Button")
     public void rolesorting(){
         driver.findElement(rolesort).click();
     }
-
+    @Step("click On AddPermission Button")
     public void permissionsorting(){
         driver.findElement(permissionsort).click();
     }
+    @Step("click On AddPermission Button")
     public void updatedsorting(){
         driver.findElement(updatedsort).click();
     }
 
+    @Step("click On AddPermission Button")
     public void createdsorting(){
         driver.findElement(createdsort).click();
     }
@@ -144,18 +155,19 @@ public class CreateRolePage {
 
 
 
-
+    @Step("click On AddPermission Button")
     public  void clickcancel(){
 
         driver.findElement(Cancel).click();
 
     }
-
+    @Step("Select ViewDocument Permission")
     public void SelectViewDocumentPermission() {
         driver.findElement(ViewDocumentPermission).click();
 
 
     }
+    @Step("Select Create User Permission")
     public void SelectCreateUserPermission(){
         driver.findElement(CreateUserPermission).click();
     }
@@ -169,58 +181,72 @@ public class CreateRolePage {
     public  void SelectCreateRole(){driver.findElement(CreateRole).click();}
     public  void SelectViewAnalytics(){driver.findElement(ViewAnalytics).click();}
 
+    @Step("Click ActiveRole")
     public void ClickActiveRole() {
         driver.findElement(ActiveRole).click();
 
     }
+    @Step("ClickCreateButton")
     public void ClickCreateButton() throws Exception{
         driver.findElement(ClickCreate).click();
 
 
     }
-
+    @Step("click SearchCreatedRole")
     public void SearchCreatedRole(String text) {
         driver.findElement(SearchRole).sendKeys(text);
         Custome_Wait.wait(driver,CreateRole);
     }
+    @Step("click On created role")
     public void clickOncreatedrole(){
         driver.findElement(createrole).click();
     }
 
+    @Step("Click EditRole")
     public void ClickEditRole()
     {
         driver.findElement(EditRole).click();
 
 
     }
+
+    @Step("ClickProcessDocPermission")
     public void ClickProcessDocPermission() {
         driver.findElement(ProcessDocumentPermission).click();
 
 
     }
+    @Step("ClickViewApiConfig")
     public void ClickViewApiConfig(){driver.findElement(ViewApiConfig).click();}
 
+    @Step("click RemoveProcessPermission ")
     public void RemoveProcessPermission() {
         driver.findElement(RemoveProcessDocPermission).click();
     }
 
+    @Step("ClickUpdateBtn")
     public void ClickUpdateBtn() {
         driver.findElement(ClickUpdateBtn).click();
     }
 
+    @Step("ClickRemovePermission")
     public void ClickRemovePermission() {
         driver.findElement(RemovePermission).click();
         Custome_Wait.wait(driver,ClickUpdateBtn);
     }
 
+    @Step("ClickLogout")
     public void ClickLogout() {
         driver.findElement(Logout).click();
     }
 
+    @Step("EnterUsername")
     public void EnterUsername(String text) {driver.findElement(Username).sendKeys(text);}
 
+    @Step("EnterPassword")
     public void EnterPassword(String text) {driver.findElement(Password).sendKeys(text);}
 
+    @Step("Click LoginButton")
     public void ClickLoginButton() {
         driver.findElement(LoginBtn).click();
 

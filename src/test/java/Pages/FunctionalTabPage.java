@@ -2,6 +2,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import io.qameta.allure.Step;
 import org.testng.asserts.SoftAssert;
 
 public class FunctionalTabPage {
@@ -43,91 +44,123 @@ public class FunctionalTabPage {
         public void ClickVerticalDocuments(){ driver.findElement(VerticalDocuments).click();}
         public void ClickVerticalAnalytics(){ driver.findElement(VerticalAnalytics).click();}
 
-
+    @Step(" verifyNtab")
       public void verifyNtab()
       {
               String actual_page = driver.getCurrentUrl();
               String expected_page="https://alpha.neutrino-ai.com/#/home";
               Assert.assertEquals(actual_page, expected_page);
       }
+    @Step("verify_horizontal_users_tab")
       public void verify_horizontal_users_tab()
       {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page= "https://alpha.neutrino-ai.com/#/home/user-management";
                 Assert.assertEquals(actual_page, expected_page);
       }
+    @Step("verify_horizontal_roles_tab")
       public void verify_horizontal_roles_tab()
       {
               String actual_page = driver.getCurrentUrl();
               String expected_page="https://alpha.neutrino-ai.com/#/home/role-management";
               Assert.assertEquals(actual_page, expected_page);
       }
+
+    @Step("verify_horizontal_templates_tab")
       public void verify_horizontal_templates_tab()
       {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/n-training";
                 Assert.assertEquals(actual_page, expected_page);
       }
+
+    @Step("verify_horizontal_datasets_tab")
         public void verify_horizontal_datasets_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/datasets";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+    @Step("verify_horizontal_projects_tab")
         public void verify_horizontal_projects_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/project-management";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+    @Step(" verify_horizontal_documents_tab")
         public void verify_horizontal_documents_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/documents";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("verify_horizontal_analytics_tab")
         public void verify_horizontal_analytics_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/analytics";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+    @Step("verify_vertical_users_tab")
         public void verify_vertical_users_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/user-management";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("verify_vertical_roles_tab")
         public void verify_vertical_roles_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/role-management";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+    @Step("verify_vertical_templates_tab")
         public void verify_vertical_templates_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/n-training";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("verify_vertical_datasets_tab")
         public void verify_vertical_datasets_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/datasets";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("verify_vertical_projects_tab")
         public void verify_vertical_projects_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/project-management";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("verify_vertical_Documents_tab")
         public void  verify_vertical_Documents_tab()
         {
                 String actual_page = driver.getCurrentUrl();
                 String expected_page="https://alpha.neutrino-ai.com/#/home/documents";
                 Assert.assertEquals(actual_page, expected_page);
         }
+
+
+    @Step("vertical_analytics_tab")
         public void vertical_analytics_tab()
         {
                 String actual_page = driver.getCurrentUrl();

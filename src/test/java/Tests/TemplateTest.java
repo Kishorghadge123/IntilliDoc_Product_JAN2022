@@ -1,5 +1,4 @@
 package Tests;
-
 import Base.BasePage;
 import Pages.TemplatePage;
 import Utilities.AssertionsFunction;
@@ -10,10 +9,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
+import io.qameta.allure.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
-
+@Feature("TemplateTest")
 @Listeners(Utilities.TestListeners.class)
 
 public class TemplateTest extends BasePage {
@@ -21,20 +20,26 @@ public class TemplateTest extends BasePage {
     String TemplatePageURL = "https://alpha.neutrino-ai.com/#/home/n-training";
 
 
-
+    @Step("login started")
     @BeforeClass
     public void login() throws Exception {
         BasePage.driverInit();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         BasePage.LoginTest();
     }
-
+    @Step("browser close")
     @AfterClass
     public void cleanUp() throws Exception
     {
         driver.quit();
     }
-    @Test(priority = 1)
+
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 001 - create_template_with_invalid_name")
+    @Description("create_template_with_invalid_name")
+    @Test (priority=1,groups="smoke", description = " create_template_with_invalid_name")
+
     public void create_template_with_invalid_name() throws Exception {
         TemplatePageObj = new TemplatePage(driver);
         Robot r = new Robot();
@@ -49,7 +54,12 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickCancelCreateTemplate();
     }
 
-    @Test(priority = 2)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 002 - create_template_with_valid_name_no_chosen_file")
+    @Description("create_template_with_valid_name_no_chosen_file")
+    @Test (priority=2,groups="smoke", description = " create_template_with_valid_name_no_chosen_file")
+
     public void create_template_with_valid_name_no_chosen_file() throws Exception {
         //TC 20.2 - Create Template with Valid Name and No Chosen file.
         TemplatePageObj.ClickOnUploadTemplateBtn();
@@ -57,7 +67,11 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickCancelCreateTemplate();
     }
 
-    @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 003 - create_template_with_already_exists_name_no_chosen_file")
+    @Description("create_template_with_already_exists_name_no_chosen_file")
+    @Test (priority=3,groups="smoke", description = " create_template_with_already_exists_name_no_chosen_file")
+
     public void create_template_with_already_exists_name_no_chosen_file() throws Exception {
         //TC 20.3 - Create Template with Already Exists Name and Chosen file
         TemplatePageObj.ClickOnUploadTemplateBtn();
@@ -68,7 +82,11 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickCancelCreateTemplate();
     }
 
-    @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 004 - create_template_with_valid_name_chosen_file")
+    @Description("create_template_with_valid_name_chosen_file")
+    @Test (priority=4,groups="smoke", description = " create_template_with_valid_name_chosen_file")
+
     public void create_template_with_valid_name_chosen_file() throws Exception {
         //TC 20.4 - Create template with Valid Name and chosen file.
         TemplatePageObj.ClickOnUploadTemplateBtn();
@@ -80,7 +98,11 @@ public class TemplateTest extends BasePage {
 
     }
 
-    @Test(priority = 5)
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 005 - search_created_template")
+    @Description("search_created_template")
+    @Test (priority=6,groups="smoke", description = " search_created_template")
     public void search_created_template() throws Exception {
         //TC 20.5 Search Created template.
         TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique")); //AutoSample
@@ -89,7 +111,11 @@ public class TemplateTest extends BasePage {
 
     }
 
-    @Test(priority = 6)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 006 - zoom_in")
+    @Description("zoom_in")
+    @Test (priority=6,groups="smoke", description = " zoom_in")
+
     public void zoom_in() throws Exception {
         //TC 20.6 Zoom IN.
         TemplatePageObj.ClickOnZoomIn();
@@ -98,7 +124,11 @@ public class TemplateTest extends BasePage {
         js.executeScript("window.scrollBy(0,10000)", "");
     }
 
-    @Test(priority = 7)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 007 - zoom_out")
+    @Description("zoom_out")
+    @Test (priority=7,groups="smoke", description = " zoom_out")
+
     public void zoom_out() throws Exception {
         //TC 20.7 Zoom OUT.
         TemplatePageObj.ClickOnZoomOut();
@@ -114,10 +144,14 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickCancelTraining();
     }
 
-    @Test(priority = 8)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 008 - delete_created_template_single_page")
+    @Description("delete_created_template_single_page")
+    @Test (priority=8,groups="smoke", description = "delete_created_template_single_page")
+
     public void delete_created_template_single_page() throws Exception {
         //TC 20.8 Delete created template (Single Page).
-        TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("TNameUnique"));
+        TemplatePageObj.ClickOnSearchSinglePageTemplate(ReadProps.readAttr("NameUnique"));
         TemplatePageObj.ClickOnExpandTemplate();
         TemplatePageObj.DeleteTemplate();
         TemplatePageObj.ConfirmDeleteTemplate();
@@ -126,7 +160,11 @@ public class TemplateTest extends BasePage {
 
 
     }
-    @Test(priority = 9)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 09 - create_template_with_more_pages")
+    @Description("create_template_with_more_pages")
+    @Test (priority=9,groups="smoke", description = " create_template_with_more_pages")
+
     public void create_template_with_more_pages() throws Exception {
         //TC 20.9 Create Template with more pages.
         TemplatePageObj.ClickOnUploadTemplateBtn();
@@ -142,7 +180,11 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickOnZoomOut();
     }
 
-    @Test(priority = 10)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 010 - navigate_next")
+    @Description("navigate_next")
+    @Test (priority=10,groups="smoke", description = " navigate_next")
+
     public void navigate_next() throws Exception {
         //TC 20.10 Navigate Next.
         TemplatePageObj.ClickNavigateNext();
@@ -150,7 +192,11 @@ public class TemplateTest extends BasePage {
 
     }
 
-    @Test(priority = 11)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 011 - navigate_back")
+    @Description("navigate_back")
+    @Test (priority=11,groups="smoke", description = " navigate_back")
+
     public void navigate_back() throws Exception {
         //TC 20.11 Navigate Back.
         TemplatePageObj.ClickNavigateBack();
@@ -159,7 +205,11 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.ClickExpandMore();
     }
 
-    @Test(priority = 12)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 012 - delete_more_page_template")
+    @Description("delete_more_page_template")
+    @Test (priority=12,groups="smoke", description = " delete_more_page_template")
+
     public void delete_more_page_template() throws Exception {
         //TC 20.12 Delete More Pages Template.
         TemplatePageObj.DeleteTemplate();
@@ -175,7 +225,11 @@ public class TemplateTest extends BasePage {
 
     }
 
-    @Test(priority = 13)
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("story_id: 013 - delete_template_assciatewithproject")
+    @Description("delete_template_assciatewithproject")
+    @Test (priority=13,groups="smoke", description = " delete_template_assciatewithproject")
+
     public void delete_template_assciatewithproject() throws Exception {
         TemplatePageObj.ClickTemplateBtn();
         TemplatePageObj.ClickOnSearchTemplate("QA-AutoTemplate");
@@ -184,16 +238,15 @@ public class TemplateTest extends BasePage {
         TemplatePageObj.cancelDeleteTemplate();
     }
 
-    @Test(priority = 14)
-    public void sortingOnTemplatePage() throws Exception {
-
-        TemplatePageObj.ClickTemplateBtn();
-        TemplatePageObj.verifySortingOnTemplatePage("TempalteName");
-        TemplatePageObj.verifySortingOnTemplatePage("Projects");
-        TemplatePageObj.verifySortingOnTemplatePage("Pages");
-        TemplatePageObj.verifySortingOnTemplatePage("Training");
-        TemplatePageObj.verifySortingOnTemplatePage("Updated");
-        TemplatePageObj.verifySortingOnTemplatePage("Created");
-    }
+//    @Test(priority = 14)
+//    public void sortingOnTemplatePage() throws Exception {
+//
+//        TemplatePageObj.ClickTemplateBtn();
+//        TemplatePageObj.verifySortingOnTemplatePage("TempalteName");
+//        TemplatePageObj.verifySortingOnTemplatePage("Projects");
+//        TemplatePageObj.verifySortingOnTemplatePage("Pages");
+//        TemplatePageObj.verifySortingOnTemplatePage("Training");
+//        TemplatePageObj.verifySortingOnTemplatePage("Updated");
+//        TemplatePageObj.verifySortingOnTemplatePage("Created");
+//    }
 }
-
