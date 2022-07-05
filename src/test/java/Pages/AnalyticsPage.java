@@ -13,6 +13,12 @@ AnalyticsPage {
     WebDriver driver = null;
 
     //xpath change by suwarna
+
+
+
+
+
+
     public static String AnalyticsPageURL ="https://alpha.neutrino-ai.com/#/home/analytics";
     public static By AnalyticsBtn = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[7]");
     By OrganizationStatistics =By.xpath("//span[text()='Project Statistics']");

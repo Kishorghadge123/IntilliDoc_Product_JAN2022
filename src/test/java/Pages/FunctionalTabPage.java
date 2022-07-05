@@ -24,7 +24,6 @@ public class FunctionalTabPage {
         By VerticalProjects = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
         By VerticalDocuments = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]");
         By VerticalAnalytics = By.xpath("((//img[contains(@class,'mat-tooltip-trigger')])[7]");
-
         public FunctionalTabPage(WebDriver driver) { this.driver = driver;}
 
          // SoftAssert s= new SoftAssert();
