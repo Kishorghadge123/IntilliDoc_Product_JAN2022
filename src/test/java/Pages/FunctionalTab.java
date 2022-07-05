@@ -20,9 +20,7 @@ public class FunctionalTab {
         By VerticalDataset = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[4]");
         By VerticalProjects = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[5]");
         By VerticalDocuments = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[6]");
-        By VerticalAnalytics = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[8]");
-
-
+        By VerticalAnalytics = By.xpath("(//img[contains(@class,'mat-tooltip-trigger')])[7]");
         public FunctionalTab(WebDriver driver) { this.driver = driver;}
         public void ClickNIcon(){ driver.findElement(NIcon).click();}
         public void ClickHorizontalUser(){ driver.findElement(HorizontalUsers).click();}
