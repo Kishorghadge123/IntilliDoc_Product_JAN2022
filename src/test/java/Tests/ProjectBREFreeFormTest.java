@@ -1,6 +1,6 @@
 
 package Tests;
-
+///latest changesss
 import Base.BasePage;
 import Pages.DocumentPage;
 import  Pages.ProjectBREFreeFormPage;
@@ -11,6 +11,7 @@ import Utilities.ReadProps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,7 @@ public class ProjectBREFreeFormTest  extends BasePage {
     public static ProjectBREFreeFormPage  ProjectBREFreeFormPageobj;
     public DocumentPage DocPageObj;
     @Step("Login Test started")
-    @BeforeSuite
+    @BeforeClass
     public void login() throws Exception{
         BasePage.driverInit();
         driver.get(ReadProps.readAttr("URL"));
