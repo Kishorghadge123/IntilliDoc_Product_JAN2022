@@ -80,7 +80,7 @@ public class BasePage {
 
     public static void driverInit() throws Exception {
         String projectPath = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver", projectPath + ".\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", projectPath + ".\\Chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
     }
